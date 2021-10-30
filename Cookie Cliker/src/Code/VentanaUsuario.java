@@ -18,7 +18,7 @@ import javax.swing.JTextField;
 
 public class VentanaUsuario {
 
-	public static void main(String[] args) {
+	public VentanaUsuario() {
 		JFrame ventanaU = new JFrame("USUARIO & CONTRASEÑA");
 		JLabel usuario = new JLabel("Introduce usuario: ");
 		JTextField añadusuario = new JTextField();
@@ -36,7 +36,7 @@ public class VentanaUsuario {
 		ventanaU.setBounds(0, 0, 1400, 800);
 		
 		JPanel center = new JPanel();
-		JLabel icono = new JLabel(new ImageIcon("src/Code/biscuit-png-5a35dccf199006.1077412415134793751047.jpg"));
+		JLabel icono = new JLabel(new ImageIcon("src/Code/cookieewe.jpg"));
 		icono.setSize(20, 20);
 		center.add(icono);
 		JPanel south = new JPanel();
@@ -77,5 +77,8 @@ public class VentanaUsuario {
 		
 		ventanaU.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ventanaU.setVisible(true);
+	}
+	public static void main(String[] args) {
+		new VentanaUsuario();
 	}
 }

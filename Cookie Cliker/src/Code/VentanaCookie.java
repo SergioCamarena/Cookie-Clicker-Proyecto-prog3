@@ -2,6 +2,7 @@ package Code;
 
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
@@ -14,7 +15,12 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
+import javax.swing.border.TitledBorder;
 
 
 
@@ -25,23 +31,26 @@ public class VentanaCookie {
 				JFrame ventanaCookie = new JFrame("Cookie Clicker");
 				ventanaCookie.setBounds(0,0,1500, 600);
 				ventanaCookie.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				//Creación de botones e icono cookie
-				JButton cookie = new JButton( new ImageIcon("biscuit-png-5a35dccf199006.1077412415134793751047.jpg"));
 				
-				cookie.setBounds(0,0,800,600);
+				//_________________________________________EDIFICIOS & CLICKER
 				JButton clicker = new JButton("CLICKER");
-				clicker.setSize(20,20);
+				
 				JButton grandma = new JButton("GRANDMAS");
-				grandma.setSize(20,20);
+				
 				JButton farm = new JButton("FARMS");
-				farm.setSize(20,20);
+				
+				
+				
+				//______VALOR AÑADIDO
 				JButton minijuego1 = new JButton("MiniJuego");
 				
 				//Panel de la derecha (EDIFICIOS)
 				JPanel paneledif = new JPanel();
-				//paneledif.setLayout(new GridLayout(1,0));
+				paneledif.setBounds(0, 0, 1200, 600);
+				paneledif.setBorder(new BevelBorder(BevelBorder.RAISED));
+				paneledif.setLayout(new GridLayout(8,1));
 				ventanaCookie.add(paneledif, BorderLayout.EAST);
-				paneledif.add(clicker);
+				paneledif.add(clicker); 
 				paneledif.add(grandma);
 				paneledif.add(farm);
 				paneledif.add(minijuego1);
@@ -57,12 +66,66 @@ public class VentanaCookie {
 				
 				
 				//Panel Cookie (BOTÓN CON IMAGEN DE COOKIE)
+				
+				JButton cookie = new JButton( new ImageIcon("src/Code/cookieewe.jpg"));
+				cookie.setBounds(0,0,50,50);
 				JPanel panelgalleta = new JPanel();
-				panelgalleta.setLayout(new GridLayout(1,1));
+				panelgalleta.setLayout(new BorderLayout());
 				ventanaCookie.add(panelgalleta, BorderLayout.WEST);
-				panelgalleta.add(cookie);
+				panelgalleta.add(cookie, BorderLayout.EAST);
+				
+				//Panel Botones Norte y News
+				JPanel panelNews = new JPanel();
+				panelNews.setBorder(new TitledBorder("NEWS")); // Borde del panel
+				
+				//Introducción de botones y diferentes layouts y bounds de cada uno.
+				panelNews.setLayout(new GridLayout(2,3));
+				JButton stats = new JButton("Stats");
+				stats.setBounds(0, 0, 20, 20);
+				panelNews.add(stats);
+				
+				stats.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						new VentanaStats();
+						
+					}
+				});
+				JTextField news = new JTextField();
+				panelNews.add(news);
+				news.enable(false);
+				JButton options = new JButton("Options");
+				options.setBounds(0, 0, 20, 20);
+				panelNews.add(options);
+				
+				options.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						new VentanaOptions();
+						
+					}
+				});
 				
 				
+				
+				JLabel blanco2 = new JLabel();
+				panelNews.add(blanco2);
+				JButton info = new JButton("Info");
+				info.setBounds(0, 0, 20, 20);
+				panelNews.add(info);
+				
+				info.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						new VentanaInfo();
+						
+					}
+				});
+				
+				ventanaCookie.add(panelNews, BorderLayout.NORTH);
 				
 				ventanaCookie.setVisible(true);
 	}
@@ -70,6 +133,7 @@ public class VentanaCookie {
 		new VentanaCookie();
 	
 }
+	
 }
 /*
  * -Cuando pasas por encima de los botones de los diferentes edificios y demás te pone todas las cookies 
