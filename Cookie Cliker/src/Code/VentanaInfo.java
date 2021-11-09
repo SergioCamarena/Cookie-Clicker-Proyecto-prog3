@@ -16,9 +16,11 @@ public class VentanaInfo {
 		
 		//Panel norte
 		JPanel norte =  new JPanel();
+		JTextField info = new JTextField();
 		JLabel titulo = new JLabel("INFORMACIÓN");
 		titulo.setFont(new Font("Serif", Font.PLAIN,40 ));
 		norte.add(titulo);
+		norte.add(info);
 		
 		ventanaI.add(norte, BorderLayout.NORTH);
 
