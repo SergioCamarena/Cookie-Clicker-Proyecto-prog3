@@ -22,9 +22,9 @@ package Code;
 			int x = (int) (Math.random()*1000);
 			int y = (int) (Math.random()*1000);
 			Point centro = new Point(x, y);
-			//Diana diana = new Diana(centro);
+			Diana diana = new Diana(centro);
 			JPanel panelTarget = new JPanel();
-			//panelTarget.setBounds(x, y, diana.getDiametro(), diana.getDiametro());
+			panelTarget.setBounds(x, y, diana.getDiametro(), diana.getDiametro());
 			panelTarget.setBackground(Color.decode("#2A9DF4"));
 
 			
@@ -42,12 +42,12 @@ package Code;
 			
 			JPanel areaDeJuego = new JPanel();
 			areaDeJuego.setLayout(null);
-//			JLabel iniciarJuego = new JLabel();
-//			iniciarJuego.setText("Haz click para iniciar");
-//			areaDeJuego.add(iniciarJuego);
-//			iniciarJuego.setBounds(areaDeJuego.getX() + areaDeJuego.getWidth()/2, areaDeJuego.getY()+areaDeJuego.getHeight()/2, areaDeJuego.getWidth(), areaDeJuego.getHeight());
+			JLabel iniciarJuego = new JLabel();
+			iniciarJuego.setText("Haz click para iniciar");
+			areaDeJuego.add(iniciarJuego);
+			iniciarJuego.setBounds(areaDeJuego.getX() + areaDeJuego.getWidth()/2, areaDeJuego.getY()+areaDeJuego.getHeight()/2, areaDeJuego.getWidth(), areaDeJuego.getHeight());
 			areaDeJuego.add(panelTarget);
-			//panelTarget.setBounds(x, y, diana.getDiametro(), diana.getDiametro());
+			panelTarget.setBounds(x, y, diana.getDiametro(), diana.getDiametro());
 			areaDeJuego.revalidate();		//Se fuerza a redibujar el panel y la ventana
 			areaDeJuego.repaint();
 			
@@ -62,10 +62,10 @@ package Code;
 					
 					int x = (int) (Math.random()*1200);
 					int y = (int) (Math.random()*600);
-					//panelTarget.setBounds(x, y, diana.getDiametro(), diana.getDiametro());
-					//diana.setPanel(panelTarget);
+					panelTarget.setBounds(x, y, diana.getDiametro(), diana.getDiametro());
+					diana.setPanel(panelTarget);
 					areaDeJuego.add(panelTarget);
-					//panelTarget.setBounds(x, y, diana.getDiametro(), diana.getDiametro());
+					panelTarget.setBounds(x, y, diana.getDiametro(), diana.getDiametro());
 					areaDeJuego.revalidate();		//Se fuerza a redibujar el panel y la ventana
 					areaDeJuego.repaint();
 					startTime = System.nanoTime();
