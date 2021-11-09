@@ -35,8 +35,6 @@ public class VentanaCookie {
 				//_________________________________________EDIFICIOS & CLICKER
 				JButton clicker = new JButton("CLICKER");
 				
-				JButton adasdf = new JButton("No se utilizar github");
-				
 				JButton grandma = new JButton("GRANDMAS");
 				
 				JButton farm = new JButton("FARMS");
