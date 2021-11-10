@@ -24,7 +24,6 @@ import javax.swing.border.TitledBorder;
 
 
 public class VentanaCookie {
-	
 	public VentanaCookie(){
 		//Creaci�n de ventana
 				JFrame ventanaCookie = new JFrame("Cookie Clicker");
@@ -40,7 +39,7 @@ public class VentanaCookie {
 				
 				
 				
-				//______VALOR A�ADIDO
+				//______VALOR ANYADIDO
 				JButton minijuego1 = new JButton("MiniJuego");
 				
 				//Panel de la derecha (EDIFICIOS)
@@ -64,14 +63,20 @@ public class VentanaCookie {
 				});
 				
 				
-				//Panel Cookie (BOT�N CON IMAGEN DE COOKIE)
+				//Panel Cookie (BOTON CON IMAGEN DE COOKIE)
+				//JLabel contador = new JLabel(contador());
 				
+				//contador.setBorder(new TitledBorder("Coockie Land"/*,nombre*/));
 				JButton cookie = new JButton( new ImageIcon("src/Code/cookieewe.jpg"));
 				cookie.setBounds(0,0,50,50);
 				JPanel panelgalleta = new JPanel();
 				panelgalleta.setLayout(new BorderLayout());
-				ventanaCookie.add(panelgalleta, BorderLayout.WEST);
+				
+				//Los metemos en el panel
+				//panelgalleta.add(contador, BorderLayout.NORTH);
 				panelgalleta.add(cookie, BorderLayout.EAST);
+				
+				ventanaCookie.add(panelgalleta, BorderLayout.WEST);
 				
 				//Panel Botones Norte y News
 				JPanel panelNews = new JPanel();
@@ -79,6 +84,8 @@ public class VentanaCookie {
 				
 				//Introducci�n de botones y diferentes layouts y bounds de cada uno.
 				panelNews.setLayout(new GridLayout(2,3));
+				
+				//Boton STATS
 				JButton stats = new JButton("Stats");
 				stats.setBounds(0, 0, 20, 20);
 				panelNews.add(stats);
@@ -94,6 +101,8 @@ public class VentanaCookie {
 				JTextField news = new JTextField();
 				panelNews.add(news);
 				news.enable(false);
+				
+				//Boton OPTIONS
 				JButton options = new JButton("Options");
 				options.setBounds(0, 0, 20, 20);
 				panelNews.add(options);

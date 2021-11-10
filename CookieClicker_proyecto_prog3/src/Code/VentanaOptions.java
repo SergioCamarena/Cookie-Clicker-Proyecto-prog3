@@ -37,9 +37,9 @@ public class VentanaOptions {
 		
 		JLabel usuario = new JLabel("<html>Esta ventana ha sido creada para que el usuario pueda elegir diferentes<br> tipos de configuraciones u opciones que"
 				+ " el grupo de administradores ofrece.<br> Es <b>importante</b> tener en cuenta que los cambios realizados en esta ventana <b>puede</b> que cada vez que<br>"
-				+ "se abra la app est�n de manera <b>predeterminada</b>.<br> Si <b>hubiera tiempo</b> desde el equipo de administradores reforzariamos esta mala gesti�n.  </html>");
+				+ "se abra la app están de manera <b>predeterminada</b>.<br> Si <b>hubiera tiempo</b> desde el equipo de administradores reforzariamos esta mala gestión.  </html>");
 		usuario.setFont(new Font("Serief",Font.ITALIC,12));
-		usuario.setBorder(new TitledBorder("Informaci�n"));
+		usuario.setBorder(new TitledBorder("Información"));
 		norte.add(usuario);
 		ventanaO.add(norte, BorderLayout.NORTH);
 		
