@@ -33,8 +33,13 @@ public class Compra {
 	}
 	public void setNumeroDeCadaTipo(int numeroDeCadaTipo) {
 		this.numeroDeCadaTipo = numeroDeCadaTipo;
-	}
+	}	
 	
+	//to string
 	
-	
+	@Override
+	public String toString() {
+		return "Compra [nombre=" + nombre + ", valorInicialCookie=" + valorInicialCookie + ", numeroDeCadaTipo="
+			+ numeroDeCadaTipo + "]";
+}
 }
