@@ -30,7 +30,7 @@ public class VentanaUsuario {
 		anyadcontra.setEditable(true);
 		anyadcontra.setBounds(0, 0, 300, 50);
 		JButton entrar = new JButton("Sign in");
-		
+		JButton regis = new JButton("Registrate");
 		
 		
 		ventanaU.setBounds(0, 0, 1400, 800);
@@ -42,20 +42,24 @@ public class VentanaUsuario {
 		
 		JPanel center = new JPanel();
 		JLabel icono = new JLabel(imgIcon);
-		JLabel icono = new JLabel(new ImageIcon("src/Code/cookuie.png"));
-		center.add(icono);
-		JPanel east = new JPanel();
-		east.setLayout(new GridLayout(3,1));
-		east.add(usuario);
-		east.add(anyadusuario);
-		JLabel etiquetaU = new JLabel();
-		east.add(etiquetaU);
-		east.add(contrasenya);
-		east.add(anyadcontra);
-		JLabel etiquetaC = new JLabel();
-		east.add(etiquetaC);
-		east.add(entrar);
 		
+		center.add(icono);
+		
+		//Panel south
+		JPanel south = new JPanel();
+		south.setLayout(new GridLayout(3,1));
+		south.add(usuario);
+		south.add(anyadusuario);
+		JLabel etiquetaU = new JLabel();
+		south.add(etiquetaU);
+		south.add(contrasenya);
+		south.add(anyadcontra);
+		JLabel etiquetaC = new JLabel();
+		south.add(etiquetaC);
+		south.add(entrar);
+		JLabel etiquetaD = new JLabel();
+		south.add(etiquetaD);
+		south.add(regis);
 		
 		
 		
@@ -65,7 +69,7 @@ public class VentanaUsuario {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				JOptionPane.showMessageDialog(null, "Login correcto.\datosn �Bienvenido al juego!");
+				//JOptionPane.showMessageDialog(null, "Login correcto.\datosn �Bienvenido al juego!");
 				//Si usuario y contrase�a no est�n en la base de  preguntar si quiere hacer una nueva partida sino textfielf y passwordfield a null.
 				new VentanaCookie();
 				ventanaU.dispose();
@@ -75,10 +79,24 @@ public class VentanaUsuario {
 			
 			
 		});
+		regis.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				new VentanaReg();
+				ventanaU.dispose();
+				
+			}
+
+			
+			
+		});
+		
 		
 		ventanaU.setLayout(new BorderLayout());
-		ventanaU.add(center, BorderLayout.NORTH);
-		ventanaU.add(east, BorderLayout.CENTER);
+		ventanaU.add(center, BorderLayout.CENTER);
+		ventanaU.add(south, BorderLayout.SOUTH);
 		
 		ventanaU.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ventanaU.setVisible(true);

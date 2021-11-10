@@ -2,6 +2,7 @@ package Code;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Image;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -19,7 +20,7 @@ public class Minijuego extends JFrame{
 	long startTime;
 	long finishTime;
 	int totalTime = 0;
-	int intentos = 30;
+	int intentos = 12;
 	boolean empezar = true;
 	
 	public Minijuego() {
@@ -29,7 +30,7 @@ public class Minijuego extends JFrame{
 		Diana diana = new Diana(centro);
 		JPanel panelTarget = new JPanel();
 		panelTarget.setBounds(x, y, diana.getDiametro(), diana.getDiametro());
-		panelTarget.setBackground(Color.decode("#2A9DF4"));
+		
 
 		
 		this.setLayout(new BorderLayout());
@@ -46,6 +47,8 @@ public class Minijuego extends JFrame{
 		
 		JPanel areaDeJuego = new JPanel();
 		areaDeJuego.setLayout(null);
+		
+	
 		JLabel iniciarJuego = new JLabel();
 		iniciarJuego.setText("Haz click para iniciar");
 		areaDeJuego.add(iniciarJuego);
@@ -55,10 +58,23 @@ public class Minijuego extends JFrame{
 		areaDeJuego.revalidate();		//Se fuerza a redibujar el panel y la ventana
 		areaDeJuego.repaint();
 		
+	
+		
+		//Imagen en el panel Target				¡¡¡¡¡MIRAR EL FONDO!!!!!
 		panelTarget.setOpaque(false);
-		panelTarget.add(new JLabel(new ImageIcon("src/Code/cookuie.png"))); // El cuadrado del minijuego tiene una imagen 
+		ImageIcon imgIcon = new ImageIcon("src/Code/cookuie.png");
+		ImageIcon imgIcon2 = new ImageIcon("src/Code/cookuie.png");
+		Image imgCookie = imgIcon.getImage();
+		Image imgCookie2 = imgIcon.getImage();
+		Image imq = imgCookie.getScaledInstance(75, 78 ,Image.SCALE_SMOOTH);
+		Image imq2 = imgCookie2.getScaledInstance(1720, 950 ,Image.SCALE_SMOOTH);
+		imgIcon = new ImageIcon(imq);
+		imgIcon2 = new ImageIcon(imq2);
+		JLabel targetIcon = new JLabel(imgIcon);
+		JLabel areaIcon = new JLabel(imgIcon2);
+		panelTarget.add(targetIcon); // El cuadrado del minijuego tiene una imagen 
 		
-		
+		areaDeJuego.add(areaIcon);//El area de juego tiene un fondo
 		
 		this.add(areaDeJuego, BorderLayout.CENTER);
 		
