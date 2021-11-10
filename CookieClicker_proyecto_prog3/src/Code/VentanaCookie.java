@@ -7,10 +7,14 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Image;
 import java.awt.LayoutManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -67,14 +71,53 @@ public class VentanaCookie {
 				//JLabel contador = new JLabel(contador());
 				
 				//contador.setBorder(new TitledBorder("Coockie Land"/*,nombre*/));
-				JButton cookie = new JButton( new ImageIcon("src/Code/cookieewe.jpg"));
-				cookie.setBounds(0,0,50,50);
+				
 				JPanel panelgalleta = new JPanel();
 				panelgalleta.setLayout(new BorderLayout());
 				
+				//Ajustar la imagen
+				ImageIcon imgIcon = new ImageIcon("src/Code/cookuie.png");
+				Image imgCookie = imgIcon.getImage();
+				Image imq = imgCookie.getScaledInstance(120, 120 ,Image.SCALE_SMOOTH);
+				imgIcon = new ImageIcon(imq);
+				JLabel cookie = new JLabel(imgIcon);
+				panelgalleta.add(cookie);
+				
+				cookie.addMouseListener(new MouseListener() {
+//HAY QUE TERMINAR ESTO CUANDO SE CREE EL METODO (EL CONTADOR)
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void mousePressed(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void mouseReleased(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void mouseEntered(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void mouseExited(MouseEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+				});
 				//Los metemos en el panel
 				//panelgalleta.add(contador, BorderLayout.NORTH);
-				panelgalleta.add(cookie, BorderLayout.EAST);
 				
 				ventanaCookie.add(panelgalleta, BorderLayout.WEST);
 				
@@ -147,8 +190,8 @@ public class VentanaCookie {
  * -Cuando pasas por encima de los botones de los diferentes edificios y dem�s te pone todas las cookies 
  * realizadas y cuantas hace por segundo. Para esto mirar el examen de PROG II de lo del calendar hay algo parecido
  * 
- * -La imagen de Cookie no est� bien puesta --> hacerla bien
- * -El bot�n sea la mitad del panel y la otra mitad los stats y alguna otra cosa.
+ * 
+ * 
  * 
  * -
  * 
