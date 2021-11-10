@@ -12,6 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
+
+//hola esto funciona??
 public class Minijuego extends JFrame{
 	long startTime;
 	long finishTime;
