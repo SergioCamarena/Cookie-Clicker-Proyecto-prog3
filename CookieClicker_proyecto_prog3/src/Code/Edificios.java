@@ -1,12 +1,13 @@
 package Code;
 
-public class Edificios /*extends Compra*/{
+public class Edificios extends Compra{
+
 	private int NumEdificios;
 	private double valorCompra;
 	
 	//constructor
-	public void Edificio(String nombre, int valorInicialCookie, int numeroDeCadaTipo, int numEdificios, double valorCompra) {
-		//super(nombre, valorInicialCookie, numeroDeCadaTipo);
+	public Edificio(String nombre, double valorInicialCookie, int numeroDeCadaTipo, int numEdificios, double valorCompra) {
+		super(nombre, valorInicialCookie, numeroDeCadaTipo);
 		NumEdificios = numEdificios;
 		this.valorCompra = valorCompra;
 	}
