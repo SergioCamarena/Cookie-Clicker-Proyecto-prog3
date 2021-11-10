@@ -42,6 +42,7 @@ public class VentanaUsuario {
 		
 		JPanel center = new JPanel();
 		JLabel icono = new JLabel(imgIcon);
+		JLabel icono = new JLabel(new ImageIcon("src/Code/cookuie.png"));
 		center.add(icono);
 		JPanel east = new JPanel();
 		east.setLayout(new GridLayout(3,1));

@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 
-//hola esto funciona??
+
 public class Minijuego extends JFrame{
 	long startTime;
 	long finishTime;
@@ -54,9 +54,9 @@ public class Minijuego extends JFrame{
 		panelTarget.setBounds(x, y, diana.getDiametro(), diana.getDiametro());
 		areaDeJuego.revalidate();		//Se fuerza a redibujar el panel y la ventana
 		areaDeJuego.repaint();
-		//panelTarget.setBackground(Color.red);
+		
 		panelTarget.setOpaque(false);
-		panelTarget.add(new JLabel(new ImageIcon("src/Code/cookieewe.jpg"))); // El cuadrado del minijuego tiene una imagen 
+		panelTarget.add(new JLabel(new ImageIcon("src/Code/cookuie.png"))); // El cuadrado del minijuego tiene una imagen 
 		
 		
 		
