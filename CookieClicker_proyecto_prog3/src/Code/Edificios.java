@@ -33,7 +33,7 @@ public class Edificios extends Compra{
 	
 	//metodo que suma el porcentaje de compra
 	public void nuevoEdif() {
-		valorCompra = valorCompra * 0.15;
+		valorCompra = valorCompra * 0.15;	//se le suma un 15%
 	}
 
 	// to string
