@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -53,6 +54,10 @@ public class Minijuego extends JFrame{
 		panelTarget.setBounds(x, y, diana.getDiametro(), diana.getDiametro());
 		areaDeJuego.revalidate();		//Se fuerza a redibujar el panel y la ventana
 		areaDeJuego.repaint();
+		//panelTarget.setBackground(Color.red);
+		panelTarget.setOpaque(false);
+		panelTarget.add(new JLabel(new ImageIcon("src/Code/cookieewe.jpg"))); // El cuadrado del minijuego tiene una imagen 
+		
 		
 		
 		this.add(areaDeJuego, BorderLayout.CENTER);
