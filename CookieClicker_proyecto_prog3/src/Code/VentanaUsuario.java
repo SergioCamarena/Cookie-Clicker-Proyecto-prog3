@@ -35,7 +35,7 @@ public class VentanaUsuario {
 		ventanaU.setBounds(0, 0, 1400, 800);
 		
 		JPanel center = new JPanel();
-		JLabel icono = new JLabel(new ImageIcon("src/Code/cookieewe.jpg"));
+		JLabel icono = new JLabel(new ImageIcon("src/Code/cookuie.png"));
 		icono.setSize(20, 20);
 		center.add(icono);
 		JPanel south = new JPanel();
