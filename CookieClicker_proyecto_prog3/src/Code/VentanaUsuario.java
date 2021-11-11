@@ -33,7 +33,7 @@ public class VentanaUsuario {
 		JButton regis = new JButton("Registrate");
 		
 		
-		ventanaU.setBounds(0, 0, 1400, 800);
+		
 		
 		ImageIcon imgIcon = new ImageIcon("src/Code/cookuie.png");
 		Image imgCookie = imgIcon.getImage();
@@ -98,6 +98,7 @@ public class VentanaUsuario {
 		ventanaU.add(center, BorderLayout.CENTER);
 		ventanaU.add(south, BorderLayout.SOUTH);
 		
+		ventanaU.setBounds(300, 0, 800, 400);
 		ventanaU.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ventanaU.setVisible(true);
 	}

@@ -6,10 +6,14 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -76,13 +80,46 @@ public class VentanaReg {
 				+ "_____________- Almenos 1 número. <br>"
 				+ "_____________- Almenos 1 caracter especial. <br>"
 				+ "3)<b> Email --> </b> Introduce tu dirección de email. No se enviará propaganda.<br> "
-				+ "4)<b> NO INTENTES HACER SQL INYECTION</b>, no va a funcionar.</html>");
+				+ "4)<b> NO INTENTES HACER SQL INYECTION</b>, no va a funcionar.  </html>");
 		consid.setFont(new Font("Serief",Font.ITALIC,12));
 		consid.setBorder(new TitledBorder("Cosas a tener en cuenta:"));
 		consid.setBorder(new BevelBorder(BevelBorder.LOWERED));
 		
 		east.add(consid);
 		
+		//Panel Sur
+		JPanel sur = new JPanel();
+		JButton registro = new JButton("Registrate");
+		
+		registro.addActionListener(new ActionListener() {
+			
+			public  void actionPerformed(ActionEvent e) {
+				int show =JOptionPane.showConfirmDialog(null,"Desea hacer algún cambio más","¡ADELANTE!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+				if(show == JOptionPane.YES_OPTION) {
+					//Que siga cambiando cosas no nos interesa hacer nada aquí.
+				}else if(show == JOptionPane.NO_OPTION) {
+					//Borrar todo lo que haya en las textfields
+					//Antes de borrar nada hay que meterlo en la base de datos!!!!
+				/*	
+					textusuario =  JTextField();
+					textcontrasena = JPasswordField("");
+					textcontra = JPasswordField("");
+					textemail =  JTextField();
+					*/
+					//
+					new VentanaCookie();
+					ventanaR.dispose();
+				}
+			}
+		});
+		
+		sur.setLayout(new GridLayout(2,1));
+		sur.add(registro);
+		JLabel vac = new JLabel("Deberias leer la letra pequeña antes de registrarte :)");
+		vac.setFont(new Font("Serief",Font.ITALIC,6));
+		sur.add(vac);
+		
+		ventanaR.add(sur, BorderLayout.SOUTH);
 		ventanaR.add(east, BorderLayout.CENTER);
 		ventanaR.add(paneloeste, BorderLayout.WEST);
 		ventanaR.add(panelnorte, BorderLayout.NORTH);
@@ -100,7 +137,9 @@ public class VentanaReg {
 			}
 				
 			else {
-				if(textcontrasena == JPasswordField("L") & textcontra == JPasswordField("L" ) ){
+				if(textcontrasena == JPasswordField("L") & textcontra == JPasswordField("L")){
+					System.out.println(textcontra);
+					System.out.println(textcontrasena);
 					coluor.setBackground(Color.MAGENTA);
 				}
 				else {
