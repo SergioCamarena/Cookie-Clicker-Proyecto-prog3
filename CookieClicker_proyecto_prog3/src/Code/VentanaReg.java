@@ -51,22 +51,25 @@ public class VentanaReg {
 			
 			public void actionPerformed(ActionEvent e) {
 				
-			/*
+			
 				if(textcontrasena.equals(textcontra) ) {
 					coluor.setBackground(Color.GREEN);
 				}
 					
 				else {
 					if(textcontrasena == JPasswordField("") & textcontra == JPasswordField("")){
-						System.out.println(textcontra);
-						System.out.println(textcontrasena);
 						coluor.setBackground(Color.MAGENTA);
 					}
 					else {
 					coluor.setBackground(Color.red);
 						 }
 					}
-				*/
+				
+			}
+
+			private JPasswordField JPasswordField(String string) {
+				// TODO Auto-generated method stub
+				return null;
 			}
 		});
 		
