@@ -51,7 +51,7 @@ public class VentanaReg {
 			
 			public void actionPerformed(ActionEvent e) {
 				
-			
+			/*
 				if(textcontrasena.equals(textcontra) ) {
 					coluor.setBackground(Color.GREEN);
 				}
@@ -66,7 +66,7 @@ public class VentanaReg {
 					coluor.setBackground(Color.red);
 						 }
 					}
-				
+				*/
 			}
 		});
 		
@@ -111,6 +111,7 @@ public class VentanaReg {
 		
 		JPanel east = new JPanel();
 		
+		//east.setForeground(new ImageIcon("src/Code/cookuie.png"));
 		JLabel consid = new JLabel("<html>Aquí hay unas pautas que te dejamos los administradores para que hagas el Registro <b>correctamente:</b><br>"
 				+ "1) <b>Usuario --> </b> Introduce un usuario que sea facil de recordar para ti.<br>"
 				+ "2) <b>Contraseña --> </b> Introduce una contraseña que sea facil de recordad pero con una complejidad.<br>"
@@ -119,7 +120,8 @@ public class VentanaReg {
 				+ "_____________- Almenos 1 número. <br>"
 				+ "_____________- Almenos 1 caracter especial. <br>"
 				+ "3)<b> Email --> </b> Introduce tu dirección de email. No se enviará propaganda.<br> "
-				+ "4)<b> NO INTENTES HACER SQL INYECTION</b>, no va a funcionar.  </html>");
+				+ "4)<b> NO INTENTES HACER SQL INYECTION</b>, no va a funcionar.<br>"
+				+ "5)<b>Apunta bien </b> la contraseña porque sino tendrás que <b>volver a empezar</b> el juego.  </html>");
 		consid.setFont(new Font("Serief",Font.ITALIC,12));
 		consid.setBorder(new TitledBorder("Cosas a tener en cuenta:"));
 		consid.setBorder(new TitledBorder("TENER EN CUENTA"));
