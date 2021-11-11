@@ -19,29 +19,61 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 public class VentanaReg {
 
 	public VentanaReg() {
+		
+		//Porque no me coge el tamaño que quiero??
+		
 		JFrame ventanaR = new JFrame("LOG IN");
 		JLabel usuario = new JLabel("Introduce usuario: ");
+		
 		JTextField textusuario = new JTextField();
+		textusuario.setSize(20,20);
 		JLabel contrasena = new JLabel("Introduce contraseña: ");
-		JPasswordField textcontrasena = new JPasswordField("L");
+		JPasswordField textcontrasena = new JPasswordField("");
+		textcontrasena.setSize(20,20);
 		JLabel otravez = new JLabel("Introduce otra vez la contraseña: ");
-		JPasswordField textcontra = new JPasswordField("L");
+		JPasswordField textcontra = new JPasswordField("");
+		textcontra.setSize(20,20);
 		JLabel coluor = new JLabel();	//Se pone en Verde si las contraseñas son iguales sino en Rojo
-		JLabel vacio = new JLabel();
+		coluor.setBorder(new LineBorder(Color.black));
+		JButton comprov = new JButton("Pulsa para combrobar");
 		JLabel email = new JLabel("Introduce e-mail");
 		JTextField textemail = new JTextField();
+		textemail.setSize(20,20);
 		
 		
-		
+		comprov.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent e) {
+				
+			
+				if(textcontrasena.equals(textcontra) ) {
+					coluor.setBackground(Color.GREEN);
+				}
+					
+				else {
+					if(textcontrasena == JPasswordField("") & textcontra == JPasswordField("")){
+						System.out.println(textcontra);
+						System.out.println(textcontrasena);
+						coluor.setBackground(Color.MAGENTA);
+					}
+					else {
+					coluor.setBackground(Color.red);
+						 }
+					}
+				
+			}
+		});
 		
 		ventanaR.setLayout(new BorderLayout());
 		JPanel panelnorte = new JPanel();
 		panelnorte.setLayout(new GridLayout(1,2));
+		panelnorte.setBorder(new BevelBorder(BevelBorder.RAISED));
 		
 		JLabel titulo = new JLabel("LOG IN : _________________");
 		titulo.setFont(new Font("Serif", Font.PLAIN,40 ));
@@ -56,9 +88,13 @@ public class VentanaReg {
 		
 		panelnorte.add(cookie);
 		
+		//Panel Oeste
 		JPanel paneloeste = new JPanel();
-		paneloeste.setLayout(new GridLayout(6,2));
+		paneloeste.setLayout(new GridLayout(9,2));
 		
+		
+		paneloeste.add(new JLabel());
+		paneloeste.add(new JLabel());
 		paneloeste.add(usuario);
 		paneloeste.add(textusuario);
 		paneloeste.add(contrasena);
@@ -66,9 +102,12 @@ public class VentanaReg {
 		paneloeste.add(otravez);
 		paneloeste.add(textcontra);
 		paneloeste.add(coluor);
-		paneloeste.add(vacio);
+		paneloeste.add(comprov);
 		paneloeste.add(email);
 		paneloeste.add(textemail);
+		
+		
+	
 		
 		JPanel east = new JPanel();
 		
@@ -83,8 +122,9 @@ public class VentanaReg {
 				+ "4)<b> NO INTENTES HACER SQL INYECTION</b>, no va a funcionar.  </html>");
 		consid.setFont(new Font("Serief",Font.ITALIC,12));
 		consid.setBorder(new TitledBorder("Cosas a tener en cuenta:"));
-		consid.setBorder(new BevelBorder(BevelBorder.LOWERED));
+		consid.setBorder(new TitledBorder("TENER EN CUENTA"));
 		
+		east.add(new JLabel());
 		east.add(consid);
 		
 		//Panel Sur
@@ -129,35 +169,13 @@ public class VentanaReg {
 		ventanaR.setVisible(true);
 	//________________________________________________________________________________________________________________________________________
 	//Mirar si las contraseñas son iguales, y cambiar el label depende de eso.			¡¡MIRAR PORQUE NO CHUTA!!
-		
-		int n = 0;
-		while(n!=0) {
-			if(textcontrasena == textcontra) {
-				coluor.setBackground(Color.GREEN);
-			}
-				
-			else {
-				if(textcontrasena == JPasswordField("L") & textcontra == JPasswordField("L")){
-					System.out.println(textcontra);
-					System.out.println(textcontrasena);
-					coluor.setBackground(Color.MAGENTA);
-				}
-				else {
-				coluor.setBackground(Color.red);
-					 }
-				}
-			}
-	}
-
-	private JPasswordField JPasswordField(String string) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	
+	}
 
 	public static void main(String[] args) {
 		
 		new VentanaReg();
 	}
+
 }
