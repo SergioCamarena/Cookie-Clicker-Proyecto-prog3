@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Image;
@@ -13,6 +14,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -21,6 +24,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
@@ -141,15 +145,68 @@ public class VentanaCookie {
 						
 					}
 				});
+				JLabel titulo = new JLabel("COOKIE CLICKER");
+				titulo.setFont(new Font("",Font.ROMAN_BASELINE,32));
+				titulo.setHorizontalAlignment(SwingConstants.CENTER);
+				panelNews.add(titulo);
+				
+				//Las News
 				JTextField news = new JTextField();
-				panelNews.add(news);
 				news.enable(false);
+				
+				//Winndow listener
+				
+				ventanaCookie.addWindowListener(new WindowListener() {
+					
+					@Override
+					public void windowOpened(WindowEvent e) {
+						//Recorrer con un hilo un Arraylist de Strings y sacar un x random dentro de la lista y que haga x+1 y si llega al final que vuelva a empezar.
+						//Tambien hacer un recuento de las horas que esta jugando (esto habría que guardarlo en la BD para luego hacer algo así.) Mirar donde poner las horas que llevamos y asi.
+					}
+					
+					@Override
+					public void windowIconified(WindowEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void windowDeiconified(WindowEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void windowDeactivated(WindowEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void windowClosing(WindowEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void windowClosed(WindowEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+					
+					@Override
+					public void windowActivated(WindowEvent e) {
+						// TODO Auto-generated method stub
+						
+					}
+				});
 				
 				//Boton OPTIONS
 				JButton options = new JButton("Options");
 				options.setBounds(0, 0, 20, 20);
 				panelNews.add(options);
 				
+			
 				options.addActionListener(new ActionListener() {
 					
 					@Override
@@ -163,6 +220,7 @@ public class VentanaCookie {
 				
 				JLabel blanco2 = new JLabel();
 				panelNews.add(blanco2);
+				panelNews.add(news);
 				JButton info = new JButton("Info");
 				info.setBounds(0, 0, 20, 20);
 				panelNews.add(info);
