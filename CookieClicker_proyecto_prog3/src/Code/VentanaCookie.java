@@ -16,6 +16,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -29,10 +31,19 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-
-
 public class VentanaCookie {
 	public VentanaCookie(){
+		ArrayList<String> listanews = new ArrayList<String>();
+		listanews.add("News: Cookie World making some upgrades");
+		listanews.add("News: Chocolate cookie now 30% cheaper");
+		listanews.add("News: Milk coming in next upgrade");
+		listanews.add("News: Cookie World searching for the CookieThief");
+		listanews.add("News: Gradmas looking for upgrades");
+		listanews.add("News: Gradmas working really efectively");
+		listanews.add("News: Farms found a great location");
+		listanews.add("News: Farms fields in the new upgrade");
+		listanews.add("News: The concern still stays in Cookie World");
+		listanews.add("News: The 70% in the CookieMall");
 		//Creaci�n de ventana
 				JFrame ventanaCookie = new JFrame("Cookie Clicker");
 				ventanaCookie.setBounds(0,0,1500, 600);
@@ -162,6 +173,10 @@ public class VentanaCookie {
 					public void windowOpened(WindowEvent e) {
 						//Recorrer con un hilo un Arraylist de Strings y sacar un x random dentro de la lista y que haga x+1 y si llega al final que vuelva a empezar.
 						//Tambien hacer un recuento de las horas que esta jugando (esto habría que guardarlo en la BD para luego hacer algo así.) Mirar donde poner las horas que llevamos y asi.
+					/*	for (Iterator iterator = listanews.iterator(); iterator.hasNext();) {
+							JTextField string = (JTextField) iterator.next();
+							JTextField news = string;
+						}*/
 					}
 					
 					@Override
