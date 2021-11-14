@@ -7,6 +7,13 @@ import javax.swing.table.DefaultTableModel;
 
 public class Tabla {
 	public Tabla() {
+		
+		/*
+		 * HAY QUE MIRAR BIEN COMO SE HACE LA JTABLE PARA QUE SE PONGA CUBRIENDO TODA LA PANTALLA
+		 *  
+		 * HAY QUE SACAR LOS VALORES DE LA BD E INTRODUCIRLAS AQUÍ
+		 * 
+		 * */
 		JFrame ventanaT = new JFrame("RANKING MUNDIAL");
 		JPanel PanelRanking = new JPanel();
 		JTable ranking = new JTable();

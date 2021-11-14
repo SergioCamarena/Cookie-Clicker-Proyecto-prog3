@@ -60,6 +60,7 @@ public class VentanaCookie {
 				
 				//______VALOR ANYADIDO
 				JButton minijuego1 = new JButton("MiniJuego");
+				minijuego1.setEnabled(false);
 				
 				//Panel de la derecha (EDIFICIOS)
 				JPanel paneledif = new JPanel();
@@ -70,14 +71,14 @@ public class VentanaCookie {
 				paneledif.add(clicker); 
 				paneledif.add(grandma);
 				paneledif.add(farm);
-				paneledif.add(minijuego1);
+				
 				
 				minijuego1.addActionListener(new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						new Minijuego();
-						
+						minijuego1.setEnabled(false);
 					}
 				});
 				
@@ -166,7 +167,6 @@ public class VentanaCookie {
 				news.enable(false);
 				
 				//Winndow listener
-				
 				ventanaCookie.addWindowListener(new WindowListener() {
 					
 					@Override
@@ -253,10 +253,7 @@ public class VentanaCookie {
 					}
 				});
 				
-				
-				
-				JLabel blanco2 = new JLabel();
-				panelNews.add(blanco2);
+				panelNews.add(minijuego1);
 				panelNews.add(news);
 				JButton info = new JButton("Info");
 				info.setBounds(0, 0, 20, 20);
@@ -267,6 +264,8 @@ public class VentanaCookie {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						new VentanaInfo();
+						minijuego1.setEnabled(true);//Esto es un modo prueba, cuando hagamos en contador podemos hacer que cuando llegue a X cookies
+						// se ponga true y que luego se ponga false
 						
 					}
 				});
