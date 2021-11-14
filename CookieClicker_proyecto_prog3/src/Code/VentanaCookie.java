@@ -172,11 +172,33 @@ public class VentanaCookie {
 					@Override
 					public void windowOpened(WindowEvent e) {
 						//Recorrer con un hilo un Arraylist de Strings y sacar un x random dentro de la lista y que haga x+1 y si llega al final que vuelva a empezar.
-						//Tambien hacer un recuento de las horas que esta jugando (esto habría que guardarlo en la BD para luego hacer algo así.) Mirar donde poner las horas que llevamos y asi.
-					/*	for (Iterator iterator = listanews.iterator(); iterator.hasNext();) {
-							JTextField string = (JTextField) iterator.next();
-							JTextField news = string;
-						}*/
+						Thread corre = new Thread(new Runnable() {
+							public void run() {
+								
+								for (int i = 1; i < listanews.size();i++) {
+									news.add(news, listanews.get(i));
+									try {
+										Thread.sleep(50000);
+									} catch (InterruptedException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+								}
+								
+							}
+						});
+						corre.run();
+						
+						//Que empiece a contar cuando empiezas a jugar y cuando se cierre que se sume al valor que tenias antes en la BD.
+						Thread tiempojueg = new Thread(new Runnable() {
+							
+							@Override
+							public void run() {
+								//Hay que mirar como hacerlo
+								
+							}
+						});
+						
 					}
 					
 					@Override
@@ -205,7 +227,7 @@ public class VentanaCookie {
 					
 					@Override
 					public void windowClosed(WindowEvent e) {
-						// TODO Auto-generated method stub
+						
 						
 					}
 					
