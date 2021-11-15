@@ -25,7 +25,9 @@ public class VentanaStats {
 		JPanel oeste = new JPanel();
 		oeste.setLayout(new GridLayout(7,2));
 		
-		JLabel cookies_ps = new JLabel("Cookies per second ");
+		oeste.add(new JLabel());
+		oeste.add(new JLabel());
+		JLabel cookies_ps = new JLabel("Cookies per second:  ");
 		JLabel psvariable = new JLabel();
 		oeste.add(cookies_ps);
 		oeste.add(psvariable);
@@ -53,9 +55,12 @@ public class VentanaStats {
 		ventanaS.add(oeste, BorderLayout.WEST );
 		
 		JPanel sur = new JPanel();
-		sur.setLayout(new GridLayout(1,1));
+		sur.setLayout(new GridLayout(1,3));
 		JButton rankings = new JButton("Rankings");
 		sur.add(rankings);
+		sur.add(new JLabel());
+		JButton volver = new JButton("Seguir Jugando");
+		sur.add(volver);
 		ventanaS.add(sur, BorderLayout.SOUTH);
 		rankings.addActionListener(new ActionListener() {
 			
@@ -64,6 +69,14 @@ public class VentanaStats {
 				// TODO Auto-generated method stub
 				new Tabla();
 				
+			}
+		});
+		
+		volver.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ventanaS.dispose();
 			}
 		});
 		
