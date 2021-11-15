@@ -26,6 +26,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.RootPaneContainer;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
@@ -48,6 +49,8 @@ public class VentanaCookie {
 				JFrame ventanaCookie = new JFrame("Cookie Clicker");
 				ventanaCookie.setBounds(0,0,1500, 600);
 				ventanaCookie.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				
+				
 				
 				//_________________________________________EDIFICIOS & CLICKER
 				JButton clicker = new JButton("CLICKER");
@@ -90,6 +93,7 @@ public class VentanaCookie {
 				
 				JPanel panelgalleta = new JPanel();
 				panelgalleta.setLayout(new BorderLayout());
+				
 				
 				//Ajustar la imagen
 				ImageIcon imgIcon = new ImageIcon("src/Code/cookuie.png");
