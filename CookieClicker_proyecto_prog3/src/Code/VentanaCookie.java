@@ -274,6 +274,21 @@ public class VentanaCookie {
 					}
 				});
 				
+				//Panel centro
+				JPanel centro = new JPanel();
+				
+				/*
+				 * NO DEJA HACER NADA DEL FONDO
+				ImageIcon imgcentr = new ImageIcon("src/Code/fondo.png");
+				Image imhg = imgcentr.getImage();
+				Image imqa = imhg.getScaledInstance(620, 420 ,Image.SCALE_SMOOTH);
+				imgcentr = new ImageIcon(imqa);
+				JLabel fondo = new JLabel(imgcentr);
+				centro.add(fondo);
+				*/
+				
+				ventanaCookie.add(centro, BorderLayout.CENTER);
+				
 				ventanaCookie.add(panelNews, BorderLayout.NORTH);
 				
 				ventanaCookie.setVisible(true);
