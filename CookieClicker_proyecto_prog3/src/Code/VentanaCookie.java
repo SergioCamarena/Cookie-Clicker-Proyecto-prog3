@@ -35,6 +35,7 @@ import javax.swing.border.TitledBorder;
 
 public class VentanaCookie {
 	public static double cont = 1;	//Valor del contador (inicialización)
+	static JButton minijuego1 = new JButton("MiniJuego");
 	
 	//Método de contador
 	public static String met(double valor) {
@@ -45,10 +46,16 @@ public class VentanaCookie {
 			 DecimalFormat g = new DecimalFormat("##.00");
 			//Estos ifs sirven para que ponga la parte del string después del numero
 			if (cont>1000 && cont<1000000) {
-				return "         "+ g.format(cont) +"K Cookies         ";
-				
+				return "         "+ g.format(cont/1000) +"K Cookies         ";
+				/*
+				 * QUEREMOS QUE EL MINIJUEGO SOLO ESTE ACTIVO CUANDO ESTE ENTRE ALGUNOS VAREMOS
+				if(cont>1000 && cont<3500) {
+					minijuego1.setEnabled(false);
+					
+				}
+				*/
 			} else if (cont>=1000000 && cont<1000000000){
-				return "                         "+ f.format(cont/1000000) +"M Cookies         ";
+				return "                         "+ f.format(cont/1000000) +" million Cookies         ";
 
 			}else {
 				return "         "+ cont +" Cookies         ";
@@ -77,7 +84,7 @@ public class VentanaCookie {
 				JFrame ventanaCookie = new JFrame("Cookie Clicker");
 				ventanaCookie.setBounds(0,0,1500, 600);
 				ventanaCookie.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				
+				minijuego1.setEnabled(false);
 				
 				
 				//_________________________________________EDIFICIOS & CLICKER
@@ -90,12 +97,11 @@ public class VentanaCookie {
 				
 				
 				//______VALOR ANYADIDO
-				JButton minijuego1 = new JButton("MiniJuego");
-				minijuego1.setEnabled(false);
+				
 				
 				//Panel de la derecha (EDIFICIOS)
 				JPanel paneledif = new JPanel();
-				paneledif.setBounds(0, 0, 1200, 600);
+				paneledif.setBounds(0, 0, 600, 600);
 				paneledif.setBorder(new BevelBorder(BevelBorder.RAISED));
 				paneledif.setLayout(new GridLayout(8,1));
 				ventanaCookie.add(paneledif, BorderLayout.EAST);
@@ -122,10 +128,12 @@ public class VentanaCookie {
 				
 				JPanel panelgalleta = new JPanel();
 				panelgalleta.setLayout(new GridLayout(3,1));
+				panelgalleta.setBounds(0, 0, 400, 200);
 				panelgalleta.setBorder(new BevelBorder(BevelBorder.RAISED));
 				
 				//Contador
 				JLabel contador = new JLabel(met(1900.87264));
+				contador.setFont(new Font("Arial",Font.PLAIN,20));
 				panelgalleta.add(contador);
 				
 				//Ajustar la imagen
@@ -135,6 +143,10 @@ public class VentanaCookie {
 				imgIcon = new ImageIcon(imq);
 				JLabel cookie = new JLabel(imgIcon);
 				panelgalleta.add(cookie);
+				
+				JLabel version = new JLabel("                        V.2.031");
+				version.setFont(new Font("Agency FB",Font.ROMAN_BASELINE,21));
+				panelgalleta.add(version);
 				
 				cookie.addMouseListener(new MouseListener() {
 //HAY QUE TERMINAR ESTO CUANDO SE CREE EL METODO (EL CONTADOR)
