@@ -36,6 +36,7 @@ import javax.swing.border.TitledBorder;
 public class VentanaCookie {
 	public static double cont = 1;	//Valor del contador (inicialización)
 	static JButton minijuego1 = new JButton("MiniJuego");
+	public static ArrayList<String> listanews = new ArrayList<String>();
 	
 	//Método de contador
 	public static String met(double valor) {
@@ -65,11 +66,12 @@ public class VentanaCookie {
 			return "         0 cookies         ";
 		}
 		
+	//Método News
 		
 	
 	}
 	public VentanaCookie(){
-		ArrayList<String> listanews = new ArrayList<String>();
+		
 		listanews.add("News: Cookie World making some upgrades");
 		listanews.add("News: Chocolate cookie now 30% cheaper");
 		listanews.add("News: Milk coming in next upgrade");
@@ -217,35 +219,11 @@ public class VentanaCookie {
 					@Override
 					public void windowOpened(WindowEvent e) {
 						//Recorrer con un hilo un Arraylist de Strings y sacar un x random dentro de la lista y que haga x+1 y si llega al final que vuelva a empezar.
-						/*Thread corre = new Thread(new Runnable() {
-							public void run() {
-								
-								for (int i = 1; i < listanews.size();i++) {
-									news.add(news, listanews.get(i));
-									try {
-										Thread.sleep(50000);
-									} catch (InterruptedException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-								}
-								
-							}
-						});
-						corre.run();
-						
-						//Que empiece a contar cuando empiezas a jugar y cuando se cierre que se sume al valor que tenias antes en la BD.
-						Thread tiempojueg = new Thread(new Runnable() {
-							
-							@Override
-							public void run() {
-								//Hay que mirar como hacerlo
-								
-							}
-						});
-						*/
+						recornews(listanews);
 					}
+											
 					
+
 					@Override
 					public void windowIconified(WindowEvent e) {
 						// TODO Auto-generated method stub
@@ -335,6 +313,7 @@ public class VentanaCookie {
 				ventanaCookie.setResizable(false);
 				ventanaCookie.setVisible(true);
 	}
+	
 	public static void main(String[] args) {
 		new VentanaCookie();
 	
