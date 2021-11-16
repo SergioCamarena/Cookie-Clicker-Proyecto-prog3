@@ -101,7 +101,7 @@ public class VentanaCookie {
 				
 				//Panel de la derecha (EDIFICIOS)
 				JPanel paneledif = new JPanel();
-				paneledif.setBounds(0, 0, 600, 600);
+				paneledif.setBounds(0, 0, 600, 600);	//No funciona el setBounds mirar porque!!!!!
 				paneledif.setBorder(new BevelBorder(BevelBorder.RAISED));
 				paneledif.setLayout(new GridLayout(8,1));
 				ventanaCookie.add(paneledif, BorderLayout.EAST);
@@ -109,7 +109,7 @@ public class VentanaCookie {
 				paneledif.add(grandma);
 				paneledif.add(farm);
 				
-				
+				//Action listener del boton minijuego
 				minijuego1.addActionListener(new ActionListener() {
 					
 					@Override
@@ -121,10 +121,6 @@ public class VentanaCookie {
 				
 				
 				//Panel Cookie (BOTON CON IMAGEN DE COOKIE)
-				
-				
-				
-				
 				
 				JPanel panelgalleta = new JPanel();
 				panelgalleta.setLayout(new GridLayout(3,1));
@@ -144,12 +140,14 @@ public class VentanaCookie {
 				JLabel cookie = new JLabel(imgIcon);
 				panelgalleta.add(cookie);
 				
+				//Un label que pone la version del juego
 				JLabel version = new JLabel("                        V.2.031");
 				version.setFont(new Font("Agency FB",Font.ROMAN_BASELINE,21));
 				panelgalleta.add(version);
 				
+				//El JLabel de cookie hay que convertirlo en botón
 				cookie.addMouseListener(new MouseListener() {
-//HAY QUE TERMINAR ESTO CUANDO SE CREE EL METODO (EL CONTADOR)
+					
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						// TODO Auto-generated method stub
@@ -181,8 +179,6 @@ public class VentanaCookie {
 					}
 					
 				});
-				//Los metemos en el panel
-				//panelgalleta.add(contador, BorderLayout.NORTH);
 				
 				ventanaCookie.add(panelgalleta, BorderLayout.WEST);
 				
