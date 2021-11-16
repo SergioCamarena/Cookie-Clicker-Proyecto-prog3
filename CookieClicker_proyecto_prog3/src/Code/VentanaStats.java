@@ -84,6 +84,7 @@ public class VentanaStats {
 		
 		ventanaS.setBounds(300, 0, 800, 400);
 		ventanaS.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		ventanaS.setResizable(false);
 		ventanaS.setVisible(true);
 	}
 	public static void main (String[]args) {

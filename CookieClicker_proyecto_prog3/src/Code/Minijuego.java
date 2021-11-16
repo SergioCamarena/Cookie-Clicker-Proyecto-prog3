@@ -151,6 +151,7 @@ public class Minijuego extends JFrame{
 		this.setSize(1920,1050);														//Valores de la ventana para una experiencia comoda
 		this.setLocationRelativeTo(null);
 		this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		this.setResizable(false);
 		this.setVisible(true); //Se lanza el hilo de JSwing
 	}
 	

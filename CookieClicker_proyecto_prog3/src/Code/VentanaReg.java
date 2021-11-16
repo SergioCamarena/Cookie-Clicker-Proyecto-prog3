@@ -171,6 +171,7 @@ public class VentanaReg {
 		
 		ventanaR.setBounds(0, 0, 1400, 800);
 		ventanaR.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		ventanaR.setResizable(false);
 		ventanaR.setVisible(true);
 	//________________________________________________________________________________________________________________________________________
 	//Mirar si las contraseñas son iguales, y cambiar el label depende de eso.			¡¡MIRAR PORQUE NO CHUTA!!

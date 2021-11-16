@@ -16,6 +16,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -40,19 +41,21 @@ public class VentanaCookie {
 		
 		if (cont>0) {
 			cont = cont+valor;
+			 DecimalFormat f = new DecimalFormat("##.000");
+			 DecimalFormat g = new DecimalFormat("##.00");
 			//Estos ifs sirven para que ponga la parte del string después del numero
 			if (cont>1000 && cont<1000000) {
-				return "                         "+ cont +"K Cookies";
+				return "         "+ g.format(cont) +"K Cookies         ";
 				
 			} else if (cont>=1000000 && cont<1000000000){
-				return "                         "+Math.round(cont/1000000) +"M Cookies";
+				return "                         "+ f.format(cont/1000000) +"M Cookies         ";
 
 			}else {
-				return "                 "+ cont +" Cookies";
+				return "         "+ cont +" Cookies         ";
 			}
 			
 		} else {
-			return "                         0 cookies";
+			return "         0 cookies         ";
 		}
 		
 		
@@ -119,9 +122,10 @@ public class VentanaCookie {
 				
 				JPanel panelgalleta = new JPanel();
 				panelgalleta.setLayout(new GridLayout(3,1));
+				panelgalleta.setBorder(new BevelBorder(BevelBorder.RAISED));
 				
 				//Contador
-				JLabel contador = new JLabel(met(9850000));
+				JLabel contador = new JLabel(met(1900.87264));
 				panelgalleta.add(contador);
 				
 				//Ajustar la imagen
@@ -320,6 +324,7 @@ public class VentanaCookie {
 				
 				ventanaCookie.add(panelNews, BorderLayout.NORTH);
 				
+				ventanaCookie.setResizable(false);
 				ventanaCookie.setVisible(true);
 	}
 	public static void main(String[] args) {

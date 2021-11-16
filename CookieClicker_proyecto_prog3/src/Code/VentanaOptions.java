@@ -119,7 +119,7 @@ public class VentanaOptions {
 				
 			}
 		});
-		
+		ventanaO.setResizable(false);
 		ventanaO.setVisible(true);
 		ventanaO.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}

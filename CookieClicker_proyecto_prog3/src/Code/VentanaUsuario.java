@@ -100,6 +100,7 @@ public class VentanaUsuario {
 		
 		ventanaU.setBounds(300, 0, 800, 400);
 		ventanaU.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		ventanaU.setResizable(false);
 		ventanaU.setVisible(true);
 	}
 	public static void main(String[] args) {
