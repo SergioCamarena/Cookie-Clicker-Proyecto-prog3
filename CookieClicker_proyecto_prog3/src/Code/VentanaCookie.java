@@ -43,8 +43,9 @@ public class VentanaCookie {
 		
 		if (cont>0) {
 			cont = cont+valor;
-			 DecimalFormat f = new DecimalFormat("##.000");
-			 DecimalFormat g = new DecimalFormat("##.00");
+			 DecimalFormat f = new DecimalFormat("##.000"); //cuantos decimales despues de la , (3)
+			 DecimalFormat g = new DecimalFormat("##.00"); //cuantos decimales despues de la , (2)
+			 
 			//Estos ifs sirven para que ponga la parte del string después del numero
 			if (cont>1000 && cont<1000000) {
 				return "         "+ g.format(cont/1000) +"K Cookies         ";
@@ -67,11 +68,12 @@ public class VentanaCookie {
 		}
 		
 	//Método News
-		
+	//Preguntar como puedo hacerlo
 	
 	}
 	public VentanaCookie(){
 		
+		//Anyadiendo al ArrayList String de News
 		listanews.add("News: Cookie World making some upgrades");
 		listanews.add("News: Chocolate cookie now 30% cheaper");
 		listanews.add("News: Milk coming in next upgrade");
@@ -82,11 +84,12 @@ public class VentanaCookie {
 		listanews.add("News: Farms fields in the new upgrade");
 		listanews.add("News: The concern still stays in Cookie World");
 		listanews.add("News: The 70% in the CookieMall");
+		//____________________________________________________________________-
 		//Creaci�n de ventana
 				JFrame ventanaCookie = new JFrame("Cookie Clicker");
 				ventanaCookie.setBounds(0,0,1500, 600);
 				ventanaCookie.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-				minijuego1.setEnabled(false);
+				minijuego1.setEnabled(false);	//Ponemos el boton de minijuego false para que no pueda jugar desde el principio
 				
 				
 				//_________________________________________EDIFICIOS & CLICKER
@@ -98,7 +101,7 @@ public class VentanaCookie {
 				
 				
 				
-				//______VALOR ANYADIDO
+				
 				
 				
 				//Panel de la derecha (EDIFICIOS)
@@ -111,6 +114,7 @@ public class VentanaCookie {
 				paneledif.add(grandma);
 				paneledif.add(farm);
 				
+			//______VALOR ANYADIDO_______________________________________
 				//Action listener del boton minijuego
 				minijuego1.addActionListener(new ActionListener() {
 					
@@ -122,11 +126,11 @@ public class VentanaCookie {
 				});
 				
 				
-				//Panel Cookie (BOTON CON IMAGEN DE COOKIE)
+				//Panel Cookie (JLabel --> boton CON IMAGEN DE COOKIE)
 				
 				JPanel panelgalleta = new JPanel();
 				panelgalleta.setLayout(new GridLayout(3,1));
-				panelgalleta.setBounds(0, 0, 400, 200);
+				panelgalleta.setBounds(0, 0, 400, 200);			//Porrque no nos tira esto?
 				panelgalleta.setBorder(new BevelBorder(BevelBorder.RAISED));
 				
 				//Contador
@@ -134,7 +138,7 @@ public class VentanaCookie {
 				contador.setFont(new Font("Arial",Font.PLAIN,20));
 				panelgalleta.add(contador);
 				
-				//Ajustar la imagen
+				//Ajustar la imagen para que quede bien y no sea enorme
 				ImageIcon imgIcon = new ImageIcon("src/Code/cookuie.png");
 				Image imgCookie = imgIcon.getImage();
 				Image imq = imgCookie.getScaledInstance(120, 120 ,Image.SCALE_SMOOTH);
@@ -147,7 +151,7 @@ public class VentanaCookie {
 				version.setFont(new Font("Agency FB",Font.ROMAN_BASELINE,21));
 				panelgalleta.add(version);
 				
-				//El JLabel de cookie hay que convertirlo en botón
+				//El JLabel de cookie hay que convertirlo en botón______________________________FALTA POR HACER
 				cookie.addMouseListener(new MouseListener() {
 					
 					@Override
@@ -184,18 +188,19 @@ public class VentanaCookie {
 				
 				ventanaCookie.add(panelgalleta, BorderLayout.WEST);
 				
-				//Panel Botones Norte y News
+		//PANEL NORTE
+				//Panel News con botones de Stas/Info/Options
 				JPanel panelNews = new JPanel();
 				panelNews.setBorder(new TitledBorder("NEWS")); // Borde del panel
 				
-				//Introducci�n de botones y diferentes layouts y bounds de cada uno.
+				
 				panelNews.setLayout(new GridLayout(2,3));
 				
 				//Boton STATS
 				JButton stats = new JButton("Stats");
-				stats.setBounds(0, 0, 20, 20);
 				panelNews.add(stats);
 				
+				//SE LLAMA A LA VENTANA STATS
 				stats.addActionListener(new ActionListener() {
 					
 					@Override
@@ -204,22 +209,24 @@ public class VentanaCookie {
 						
 					}
 				});
+				//TITULO DEL JUEGO
 				JLabel titulo = new JLabel("COOKIE CLICKER");
 				titulo.setFont(new Font("",Font.ROMAN_BASELINE,32));
 				titulo.setHorizontalAlignment(SwingConstants.CENTER);
 				panelNews.add(titulo);
 				
-				//Las News
+				//JTEXTFIELD QUE SE USARA PARA QUE SALGAN LAS NEWS DE UN ARRAYLIST<STRING>
 				JTextField news = new JTextField();
 				news.enable(false);
 				
-				//Winndow listener
+				//WINDOW LISTENER
+				//Esto lo hacemos para que cuando se habra el juego empiece lo de las news, habra que hacer tmb algo con la BD
 				ventanaCookie.addWindowListener(new WindowListener() {
 					
 					@Override
 					public void windowOpened(WindowEvent e) {
 						//Recorrer con un hilo un Arraylist de Strings y sacar un x random dentro de la lista y que haga x+1 y si llega al final que vuelva a empezar.
-						recornews(listanews);
+						//recornews(listanews);
 					}
 											
 					
@@ -266,7 +273,7 @@ public class VentanaCookie {
 				options.setBounds(0, 0, 20, 20);
 				panelNews.add(options);
 				
-			
+				//Lamamos a Ventana OPtions
 				options.addActionListener(new ActionListener() {
 					
 					@Override
@@ -275,9 +282,10 @@ public class VentanaCookie {
 						
 					}
 				});
-				
+				//Metemos el valor anyadido del minijuego
 				panelNews.add(minijuego1);
 				panelNews.add(news);
+				
 				JButton info = new JButton("Info");
 				info.setBounds(0, 0, 20, 20);
 				panelNews.add(info);
@@ -293,7 +301,7 @@ public class VentanaCookie {
 					}
 				});
 				
-				//Panel centro
+				//Panel centro_______________________________________________Falta por terminar!!!
 				JPanel centro = new JPanel();
 				
 				/*
@@ -310,7 +318,7 @@ public class VentanaCookie {
 				
 				ventanaCookie.add(panelNews, BorderLayout.NORTH);
 				
-				ventanaCookie.setResizable(false);
+				ventanaCookie.setResizable(false);//Esto se hace para que no pueda cambiar el bounds de la ventana
 				ventanaCookie.setVisible(true);
 	}
 	
