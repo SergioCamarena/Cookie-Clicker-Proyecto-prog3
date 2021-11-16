@@ -33,6 +33,31 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 public class VentanaCookie {
+	public static double cont = 1;	//Valor del contador (inicialización)
+	
+	//Método de contador
+	public static String met(double valor) {
+		
+		if (cont>0) {
+			cont = cont+valor;
+			//Estos ifs sirven para que ponga la parte del string después del numero
+			if (cont>1000 && cont<1000000) {
+				return "                         "+ cont +"K Cookies";
+				
+			} else if (cont>=1000000 && cont<1000000000){
+				return "                         "+Math.round(cont/1000000) +"M Cookies";
+
+			}else {
+				return "                 "+ cont +" Cookies";
+			}
+			
+		} else {
+			return "                         0 cookies";
+		}
+		
+		
+	
+	}
 	public VentanaCookie(){
 		ArrayList<String> listanews = new ArrayList<String>();
 		listanews.add("News: Cookie World making some upgrades");
@@ -87,13 +112,17 @@ public class VentanaCookie {
 				
 				
 				//Panel Cookie (BOTON CON IMAGEN DE COOKIE)
-				//JLabel contador = new JLabel(contador());
 				
-				//contador.setBorder(new TitledBorder("Coockie Land"/*,nombre*/));
+				
+				
+				
 				
 				JPanel panelgalleta = new JPanel();
-				panelgalleta.setLayout(new BorderLayout());
+				panelgalleta.setLayout(new GridLayout(3,1));
 				
+				//Contador
+				JLabel contador = new JLabel(met(9850000));
+				panelgalleta.add(contador);
 				
 				//Ajustar la imagen
 				ImageIcon imgIcon = new ImageIcon("src/Code/cookuie.png");
@@ -176,7 +205,7 @@ public class VentanaCookie {
 					@Override
 					public void windowOpened(WindowEvent e) {
 						//Recorrer con un hilo un Arraylist de Strings y sacar un x random dentro de la lista y que haga x+1 y si llega al final que vuelva a empezar.
-						Thread corre = new Thread(new Runnable() {
+						/*Thread corre = new Thread(new Runnable() {
 							public void run() {
 								
 								for (int i = 1; i < listanews.size();i++) {
@@ -202,7 +231,7 @@ public class VentanaCookie {
 								
 							}
 						});
-						
+						*/
 					}
 					
 					@Override
