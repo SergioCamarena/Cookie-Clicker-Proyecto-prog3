@@ -72,6 +72,8 @@ public class VentanaCookie {
 	//Preguntar como puedo hacerlo
 public static String Lista() {
 	ArrayList<String> listanews = new ArrayList<String>();
+	
+	//Hay 155
 	listanews.add("News: Cookie World making some upgrades");
 	listanews.add("News: Chocolate cookie now 30% cheaper");
 	listanews.add("News: Milk coming in next upgrade");
@@ -105,10 +107,7 @@ public static String Lista() {
 	listanews.add("News:  recently-discovered chocolate temples now sparking new cookie-related cult; thousands pray to Baker in the sky!");
 	listanews.add("News:  just how extensive is the cookie pantheon? Theologians speculate about possible ");
 	listanews.add("News:  theists of the world discover new cookie religion - \"Oh boy, guess we were wrong all along!\"");
-	listanews.add("News:  cookie heaven allegedly \"sports elevator instead of stairway\"; cookie hell \"paved with flagstone, as good intentions make for poor building material\".");
 	listanews.add("News:  heavy dissent rages between the schools of ");
-	listanews.add("News:  get your new charms and curses at the yearly National Spellcrafting Fair! Exclusive prices on runes and spellbooks.");
-	listanews.add("News:  cookie wizards deny involvement in shockingly ugly newborn - infant is \"honestly grody-looking, but natural\", say doctors.");
 	listanews.add("News:  \"Any sufficiently crude magic is indistinguishable from technology\", claims renowned technowizard.");
 	listanews.add("News:  new chocolate planet found, becomes target of cookie-trading spaceships!");
 	listanews.add("News:  massive chocolate planet found with 99.8% certified pure dark chocolate core!");
@@ -130,8 +129,6 @@ public static String Lista() {
 	listanews.add("News:  cookies brought back from the past \"unfit for human consumption\", says historian.");
 	listanews.add("News:  various historical figures inexplicably replaced with talking lumps of dough!");
 	listanews.add("News:  \"I have seen the future,\" says time machine operator, \"and I do not wish to go there again.\"");
-	listanews.add("News:  whole town seemingly swallowed by antimatter-induced black hole; more reliable sources affirm town \"never really existed\"!");
-	listanews.add("News:  \"explain to me again why we need particle accelerators to bake cookies?\" asks misguided local woman.");
 	listanews.add("News:  first antimatter condenser successfully turned on, doesn");
 	listanews.add("News:  researchers conclude that what the cookie industry needs, first and foremost, is \"more magnets\".");
 	listanews.add("News:  \"unravelling the fabric of reality just makes these cookies so much tastier\", claims scientist.");
@@ -140,71 +137,42 @@ public static String Lista() {
 	listanews.add("News:  cookies now being baked at the literal speed of light thanks to new prismatic contraptions.");
 	listanews.add("News:  world citizens advised \"not to worry\" about frequent atmospheric flashes.");
 	listanews.add("News:  strange statistical anomalies continue as weather forecast proves accurate an unprecedented 3 days in a row!");
-	listanews.add("News:  local casino ruined as all gamblers somehow hit a week-long winning streak! \"We might still be okay\", says owner before being hit by lightning 47 times.");
-	listanews.add("News:  neighboring nation somehow elects president with sensible policies in freak accident of random chance!");
-	listanews.add("News:  million-to-one event sees gritty movie reboot turning out better than the original! \"We have no idea how this happened\", say movie execs.");
-	listanews.add("News:  all scratching tickets printed as winners, prompting national economy to crash and, against all odds, recover overnight.");
-	listanews.add("News:  local man \"done with Cookie Clicker\", finds the constant self-references \"grating and on-the-nose\".");
 	listanews.add("News:  local man sails around the world to find himself - right where he left it.");
 	listanews.add("News:  local guru claims \"there");
 	listanews.add("News:  news writer finds herself daydreaming about new career. Or at least a raise.");
 	listanews.add("News:  polls find idea of cookies made of cookies \"acceptable\" - \"at least we finally know what");
-	listanews.add("News:  strange fad has parents giving their newborns names such as Emma.js or Liam.js. At least one Baby.js reported.");
-	listanews.add("News:  coding is hip! More and more teenagers turn to technical fields like programming, ensuring a future robot apocalypse and the doom of all mankind.");
-	listanews.add("News:  developers unsure what to call their new javascript libraries as all combinations of any 3 dictionary words have already been taken.");
 	listanews.add("News:  nation holds breath as nested ifs about to hatch.");
-	listanews.add("News:  clueless copywriter forgets to escape a quote, ends news line prematurely; last words reported to be \"Huh, why isn");
 	listanews.add("News:  is another you living out their dreams in an alternate universe? Probably, you lazy bum!");
 	listanews.add("News:  public recoils at the notion of a cosmos made of infinite idle games. \"I kinda hoped there");
-	listanews.add("News:  with an infinity of parallel universes, people turn to reassuring alternate dimensions, which only number \"in the high 50s\".");
-	listanews.add("News:  \"I find solace in the knowledge that at least some of my alternate selves are probably doing fine out there\", says citizen");
 	listanews.add("News:  comic book writers point to actual multiverse in defense of dubious plot points. \"See? I told you it wasn");
 	listanews.add("News:  strange twisting creatures amass around cookie factories, nibble at assembly lines.");
 	listanews.add("News:  ominous wrinkly monsters take massive bites out of cookie production; \"this can");
-	listanews.add("News:  pagan rituals on the rise as children around the world dress up in strange costumes and blackmail homeowners for candy.");
 	listanews.add("News:  new-age terrorism strikes suburbs as houses find themselves covered in eggs and toilet paper.");
 	listanews.add("News:  children around the world \"lost and confused\" as any and all Halloween treats have been replaced by cookies.");
 	listanews.add("News:  bearded maniac spotted speeding on flying sleigh! Investigation pending.");
 	listanews.add("News:  Santa Claus announces new brand of breakfast treats to compete with cookie-flavored cereals! \"They");
 	listanews.add("News:  \"You mean he just gives stuff away for free?!\", concerned moms ask. \"Personally, I don");
-	listanews.add("News:  obese jolly lunatic still on the loose, warn officials. \"Keep your kids safe and board up your chimneys. We mean it.\"");
 	listanews.add("News:  children shocked as they discover Santa Claus isn");
-	listanews.add("News:  mysterious festive entity with quantum powers still wrecking havoc with army of reindeer, officials say.");
-	listanews.add("News:  elves on strike at toy factory! \"We will not be accepting reindeer chow as payment anymore. And stop calling us elves!\"");
-	listanews.add("News:  elves protest around the nation; wee little folks in silly little outfits spread mayhem, destruction; rabid reindeer running rampant through streets.");
 	listanews.add("News:  scholars debate regarding the plural of reindeer(s) in the midst of elven world war.");
 	listanews.add("News:  elves \"unrelated to gnomes despite small stature and merry disposition\", find scientists.");
-	listanews.add("News:  elves sabotage radioactive frosting factory, turn hundreds blind in vicinity - \"Who in their right mind would do such a thing?\" laments outraged mayor.");
 	listanews.add("News:  drama unfolds at North Pole as rumors crop up around Rudolph");
-	listanews.add("News:  organ-shaped confectioneries being traded in schools all over the world; gruesome practice undergoing investigation.");
 	listanews.add("News:  heart-shaped candies overtaking sweets business, offering competition to cookie empire. \"It");
 	listanews.add("News:  marrying a cookie - deranged practice, or glimpse of the future?");
 	listanews.add("News:  boyfriend dumped after offering his lover cookies for Valentine");
 	listanews.add("News:  long-eared critters with fuzzy tails invade suburbs, spread terror and chocolate!");
-	listanews.add("News:  eggs have begun to materialize in the most unexpected places; \"no place is safe\", warn experts.");
-	listanews.add("News:  packs of rampaging rabbits cause billions in property damage; new strain of myxomatosis being developed.");
-	listanews.add("News:  egg-laying rabbits \"not quite from this dimension\", warns biologist; advises against petting, feeding, or cooking the creatures.");
-	listanews.add("News:  mysterious rabbits found to be egg-layers, but mammalian, hinting at possible platypus ancestry.");
-	listanews.add("News:  cookie manufacturer completely forgoes common sense, lets strange obsession with round numbers drive building decisions!");
-	listanews.add("News:  follow the tear-jerking, riches-to-rags story about a local cookie manufacturer who decided to give it all up!");
 	listanews.add("News:  known universe now jammed with cookies! No vacancies!");
 	listanews.add("News:  incredibly rare albino wrinkler on the brink of extinction poached by cookie-crazed pastry magnate!");
 	listanews.add("News:  local cookie manufacturer becomes luckiest being alive!");
 	listanews.add("News:  seasons are all out of whack! \"We need to get some whack back into them seasons\", says local resident.");
 	listanews.add("News:  faint meowing heard around local cookie facilities; suggests new ingredient being tested.");
 	listanews.add("News:  crowds of meowing kittens with little hard hats reported near local cookie facilities.");
-	listanews.add("News:  surroundings of local cookie facilities now overrun with kittens in adorable little suits. Authorities advise to stay away from the premises.");
 	listanews.add("News:  locals report troupe of bossy kittens meowing adorable orders at passersby.");
 	listanews.add("News:  local office cubicles invaded with armies of stern-looking kittens asking employees \"what");
-	listanews.add("News:  tiny felines show sudden and amazing proficiency with fuzzy mathematics and pawlinomials, baffling scientists and pet store owners.");
 	listanews.add("News:  new kitten college opening next week, offers courses on cookie-making and catnip studies.");
 	listanews.add("News:  unemployment rates soaring as woefully adorable little cats nab jobs on all levels of expertise, says study.");
 	listanews.add("News:  \"In the future, your job will most likely be done by a cat\", predicts suspiciously furry futurologist.");
 	listanews.add("News:  strange kittens with peculiar opinions on martial arts spotted loitering on local beet farms!");
-	listanews.add("News:  nonsensical billboards crop up all over countryside, trying to sell people the cookies they already get for free!");
 	listanews.add("News:  are your spending habits sensible? For a hefty fee, these analysts will tell you!");
-	listanews.add("News:  kittens strutting around in hot little business suits shouting cut-throat orders at their assistants, possibly the cutest thing this reporter has ever seen!");
-	listanews.add("News:  \"Try to ignore any ghostly felines that may be purring inside your ears,\" warn scientists. \"They");
 	listanews.add("News:  kittens break glass ceiling! Do they have any idea how expensive those are!");
 	listanews.add("News:  local kittens involved in misguided musical production, leave audience perturbed and unnerved.");
 	listanews.add("News:  major sugar-smuggling ring dismantled by authorities; ");
@@ -221,8 +189,6 @@ public static String Lista() {
 	listanews.add("News:  scientist predicts imminent cookie-related \"end of the world\"; becomes joke among peers.");
 	listanews.add("News:  man robs bank, buys cookies.");
 	listanews.add("News:  scientists establish that the deal with airline food is, in fact, a critical lack of cookies.");
-	listanews.add("News:  hundreds of tons of cookies dumped into starving country from airplanes; thousands dead, nation grateful.");
-	listanews.add("News:  new study suggests cookies neither speed up nor slow down aging, but instead \"take you in a different direction\".");
 	listanews.add("News:  overgrown cookies found in fishing nets, raise questions about hormone baking.");
 	listanews.add("News:  \"all-you-can-eat\" cookie restaurant opens in big city; waiters trampled in minutes.");
 	listanews.add("News:  man dies in cookie-eating contest; \"a less-than-impressive performance\", says judge.");
@@ -231,31 +197,20 @@ public static String Lista() {
 	listanews.add("News:  foreign politician involved in cookie-smuggling scandal.");
 	listanews.add("News:  cookies now more popular than ");
 	listanews.add("News:  obesity epidemic strikes nation; experts blame ");
-	listanews.add("News:  cookie shortage strikes town, people forced to eat cupcakes; \"just not the same\", concedes mayor.");
 	listanews.add("News:  \"you gotta admit, all this cookie stuff is a bit ominous\", says confused idiot.");
-	listanews.add("News:  scientists advise getting used to cookies suffusing every aspect of life; \"this is the new normal\", expert says.");
-	listanews.add("News:  doctors advise against wearing face masks when going outside. \"You never know when you might need a cookie... a mask would just get in the way.\"");
-	listanews.add("News:  is there life on Mars? Various chocolate bar manufacturers currently under investigation for bacterial contaminants.");
 	listanews.add("News:  \"so I guess that");
 	listanews.add("News:  movie cancelled from lack of actors; \"everybody");
 	listanews.add("News:  comedian forced to cancel cookie routine due to unrelated indigestion.");
 	listanews.add("News:  new cookie-based religion sweeps the nation.");
-	listanews.add("News:  fossil records show cookie-based organisms prevalent during Cambrian explosion, scientists say.");
 	listanews.add("News:  mysterious illegal cookies seized; \"tastes terrible\", says police.");
 	listanews.add("News:  man found dead after ingesting cookie; investigators favor \"mafia snitch\" hypothesis.");
 	listanews.add("News:  \"the universe pretty much loops on itself,\" suggests researcher; \"it");
-	listanews.add("News:  minor cookie-related incident turns whole town to ashes; neighboring cities asked to chip in for reconstruction.");
-	listanews.add("News:  is our media controlled by the cookie industry? This could very well be the case, says crackpot conspiracy theorist.");
-	listanews.add("News:  all-cookie restaurant opening downtown. Dishes such as braised cookies, cookie thermidor, and for dessert : crepes.");
 	listanews.add("News:  \"Ook\", says interviewed orangutan.");
 	listanews.add("News:  cookies could be the key to ");
 	listanews.add("News:  flavor text ");
-	listanews.add("News:  what do golden cookies taste like? Study reveals a flavor \"somewhere between spearmint and liquorice\".");
-	listanews.add("News:  what do wrath cookies taste like? Study reveals a flavor \"somewhere between blood sausage and seawater\".");
 	listanews.add("News:  new popularity survey says ");
 	listanews.add("News:  major city being renamed ");
 	listanews.add("News:  \"memes from last year somehow still relevant\", deplore experts.");
-	listanews.add("News:  \"at this point, cookies permeate the economy\", says economist. \"If we start eating anything else, we");
 	listanews.add("News:  pun in headline infuriates town, causes riot. 21 wounded, 5 dead; mayor still missing.");
 	listanews.add("News:  irate radio host rambles about pixelated icons. \"None of the cookies are aligned! Can");
 	listanews.add("News:  nation cheers as legislators finally outlaw ");
@@ -266,7 +221,6 @@ public static String Lista() {
 	listanews.add("News:  families around the continent report agitated, transfixed grandmothers!");
 	listanews.add("News:  doctors swarmed by cases of old women with glassy eyes and a foamy mouth!");
 	listanews.add("News:  nurses report \"strange scent of cookie dough\" around female elderly patients!");
-	listanews.add("News:  town in disarray as strange old ladies break into homes to abduct infants and baking utensils!");
 	listanews.add("News:  sightings of old ladies with glowing eyes terrify local population!");
 	listanews.add("News:  retirement homes report \"female residents slowly congealing in their seats\"!");
 	listanews.add("News:  whole continent undergoing mass exodus of old ladies!");
@@ -289,14 +243,31 @@ public static String Lista() {
 						i=k;
 						listanews.get(i);
 						news.setText(listanews.get(i));
-						if ((i&1)==0) {
+						//Mira lo de los colores detenidamente
+						
+						if ((i>=0) & (i > 15)) {
 							news.setBackground(Color.red);
 						}
-						else if ((i%7)==1) {
+						else if((i>=15) & (i < 30)) {
+							news.setBackground(Color.pink);
+						}
+						else if ((i>=30) & (i< 50)) {
 							news.setBackground(Color.yellow);
 						}
-						else {
+						else if((i>=50) & (i< 75)) {
+							news.setBackground(Color.green);
+						}
+						else if((i>=75) & (i<100)) {
+							news.setBackground(Color.magenta);
+						}
+						else if((i>=100) & (i<125)){
+							news.setBackground(Color.orange);
+						}
+						else if ((i>=125) & (i<150)) {
 							news.setBackground(Color.cyan);
+						}
+						else {
+							news.setBackground(Color.LIGHT_GRAY);
 						}
 						try {
 							
