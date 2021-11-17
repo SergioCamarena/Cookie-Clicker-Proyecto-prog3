@@ -37,7 +37,7 @@ public class VentanaCookie {
 	
 	public static double cont = 1;	//Valor del contador (inicialización)
 	static JButton minijuego1 = new JButton("MiniJuego");
-	
+	static JLabel news;
 	
 	//Método de contador
 	public static String met(double valor) {
@@ -83,12 +83,12 @@ public static String Lista() {
 	listanews.add("News: The concern still stays in Cookie World");
 	listanews.add("News: The 70% in the CookieMall");
 		
-		/*
+		
 			Thread corre = new Thread(new Runnable() {
 				
 				public void run() {
 					for (int i = 0; i < listanews.size(); i++) {
-						listanews.get(i);
+						news.setText(listanews.get(i));
 						try {
 							listanews.get(i);
 							Thread.sleep(10000);
@@ -103,8 +103,8 @@ public static String Lista() {
 				
 			}
 			});
-			//corre.run();
-			 */
+			corre.start();
+			 
 			return "";
 			 
 			
@@ -250,7 +250,7 @@ public static String Lista() {
 				panelNews.add(titulo);
 				
 				//JLabel QUE SE USARA PARA QUE SALGAN LAS NEWS DE UN ARRAYLIST<STRING>
-				JLabel news = new JLabel(Lista());
+				news = new JLabel(Lista());
 				news.setHorizontalAlignment(SwingConstants.CENTER);
 				news.setBackground(Color.white);
 				
