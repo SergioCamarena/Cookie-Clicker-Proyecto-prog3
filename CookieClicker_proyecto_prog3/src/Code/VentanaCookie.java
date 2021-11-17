@@ -87,17 +87,29 @@ public static String Lista() {
 			Thread corre = new Thread(new Runnable() {
 				
 				public void run() {
+					while(true) {
 					for (int i = 0; i < listanews.size(); i++) {
 						news.setText(listanews.get(i));
+						listanews.get(i);
+						
+						if ((i&1)==0) {
+							news.setBackground(Color.red);
+						}
+						else if ((i%7)==1) {
+							news.setBackground(Color.yellow);
+						}
+						else {
+							news.setBackground(Color.cyan);
+						}
 						try {
-							listanews.get(i);
-							Thread.sleep(10000);
+							
+							Thread.sleep(5000);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}	
 					}
-				
+					}
 					
 				
 				
@@ -253,7 +265,7 @@ public static String Lista() {
 				news = new JLabel(Lista());
 				news.setHorizontalAlignment(SwingConstants.CENTER);
 				news.setBackground(Color.white);
-				
+				news.setOpaque(true);
 				//WINDOW LISTENER
 				//Esto lo hacemos para que cuando se habra el juego empiece lo de las news, habra que hacer tmb algo con la BD
 				ventanaCookie.addWindowListener(new WindowListener() {
