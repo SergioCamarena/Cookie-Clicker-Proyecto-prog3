@@ -34,9 +34,10 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 public class VentanaCookie {
+	
 	public static double cont = 1;	//Valor del contador (inicialización)
 	static JButton minijuego1 = new JButton("MiniJuego");
-	public static ArrayList<String> listanews = new ArrayList<String>();
+	
 	
 	//Método de contador
 	public static String met(double valor) {
@@ -66,24 +67,51 @@ public class VentanaCookie {
 		} else {
 			return "         0 cookies         ";
 		}
-		
+	}
 	//Método News
 	//Preguntar como puedo hacerlo
-	
+public static String Lista() {
+	ArrayList<String> listanews = new ArrayList<String>();
+	listanews.add("News: Cookie World making some upgrades");
+	listanews.add("News: Chocolate cookie now 30% cheaper");
+	listanews.add("News: Milk coming in next upgrade");
+	listanews.add("News: Cookie World searching for the CookieThief");
+	listanews.add("News: Gradmas looking for upgrades");
+	listanews.add("News: Gradmas working really efectively");
+	listanews.add("News: Farms found a great location");
+	listanews.add("News: Farms fields in the new upgrade");
+	listanews.add("News: The concern still stays in Cookie World");
+	listanews.add("News: The 70% in the CookieMall");
+		
+		for (int i = 0; i < listanews.size(); i++) {
+			Thread corre = new Thread(new Runnable() {
+				
+				public void run() {
+				try {
+					listanews.get(i);
+					Thread.sleep(10000);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}	
+					
+				}
+				
+			});
+			corre.run();
+			return " " + listanews.get(i);
+			 
+			
+		}
+		return ""+ listanews.get(7);
+		
 	}
+
+	
 	public VentanaCookie(){
 		
 		//Anyadiendo al ArrayList String de News
-		listanews.add("News: Cookie World making some upgrades");
-		listanews.add("News: Chocolate cookie now 30% cheaper");
-		listanews.add("News: Milk coming in next upgrade");
-		listanews.add("News: Cookie World searching for the CookieThief");
-		listanews.add("News: Gradmas looking for upgrades");
-		listanews.add("News: Gradmas working really efectively");
-		listanews.add("News: Farms found a great location");
-		listanews.add("News: Farms fields in the new upgrade");
-		listanews.add("News: The concern still stays in Cookie World");
-		listanews.add("News: The 70% in the CookieMall");
+		
 		//____________________________________________________________________-
 		//Creaci�n de ventana
 				JFrame ventanaCookie = new JFrame("Cookie Clicker");
@@ -216,8 +244,9 @@ public class VentanaCookie {
 				panelNews.add(titulo);
 				
 				//JTEXTFIELD QUE SE USARA PARA QUE SALGAN LAS NEWS DE UN ARRAYLIST<STRING>
-				JTextField news = new JTextField();
-				news.enable(false);
+				JLabel news = new JLabel(Lista());
+				news.setHorizontalAlignment(SwingConstants.CENTER);
+				news.setBackground(Color.white);
 				
 				//WINDOW LISTENER
 				//Esto lo hacemos para que cuando se habra el juego empiece lo de las news, habra que hacer tmb algo con la BD
@@ -225,8 +254,7 @@ public class VentanaCookie {
 					
 					@Override
 					public void windowOpened(WindowEvent e) {
-						//Recorrer con un hilo un Arraylist de Strings y sacar un x random dentro de la lista y que haga x+1 y si llega al final que vuelva a empezar.
-						//recornews(listanews);
+						
 					}
 											
 					
