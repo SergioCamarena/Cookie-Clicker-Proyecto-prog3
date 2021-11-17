@@ -87,11 +87,14 @@ public static String Lista() {
 			Thread corre = new Thread(new Runnable() {
 				
 				public void run() {
+					int i=0;
 					while(true) {
-					for (int i = 0; i < listanews.size(); i++) {
-						news.setText(listanews.get(i));
-						listanews.get(i);
 						
+						int k=i;
+						while(i==k)k=(int)Math.floor(Math.random()*listanews.size());
+						i=k;
+						listanews.get(i);
+						news.setText(listanews.get(i));
 						if ((i&1)==0) {
 							news.setBackground(Color.red);
 						}
@@ -108,7 +111,6 @@ public static String Lista() {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}	
-					}
 					}
 					
 				
