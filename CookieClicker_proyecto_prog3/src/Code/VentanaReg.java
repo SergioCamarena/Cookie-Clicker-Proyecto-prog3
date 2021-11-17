@@ -41,12 +41,13 @@ public class VentanaReg {
 		textcontra.setSize(20,20);
 		JLabel coluor = new JLabel();	//Se pone en Verde si las contraseñas son iguales sino en Rojo
 		coluor.setBorder(new LineBorder(Color.black));
+		coluor.setOpaque(true);
 		JButton comprov = new JButton("Pulsa para combrobar");
 		JLabel email = new JLabel("Introduce e-mail");
 		JTextField textemail = new JTextField();
 		textemail.setSize(20,20);
 		
-		
+		//Mirar bien este método
 		comprov.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent e) {
@@ -56,14 +57,14 @@ public class VentanaReg {
 					coluor.setBackground(Color.GREEN);
 				}
 					
-				else {
-					if(textcontrasena == JPasswordField("") & textcontra == JPasswordField("")){
+				else if(textcontrasena == JPasswordField("") & textcontra == JPasswordField("")){
+					
 						coluor.setBackground(Color.MAGENTA);
-					}
+				}
 					else {
 					coluor.setBackground(Color.red);
 						 }
-					}
+					
 				
 			}
 
@@ -116,15 +117,17 @@ public class VentanaReg {
 		
 		//east.setForeground(new ImageIcon("src/Code/cookuie.png"));
 		JLabel consid = new JLabel("<html>Aquí hay unas pautas que te dejamos los administradores para que hagas el Registro <b>correctamente:</b><br>"
-				+ "1) <b>Usuario --> </b> Introduce un usuario que sea facil de recordar para ti.<br>"
+				+ "1) <b>Nick Name --> </b> Introduce un nick que sea facil de recordar para ti.<br>"
 				+ "2) <b>Contraseña --> </b> Introduce una contraseña que sea facil de recordad pero con una complejidad.<br>"
 				+ "____2.1) La contraseña debe tener:<br>"
-				+ "_____________- Almenos 1 Mayuscula. <br>"
-				+ "_____________- Almenos 1 número. <br>"
-				+ "_____________- Almenos 1 caracter especial. <br>"
+				+ "_____________- Al menos 1 Mayuscula. <br>"
+				+ "_____________- Al menos 1 dígito. <br>"
+				+ "_____________- Al menos 1 caracter especial. <br>"
+				+ "_____________- Al menos una lonitud de 6. <br>"
 				+ "3)<b> Email --> </b> Introduce tu dirección de email. No se enviará propaganda.<br> "
-				+ "4)<b> NO INTENTES HACER SQL INYECTION</b>, no va a funcionar.<br>"
-				+ "5)<b>Apunta bien </b> la contraseña porque sino tendrás que <b>volver a empezar</b> el juego.  </html>");
+				+ "4)<b> El usuario es autogenerado, pero no importa, solo es útil para los administradores.<br>"
+				+ "5)<b> NO INTENTES HACER SQL INYECTION</b>, no va a funcionar.<br>"
+				+ "6)<b>Apunta bien </b> la contraseña porque sino tendrás que <b>volver a empezar</b> el juego.  </html>");
 		consid.setFont(new Font("Serief",Font.ITALIC,12));
 		consid.setBorder(new TitledBorder("Cosas a tener en cuenta:"));
 		consid.setBorder(new TitledBorder("TENER EN CUENTA"));

@@ -245,7 +245,7 @@ public static String Lista() {
 						while(i==k)k=(int)Math.floor(Math.random()*listanews.size());
 						i=k;
 						listanews.get(i);
-						System.out.println(i);
+						//System.out.println(i);
 						news.setText(listanews.get(i));
 						
 						//Depende del numero que salga saca un color u otro.
@@ -335,12 +335,24 @@ public static String Lista() {
 				});
 				
 				
-				//Panel Cookie (JLabel --> boton CON IMAGEN DE COOKIE)
+				//Panel Oeste que engloba panelgalleta y el nick 
+				JPanel oeste = new JPanel();
+				oeste.setLayout(new BorderLayout());
+				oeste.setBorder(new BevelBorder(BevelBorder.LOWERED));
 				
+				//Nick
+				JLabel nickName = new JLabel("Nick Name: "/*,nick*/);
+				nickName.setFont(new Font("Agency FB",Font.PLAIN,17));
+				nickName.setBackground(Color.orange);
+				nickName.setOpaque(true);
+				oeste.add(nickName, BorderLayout.NORTH);
+				
+				//Panel Cookie (JLabel --> boton CON IMAGEN DE COOKIE)
 				JPanel panelgalleta = new JPanel();
-				panelgalleta.setLayout(new GridLayout(3,1));
+				panelgalleta.setLayout(new GridLayout(4,1));
 				panelgalleta.setBounds(0, 0, 400, 200);			//Porrque no nos tira esto?
 				panelgalleta.setBorder(new BevelBorder(BevelBorder.RAISED));
+				
 				
 				//Contador
 				JLabel contador = new JLabel(met(1900.87264));
@@ -355,6 +367,7 @@ public static String Lista() {
 				JLabel cookie = new JLabel(imgIcon);
 				panelgalleta.add(cookie);
 				
+				panelgalleta.add(new JLabel());
 				//Un label que pone la version del juego
 				JLabel version = new JLabel("                        V.2.031");
 				version.setFont(new Font("Agency FB",Font.ROMAN_BASELINE,21));
@@ -394,8 +407,8 @@ public static String Lista() {
 					}
 					
 				});
-				
-				ventanaCookie.add(panelgalleta, BorderLayout.WEST);
+				oeste.add(panelgalleta, BorderLayout.CENTER);
+				ventanaCookie.add(oeste, BorderLayout.WEST);
 				
 		//PANEL NORTE
 				//Panel News con botones de Stas/Info/Options
@@ -442,7 +455,7 @@ public static String Lista() {
 					
 					@Override
 					public void windowClosed(WindowEvent e) {
-						//Thread.interrupt();
+						
 						
 					}
 					

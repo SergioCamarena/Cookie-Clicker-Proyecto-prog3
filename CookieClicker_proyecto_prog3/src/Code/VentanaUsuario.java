@@ -20,7 +20,7 @@ public class VentanaUsuario {
 
 	public VentanaUsuario() {
 		JFrame ventanaU = new JFrame("USUARIO & CONTRASE�A");
-		JLabel usuario = new JLabel("Introduce usuario: ");
+		JLabel nick = new JLabel("Introduce nick: ");
 		JTextField anyadusuario = new JTextField();
 		anyadusuario.setEditable(true);
 		anyadusuario.setBounds(0,0, 300, 50);
@@ -48,7 +48,7 @@ public class VentanaUsuario {
 		//Panel south
 		JPanel south = new JPanel();
 		south.setLayout(new GridLayout(3,1));
-		south.add(usuario);
+		south.add(nick);
 		south.add(anyadusuario);
 		JLabel etiquetaU = new JLabel();
 		south.add(etiquetaU);

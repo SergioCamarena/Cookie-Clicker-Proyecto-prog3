@@ -15,9 +15,9 @@ import javax.swing.JTextField;
 public class VentanaStats {
 
 	public VentanaStats() {
-		JFrame ventanaS = new JFrame("ESTADISTICAS DE: "); //Anyadir el nombre del usuario en específico que esté consultando las estadísticas  
+		JFrame ventanaS = new JFrame("ESTADISTICAS: "); //Anyadir el nombre del usuario en específico que esté consultando las estadísticas  
 		JPanel norte = new JPanel();
-		JLabel titulo = new JLabel("ESTADISTICAS DE: ");
+		JLabel titulo = new JLabel("ESTADISTICAS ");
 		titulo.setFont(new Font("Serif", Font.PLAIN,40 ));
 		norte.add(titulo);
 		ventanaS.add(norte, BorderLayout.NORTH );
