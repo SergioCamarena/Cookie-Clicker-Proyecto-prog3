@@ -39,6 +39,8 @@ public class VentanaCookie {
 	public static double cont = 1;	//Valor del contador (inicialización)
 	static JButton minijuego1 = new JButton("MiniJuego");
 	static JLabel news;
+	static Thread corre;
+	static boolean seguir = true;
 	
 	//Método de contador
 	public static String met(double valor) {
@@ -233,11 +235,11 @@ public static String Lista() {
 	listanews.add("News:  nightmare continues as wrinkled acres of flesh expand at alarming speeds!");
 
 		
-			Thread corre = new Thread(new Runnable() {
+			 corre = new Thread(new Runnable() {
 				
 				public void run() {
 					int i=0;
-					while(true) {
+					while(seguir) {
 						
 						int k=i;
 						while(i==k)k=(int)Math.floor(Math.random()*listanews.size());
@@ -276,7 +278,7 @@ public static String Lista() {
 							Thread.sleep(5000);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
-							e.printStackTrace();
+							//e.printStackTrace();
 						}	
 					}	
 			}
@@ -434,7 +436,8 @@ public static String Lista() {
 					@Override
 					public void windowClosing(WindowEvent e) {
 						// TODO Auto-generated method stub
-						
+						seguir = false;
+						corre.interrupt();
 					}
 					
 					@Override
@@ -520,7 +523,7 @@ public static String Lista() {
 	
 	public static void main(String[] args) {
 		new VentanaCookie();
-	
+		
 }
 	
 }
