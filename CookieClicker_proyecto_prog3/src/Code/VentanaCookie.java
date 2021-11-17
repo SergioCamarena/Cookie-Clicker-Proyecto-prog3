@@ -83,29 +83,35 @@ public static String Lista() {
 	listanews.add("News: The concern still stays in Cookie World");
 	listanews.add("News: The 70% in the CookieMall");
 		
-		for (int i = 0; i < listanews.size(); i++) {
+		/*
 			Thread corre = new Thread(new Runnable() {
 				
 				public void run() {
-				try {
-					listanews.get(i);
-					Thread.sleep(10000);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}	
-					
-				}
+					for (int i = 0; i < listanews.size(); i++) {
+						listanews.get(i);
+						try {
+							listanews.get(i);
+							Thread.sleep(10000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}	
+					}
 				
+					
+				
+				
+			}
 			});
-			corre.run();
-			return " " + listanews.get(i);
+			//corre.run();
+			 */
+			return "";
 			 
 			
 		}
-		return ""+ listanews.get(7);
 		
-	}
+		
+	
 
 	
 	public VentanaCookie(){
@@ -243,7 +249,7 @@ public static String Lista() {
 				titulo.setHorizontalAlignment(SwingConstants.CENTER);
 				panelNews.add(titulo);
 				
-				//JTEXTFIELD QUE SE USARA PARA QUE SALGAN LAS NEWS DE UN ARRAYLIST<STRING>
+				//JLabel QUE SE USARA PARA QUE SALGAN LAS NEWS DE UN ARRAYLIST<STRING>
 				JLabel news = new JLabel(Lista());
 				news.setHorizontalAlignment(SwingConstants.CENTER);
 				news.setBackground(Color.white);
@@ -331,6 +337,25 @@ public static String Lista() {
 				
 				//Panel centro_______________________________________________Falta por terminar!!!
 				JPanel centro = new JPanel();
+				centro.setLayout(new BorderLayout());
+				
+				//Paneles para separar la parte de los botones de las ventanas (Las columnas grises)
+				JPanel vertizq = new JPanel();
+				vertizq.setBackground(Color.gray);
+				
+				centro.add(vertizq, BorderLayout.WEST);
+				
+				JPanel vertder = new JPanel();
+				vertder.setBackground(Color.gray);
+				
+				centro.add(vertder, BorderLayout.EAST);
+				
+				JPanel centrocent = new JPanel();
+				centrocent.setLayout(new GridLayout(8,4));
+				centrocent.setBackground(Color.magenta);
+				
+				
+				centro.add(centrocent, BorderLayout.CENTER);
 				
 				/*
 				 * NO DEJA HACER NADA DEL FONDO
