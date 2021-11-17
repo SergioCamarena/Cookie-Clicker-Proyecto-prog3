@@ -14,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.text.DecimalFormat;
@@ -242,10 +243,11 @@ public static String Lista() {
 						while(i==k)k=(int)Math.floor(Math.random()*listanews.size());
 						i=k;
 						listanews.get(i);
+						System.out.println(i);
 						news.setText(listanews.get(i));
-						//Mira lo de los colores detenidamente
 						
-						if ((i>=0) & (i > 15)) {
+						//Depende del numero que salga saca un color u otro.
+						if ((i>=0) & (i < 15)) {
 							news.setBackground(Color.red);
 						}
 						else if((i>=15) & (i < 30)) {
@@ -270,20 +272,18 @@ public static String Lista() {
 							news.setBackground(Color.LIGHT_GRAY);
 						}
 						try {
-							
+							//Antes de pasar al siguiente espera 5s
 							Thread.sleep(5000);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
 						}	
-					}
-					
-				
-				
+					}	
 			}
 			});
 			corre.start();
-			 
+			
+			
 			return "";
 			 
 			
@@ -295,7 +295,6 @@ public static String Lista() {
 	
 	public VentanaCookie(){
 		
-		//Anyadiendo al ArrayList String de News
 		
 		//____________________________________________________________________-
 		//Creaci�n de ventana
@@ -311,11 +310,6 @@ public static String Lista() {
 				JButton grandma = new JButton("GRANDMAS");
 				
 				JButton farm = new JButton("FARMS");
-				
-				
-				
-				
-				
 				
 				//Panel de la derecha (EDIFICIOS)
 				JPanel paneledif = new JPanel();
@@ -435,32 +429,7 @@ public static String Lista() {
 				news.setOpaque(true);
 				//WINDOW LISTENER
 				//Esto lo hacemos para que cuando se habra el juego empiece lo de las news, habra que hacer tmb algo con la BD
-				ventanaCookie.addWindowListener(new WindowListener() {
-					
-					@Override
-					public void windowOpened(WindowEvent e) {
-						
-					}
-											
-					
-
-					@Override
-					public void windowIconified(WindowEvent e) {
-						// TODO Auto-generated method stub
-						
-					}
-					
-					@Override
-					public void windowDeiconified(WindowEvent e) {
-						// TODO Auto-generated method stub
-						
-					}
-					
-					@Override
-					public void windowDeactivated(WindowEvent e) {
-						// TODO Auto-generated method stub
-						
-					}
+				ventanaCookie.addWindowListener(new WindowAdapter() {
 					
 					@Override
 					public void windowClosing(WindowEvent e) {
@@ -470,15 +439,10 @@ public static String Lista() {
 					
 					@Override
 					public void windowClosed(WindowEvent e) {
-						
+						//Thread.interrupt();
 						
 					}
 					
-					@Override
-					public void windowActivated(WindowEvent e) {
-						// TODO Auto-generated method stub
-						
-					}
 				});
 				
 				//Boton OPTIONS
