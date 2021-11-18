@@ -21,12 +21,14 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.RootPaneContainer;
 import javax.swing.SwingConstants;
@@ -331,7 +333,33 @@ public static String Lista() {
 				//Panel de la derecha (EDIFICIOS)
 				JPanel este = new JPanel();
 				este.setLayout(new BorderLayout());
+				/*
+				JPanel compvent = new JPanel();
+				compvent.setLayout(new GridLayout(2,2));
 				
+				JLabel titu = new JLabel("Componentes");
+				titu.setOpaque(true);
+				titu.setBackground(Color.red);
+				
+				JLabel rojo = new JLabel();
+				rojo.setOpaque(true);
+				rojo.setBackground(Color.red);
+				compvent.add(titu);
+				compvent.add(rojo);
+				
+				JRadioButton rbtn1=new JRadioButton("Comprar",true);
+				JRadioButton rbtn2=new JRadioButton("Vender",false);
+				
+					//Grupo de radiobuttons
+						ButtonGroup grupo1 = new ButtonGroup();
+						grupo1.add(rbtn1);
+						grupo1.add(rbtn2);
+						
+						compvent.add(rbtn1);
+						compvent.add(rbtn2);
+						
+				este.add(compvent, BorderLayout.NORTH);
+				*/		
 				JPanel paneledif = new JPanel();
 				paneledif.setLayout(new GridLayout(8,2));
 				paneledif.setBounds(0,0,1400, 800);
@@ -362,8 +390,8 @@ public static String Lista() {
 				JLabel num6 = new JLabel();
 				paneledif.add(num6);
 				
-				
-				ventanaCookie.add(paneledif, BorderLayout.EAST);
+				este.add(paneledif, BorderLayout.CENTER);
+				ventanaCookie.add(este, BorderLayout.EAST);
 			//______VALOR ANYADIDO_______________________________________
 				//Action listener del boton minijuego
 				minijuego1.addActionListener(new ActionListener() {
