@@ -31,6 +31,7 @@ public class VentanaReg {
 		JFrame ventanaR = new JFrame("LOG IN");
 		JLabel usuario = new JLabel("Introduce usuario: ");
 		
+		//Definición de componentes
 		JTextField textusuario = new JTextField();
 		textusuario.setSize(20,20);
 		JLabel contrasena = new JLabel("Introduce contraseña: ");

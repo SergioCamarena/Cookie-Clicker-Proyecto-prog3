@@ -41,6 +41,7 @@ public class VentanaCookie {
 	static JLabel news;
 	static Thread corre;
 	static boolean seguir = true;
+	static int t = 0;
 	
 	//Método de contador
 	public static String met(double valor) {
@@ -164,16 +165,12 @@ public static String Lista() {
 	listanews.add("News:  boyfriend dumped after offering his lover cookies for Valentine");
 	listanews.add("News:  long-eared critters with fuzzy tails invade suburbs, spread terror and chocolate!");
 	listanews.add("News:  known universe now jammed with cookies! No vacancies!");
-	listanews.add("News:  incredibly rare albino wrinkler on the brink of extinction poached by cookie-crazed pastry magnate!");
 	listanews.add("News:  local cookie manufacturer becomes luckiest being alive!");
-	listanews.add("News:  seasons are all out of whack! \"We need to get some whack back into them seasons\", says local resident.");
 	listanews.add("News:  faint meowing heard around local cookie facilities; suggests new ingredient being tested.");
 	listanews.add("News:  crowds of meowing kittens with little hard hats reported near local cookie facilities.");
 	listanews.add("News:  locals report troupe of bossy kittens meowing adorable orders at passersby.");
 	listanews.add("News:  local office cubicles invaded with armies of stern-looking kittens asking employees \"what");
 	listanews.add("News:  new kitten college opening next week, offers courses on cookie-making and catnip studies.");
-	listanews.add("News:  unemployment rates soaring as woefully adorable little cats nab jobs on all levels of expertise, says study.");
-	listanews.add("News:  \"In the future, your job will most likely be done by a cat\", predicts suspiciously furry futurologist.");
 	listanews.add("News:  strange kittens with peculiar opinions on martial arts spotted loitering on local beet farms!");
 	listanews.add("News:  are your spending habits sensible? For a hefty fee, these analysts will tell you!");
 	listanews.add("News:  kittens break glass ceiling! Do they have any idea how expensive those are!");
@@ -181,32 +178,23 @@ public static String Lista() {
 	listanews.add("News:  major sugar-smuggling ring dismantled by authorities; ");
 	listanews.add("News:  authorities warn tourists not to buy bootleg sugar lumps from street peddlers - \"You think you");
 	listanews.add("News:  pro-diabetes movement protests against sugar-shaming. \"I");
-	listanews.add("News:  experts in bitter disagreement over whether sugar consumption turns children sluggish or hyperactive.");
-	listanews.add("News:  fishermen deplore upturn in fish tooth decay as sugar lumps-hauling cargo sinks into the ocean.");
-	listanews.add("News:  rare black sugar lump that captivated millions in unprecedented auction revealed to be common toxic fungus.");
 	listanews.add("News:  \"Back in my day, sugar lumps were these little cubes you");
 	listanews.add("News:  sugar lump-snacking fad sweeps the nation; dentists everywhere rejoice.");
 	listanews.add("News:  broccoli tops for moms, last for kids; dads indifferent.");
 	listanews.add("News:  middle age a hoax, declares study; turns out to be bad posture after all.");
 	listanews.add("News:  kitties want answers in possible Kitty Kibble shortage.");
-	listanews.add("News:  scientist predicts imminent cookie-related \"end of the world\"; becomes joke among peers.");
 	listanews.add("News:  man robs bank, buys cookies.");
-	listanews.add("News:  scientists establish that the deal with airline food is, in fact, a critical lack of cookies.");
 	listanews.add("News:  overgrown cookies found in fishing nets, raise questions about hormone baking.");
 	listanews.add("News:  \"all-you-can-eat\" cookie restaurant opens in big city; waiters trampled in minutes.");
-	listanews.add("News:  man dies in cookie-eating contest; \"a less-than-impressive performance\", says judge.");
-	listanews.add("News:  what makes cookies taste so right? \"Probably all the [*****] they put in them\", says anonymous tipper.");
 	listanews.add("News:  man found allergic to cookies; \"what a weirdo\", says family.");
 	listanews.add("News:  foreign politician involved in cookie-smuggling scandal.");
 	listanews.add("News:  cookies now more popular than ");
 	listanews.add("News:  obesity epidemic strikes nation; experts blame ");
-	listanews.add("News:  \"you gotta admit, all this cookie stuff is a bit ominous\", says confused idiot.");
 	listanews.add("News:  \"so I guess that");
 	listanews.add("News:  movie cancelled from lack of actors; \"everybody");
 	listanews.add("News:  comedian forced to cancel cookie routine due to unrelated indigestion.");
 	listanews.add("News:  new cookie-based religion sweeps the nation.");
 	listanews.add("News:  mysterious illegal cookies seized; \"tastes terrible\", says police.");
-	listanews.add("News:  man found dead after ingesting cookie; investigators favor \"mafia snitch\" hypothesis.");
 	listanews.add("News:  \"the universe pretty much loops on itself,\" suggests researcher; \"it");
 	listanews.add("News:  \"Ook\", says interviewed orangutan.");
 	listanews.add("News:  cookies could be the key to ");
@@ -214,8 +202,6 @@ public static String Lista() {
 	listanews.add("News:  new popularity survey says ");
 	listanews.add("News:  major city being renamed ");
 	listanews.add("News:  \"memes from last year somehow still relevant\", deplore experts.");
-	listanews.add("News:  pun in headline infuriates town, causes riot. 21 wounded, 5 dead; mayor still missing.");
-	listanews.add("News:  irate radio host rambles about pixelated icons. \"None of the cookies are aligned! Can");
 	listanews.add("News:  nation cheers as legislators finally outlaw ");
 	listanews.add("News:  person typing these wouldn");
 	listanews.add("News:  \"average person bakes ");
@@ -247,6 +233,29 @@ public static String Lista() {
 						listanews.get(i);
 						//System.out.println(i);
 						news.setText(listanews.get(i));
+						t = t+1;
+						//System.out.println(t);
+						
+						//Para que el Boton MiniJuego se vaya activando cuansdo
+							if((t>=15) && (t<=17)) {
+								minijuego1.setEnabled(true);
+							}else if ((t>=45) && (t<=46)) {
+								minijuego1.setEnabled(true);
+							}else if ((t>=65) && (t<=66)) {
+								minijuego1.setEnabled(true);
+							}else if ((t>=120) && (t<=121)) {
+								minijuego1.setEnabled(true);
+							}else if ((t>=245) && (t<=247)) {
+								minijuego1.setEnabled(true);
+							}else if ((t>=627) && (t<=628)) {
+								minijuego1.setEnabled(true);
+							}else if ((t>=1255) && (t<=1257)) {
+								minijuego1.setEnabled(true);
+							}else if ((t>=3524)) {
+								minijuego1.setEnabled(true);
+							}
+						
+						
 						
 						//Depende del numero que salga saca un color u otro.
 						if ((i>=0) & (i < 15)) {
@@ -264,10 +273,10 @@ public static String Lista() {
 						else if((i>=75) & (i<100)) {
 							news.setBackground(Color.magenta);
 						}
-						else if((i>=100) & (i<125)){
+						else if((i>=100) & (i<115)){
 							news.setBackground(Color.orange);
 						}
-						else if ((i>=125) & (i<150)) {
+						else if ((i>=115) & (i<130)) {
 							news.setBackground(Color.cyan);
 						}
 						else {
@@ -313,16 +322,48 @@ public static String Lista() {
 				
 				JButton farm = new JButton("FARMS");
 				
-				//Panel de la derecha (EDIFICIOS)
-				JPanel paneledif = new JPanel();
-				paneledif.setBounds(0, 0, 600, 600);	//No funciona el setBounds mirar porque!!!!!
-				paneledif.setBorder(new BevelBorder(BevelBorder.RAISED));
-				paneledif.setLayout(new GridLayout(8,1));
-				ventanaCookie.add(paneledif, BorderLayout.EAST);
-				paneledif.add(clicker); 
-				paneledif.add(grandma);
-				paneledif.add(farm);
+				JButton mine = new JButton("MINE");
 				
+				JButton factory =new JButton("FACTORY");
+				
+				JButton bank  = new JButton("BANK");
+				
+				//Panel de la derecha (EDIFICIOS)
+				JPanel este = new JPanel();
+				este.setLayout(new BorderLayout());
+				
+				JPanel paneledif = new JPanel();
+				paneledif.setLayout(new GridLayout(8,2));
+				paneledif.setBounds(0,0,1400, 800);
+				paneledif.setBorder(new BevelBorder(BevelBorder.RAISED));
+				
+				
+				paneledif.add(clicker);
+				JLabel num1 = new JLabel();
+				paneledif.add(num1);
+				
+				paneledif.add(grandma);
+				JLabel num2 = new JLabel();
+				paneledif.add(num2);
+				
+				paneledif.add(farm);
+				JLabel num3 = new JLabel();
+				paneledif.add(num3);
+				
+				paneledif.add(mine);
+				JLabel num4 = new JLabel();
+				paneledif.add(num4);
+				
+				paneledif.add(factory);
+				JLabel num5 = new JLabel();
+				paneledif.add(num5);
+				
+				paneledif.add(bank);
+				JLabel num6 = new JLabel();
+				paneledif.add(num6);
+				
+				
+				ventanaCookie.add(paneledif, BorderLayout.EAST);
 			//______VALOR ANYADIDO_______________________________________
 				//Action listener del boton minijuego
 				minijuego1.addActionListener(new ActionListener() {
@@ -500,21 +541,18 @@ public static String Lista() {
 				
 				//Paneles para separar la parte de los botones de las ventanas (Las columnas grises)
 				JPanel vertizq = new JPanel();
-				vertizq.setBackground(Color.gray);
+				vertizq.setBackground(Color.black);
 				
 				centro.add(vertizq, BorderLayout.WEST);
 				
 				JPanel vertder = new JPanel();
-				vertder.setBackground(Color.gray);
+				vertder.setBackground(Color.black);
 				
 				centro.add(vertder, BorderLayout.EAST);
 				
 				JPanel centrocent = new JPanel();
 				centrocent.setLayout(new GridLayout(8,4));
-				centrocent.setBackground(Color.magenta);
 				
-				
-				centro.add(centrocent, BorderLayout.CENTER);
 				
 				/*
 				 * NO DEJA HACER NADA DEL FONDO
@@ -525,7 +563,9 @@ public static String Lista() {
 				JLabel fondo = new JLabel(imgcentr);
 				centro.add(fondo);
 				*/
-				
+				centrocent.setBackground(Color.pink);
+				centro.add(centrocent, BorderLayout.CENTER);
+		//___________________________________________________________________________________________________________________________
 				ventanaCookie.add(centro, BorderLayout.CENTER);
 				
 				ventanaCookie.add(panelNews, BorderLayout.NORTH);

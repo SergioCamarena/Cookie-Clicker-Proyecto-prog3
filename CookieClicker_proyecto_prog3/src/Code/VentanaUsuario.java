@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 public class VentanaUsuario {
 
 	public VentanaUsuario() {
-		JFrame ventanaU = new JFrame("USUARIO & CONTRASE�A");
+		JFrame ventanaU = new JFrame("USUARIO & CONTRASENY	A");
 		JLabel nick = new JLabel("Introduce nick: ");
 		JTextField anyadusuario = new JTextField();
 		anyadusuario.setEditable(true);
@@ -70,7 +70,7 @@ public class VentanaUsuario {
 			public void actionPerformed(ActionEvent e) {
 				
 				//JOptionPane.showMessageDialog(null, "Login correcto.\datosn �Bienvenido al juego!");
-				//Si usuario y contrase�a no est�n en la base de  preguntar si quiere hacer una nueva partida sino textfielf y passwordfield a null.
+				//Si usuario y contrasenya no est�n en la base de  preguntar si quiere hacer una nueva partida sino textfielf y passwordfield a null.
 				new VentanaCookie();
 				ventanaU.dispose();
 				
