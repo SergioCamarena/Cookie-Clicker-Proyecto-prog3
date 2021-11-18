@@ -236,25 +236,27 @@ public static String Lista() {
 						//System.out.println(i);
 						news.setText(listanews.get(i));
 						t = t+1;
-						//System.out.println(t);
+						System.out.println(t);
 						
-						//Para que el Boton MiniJuego se vaya activando cuansdo
-							if((t>=15) && (t<=17)) {
+						//Para que el Boton MiniJuego se vaya activando cuando esten entre esos varemos
+							if((t>=15) && (t<16)) {
 								minijuego1.setEnabled(true);
-							}else if ((t>=45) && (t<=46)) {
+							}else if ((t>=45) && (t<46)) {
 								minijuego1.setEnabled(true);
-							}else if ((t>=65) && (t<=66)) {
+							}else if ((t>=65) && (t<66)) {
 								minijuego1.setEnabled(true);
-							}else if ((t>=120) && (t<=121)) {
+							}else if ((t>=120) && (t<121)) {
 								minijuego1.setEnabled(true);
-							}else if ((t>=245) && (t<=247)) {
+							}else if ((t>=245) && (t<247)) {
 								minijuego1.setEnabled(true);
-							}else if ((t>=627) && (t<=628)) {
+							}else if ((t>=627) && (t<628)) {
 								minijuego1.setEnabled(true);
-							}else if ((t>=1255) && (t<=1257)) {
+							}else if ((t>=1255) && (t<1257)) {
 								minijuego1.setEnabled(true);
 							}else if ((t>=3524)) {
 								minijuego1.setEnabled(true);
+							}else {
+								minijuego1.setEnabled(false);//Si no es ninguno de esos valores de arriba que esté apagado
 							}
 						
 						
