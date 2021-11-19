@@ -29,8 +29,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.RootPaneContainer;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
@@ -234,7 +236,8 @@ public static String Lista() {
 						i=k;
 						listanews.get(i);
 						//System.out.println(i);
-						news.setText(listanews.get(i));
+						news.setText(
+								listanews.get(i));
 						t = t+1;
 						System.out.println(t);
 						
@@ -335,7 +338,7 @@ public static String Lista() {
 				//Panel de la derecha (EDIFICIOS)
 				JPanel este = new JPanel();
 				este.setLayout(new BorderLayout());
-				/*
+				
 				JPanel compvent = new JPanel();
 				compvent.setLayout(new GridLayout(2,2));
 				
@@ -361,10 +364,20 @@ public static String Lista() {
 						compvent.add(rbtn2);
 						
 				este.add(compvent, BorderLayout.NORTH);
-				*/		
+				
+				
+				//Scroll para los botones
+				/*
+				 * 
+				 * JScrollPane scrollBar = new JScrollPane(panel edif);
+				 * scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+				 */
 				JPanel paneledif = new JPanel();
-				paneledif.setLayout(new GridLayout(8,2));
-				paneledif.setBounds(0,0,1400, 800);
+				paneledif.setLayout(new GridLayout(13,2));
+				paneledif.setBounds(0,0,400, 800);
+				paneledif.setMinimumSize(new Dimension(400,800));
+				paneledif.setMaximumSize(new Dimension(400,800));
+				paneledif.setPreferredSize(new Dimension(400,800));
 				paneledif.setBorder(new BevelBorder(BevelBorder.RAISED));
 				
 				
@@ -392,7 +405,29 @@ public static String Lista() {
 				JLabel num6 = new JLabel();
 				paneledif.add(num6);
 				
-				este.add(paneledif, BorderLayout.CENTER);
+				//Para prueba
+				paneledif.add(clicker);
+				 num1 = new JLabel();
+				paneledif.add(num1);
+				
+				paneledif.add(grandma);
+				 num2 = new JLabel();
+				paneledif.add(num2);
+				paneledif.add(clicker);
+				 num1 = new JLabel();
+				paneledif.add(num1);
+				
+				paneledif.add(grandma);
+				 num2 = new JLabel();
+				paneledif.add(num2);paneledif.add(clicker);
+				 num1 = new JLabel();
+				paneledif.add(num1);
+				
+				paneledif.add(grandma);
+				 num2 = new JLabel();
+				paneledif.add(num2);
+				
+				este.add(new JScrollPane(paneledif), BorderLayout.CENTER);
 				ventanaCookie.add(este, BorderLayout.EAST);
 			//______VALOR ANYADIDO_______________________________________
 				//Action listener del boton minijuego
@@ -509,7 +544,9 @@ public static String Lista() {
 				panelNews.add(titulo);
 				
 				//JLabel QUE SE USARA PARA QUE SALGAN LAS NEWS DE UN ARRAYLIST<STRING>
-				news = new JLabel(Lista());
+				//Se separa para que asegurar de que se crea y lanzarlo despues.
+				news = new JLabel(""); //Primero se crea
+				Lista();			   //Luego se lanza
 				news.setHorizontalAlignment(SwingConstants.CENTER);
 				news.setBackground(Color.white);
 				news.setOpaque(true);
