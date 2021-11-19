@@ -239,7 +239,7 @@ public static String Lista() {
 						news.setText(
 								listanews.get(i));
 						t = t+1;
-						System.out.println(t);
+						//System.out.println(t);
 						
 						//Para que el Boton MiniJuego se vaya activando cuando esten entre esos varemos
 							if((t>=15) && (t<16)) {
@@ -335,12 +335,19 @@ public static String Lista() {
 				
 				JButton bank  = new JButton("BANK");
 				
+				JButton temple  = new JButton("TEMPLE");
+				
+				JButton wiz  = new JButton("WIZZARD TOWER");
+				
+				JButton ship  = new JButton("SHIPMENT");
+				
 				//Panel de la derecha (EDIFICIOS)
 				JPanel este = new JPanel();
 				este.setLayout(new BorderLayout());
 				
 				JPanel compvent = new JPanel();
 				compvent.setLayout(new GridLayout(2,2));
+				compvent.setBorder(new BevelBorder(BevelBorder.LOWERED));
 				
 				JLabel titu = new JLabel("Componentes");
 				titu.setOpaque(true);
@@ -373,11 +380,11 @@ public static String Lista() {
 				 * scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 				 */
 				JPanel paneledif = new JPanel();
-				paneledif.setLayout(new GridLayout(13,2));
-				paneledif.setBounds(0,0,400, 800);
-				paneledif.setMinimumSize(new Dimension(400,800));
-				paneledif.setMaximumSize(new Dimension(400,800));
-				paneledif.setPreferredSize(new Dimension(400,800));
+				paneledif.setLayout(new GridLayout(10,2));
+				paneledif.setBounds(0,0,300, 600);
+				paneledif.setMinimumSize(new Dimension(300,600));
+				paneledif.setMaximumSize(new Dimension(300,600));
+				paneledif.setPreferredSize(new Dimension(300,600));
 				paneledif.setBorder(new BevelBorder(BevelBorder.RAISED));
 				
 				
@@ -405,29 +412,43 @@ public static String Lista() {
 				JLabel num6 = new JLabel();
 				paneledif.add(num6);
 				
-				//Para prueba
-				paneledif.add(clicker);
-				 num1 = new JLabel();
-				paneledif.add(num1);
+				paneledif.add(temple);
+				JLabel num7 = new JLabel();
+				paneledif.add(num7);
 				
-				paneledif.add(grandma);
-				 num2 = new JLabel();
-				paneledif.add(num2);
-				paneledif.add(clicker);
-				 num1 = new JLabel();
-				paneledif.add(num1);
+				paneledif.add(wiz);
+				JLabel num8 = new JLabel();
+				paneledif.add(num8);
 				
-				paneledif.add(grandma);
-				 num2 = new JLabel();
-				paneledif.add(num2);paneledif.add(clicker);
-				 num1 = new JLabel();
-				paneledif.add(num1);
+				paneledif.add(ship);
+				JLabel num9 = new JLabel();
+				paneledif.add(num9);
 				
-				paneledif.add(grandma);
-				 num2 = new JLabel();
-				paneledif.add(num2);
+				
 				
 				este.add(new JScrollPane(paneledif), BorderLayout.CENTER);
+				
+				//Panel reloj
+				JPanel rel = new JPanel();
+				rel.setLayout(new GridLayout(1,6));
+				rel.setBounds(0,0,300, 250);
+				rel.setBorder(new BevelBorder(BevelBorder.LOWERED));
+				
+				
+				JLabel dias = new JLabel("");
+				JLabel horas = new JLabel("");
+				JLabel minutos = new JLabel("");
+				JLabel seg = new JLabel("");
+				
+				rel.add(dias);
+				rel.add(horas);
+				rel.add(new JLabel(":"));
+				rel.add(minutos);
+				rel.add(new JLabel(":"));
+				rel.add(seg);
+				
+				este.add(rel,BorderLayout.SOUTH);
+				
 				ventanaCookie.add(este, BorderLayout.EAST);
 			//______VALOR ANYADIDO_______________________________________
 				//Action listener del boton minijuego
