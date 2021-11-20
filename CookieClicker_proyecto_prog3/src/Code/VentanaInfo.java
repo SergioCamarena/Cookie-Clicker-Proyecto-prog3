@@ -1,9 +1,14 @@
 package Code;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.ScrollPane;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -44,6 +49,22 @@ public class VentanaInfo {
 		ventanaI.setVisible(true);
 		ventanaI.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ventanaI.add(new JScrollPane(centro), BorderLayout.CENTER);
+		
+		//Boton para volver a la ventana cookie
+		JPanel panel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+		JButton cookie =  new JButton("Cookie Clicker");
+		panel.add(cookie);
+		ventanaI.getContentPane().add(panel,BorderLayout.EAST);	
+//		//Se llama a la ventana de cookie
+		cookie.addActionListener(new ActionListener() {
+		
+		@Override
+			public void actionPerformed(ActionEvent e) {
+				new VentanaCookie();
+				ventanaI.dispose();
+//				
+			}
+		});
 	}
 	public static void main(String[] args) {
 		new VentanaInfo();
