@@ -60,7 +60,7 @@ public class VentanaInfo {
 		
 		@Override
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCookie();
+				//new VentanaCookie(); Esto no hay que hacer porque se crea otra nueva entonces vuelve todo a empezar otra vez
 				ventanaI.dispose();
 //				
 			}

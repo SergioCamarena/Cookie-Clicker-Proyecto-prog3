@@ -435,12 +435,17 @@ public static String Lista() {
 				rel.setBorder(new BevelBorder(BevelBorder.LOWERED));
 				
 				
-				JLabel dias = new JLabel("");
+				JLabel dias = new JLabel("0");
+				dias.setHorizontalAlignment(SwingConstants.CENTER);// Estos son para que los numeros estén centrados en sus labels
 				JLabel horas = new JLabel("");
+				horas.setHorizontalAlignment(SwingConstants.CENTER);
 				JLabel minutos = new JLabel("");
+				minutos.setHorizontalAlignment(SwingConstants.CENTER);
 				JLabel seg = new JLabel("");
+				seg.setHorizontalAlignment(SwingConstants.CENTER);
 				
 				rel.add(dias);
+				rel.add(new JLabel(","));
 				rel.add(horas);
 				rel.add(new JLabel(":"));
 				rel.add(minutos);
