@@ -27,6 +27,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -319,10 +320,20 @@ public static String Lista() {
 		
 		//____________________________________________________________________-
 		//Creaci�n de ventana
-				JFrame ventanaCookie = new JFrame("Cookie Clicker");
-				ventanaCookie.setBounds(0,0,1500, 600);
-				ventanaCookie.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+				JFrame frame = new JFrame("Cookie Clicker");
+				//frame.getContentPane().setLayout(null);
+				JPanel ventanaCookie=new JPanel();
+				ventanaCookie.setLayout(new BorderLayout());
+				
+				frame.setBounds(0,0,1500, 600);
+				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				minijuego1.setEnabled(false);	//Ponemos el boton de minijuego false para que no pueda jugar desde el principio
+				
+				
+				JLayeredPane layered = new JLayeredPane();
+				
+				
+				frame.add(ventanaCookie);
 				
 				
 				//_________________________________________EDIFICIOS & CLICKER
@@ -617,7 +628,7 @@ public static String Lista() {
 				news.setOpaque(true);
 				//WINDOW LISTENER
 				//Esto lo hacemos para que cuando se habra el juego empiece lo de las news, habra que hacer tmb algo con la BD
-				ventanaCookie.addWindowListener(new WindowAdapter() {
+				frame.addWindowListener(new WindowAdapter() {
 					
 					@Override
 					public void windowClosing(WindowEvent e) {
@@ -702,8 +713,8 @@ public static String Lista() {
 				
 				ventanaCookie.add(panelNews, BorderLayout.NORTH);
 				
-				ventanaCookie.setResizable(false);//Esto se hace para que no pueda cambiar el bounds de la ventana
-				ventanaCookie.setVisible(true);
+				//frame.setResizable(false);//Esto se hace para que no pueda cambiar el bounds de la ventana
+				frame.setVisible(true);
 	}
 	
 	public static void main(String[] args) {
