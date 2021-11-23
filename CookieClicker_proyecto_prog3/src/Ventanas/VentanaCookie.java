@@ -330,7 +330,24 @@ public void mouseReleased(MouseEvent e) {
 }
 @Override
 public void mouseEntered(MouseEvent e) {
-	//minijuego1.setToolTipText("Hola Locoo");
+	num1.setToolTipText("<html>CLICKER<br> Tenemos ahora mismo nº de clickers.<br> Cookies totales ___ <br></html>");
+	num1.getToolTipText();
+	num2.setToolTipText("<html>GRANDMAS<br> Tenemos ahora mismo nº de grandmas.<br> Cookies totales ___ <br></html>");
+	num2.getToolTipText();
+	num3.setToolTipText("<html>FARMS<br> Tenemos ahora mismo nº de farms.<br> Cookies totales ___ <br></html>");
+	num3.getToolTipText();
+	num4.setToolTipText("<html>MINE<br> Tenemos ahora mismo nº de mines.<br> Cookies totales ___ <br></html>");
+	num4.getToolTipText();
+	num5.setToolTipText("<html>FACTORY<br> Tenemos ahora mismo nº de factories.<br> Cookies totales ___ <br></html>");
+	num5.getToolTipText();
+	num6.setToolTipText("<html>BANK<br> Tenemos ahora mismo nº de banks.<br> Cookies totales ___ <br></html>");
+	num6.getToolTipText();
+	num7.setToolTipText("<html>TEMPLE<br> Tenemos ahora mismo nº de temples.<br> Cookies totales ___ <br></html>");
+	num7.getToolTipText();
+	num8.setToolTipText("<html>WIZZARD TOWER<br> Tenemos ahora mismo nº de wizzard towers.<br> Cookies totales ___ <br></html>");
+	num8.getToolTipText();
+	num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo nº de shipments.<br> Cookies totales ___ <br></html>");
+	num9.getToolTipText();
 	
 }
 @Override
@@ -434,6 +451,7 @@ public void mouseExited(MouseEvent e) {
 				num1.setOpaque(true);
 				num1.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
 				num1.setBackground(Color.orange);
+				num1.addMouseListener(this);
 				paneledif.add(num1);
 				
 				paneledif.add(grandma);
@@ -442,6 +460,7 @@ public void mouseExited(MouseEvent e) {
 				num2.setOpaque(true);
 				num2.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
 				num2.setBackground(Color.cyan);
+				num2.addMouseListener(this);
 				paneledif.add(num2);
 				
 				paneledif.add(farm);
@@ -450,6 +469,7 @@ public void mouseExited(MouseEvent e) {
 				num3.setOpaque(true);
 				num3.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
 				num3.setBackground(Color.pink);
+				num3.addMouseListener(this);
 				paneledif.add(num3);
 				
 				paneledif.add(mine);
@@ -458,6 +478,7 @@ public void mouseExited(MouseEvent e) {
 				num4.setOpaque(true);
 				num4.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
 				num4.setBackground(Color.green);
+				num4.addMouseListener(this);
 				paneledif.add(num4);
 				
 				paneledif.add(factory);
@@ -466,6 +487,7 @@ public void mouseExited(MouseEvent e) {
 				num5.setOpaque(true);
 				num5.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
 				num5.setBackground(Color.orange);
+				num5.addMouseListener(this);
 				paneledif.add(num5);
 				
 				paneledif.add(bank);
@@ -474,6 +496,7 @@ public void mouseExited(MouseEvent e) {
 				num6.setOpaque(true);
 				num6.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
 				num6.setBackground(Color.cyan);
+				num6.addMouseListener(this);
 				paneledif.add(num6);
 				
 				paneledif.add(temple);
@@ -482,6 +505,7 @@ public void mouseExited(MouseEvent e) {
 				num7.setOpaque(true);
 				num7.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
 				num7.setBackground(Color.pink);
+				num7.addMouseListener(this);
 				paneledif.add(num7);
 				
 				paneledif.add(wiz);
@@ -490,6 +514,7 @@ public void mouseExited(MouseEvent e) {
 				num8.setOpaque(true);
 				num8.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
 				num8.setBackground(Color.green);
+				num8.addMouseListener(this);
 				paneledif.add(num8);
 				
 				paneledif.add(ship);
@@ -498,6 +523,7 @@ public void mouseExited(MouseEvent e) {
 				num9.setOpaque(true);
 				num9.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
 				num9.setBackground(Color.orange);
+				num9.addMouseListener(this);
 				paneledif.add(num9);
 				
 				//Metemos el paneledif en un JScrollPane y este a ESTE
