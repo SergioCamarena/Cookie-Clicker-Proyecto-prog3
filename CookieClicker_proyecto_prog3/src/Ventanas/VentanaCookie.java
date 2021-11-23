@@ -392,39 +392,75 @@ public static String Lista() {
 				
 				
 				paneledif.add(clicker);
-				JLabel num1 = new JLabel();
+				JLabel num1 = new JLabel("0");
+				num1.setHorizontalAlignment(SwingConstants.CENTER);
+				num1.setOpaque(true);
+				num1.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				num1.setBackground(Color.orange);
 				paneledif.add(num1);
 				
 				paneledif.add(grandma);
-				JLabel num2 = new JLabel();
+				JLabel num2 = new JLabel("0");
+				num2.setHorizontalAlignment(SwingConstants.CENTER);
+				num2.setOpaque(true);
+				num2.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				num2.setBackground(Color.cyan);
 				paneledif.add(num2);
 				
 				paneledif.add(farm);
-				JLabel num3 = new JLabel();
+				JLabel num3 = new JLabel("0");
+				num3.setHorizontalAlignment(SwingConstants.CENTER);
+				num3.setOpaque(true);
+				num3.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				num3.setBackground(Color.pink);
 				paneledif.add(num3);
 				
 				paneledif.add(mine);
-				JLabel num4 = new JLabel();
+				JLabel num4 = new JLabel("0");
+				num4.setHorizontalAlignment(SwingConstants.CENTER);
+				num4.setOpaque(true);
+				num4.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				num4.setBackground(Color.green);
 				paneledif.add(num4);
 				
 				paneledif.add(factory);
-				JLabel num5 = new JLabel();
+				JLabel num5 = new JLabel("0");
+				num5.setHorizontalAlignment(SwingConstants.CENTER);
+				num5.setOpaque(true);
+				num5.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				num5.setBackground(Color.orange);
 				paneledif.add(num5);
 				
 				paneledif.add(bank);
-				JLabel num6 = new JLabel();
+				JLabel num6 = new JLabel("0");
+				num6.setHorizontalAlignment(SwingConstants.CENTER);
+				num6.setOpaque(true);
+				num6.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				num6.setBackground(Color.cyan);
 				paneledif.add(num6);
 				
 				paneledif.add(temple);
-				JLabel num7 = new JLabel();
+				JLabel num7 = new JLabel("0");
+				num7.setHorizontalAlignment(SwingConstants.CENTER);
+				num7.setOpaque(true);
+				num7.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				num7.setBackground(Color.pink);
 				paneledif.add(num7);
 				
 				paneledif.add(wiz);
-				JLabel num8 = new JLabel();
+				JLabel num8 = new JLabel("0");
+				num8.setHorizontalAlignment(SwingConstants.CENTER);
+				num8.setOpaque(true);
+				num8.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				num8.setBackground(Color.green);
 				paneledif.add(num8);
 				
 				paneledif.add(ship);
-				JLabel num9 = new JLabel();
+				JLabel num9 = new JLabel("0");
+				num9.setHorizontalAlignment(SwingConstants.CENTER);
+				num9.setOpaque(true);
+				num9.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				num9.setBackground(Color.orange);
 				paneledif.add(num9);
 				
 				
