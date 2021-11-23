@@ -319,7 +319,7 @@ public static String Lista() {
 		
 		
 		//____________________________________________________________________-
-		//Creaci�n de ventana
+		//Creacion de ventana
 				JFrame frame = new JFrame("Cookie Clicker");
 				//frame.getContentPane().setLayout(null);
 				JPanel ventanaCookie=new JPanel();
@@ -551,7 +551,8 @@ public static String Lista() {
 				
 				panelgalleta.add(new JLabel());
 				//Un label que pone la version del juego
-				JLabel version = new JLabel("                        V.2.031");
+				JLabel version = new JLabel("V.2.031");
+				version.setHorizontalAlignment(SwingConstants.CENTER);
 				version.setFont(new Font("Agency FB",Font.ROMAN_BASELINE,21));
 				panelgalleta.add(version);
 				
@@ -713,7 +714,7 @@ public static String Lista() {
 				
 				ventanaCookie.add(panelNews, BorderLayout.NORTH);
 				
-				//frame.setResizable(false);//Esto se hace para que no pueda cambiar el bounds de la ventana
+				frame.setResizable(false);//Esto se hace para que no pueda cambiar el bounds de la ventana
 				frame.setVisible(true);
 	}
 	

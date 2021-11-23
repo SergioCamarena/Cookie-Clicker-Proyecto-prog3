@@ -175,6 +175,6 @@ public class BaseDeDatos {
 			e.printStackTrace();
 			throw new DBException("No se pudieron insertar las nuevas estrellas en la tabla", e);
 		}
-	}
+	}*/
 }
-*/
+
