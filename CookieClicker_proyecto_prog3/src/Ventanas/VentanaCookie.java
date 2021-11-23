@@ -238,7 +238,7 @@ public static String Lista() {
 						while(i==k)k=(int)Math.floor(Math.random()*listanews.size());
 						i=k;
 						listanews.get(i);
-						System.out.println(i);
+						//System.out.println(i);
 						news.setText(
 								listanews.get(i));
 						t = t+1;
