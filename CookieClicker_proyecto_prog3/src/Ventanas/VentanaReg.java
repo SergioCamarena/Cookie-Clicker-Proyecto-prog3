@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -81,6 +82,7 @@ public class VentanaReg {
 		JButton generator = new JButton("Generador de contraseña aleatoria");
 		JLabel show = new JLabel();
 		show.setOpaque(true);
+		show.setHorizontalAlignment(SwingConstants.CENTER);
 		show.setBackground(Color.red);
 		
 		
@@ -103,18 +105,18 @@ public class VentanaReg {
 		paneloeste.add(show);
 		
 		//INTENTO DE CREAR LA PASS
-		/*
+		
 		generator.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				String z = p.generate(10, 3, 4);
-				show.setText(z);
-				
+			
+			show.setText(""); //Aqui llamamos a PassGenerator
+			textcontrasena.setText(show.getText());
+			textcontra.setText(show.getText());
 			}
 		});
-		*/
+		
 //________________________________________EAST
 		
 		JPanel east = new JPanel();
