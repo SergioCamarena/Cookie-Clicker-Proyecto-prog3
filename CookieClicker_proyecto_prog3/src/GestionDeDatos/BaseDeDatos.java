@@ -152,29 +152,31 @@ public class BaseDeDatos {
 			throw new DBException("No se pudo el listado de la base de datos el listado de estrellas de la constelación " + constellation.getAbbrv(), e);
 		}
 	}
-	
+	*/
 	///////////////////////////////////
 	// TODO T1. Añadir método para insertar
 	///////////////////////////////////
 	
-	public void insertStars(List<Star> stars) throws DBException {
-		try (PreparedStatement stmt = conn.prepareStatement("INSERT INTO stars (name, ra, dec, magnitude, luminosity, distance, spectral_type, constellation) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")) {
-			for (Star s : stars) {
-				stmt.setString(1, s.getName());
-				stmt.setFloat(2, s.getRa());
-				stmt.setFloat(3,  s.getDec());
-				stmt.setFloat(4, s.getMagnitude());
-				stmt.setFloat(5, s.getLuminosity());
-				stmt.setFloat(6, s.getDistance());
-				stmt.setString(7, s.getSpectralType().toString());
-				stmt.setString(8, s.getConstellation().getAbbrv());
-				
-				stmt.executeUpdate();
+	public void insertDato(String nomTabla, Object[] datos) throws DBException {
+		
+		int FilasAfectadas = 0;
+		try {
+			Connection conn = null;
+			String CadenaInsercion = "insert into " + nomTabla + "values ("+"'"+datos[0]+ ";";
+			for (int i=1 ; i<=datos.length;i++) {
+				if (i < datos.length) {
+					CadenaInsercion+=",'"+datos[i]+ "'";
+				}else
+				CadenaInsercion +=")";
 			}
-		} catch (SQLException e) {
+			Statement SentenciaInsert = conn.createStatement();
+			FilasAfectadas = SentenciaInsert.executeUpdate (CadenaInsercion);
+			System.out.println("Datos almacenados correctamente en la tabla"+nomTabla);
+			
+		} catch (Exception e) {
 			e.printStackTrace();
 			throw new DBException("No se pudieron insertar las nuevas estrellas en la tabla", e);
 		}
-	}*/
+	}
 }
 
