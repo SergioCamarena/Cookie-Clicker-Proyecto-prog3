@@ -41,7 +41,7 @@ import javax.swing.border.TitledBorder;
 
 import Code.Minijuego;
 
-public class VentanaCookie {
+public class VentanaCookie implements MouseListener{
 	
 	public static double cont = 1;	//Valor del contador (inicialización)
 	static JButton minijuego1 = new JButton("MiniJuego");
@@ -49,6 +49,8 @@ public class VentanaCookie {
 	static Thread corre;
 	static boolean seguir = true;
 	static int t = 0;
+	static JLabel num1,num2,num3,num4,num5,num6,num7,num8,num9;
+
 	
 	//Método de contador
 	public static String met(double valor) {
@@ -80,7 +82,7 @@ public class VentanaCookie {
 		}
 	}
 	//Método News
-	//Preguntar como puedo hacerlo
+	
 public static String Lista() {
 	ArrayList<String> listanews = new ArrayList<String>();
 	
@@ -310,8 +312,32 @@ public static String Lista() {
 			 
 			
 		}
-		
-		
+//_________________________Para que salgan los TollTip	
+@Override
+public void mouseClicked(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mousePressed(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mouseReleased(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
+@Override
+public void mouseEntered(MouseEvent e) {
+	//minijuego1.setToolTipText("Hola Locoo");
+	
+}
+@Override
+public void mouseExited(MouseEvent e) {
+	// TODO Auto-generated method stub
+	
+}
 	
 
 	
@@ -403,7 +429,7 @@ public static String Lista() {
 				
 				
 				paneledif.add(clicker);
-				JLabel num1 = new JLabel("0");
+				num1 = new JLabel("0");
 				num1.setHorizontalAlignment(SwingConstants.CENTER);
 				num1.setOpaque(true);
 				num1.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
@@ -411,7 +437,7 @@ public static String Lista() {
 				paneledif.add(num1);
 				
 				paneledif.add(grandma);
-				JLabel num2 = new JLabel("0");
+				num2 = new JLabel("0");
 				num2.setHorizontalAlignment(SwingConstants.CENTER);
 				num2.setOpaque(true);
 				num2.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
@@ -419,7 +445,7 @@ public static String Lista() {
 				paneledif.add(num2);
 				
 				paneledif.add(farm);
-				JLabel num3 = new JLabel("0");
+				num3 = new JLabel("0");
 				num3.setHorizontalAlignment(SwingConstants.CENTER);
 				num3.setOpaque(true);
 				num3.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
@@ -427,7 +453,7 @@ public static String Lista() {
 				paneledif.add(num3);
 				
 				paneledif.add(mine);
-				JLabel num4 = new JLabel("0");
+				num4 = new JLabel("0");
 				num4.setHorizontalAlignment(SwingConstants.CENTER);
 				num4.setOpaque(true);
 				num4.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
@@ -435,7 +461,7 @@ public static String Lista() {
 				paneledif.add(num4);
 				
 				paneledif.add(factory);
-				JLabel num5 = new JLabel("0");
+				num5 = new JLabel("0");
 				num5.setHorizontalAlignment(SwingConstants.CENTER);
 				num5.setOpaque(true);
 				num5.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
@@ -443,7 +469,7 @@ public static String Lista() {
 				paneledif.add(num5);
 				
 				paneledif.add(bank);
-				JLabel num6 = new JLabel("0");
+				num6 = new JLabel("0");
 				num6.setHorizontalAlignment(SwingConstants.CENTER);
 				num6.setOpaque(true);
 				num6.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
@@ -451,7 +477,7 @@ public static String Lista() {
 				paneledif.add(num6);
 				
 				paneledif.add(temple);
-				JLabel num7 = new JLabel("0");
+				num7 = new JLabel("0");
 				num7.setHorizontalAlignment(SwingConstants.CENTER);
 				num7.setOpaque(true);
 				num7.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
@@ -459,7 +485,7 @@ public static String Lista() {
 				paneledif.add(num7);
 				
 				paneledif.add(wiz);
-				JLabel num8 = new JLabel("0");
+				num8 = new JLabel("0");
 				num8.setHorizontalAlignment(SwingConstants.CENTER);
 				num8.setOpaque(true);
 				num8.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
@@ -467,15 +493,14 @@ public static String Lista() {
 				paneledif.add(num8);
 				
 				paneledif.add(ship);
-				JLabel num9 = new JLabel("0");
+				num9 = new JLabel("0");
 				num9.setHorizontalAlignment(SwingConstants.CENTER);
 				num9.setOpaque(true);
 				num9.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
 				num9.setBackground(Color.orange);
 				paneledif.add(num9);
 				
-				
-				
+				//Metemos el paneledif en un JScrollPane y este a ESTE
 				este.add(new JScrollPane(paneledif), BorderLayout.CENTER);
 				
 				//Panel reloj
@@ -527,6 +552,7 @@ public static String Lista() {
 				nickName.setFont(new Font("Agency FB",Font.PLAIN,17));
 				nickName.setBackground(Color.orange);
 				nickName.setOpaque(true);
+				
 				oeste.add(nickName, BorderLayout.NORTH);
 				
 				//Panel Cookie (JLabel --> boton CON IMAGEN DE COOKIE)
@@ -722,6 +748,7 @@ public static String Lista() {
 		new VentanaCookie();
 		
 }
+
 	
 }
 /*

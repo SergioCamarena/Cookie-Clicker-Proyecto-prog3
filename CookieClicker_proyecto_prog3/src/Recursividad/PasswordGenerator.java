@@ -12,6 +12,7 @@ public class PasswordGenerator {
 	private final char[] Characters = "0123456789,.:;+*?¿$%&#@!¡<>".toCharArray();
 	private Random r;
 	
+	
 	/**
 	 * Indica si debe generarse un digito o una letra
 	 *
