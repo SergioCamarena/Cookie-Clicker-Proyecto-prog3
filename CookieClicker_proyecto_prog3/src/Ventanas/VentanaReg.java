@@ -22,7 +22,10 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import Recursividad.PasswordGenerator;
+
 public class VentanaReg {
+	PasswordGenerator p;
 
 	public VentanaReg() {
 		
@@ -98,7 +101,20 @@ public class VentanaReg {
 		paneloeste.add(new JLabel());
 		paneloeste.add(generator);
 		paneloeste.add(show);
-	
+		
+		//INTENTO DE CREAR LA PASS
+		/*
+		generator.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				String z = p.generate(10, 3, 4);
+				show.setText(z);
+				
+			}
+		});
+		*/
 //________________________________________EAST
 		
 		JPanel east = new JPanel();
