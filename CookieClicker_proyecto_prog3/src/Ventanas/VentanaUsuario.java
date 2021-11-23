@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 public class VentanaUsuario {
 
 	public VentanaUsuario() {
-		JFrame ventanaU = new JFrame("USUARIO & CONTRASENY	A");
+		JFrame ventanaU = new JFrame("USUARIO & CONTRASENYA");
 		JLabel nick = new JLabel("Introduce nick: ");
 		JTextField anyadusuario = new JTextField();
 		anyadusuario.setEditable(true);
