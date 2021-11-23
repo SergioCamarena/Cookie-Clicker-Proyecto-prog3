@@ -46,6 +46,7 @@ public class VentanaCookie {
 	static Thread corre;
 	static boolean seguir = true;
 	static int t = 0;
+	static JLabel contador;
 	
 	//Método de contador
 	public static String met(double valor) {
@@ -77,7 +78,6 @@ public class VentanaCookie {
 		}
 	}
 	//Método News
-	//Preguntar como puedo hacerlo
 public static String Lista() {
 	ArrayList<String> listanews = new ArrayList<String>();
 	
@@ -270,24 +270,31 @@ public static String Lista() {
 						}
 						else if((i>=15) & (i < 30)) {
 							news.setBackground(Color.pink);
+							
 						}
 						else if ((i>=30) & (i< 50)) {
 							news.setBackground(Color.yellow);
+							
 						}
 						else if((i>=50) & (i< 75)) {
 							news.setBackground(Color.green);
+							
 						}
 						else if((i>=75) & (i<100)) {
 							news.setBackground(Color.magenta);
+							
 						}
 						else if((i>=100) & (i<115)){
 							news.setBackground(Color.orange);
+							
 						}
 						else if ((i>=115) & (i<130)) {
 							news.setBackground(Color.cyan);
+							
 						}
 						else {
 							news.setBackground(Color.LIGHT_GRAY);
+							
 						}
 						try {
 							//Antes de pasar al siguiente espera 5s
@@ -303,17 +310,11 @@ public static String Lista() {
 			
 			
 			return "";
-			 
-			
 		}
-		
-		
-	
 
-	
+
+
 	public VentanaCookie(){
-		
-		
 		//____________________________________________________________________-
 		//Creaci�n de ventana
 				JFrame ventanaCookie = new JFrame("Cookie Clicker");
@@ -322,139 +323,86 @@ public static String Lista() {
 				minijuego1.setEnabled(false);	//Ponemos el boton de minijuego false para que no pueda jugar desde el principio
 				
 				
-				//_________________________________________EDIFICIOS & CLICKER
-				JButton clicker = new JButton("CLICKER");
 				
-				JButton grandma = new JButton("GRANDMAS");
+//______________________________________________________________________________PANEL NORTE
+				//Panel News con botones de Stas/Info/Options
+				JPanel panelNews = new JPanel();
+				panelNews.setBorder(new TitledBorder("NEWS")); // Borde del panel
 				
-				JButton farm = new JButton("FARMS");
 				
-				JButton mine = new JButton("MINE");
+				panelNews.setLayout(new GridLayout(2,3));
 				
-				JButton factory =new JButton("FACTORY");
+				//Boton STATS
+				JButton stats = new JButton("Stats");
+				panelNews.add(stats);
 				
-				JButton bank  = new JButton("BANK");
-				
-				JButton temple  = new JButton("TEMPLE");
-				
-				JButton wiz  = new JButton("WIZZARD TOWER");
-				
-				JButton ship  = new JButton("SHIPMENT");
-				
-				//Panel de la derecha (EDIFICIOS)
-				JPanel este = new JPanel();
-				este.setLayout(new BorderLayout());
-				
-				JPanel compvent = new JPanel();
-				compvent.setLayout(new GridLayout(2,2));
-				compvent.setBorder(new BevelBorder(BevelBorder.LOWERED));
-				
-				JLabel titu = new JLabel("Componentes");
-				titu.setOpaque(true);
-				titu.setBackground(Color.red);
-				
-				JLabel rojo = new JLabel();
-				rojo.setOpaque(true);
-				rojo.setBackground(Color.red);
-				compvent.add(titu);
-				compvent.add(rojo);
-				
-				JRadioButton rbtn1=new JRadioButton("Comprar",true);
-				JRadioButton rbtn2=new JRadioButton("Vender",false);
-				
-					//Grupo de radiobuttons
-						ButtonGroup grupo1 = new ButtonGroup();
-						grupo1.add(rbtn1);
-						grupo1.add(rbtn2);
+				//SE LLAMA A LA VENTANA STATS
+				stats.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						new VentanaStats();
 						
-						compvent.add(rbtn1);
-						compvent.add(rbtn2);
+					}
+				});
+				//TITULO DEL JUEGO
+				JLabel titulo = new JLabel("COOKIE CLICKER");
+				titulo.setFont(new Font("",Font.ROMAN_BASELINE,32));
+				titulo.setHorizontalAlignment(SwingConstants.CENTER);
+				panelNews.add(titulo);
+				
+				//JLabel QUE SE USARA PARA QUE SALGAN LAS NEWS DE UN ARRAYLIST<STRING>
+				//Se separa para que asegurar de que se crea y lanzarlo despues.
+				news = new JLabel(""); //Primero se crea
+				Lista();			   //Luego se lanza
+				news.setHorizontalAlignment(SwingConstants.CENTER);
+				news.setBackground(Color.white);
+				news.setOpaque(true);
+				//WINDOW LISTENER
+				//Esto lo hacemos para que cuando se habra el juego empiece lo de las news, habra que hacer tmb algo con la BD
+				ventanaCookie.addWindowListener(new WindowAdapter() {
+					
+					@Override
+					public void windowClosing(WindowEvent e) {
+						// TODO Auto-generated method stub
+						seguir = false;
+						corre.interrupt();
+					}
+				});
+				
+				//Boton OPTIONS
+				JButton options = new JButton("Options");
+				options.setBounds(0, 0, 20, 20);
+				panelNews.add(options);
+				
+				//Lamamos a Ventana Options
+				options.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						new VentanaOptions();
 						
-				este.add(compvent, BorderLayout.NORTH);
+					}
+				});
+				//Metemos el valor anyadido del minijuego
+				panelNews.add(minijuego1);
+				panelNews.add(news);
 				
+				JButton info = new JButton("Info");
+				info.setBounds(0, 0, 20, 20);
+				panelNews.add(info);
 				
-				//Scroll para los botones
-				/*
-				 * 
-				 * JScrollPane scrollBar = new JScrollPane(panel edif);
-				 * scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-				 */
-				JPanel paneledif = new JPanel();
-				paneledif.setLayout(new GridLayout(10,2));
-				paneledif.setBounds(0,0,300, 600);
-				paneledif.setMinimumSize(new Dimension(300,600));
-				paneledif.setMaximumSize(new Dimension(300,600));
-				paneledif.setPreferredSize(new Dimension(300,600));
-				paneledif.setBorder(new BevelBorder(BevelBorder.RAISED));
+				info.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						new VentanaInfo();
+						minijuego1.setEnabled(true);//Esto es un modo prueba, cuando hagamos en contador podemos hacer que cuando llegue a X cookies
+						// se ponga true y que luego se ponga false
+						
+					}
+				});	
 				
-				
-				paneledif.add(clicker);
-				JLabel num1 = new JLabel();
-				paneledif.add(num1);
-				
-				paneledif.add(grandma);
-				JLabel num2 = new JLabel();
-				paneledif.add(num2);
-				
-				paneledif.add(farm);
-				JLabel num3 = new JLabel();
-				paneledif.add(num3);
-				
-				paneledif.add(mine);
-				JLabel num4 = new JLabel();
-				paneledif.add(num4);
-				
-				paneledif.add(factory);
-				JLabel num5 = new JLabel();
-				paneledif.add(num5);
-				
-				paneledif.add(bank);
-				JLabel num6 = new JLabel();
-				paneledif.add(num6);
-				
-				paneledif.add(temple);
-				JLabel num7 = new JLabel();
-				paneledif.add(num7);
-				
-				paneledif.add(wiz);
-				JLabel num8 = new JLabel();
-				paneledif.add(num8);
-				
-				paneledif.add(ship);
-				JLabel num9 = new JLabel();
-				paneledif.add(num9);
-				
-				
-				
-				este.add(new JScrollPane(paneledif), BorderLayout.CENTER);
-				
-				//Panel reloj
-				JPanel rel = new JPanel();
-				rel.setLayout(new GridLayout(1,6));
-				rel.setBounds(0,0,300, 250);
-				rel.setBorder(new BevelBorder(BevelBorder.LOWERED));
-				
-				
-				JLabel dias = new JLabel("0");
-				dias.setHorizontalAlignment(SwingConstants.CENTER);// Estos son para que los numeros estén centrados en sus labels
-				JLabel horas = new JLabel("");
-				horas.setHorizontalAlignment(SwingConstants.CENTER);
-				JLabel minutos = new JLabel("");
-				minutos.setHorizontalAlignment(SwingConstants.CENTER);
-				JLabel seg = new JLabel("");
-				seg.setHorizontalAlignment(SwingConstants.CENTER);
-				
-				rel.add(dias);
-				rel.add(new JLabel(","));
-				rel.add(horas);
-				rel.add(new JLabel(":"));
-				rel.add(minutos);
-				rel.add(new JLabel(":"));
-				rel.add(seg);
-				
-				este.add(rel,BorderLayout.SOUTH);
-				
-				ventanaCookie.add(este, BorderLayout.EAST);
 			//______VALOR ANYADIDO_______________________________________
 				//Action listener del boton minijuego
 				minijuego1.addActionListener(new ActionListener() {
@@ -542,91 +490,163 @@ public static String Lista() {
 				oeste.add(panelgalleta, BorderLayout.CENTER);
 				ventanaCookie.add(oeste, BorderLayout.WEST);
 				
-		//PANEL NORTE
-				//Panel News con botones de Stas/Info/Options
-				JPanel panelNews = new JPanel();
-				panelNews.setBorder(new TitledBorder("NEWS")); // Borde del panel
+	
 				
+//_____________________________________________________________________________________EDIFICIOS & CLICKER
+				JButton clicker = new JButton("CLICKER");
+				JButton grandma = new JButton("GRANDMAS");
+				JButton farm = new JButton("FARMS");
+				JButton mine = new JButton("MINE");
+				JButton factory =new JButton("FACTORY");
+				JButton bank  = new JButton("BANK");
+				JButton temple  = new JButton("TEMPLE");
+				JButton wiz  = new JButton("WIZZARD TOWER");
+				JButton ship  = new JButton("SHIPMENT");
 				
-				panelNews.setLayout(new GridLayout(2,3));
+				//Panel de la derecha (EDIFICIOS)
+				JPanel este = new JPanel();
+				este.setLayout(new BorderLayout());
 				
-				//Boton STATS
-				JButton stats = new JButton("Stats");
-				panelNews.add(stats);
+				JPanel compvent = new JPanel();
+				compvent.setLayout(new GridLayout(2,2));
+				compvent.setBorder(new BevelBorder(BevelBorder.LOWERED));
 				
-				//SE LLAMA A LA VENTANA STATS
-				stats.addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						new VentanaStats();
+				JLabel titu = new JLabel("Componentes");
+				titu.setOpaque(true);
+				titu.setBackground(Color.red);
+				
+				JLabel rojo = new JLabel();
+				rojo.setOpaque(true);
+				rojo.setBackground(Color.red);
+				compvent.add(titu);
+				compvent.add(rojo);
+				
+				JRadioButton rbtn1=new JRadioButton("Comprar",true);
+				JRadioButton rbtn2=new JRadioButton("Vender",false);
+				
+					//Grupo de radiobuttons
+						ButtonGroup grupo1 = new ButtonGroup();
+						grupo1.add(rbtn1);
+						grupo1.add(rbtn2);
 						
-					}
-				});
-				//TITULO DEL JUEGO
-				JLabel titulo = new JLabel("COOKIE CLICKER");
-				titulo.setFont(new Font("",Font.ROMAN_BASELINE,32));
-				titulo.setHorizontalAlignment(SwingConstants.CENTER);
-				panelNews.add(titulo);
-				
-				//JLabel QUE SE USARA PARA QUE SALGAN LAS NEWS DE UN ARRAYLIST<STRING>
-				//Se separa para que asegurar de que se crea y lanzarlo despues.
-				news = new JLabel(""); //Primero se crea
-				Lista();			   //Luego se lanza
-				news.setHorizontalAlignment(SwingConstants.CENTER);
-				news.setBackground(Color.white);
-				news.setOpaque(true);
-				//WINDOW LISTENER
-				//Esto lo hacemos para que cuando se habra el juego empiece lo de las news, habra que hacer tmb algo con la BD
-				ventanaCookie.addWindowListener(new WindowAdapter() {
-					
-					@Override
-					public void windowClosing(WindowEvent e) {
-						// TODO Auto-generated method stub
-						seguir = false;
-						corre.interrupt();
-					}
-					
-					@Override
-					public void windowClosed(WindowEvent e) {
+						compvent.add(rbtn1);
+						compvent.add(rbtn2);
 						
-						
-					}
-					
-				});
+				este.add(compvent, BorderLayout.NORTH);
 				
-				//Boton OPTIONS
-				JButton options = new JButton("Options");
-				options.setBounds(0, 0, 20, 20);
-				panelNews.add(options);
+				//PANEL EDIF
+				JPanel paneledif = new JPanel();
+				paneledif.setLayout(new GridLayout(10,2));
+				paneledif.setBounds(0,0,300, 600);
+				paneledif.setMinimumSize(new Dimension(300,600));
+				paneledif.setMaximumSize(new Dimension(300,600));
+				paneledif.setPreferredSize(new Dimension(300,600));
+				paneledif.setBorder(new BevelBorder(BevelBorder.RAISED));
 				
-				//Lamamos a Ventana OPtions
-				options.addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						new VentanaOptions();
-						
-					}
-				});
-				//Metemos el valor anyadido del minijuego
-				panelNews.add(minijuego1);
-				panelNews.add(news);
 				
-				JButton info = new JButton("Info");
-				info.setBounds(0, 0, 20, 20);
-				panelNews.add(info);
+				paneledif.add(clicker);
+				JLabel num1 = new JLabel("0");
+				num1.setHorizontalAlignment(SwingConstants.CENTER);
+				num1.setFont(new Font("Arial",Font.ROMAN_BASELINE,18));
+				num1.setOpaque(true);
+				num1.setBackground(Color.cyan);
+				paneledif.add(num1);
 				
-				info.addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						new VentanaInfo();
-						minijuego1.setEnabled(true);//Esto es un modo prueba, cuando hagamos en contador podemos hacer que cuando llegue a X cookies
-						// se ponga true y que luego se ponga false
-						
-					}
-				});
+				paneledif.add(grandma);
+				JLabel num2 = new JLabel("0");
+				num2.setHorizontalAlignment(SwingConstants.CENTER);
+				num2.setFont(new Font("Arial",Font.ROMAN_BASELINE,18));
+				num2.setOpaque(true);
+				num2.setBackground(Color.pink);
+				paneledif.add(num2);
+				
+				paneledif.add(farm);
+				JLabel num3 = new JLabel("0");
+				num3.setHorizontalAlignment(SwingConstants.CENTER);
+				num3.setFont(new Font("Arial",Font.ROMAN_BASELINE,18));
+				num3.setOpaque(true);
+				num3.setBackground(Color.green);
+				paneledif.add(num3);
+				
+				paneledif.add(mine);
+				JLabel num4 = new JLabel("0");
+				num4.setHorizontalAlignment(SwingConstants.CENTER);
+				num4.setFont(new Font("Arial",Font.ROMAN_BASELINE,18));
+				num4.setOpaque(true);
+				num4.setBackground(Color.orange);
+				paneledif.add(num4);
+				
+				paneledif.add(factory);
+				JLabel num5 = new JLabel("0");
+				num5.setHorizontalAlignment(SwingConstants.CENTER);
+				num5.setFont(new Font("Arial",Font.ROMAN_BASELINE,18));
+				num5.setOpaque(true);
+				num5.setBackground(Color.cyan);
+				paneledif.add(num5);
+				
+				paneledif.add(bank);
+				JLabel num6 = new JLabel("0");
+				num6.setHorizontalAlignment(SwingConstants.CENTER);
+				num6.setFont(new Font("Arial",Font.ROMAN_BASELINE,18));
+				num6.setOpaque(true);
+				num6.setBackground(Color.pink);
+				paneledif.add(num6);
+				
+				paneledif.add(temple);
+				JLabel num7 = new JLabel("0");
+				num7.setHorizontalAlignment(SwingConstants.CENTER);
+				num7.setFont(new Font("Arial",Font.ROMAN_BASELINE,18));
+				num7.setOpaque(true);
+				num7.setBackground(Color.green);
+				paneledif.add(num7);
+				
+				paneledif.add(wiz);
+				JLabel num8 = new JLabel("0");
+				num8.setHorizontalAlignment(SwingConstants.CENTER);
+				num8.setFont(new Font("Arial",Font.ROMAN_BASELINE,18));
+				num8.setOpaque(true);
+				num8.setBackground(Color.orange);
+				paneledif.add(num8);
+				
+				paneledif.add(ship);
+				JLabel num9 = new JLabel("0");
+				num9.setHorizontalAlignment(SwingConstants.CENTER);
+				num9.setFont(new Font("Arial",Font.ROMAN_BASELINE,18));
+				num9.setOpaque(true);
+				num9.setBackground(Color.cyan);
+				paneledif.add(num9);
+				
+				
+				
+				este.add(new JScrollPane(paneledif), BorderLayout.CENTER);
+				
+				//Panel reloj
+				JPanel rel = new JPanel();
+				rel.setLayout(new GridLayout(1,6));
+				rel.setBounds(0,0,300, 250);
+				rel.setBorder(new BevelBorder(BevelBorder.LOWERED));
+				
+				
+				JLabel dias = new JLabel("0");
+				dias.setHorizontalAlignment(SwingConstants.CENTER);// Estos son para que los numeros estén centrados en sus labels
+				JLabel horas = new JLabel("");
+				horas.setHorizontalAlignment(SwingConstants.CENTER);
+				JLabel minutos = new JLabel("");
+				minutos.setHorizontalAlignment(SwingConstants.CENTER);
+				JLabel seg = new JLabel("");
+				seg.setHorizontalAlignment(SwingConstants.CENTER);
+				
+				rel.add(dias);
+				rel.add(new JLabel(","));
+				rel.add(horas);
+				rel.add(new JLabel(":"));
+				rel.add(minutos);
+				rel.add(new JLabel(":"));
+				rel.add(seg);
+				
+				este.add(rel,BorderLayout.SOUTH);
+				
+				ventanaCookie.add(este, BorderLayout.EAST);
 				
 				//Panel centro_______________________________________________Falta por terminar!!!
 				JPanel centro = new JPanel();
@@ -646,17 +666,6 @@ public static String Lista() {
 				JPanel centrocent = new JPanel();
 				centrocent.setLayout(new GridLayout(8,4));
 				
-				
-				/*
-				 * NO DEJA HACER NADA DEL FONDO
-				ImageIcon imgcentr = new ImageIcon("src/Code/fondo.png");
-				Image imhg = imgcentr.getImage();
-				Image imqa = imhg.getScaledInstance(620, 420 ,Image.SCALE_SMOOTH);
-				imgcentr = new ImageIcon(imqa);
-				JLabel fondo = new JLabel(imgcentr);
-				centro.add(fondo);
-				*/
-				centrocent.setBackground(Color.pink);
 				centro.add(centrocent, BorderLayout.CENTER);
 		//___________________________________________________________________________________________________________________________
 				ventanaCookie.add(centro, BorderLayout.CENTER);
