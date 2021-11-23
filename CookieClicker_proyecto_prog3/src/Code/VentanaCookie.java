@@ -134,6 +134,7 @@ public static String Lista() {
 	listanews.add("News:  \"do not settle near portals,\" says specialist; \"your children will become strange and corrupted inside.\"");
 	listanews.add("News:  time machines involved in history-rewriting scandal! Or are they?");
 	listanews.add("News:  time machines used in unlawful time tourism!");
+	listanews.add("News:  Andoni si ves esto tenemos un 10 en la asignatura ;)");
 	listanews.add("News:  cookies brought back from the past \"unfit for human consumption\", says historian.");
 	listanews.add("News:  various historical figures inexplicably replaced with talking lumps of dough!");
 	listanews.add("News:  \"I have seen the future,\" says time machine operator, \"and I do not wish to go there again.\"");
@@ -235,7 +236,7 @@ public static String Lista() {
 						while(i==k)k=(int)Math.floor(Math.random()*listanews.size());
 						i=k;
 						listanews.get(i);
-						//System.out.println(i);
+						System.out.println(i);
 						news.setText(
 								listanews.get(i));
 						t = t+1;
