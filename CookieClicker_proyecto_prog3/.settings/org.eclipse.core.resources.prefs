@@ -1,5 +1,5 @@
 eclipse.preferences.version=1
 encoding//src/Code/Minijuego.java=UTF-8
-encoding//src/Code/VentanaCookie.java=UTF-8
-encoding//src/Code/VentanaOptions.java=UTF-8
-encoding//src/Code/VentanaUsuario.java=UTF-8
+encoding//src/Ventanas/VentanaCookie.java=UTF-8
+encoding//src/Ventanas/VentanaOptions.java=UTF-8
+encoding//src/Ventanas/VentanaUsuario.java=UTF-8
