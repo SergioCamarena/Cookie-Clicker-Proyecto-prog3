@@ -1,14 +1,19 @@
 package Code;
 
 public class TipoEdif extends Edificios{
-	private NombreEdif nombreEdif;
 	private double costeEdif;
+	private NombreEdif nombreEdif;
+	
+	public enum NombreEdif {
+		CURSOR, GRANDMA, MINE, FACTORY, BANK;
+
+	}
+
 	
 	//constructor	
 	public TipoEdif(String nombre, double valorInicialCookie, int numeroDeCadaTipo, int numEdificios,
 			double valorCompra, NombreEdif nombreEdif, double costeEdif) {
 		super(nombre, valorInicialCookie, numeroDeCadaTipo, numEdificios, valorCompra);
-		this.nombreEdif = nombreEdif;
 		this.costeEdif = costeEdif;
 	}
 	
