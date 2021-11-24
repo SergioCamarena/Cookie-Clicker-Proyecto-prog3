@@ -111,7 +111,7 @@ public class PasswordGenerator {
         
         System.out.println(p.generate(10, 3, 3));
         System.out.println(p.generate(10, 3, 3));
-        System.out.println(p.generate(10, 3, 3));
-        System.out.println(p.generate(10, 3, 3));
+
+        
 	}
 }

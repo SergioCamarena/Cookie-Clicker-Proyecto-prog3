@@ -367,6 +367,7 @@ public void mouseExited(MouseEvent e) {
 				//frame.getContentPane().setLayout(null);
 				JPanel ventanaCookie=new JPanel();
 				ventanaCookie.setLayout(new BorderLayout());
+				//frame.setAlwaysOnTop(true);
 				
 				frame.setBounds(0,0,1500, 600);
 				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

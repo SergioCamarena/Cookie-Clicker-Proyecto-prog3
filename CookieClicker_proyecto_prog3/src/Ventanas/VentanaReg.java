@@ -26,11 +26,9 @@ import javax.swing.border.TitledBorder;
 import Recursividad.PasswordGenerator;
 
 public class VentanaReg {
-	PasswordGenerator p;
+	PasswordGenerator p = new PasswordGenerator();
 
 	public VentanaReg() {
-		
-		//Porque no me coge el tamaño que quiero??
 		
 		JFrame ventanaR = new JFrame("LOG IN");
 		ventanaR.setLayout(new BorderLayout());
@@ -111,7 +109,7 @@ public class VentanaReg {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			
-			show.setText(""); //Aqui llamamos a PassGenerator
+			show.setText(p.generate(10, 4, 4)); //Aqui llamamos a PassGenerator
 			textcontrasena.setText(show.getText());
 			textcontra.setText(show.getText());
 			}

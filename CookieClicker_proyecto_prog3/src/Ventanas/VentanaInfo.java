@@ -26,6 +26,7 @@ public class VentanaInfo {
 		ventanaI.setBounds(0, 0, 600, 400);
 		ventanaI.setLayout(new BorderLayout());
 		
+		
 		//Scroll
 		JScrollPane scrollBar = new JScrollPane(txArea1);
 		scrollBar.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
@@ -60,7 +61,7 @@ public class VentanaInfo {
 		
 		@Override
 			public void actionPerformed(ActionEvent e) {
-				//new VentanaCookie(); Esto no hay que hacer porque se crea otra nueva entonces vuelve todo a empezar otra vez
+				//new VentanaCookie(); //Esto no hay que hacer porque se crea otra nueva entonces vuelve todo a empezar otra vez
 				ventanaI.dispose();
 //				
 			}
