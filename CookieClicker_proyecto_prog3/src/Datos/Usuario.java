@@ -26,7 +26,13 @@ public class Usuario {
 		this.nom_usuario = nom_usuario;
 		this.contrasenya = contrasenya;
 	}
-	
+	public Usuario() {
+		
+	}
+	public static void main(String[] args) {
+		Usuario u = new Usuario();
+		
+	}
 	
 
 }

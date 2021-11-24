@@ -1,5 +1,6 @@
 package GestionDeDatos;
 
+import java.lang.System.Logger.Level;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,6 +9,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
+import Datos.Cookie;
 
 /**
  * Esta clase centraliza el acceso a la base de datos
@@ -38,7 +41,7 @@ public class BaseDeDatos {
 		try {
 			conn = DriverManager.getConnection("jdbc:sqlite:astronomical_data.db");
 		} catch (SQLException e) {
-			throw new DBException("No se pudo conectar de la base de datos astronómica", e);
+			throw new DBException("No se pudo conectar de la base de datos cookies", e);
 		}
 	}
 	
@@ -154,7 +157,7 @@ public class BaseDeDatos {
 	}
 	*/
 	///////////////////////////////////
-	// TODO T1. Añadir método para insertar
+	// Añadir método para insertar
 	///////////////////////////////////
 	
 	public void insertDato(String nomTabla, Object[] datos) throws DBException {
@@ -173,10 +176,42 @@ public class BaseDeDatos {
 			FilasAfectadas = SentenciaInsert.executeUpdate (CadenaInsercion);
 			System.out.println("Datos almacenados correctamente en la tabla"+nomTabla);
 			
-		} catch (Exception e) {
+		} catch (SQLException e) {
 			e.printStackTrace();
-			throw new DBException("No se pudieron insertar las nuevas estrellas en la tabla", e);
+			throw new DBException("No se pudieron insertar los nuevos datos en la tabla", e);
 		}
 	}
+	/** Realiza una consulta a la tabla abierta de enlace de la BD, usando la sentencia SELECT de SQL
+	 * @param st	Sentencia ya abierta de Base de Datos (con la estructura de tabla correspondiente)
+	 * @param nom_usuario	Número de enlace que se quiere buscar
+	 * @param mapaTests	Mapa de tests del que se toman los enlaces a test PC
+	 * @return	Enlace con ese número en la base de datos. Si no existe, null
+	 */
+	public static Cookie EstadísticasSelect( Statement st, String nom_usuario, int cookies_ps, int cookies_t ) {
+		String sentSQL = "";
+		try {
+			sentSQL = "select * from cookie where nom_usuario=" + nom_usuario;
+			Cookie cki = null;
+			ResultSet rs = st.executeQuery( sentSQL );
+			if (rs.next()) {
+				int numEnl = rs.getInt( "numEnlace" );
+				String codC = rs.getString( "centro" );
+				cki = new Cookie( numEnl, codC );
+				String codPre = rs.getString( "codTestPre" );
+				cki.setTestPre( mapaTests.get( codPre ) );
+				String codPost = rs.getString( "codTestPost" );
+				cki.setTestPost( mapaTests.get( codPost ) );
+				cki.setGuardado( true ); // Se carga de bd luego está guardado
+			}
+			rs.close();
+			log( Level.INFO, "BD\t" + sentSQL, null );
+			return cki;
+		} catch (SQLException e) {
+			log( Level.SEVERE, "Error en BD\t" + sentSQL, e );
+			e.printStackTrace();
+			return null;
+		}
+	}
+
 }
 
