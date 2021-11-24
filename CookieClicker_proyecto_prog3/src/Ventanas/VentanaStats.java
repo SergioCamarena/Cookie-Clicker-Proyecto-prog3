@@ -18,9 +18,9 @@ import Datos.Usuario;
 public class VentanaStats {
 	Usuario u = new Usuario();
 	public VentanaStats() {
-		JFrame ventanaS = new JFrame("ESTADISTICAS" ); //Anyadir el nombre del usuario en específico que esté consultando las estadísticas  
+		JFrame ventanaS = new JFrame(); //Anyadir el nombre del usuario en específico que esté consultando las estadísticas  
 		JPanel norte = new JPanel();
-		JLabel titulo = new JLabel("ESTADISTICAS: ", u.getNom_usuario());
+		JLabel titulo = new JLabel("ESTADISTICAS DE " + u.getNom_usuario());
 		titulo.setFont(new Font("Serif", Font.PLAIN,40 ));
 		norte.add(titulo);
 		ventanaS.add(norte, BorderLayout.NORTH );
@@ -62,7 +62,7 @@ public class VentanaStats {
 		JButton rankings = new JButton("Rankings");
 		sur.add(rankings);
 		sur.add(new JLabel());
-		JButton volver = new JButton("Seguir Jugando");
+		JButton volver = new JButton(u.getNom_usuario()+" vuelve al Juego");
 		sur.add(volver);
 		ventanaS.add(sur, BorderLayout.SOUTH);
 		rankings.addActionListener(new ActionListener() {

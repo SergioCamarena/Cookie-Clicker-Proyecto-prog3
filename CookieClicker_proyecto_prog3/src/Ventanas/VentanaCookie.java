@@ -40,6 +40,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import Code.Minijuego;
+import Datos.Usuario;
 
 public class VentanaCookie implements MouseListener{
 	
@@ -49,7 +50,8 @@ public class VentanaCookie implements MouseListener{
 	static Thread corre;
 	static boolean seguir = true;
 	static int t = 0;
-	static JLabel num1,num2,num3,num4,num5,num6,num7,num8,num9;
+	static JLabel num1,num2,num3,num4,num5,num6,num7,num8,num9,version;
+	Usuario u = new Usuario();
 
 	
 	//Método de contador
@@ -349,6 +351,9 @@ public void mouseEntered(MouseEvent e) {
 	num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo n� de shipments.<br> Cookies totales ___ <br></html>");
 	num9.getToolTipText();
 	
+	//version
+	version.setToolTipText("<html><b>VERSION</b><br> Somos <b>Elaia, Sergio e Imanol.</b><br> Y te invitamos a que <b>disfrutes</b> de nustro juego <br></html>");
+	version.getToolTipText();
 }
 @Override
 public void mouseExited(MouseEvent e) {
@@ -363,7 +368,7 @@ public void mouseExited(MouseEvent e) {
 		
 		//____________________________________________________________________-
 		//Creacion de ventana
-				JFrame frame = new JFrame("Cookie Clicker");
+				JFrame frame = new JFrame();
 				//frame.getContentPane().setLayout(null);
 				JPanel ventanaCookie=new JPanel();
 				ventanaCookie.setLayout(new BorderLayout());
@@ -575,7 +580,7 @@ public void mouseExited(MouseEvent e) {
 				oeste.setBorder(new BevelBorder(BevelBorder.LOWERED));
 				
 				//Nick
-				JLabel nickName = new JLabel("Nick Name: "/*,nick*/);
+				JLabel nickName = new JLabel("Nick Name: " + u.getNom_usuario());
 				nickName.setFont(new Font("Agency FB",Font.PLAIN,17));
 				nickName.setBackground(Color.orange);
 				nickName.setOpaque(true);
@@ -604,9 +609,10 @@ public void mouseExited(MouseEvent e) {
 				
 				panelgalleta.add(new JLabel());
 				//Un label que pone la version del juego
-				JLabel version = new JLabel("V.2.031");
+				version = new JLabel("V.2.031");
 				version.setHorizontalAlignment(SwingConstants.CENTER);
 				version.setFont(new Font("Agency FB",Font.ROMAN_BASELINE,21));
+				version.addMouseListener(this);
 				panelgalleta.add(version);
 				
 				//El JLabel de cookie hay que convertirlo en botón______________________________FALTA POR HACER
@@ -614,7 +620,7 @@ public void mouseExited(MouseEvent e) {
 					
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						// TODO Auto-generated method stub
+						
 						
 					}
 
@@ -669,7 +675,7 @@ public void mouseExited(MouseEvent e) {
 				});
 				//TITULO DEL JUEGO
 				JLabel titulo = new JLabel("COOKIE CLICKER");
-				titulo.setFont(new Font("",Font.ROMAN_BASELINE,32));
+				titulo.setFont(new Font("Agency FB",Font.ROMAN_BASELINE,40));
 				titulo.setHorizontalAlignment(SwingConstants.CENTER);
 				panelNews.add(titulo);
 				
@@ -767,7 +773,7 @@ public void mouseExited(MouseEvent e) {
 				
 				ventanaCookie.add(panelNews, BorderLayout.NORTH);
 				
-				frame.setResizable(false);//Esto se hace para que no pueda cambiar el bounds de la ventana
+				//frame.setResizable(false);//Esto se hace para que no pueda cambiar el bounds de la ventana
 				frame.setVisible(true);
 	}
 	

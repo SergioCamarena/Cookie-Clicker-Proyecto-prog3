@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Arrays;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -54,7 +55,8 @@ public class VentanaReg {
 			
 		//Panel Oeste
 		JPanel paneloeste = new JPanel();
-		paneloeste.setLayout(new GridLayout(9,2));
+		paneloeste.setLayout(new GridLayout(11,2));
+		paneloeste.setBackground(Color.lightGray);
 		
 		JLabel usuario = new JLabel("Introduce usuario: ");
 		JTextField textusuario = new JTextField();
@@ -81,6 +83,7 @@ public class VentanaReg {
 		JLabel show = new JLabel();
 		show.setOpaque(true);
 		show.setHorizontalAlignment(SwingConstants.CENTER);
+		show.setBorder(new LineBorder(Color.black));
 		show.setBackground(Color.red);
 		
 		paneloeste.add(new JLabel());
@@ -107,17 +110,18 @@ public class VentanaReg {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				//NO ENTIENDO PORQUE ME DICE Q SON IGUALES Y LUEGO EN EL EQUALS NO HACE LO QUE TIENE QUE HACER
-				System.out.println(textcontrasena.getPassword());
-				System.out.println(textcontra.getPassword());
-				textcontrasena.setEchoChar((char) 0);
-				textcontra.setEchoChar((char) 0);
+				//System.out.println(textcontrasena.getPassword());
+				//System.out.println(textcontra.getPassword());
+				//textcontrasena.setEchoChar((char) 0);
+				//textcontra.setEchoChar((char) 0);
 				
-				if(textcontrasena.equals(textcontra)) {
+				if(Arrays.equals(textcontrasena.getPassword(), textcontra.getPassword())) {
 					coluor.setBackground(Color.green);
 					
 				}
 				else {
+					textcontrasena.setText("");
+					textcontra.setText("");
 					coluor.setBackground(Color.red);
 				}
 			}
@@ -129,7 +133,8 @@ public class VentanaReg {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			
-			if (textcontrasena.getText().equals(textcontra.getText()) & (textcontrasena.getText()!="") ) {
+			if (Arrays.equals(textcontrasena.getPassword(), textcontra.getPassword()) & (textcontrasena.getPassword()!= null)) {
+				show.setBackground(Color.yellow);
 				show.setText(p.generate(10, 4, 4)); //Aqui llamamos a PassGenerator
 				textcontrasena.setText(show.getText());
 				textcontra.setText(show.getText());
@@ -139,8 +144,8 @@ public class VentanaReg {
 			}*/
 			else {
 				show.setText(p.generate(10, 4, 4)); //Aqui llamamos a PassGenerator
-				textcontrasena.setText(show.getText());
-				textcontra.setText(show.getText());
+				System.out.println("NO se va a cambiar la contra");
+				show.setBackground(Color.magenta);
 			}
 			}
 		});
@@ -149,8 +154,11 @@ public class VentanaReg {
 		
 		JPanel east = new JPanel();
 		east.setLayout(new BorderLayout());
+		east.setBackground(Color.lightGray);
 		//______________________________PAUTAS
 		JPanel pautas = new JPanel();
+		pautas.setBackground(Color.lightGray);
+		pautas.setLayout(new FlowLayout());
 		JLabel consid = new JLabel("<html>Aquí hay unas pautas que te dejamos los administradores para que hagas el Registro <b>correctamente:</b><br>"
 				+ "1) <b>Nick Name --> </b> Introduce un nick que sea facil de recordar para ti.<br>"
 				+ "2) <b>Contraseña --> </b> Introduce una contraseña que sea facil de recordad pero con una complejidad.<br>"
@@ -160,13 +168,16 @@ public class VentanaReg {
 				+ "_____________- Al menos 1 caracter especial. <br>"
 				+ "_____________- Al menos una lonitud de 6. <br>"
 				+ "3)<b> Email --> </b> Introduce tu dirección de email. No se enviará propaganda.<br> "
-				+ "4)<b> El usuario es autogenerado, pero no importa, solo es útil para los administradores.<br>"
+				+ "4)<b> El usuario es autogenerado, pero no importa, solo es útil para los administradores</b>.<br>"
 				+ "5)<b> NO INTENTES HACER SQL INYECTION</b>, no va a funcionar.<br>"
 				+ "6)<b>Apunta bien </b> la contraseña porque sino tendrás que <b>volver a empezar</b> el juego.  </html>");
 		consid.setFont(new Font("Serief",Font.ITALIC,12));
 		consid.setBorder(new TitledBorder("Cosas a tener en cuenta:"));
-		consid.setBorder(new TitledBorder("TENER EN CUENTA"));
+		consid.setBackground(Color.LIGHT_GRAY);
 		
+		pautas.add(new JLabel());
+		pautas.add(new JLabel());
+		pautas.add(new JLabel());
 		pautas.add(new JLabel());
 		pautas.add(consid);
 		east.add(pautas, BorderLayout.NORTH);
