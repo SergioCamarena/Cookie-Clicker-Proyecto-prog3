@@ -83,8 +83,6 @@ public class VentanaReg {
 		show.setHorizontalAlignment(SwingConstants.CENTER);
 		show.setBackground(Color.red);
 		
-		
-		
 		paneloeste.add(new JLabel());
 		paneloeste.add(new JLabel());
 		paneloeste.add(usuario);
@@ -103,15 +101,17 @@ public class VentanaReg {
 		paneloeste.add(show);
 		
 		
+		
 		comprov.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
+				//NO ENTIENDO PORQUE ME DICE Q SON IGUALES Y LUEGO EN EL EQUALS NO HACE LO QUE TIENE QUE HACER
 				System.out.println(textcontrasena.getPassword());
 				System.out.println(textcontra.getPassword());
-				/*
-				if (.equals()) {
+				
+				if ((textcontrasena.getPassword()) == (textcontra.getPassword())) {
 					coluor.setBackground(Color.green);
 					
 				}
@@ -119,7 +119,7 @@ public class VentanaReg {
 					textcontrasena.setText("");
 					textcontra.setText("");
 					coluor.setBackground(Color.red);
-				}*/
+				}
 				
 			}
 		});
