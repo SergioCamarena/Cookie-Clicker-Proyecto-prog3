@@ -83,8 +83,6 @@ public class VentanaReg {
 		show.setHorizontalAlignment(SwingConstants.CENTER);
 		show.setBackground(Color.red);
 		
-		
-		
 		paneloeste.add(new JLabel());
 		paneloeste.add(new JLabel());
 		paneloeste.add(usuario);
@@ -102,16 +100,49 @@ public class VentanaReg {
 		paneloeste.add(generator);
 		paneloeste.add(show);
 		
-		//INTENTO DE CREAR LA PASS
 		
+		
+		comprov.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				//NO ENTIENDO PORQUE ME DICE Q SON IGUALES Y LUEGO EN EL EQUALS NO HACE LO QUE TIENE QUE HACER
+				System.out.println(textcontrasena.getPassword());
+				System.out.println(textcontra.getPassword());
+				
+				if ((textcontrasena.getPassword()) == (textcontra.getPassword())) {
+					coluor.setBackground(Color.green);
+					
+				}
+				else{
+					textcontrasena.setText("");
+					textcontra.setText("");
+					coluor.setBackground(Color.red);
+				}
+				
+			}
+		});
+		
+		//PASS ALEATORIO
 		generator.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			
-			show.setText(p.generate(10, 4, 4)); //Aqui llamamos a PassGenerator
-			textcontrasena.setText(show.getText());
-			textcontra.setText(show.getText());
+			if (textcontrasena.getText().equals(textcontra.getText()) & (textcontrasena.getText()!="") ) {
+				show.setText(p.generate(10, 4, 4)); //Aqui llamamos a PassGenerator
+				textcontrasena.setText(show.getText());
+				textcontra.setText(show.getText());
+			}
+			/*else if(textcontrasena.getText().equals(textcontra.getText())) {
+				System.out.println("NULL");
+			}*/
+			else {
+				show.setText(p.generate(10, 4, 4)); //Aqui llamamos a PassGenerator
+				textcontrasena.setText(show.getText());
+				textcontra.setText(show.getText());
+			}
 			}
 		});
 		
