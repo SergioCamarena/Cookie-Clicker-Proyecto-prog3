@@ -17,7 +17,10 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import Datos.Usuario;
+
 public class VentanaUsuario {
+	Usuario u = new Usuario();
 
 	public VentanaUsuario() {
 		JFrame ventanaU = new JFrame("USUARIO & CONTRASENYA");
@@ -25,7 +28,7 @@ public class VentanaUsuario {
 		JTextField anyadusuario = new JTextField();
 		anyadusuario.setEditable(true);
 		anyadusuario.setBounds(0,0, 300, 50);
-		JLabel contrasenya = new JLabel("Introduce contraseña: ");
+		JLabel contrasenya = new JLabel("Introduce contrasena: ");
 		JPasswordField anyadcontra = new JPasswordField();
 		JCheckBox mostrar = new JCheckBox("Mostrar");
 		anyadcontra.setEchoChar('*');

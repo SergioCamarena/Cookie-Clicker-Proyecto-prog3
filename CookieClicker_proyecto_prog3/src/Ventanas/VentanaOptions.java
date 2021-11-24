@@ -20,6 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 public class VentanaOptions {
+	VentanaCookie vc = new VentanaCookie();
 	
 	public VentanaOptions(){
 		JFrame ventanaO = new JFrame("OPTIONS");
@@ -67,7 +68,7 @@ public class VentanaOptions {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ventanaO.dispose();
-				//Code.VentanaCookie.dispose();
+				
 				new VentanaUsuario();
 				
 			}

@@ -790,7 +790,6 @@ public void mouseExited(MouseEvent e) {
 		new VentanaCookie();
 		
 }
-
 	
 }
 /*
