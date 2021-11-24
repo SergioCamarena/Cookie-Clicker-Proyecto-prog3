@@ -50,7 +50,7 @@ public class VentanaCookie implements MouseListener{
 	static Thread corre;
 	static boolean seguir = true;
 	static int t = 0;
-	static JLabel num1,num2,num3,num4,num5,num6,num7,num8,num9,version;
+	static JLabel num1,num2,num3,num4,num5,num6,num7,num8,num9,version, nickName;
 	Usuario u = new Usuario();
 
 	
@@ -354,6 +354,14 @@ public void mouseEntered(MouseEvent e) {
 	//version
 	version.setToolTipText("<html><b>VERSION</b><br> Somos <b>Elaia, Sergio e Imanol.</b><br> Y te invitamos a que <b>disfrutes</b> de nustro juego <br></html>");
 	version.getToolTipText();
+	
+	//nickName
+	//nickName.setToolTipText("<html><b>MIS DATOS<br></b></html>");
+	//nickName.getToolTipText();
+	/*
+	 * Para que te salgan todos tus datos o asi.
+	 * El email que has usado y cuando te has registrado
+	*/
 }
 @Override
 public void mouseExited(MouseEvent e) {
@@ -580,10 +588,11 @@ public void mouseExited(MouseEvent e) {
 				oeste.setBorder(new BevelBorder(BevelBorder.LOWERED));
 				
 				//Nick
-				JLabel nickName = new JLabel("Nick Name: " + u.getNom_usuario());
+				nickName = new JLabel("Nick Name: " + u.getNom_usuario());
 				nickName.setFont(new Font("Agency FB",Font.PLAIN,17));
 				nickName.setBackground(Color.orange);
 				nickName.setOpaque(true);
+				nickName.addMouseListener(this);
 				
 				oeste.add(nickName, BorderLayout.NORTH);
 				
