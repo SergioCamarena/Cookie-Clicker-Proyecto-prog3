@@ -102,19 +102,24 @@ public class VentanaReg {
 		paneloeste.add(generator);
 		paneloeste.add(show);
 		
+		
 		comprov.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if (textcontrasena.getText() != (textcontra.getText())) {
+				
+				System.out.println(textcontrasena.getPassword());
+				System.out.println(textcontra.getPassword());
+				/*
+				if (.equals()) {
+					coluor.setBackground(Color.green);
 					
+				}
+				else{
 					textcontrasena.setText("");
 					textcontra.setText("");
 					coluor.setBackground(Color.red);
-				}
-				else{
-					coluor.setBackground(Color.green);
-				}
+				}*/
 				
 			}
 		});
