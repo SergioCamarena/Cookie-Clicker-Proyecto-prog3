@@ -110,17 +110,16 @@ public class VentanaReg {
 				//NO ENTIENDO PORQUE ME DICE Q SON IGUALES Y LUEGO EN EL EQUALS NO HACE LO QUE TIENE QUE HACER
 				System.out.println(textcontrasena.getPassword());
 				System.out.println(textcontra.getPassword());
+				textcontrasena.setEchoChar((char) 0);
+				textcontra.setEchoChar((char) 0);
 				
-				if ((textcontrasena.getPassword()) == (textcontra.getPassword())) {
+				if(textcontrasena.equals(textcontra)) {
 					coluor.setBackground(Color.green);
 					
 				}
-				else{
-					textcontrasena.setText("");
-					textcontra.setText("");
+				else {
 					coluor.setBackground(Color.red);
 				}
-				
 			}
 		});
 		

@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -26,6 +27,19 @@ public class VentanaUsuario {
 		anyadusuario.setBounds(0,0, 300, 50);
 		JLabel contrasenya = new JLabel("Introduce contraseÃ±a: ");
 		JPasswordField anyadcontra = new JPasswordField();
+		JCheckBox mostrar = new JCheckBox("Mostrar");
+		anyadcontra.setEchoChar('*');
+		mostrar.addActionListener(new ActionListener() {
+			
+			//Cuando pulses Mostrat te enseña la contraseña para que la puedas ver.
+			 public void actionPerformed(java.awt.event.ActionEvent e) {    
+			    if (mostrar.isSelected()) {
+			      anyadcontra.setEchoChar((char) 0);
+			    } else {
+			    	anyadcontra.setEchoChar('*');
+			    }
+			  }
+			});
 		
 		anyadcontra.setEditable(true);
 		anyadcontra.setBounds(0, 0, 300, 50);
@@ -54,8 +68,9 @@ public class VentanaUsuario {
 		south.add(etiquetaU);
 		south.add(contrasenya);
 		south.add(anyadcontra);
-		JLabel etiquetaC = new JLabel();
-		south.add(etiquetaC);
+		south.add(mostrar);
+		//JLabel etiquetaC = new JLabel();
+		//south.add(etiquetaC);
 		south.add(entrar);
 		JLabel etiquetaD = new JLabel();
 		south.add(etiquetaD);
