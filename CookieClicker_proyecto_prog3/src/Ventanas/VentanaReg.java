@@ -102,16 +102,42 @@ public class VentanaReg {
 		paneloeste.add(generator);
 		paneloeste.add(show);
 		
-		//INTENTO DE CREAR LA PASS
+		comprov.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (textcontrasena.getText() != (textcontra.getText())) {
+					
+					textcontrasena.setText("");
+					textcontra.setText("");
+					coluor.setBackground(Color.red);
+				}
+				else{
+					coluor.setBackground(Color.green);
+				}
+				
+			}
+		});
 		
+		//PASS ALEATORIO
 		generator.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			
-			show.setText(p.generate(10, 4, 4)); //Aqui llamamos a PassGenerator
-			textcontrasena.setText(show.getText());
-			textcontra.setText(show.getText());
+			if (textcontrasena.getText().equals(textcontra.getText()) & (textcontrasena.getText()!="") ) {
+				show.setText(p.generate(10, 4, 4)); //Aqui llamamos a PassGenerator
+				textcontrasena.setText(show.getText());
+				textcontra.setText(show.getText());
+			}
+			/*else if(textcontrasena.getText().equals(textcontra.getText())) {
+				System.out.println("NULL");
+			}*/
+			else {
+				show.setText(p.generate(10, 4, 4)); //Aqui llamamos a PassGenerator
+				textcontrasena.setText(show.getText());
+				textcontra.setText(show.getText());
+			}
 			}
 		});
 		
