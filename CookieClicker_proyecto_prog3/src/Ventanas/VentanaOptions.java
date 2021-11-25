@@ -21,6 +21,7 @@ import javax.swing.border.TitledBorder;
 
 public class VentanaOptions {
 	VentanaCookie vc;
+	//this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	
 	public VentanaOptions(){
 		JFrame ventanaO = new JFrame("OPTIONS");
@@ -67,8 +68,9 @@ public class VentanaOptions {
 		Cargarpartida.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ventanaO.dispose();
 				
+				//vc.setVisible(false);
+				ventanaO.dispose();
 				new VentanaUsuario();
 				
 			}
