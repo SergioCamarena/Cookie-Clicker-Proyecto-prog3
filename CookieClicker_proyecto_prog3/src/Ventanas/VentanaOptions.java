@@ -20,7 +20,7 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 public class VentanaOptions {
-	VentanaCookie vc = new VentanaCookie();
+	VentanaCookie vc;
 	
 	public VentanaOptions(){
 		JFrame ventanaO = new JFrame("OPTIONS");

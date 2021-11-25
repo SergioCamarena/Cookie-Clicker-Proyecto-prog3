@@ -430,16 +430,16 @@ public void mouseExited(MouseEvent e) {
 				compvent.add(titu);
 				compvent.add(rojo);
 				
-				JRadioButton rbtn1=new JRadioButton("Comprar",true);
-				JRadioButton rbtn2=new JRadioButton("Vender",false);
+				JRadioButton comprar=new JRadioButton("Comprar",true);
+				JRadioButton vender=new JRadioButton("Vender",false);
 				
 					//Grupo de radiobuttons
 						ButtonGroup grupo1 = new ButtonGroup();
-						grupo1.add(rbtn1);
-						grupo1.add(rbtn2);
+						grupo1.add(comprar);
+						grupo1.add(vender);
 						
-						compvent.add(rbtn1);
-						compvent.add(rbtn2);
+						compvent.add(comprar);
+						compvent.add(vender);
 						
 				este.add(compvent, BorderLayout.NORTH);
 				
@@ -763,8 +763,59 @@ public void mouseExited(MouseEvent e) {
 				centro.add(vertder, BorderLayout.EAST);
 				
 				JPanel centrocent = new JPanel();
-				centrocent.setLayout(new GridLayout(8,4));
+				centrocent.setLayout(new GridLayout(8,1));
+				centrocent.setBounds(0,0,900, 1000);
+				centrocent.setMinimumSize(new Dimension(900,1000));
+				centrocent.setMaximumSize(new Dimension(900,1000));
+				centrocent.setPreferredSize(new Dimension(900,1000));
 				
+					JPanel grand1 = new JPanel();
+					grand1.setBackground(Color.cyan);
+					//grand1.setBorder( new TitledBorder("Grandmas"));
+					grand1.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(grand1);
+					
+					JPanel farm1 = new JPanel();
+					farm1.setBackground(Color.pink);
+					//farm1.setBorder( new TitledBorder("Farms"));
+					farm1.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(farm1);
+					
+					JPanel mine1 = new JPanel();
+					mine1.setBackground(Color.green);
+					//mine1.setBorder( new TitledBorder("Mines"));
+					mine1.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(mine1);
+					
+					JPanel factory1 = new JPanel();
+					factory1.setBackground(Color.orange);
+					//factory1.setBorder( new TitledBorder("Factories"));
+					factory1.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(factory1);
+					
+					JPanel bank1 = new JPanel();
+					bank1.setBackground(Color.cyan);
+					//bank1.setBorder( new TitledBorder("Banks"));
+					bank1.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(bank1);
+					
+					JPanel temple1 = new JPanel();
+					temple1.setBackground(Color.pink);
+					//temple1.setBorder( new TitledBorder("Temples"));
+					temple1.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(temple1);
+					
+					JPanel wt1 = new JPanel();
+					wt1.setBackground(Color.green);
+					//wt1.setBorder( new TitledBorder("Wizzard Towers"));
+					wt1.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(wt1);
+					
+					JPanel ship1 = new JPanel();
+					ship1.setBackground(Color.orange);
+					//ship1.setBorder( new TitledBorder("Shipments"));
+					ship1.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(ship1);
 				
 				/*
 				 * NO DEJA HACER NADA DEL FONDO
@@ -775,8 +826,8 @@ public void mouseExited(MouseEvent e) {
 				JLabel fondo = new JLabel(imgcentr);
 				centro.add(fondo);
 				*/
-				centrocent.setBackground(Color.pink);
-				centro.add(centrocent, BorderLayout.CENTER);
+				centrocent.setBackground(Color.black);
+				centro.add(new JScrollPane(centrocent), BorderLayout.CENTER);
 		//___________________________________________________________________________________________________________________________
 				ventanaCookie.add(centro, BorderLayout.CENTER);
 				
