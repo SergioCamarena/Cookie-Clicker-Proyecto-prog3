@@ -382,7 +382,7 @@ public void mouseExited(MouseEvent e) {
 				ventanaCookie.setLayout(new BorderLayout());
 				//frame.setAlwaysOnTop(true);
 				
-				frame.setBounds(0,0,1500, 600);
+				frame.setBounds(0,0,1700, 850);
 				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				minijuego1.setEnabled(false);	//Ponemos el boton de minijuego false para que no pueda jugar desde el principio
 				
@@ -830,7 +830,6 @@ public void mouseExited(MouseEvent e) {
 				centro.add(new JScrollPane(centrocent), BorderLayout.CENTER);
 		//___________________________________________________________________________________________________________________________
 				ventanaCookie.add(centro, BorderLayout.CENTER);
-				
 				ventanaCookie.add(panelNews, BorderLayout.NORTH);
 				
 				//frame.setResizable(false);//Esto se hace para que no pueda cambiar el bounds de la ventana
@@ -841,18 +840,5 @@ public void mouseExited(MouseEvent e) {
 		new VentanaCookie();
 		
 }
-	
 }
-/*
- * -Cuando pasas por encima de los botones de los diferentes edificios y dem�s te pone todas las cookies 
- * realizadas y cuantas hace por segundo. Para esto mirar el examen de PROG II de lo del calendar hay algo parecido
- * 
- * 
- * 
- * 
- * -
- * 
- * -
- * 
- * 
- * */
+
