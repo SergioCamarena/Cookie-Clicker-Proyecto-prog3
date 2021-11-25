@@ -51,6 +51,8 @@ public class VentanaCookie implements MouseListener{
 	static boolean seguir = true;
 	static int t = 0;
 	static JLabel num1,num2,num3,num4,num5,num6,num7,num8,num9,version, nickName;
+	static int numcl=0,numgr=0,numfrm=0,numine=0,numfac=0,numban=0,numtem=0,numwiz =0,numship = 0;
+	static JRadioButton comprar,vender;
 	Usuario u = new Usuario();
 
 	
@@ -395,23 +397,89 @@ public void mouseExited(MouseEvent e) {
 				
 				//_________________________________________EDIFICIOS & CLICKER
 				JButton clicker = new JButton("CLICKER");
-				
 				JButton grandma = new JButton("GRANDMAS");
-				
 				JButton farm = new JButton("FARMS");
-				
 				JButton mine = new JButton("MINE");
-				
 				JButton factory =new JButton("FACTORY");
-				
 				JButton bank  = new JButton("BANK");
-				
 				JButton temple  = new JButton("TEMPLE");
-				
 				JButton wiz  = new JButton("WIZZARD TOWER");
-				
 				JButton ship  = new JButton("SHIPMENT");
 				
+				
+				//ACTION LISTENERS DE BOTONES
+				
+			//while(comprar.equals(true)) {
+				clicker.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						numcl = numcl+1;
+						num1.setText(""+numcl);
+					}
+				});
+				grandma.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						numgr = numgr+1;
+						num2.setText(""+numgr);
+						
+					}
+				});
+				farm.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						numfrm = numfrm+1;
+						num3.setText(""+numfrm);
+					}
+				});
+				mine.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						numine = numine+1;
+						num4.setText(""+numine);
+						
+					}
+				});
+				factory.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						numfac = numfac+1;
+						num5.setText(""+numfac);
+					}
+				});
+				bank.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						numban = numban+1;
+						num6.setText(""+numban);
+						
+					}
+				});
+				temple.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						numtem = numtem+1;
+						num7.setText(""+numtem);
+					}
+				});
+				wiz.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						numwiz = numwiz+1;
+						num8.setText(""+numwiz);
+						
+					}
+				});
+				ship.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						numship = numship+1;
+						num9.setText(""+numship);
+						
+					}
+				});
+	//}
+
 				//Panel de la derecha (EDIFICIOS)
 				JPanel este = new JPanel();
 				este.setLayout(new BorderLayout());
@@ -430,8 +498,8 @@ public void mouseExited(MouseEvent e) {
 				compvent.add(titu);
 				compvent.add(rojo);
 				
-				JRadioButton comprar=new JRadioButton("Comprar",true);
-				JRadioButton vender=new JRadioButton("Vender",false);
+				 comprar=new JRadioButton("Comprar",true);
+				 vender=new JRadioButton("Vender",false);
 				
 					//Grupo de radiobuttons
 						ButtonGroup grupo1 = new ButtonGroup();
@@ -443,13 +511,7 @@ public void mouseExited(MouseEvent e) {
 						
 				este.add(compvent, BorderLayout.NORTH);
 				
-				
-				//Scroll para los botones
-				/*
-				 * 
-				 * JScrollPane scrollBar = new JScrollPane(panel edif);
-				 * scrollBar.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
-				 */
+				//Panel Edif
 				JPanel paneledif = new JPanel();
 				paneledif.setLayout(new GridLayout(10,2));
 				paneledif.setBounds(0,0,300, 600);
@@ -460,7 +522,7 @@ public void mouseExited(MouseEvent e) {
 				
 				
 				paneledif.add(clicker);
-				num1 = new JLabel("0");
+				num1 = new JLabel(""+numcl);
 				num1.setHorizontalAlignment(SwingConstants.CENTER);
 				num1.setOpaque(true);
 				num1.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
