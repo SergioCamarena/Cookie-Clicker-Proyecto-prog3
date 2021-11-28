@@ -39,7 +39,7 @@ public class BaseDeDatos {
 	 */
 	public void open() throws DBException {
 		try {
-			conn = DriverManager.getConnection("jdbc:sqlite:astronomical_data.db");
+			conn = DriverManager.getConnection("jdbc:sqlite:CookieClicker.db");
 		} catch (SQLException e) {
 			throw new DBException("No se pudo conectar de la base de datos cookies", e);
 		}

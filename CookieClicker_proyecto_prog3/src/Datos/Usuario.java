@@ -23,6 +23,12 @@ public class Usuario {
 	// Con este constructor se crea un usuario con la contrasenya y el usuario que se indique.
 	public Usuario(String nom_usuario, String contrasenya) {
 		super();
+		if(nom_usuario == null){
+			throw new NullPointerException("Nombre de usuario es nulo");
+		}
+		if(contrasenya == null){
+			throw new NullPointerException("Tener una contraseña es obligatorio");
+		}
 		this.nom_usuario = nom_usuario;
 		this.contrasenya = contrasenya;
 	}
