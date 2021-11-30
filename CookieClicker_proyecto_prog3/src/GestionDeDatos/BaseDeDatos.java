@@ -68,12 +68,12 @@ public class BaseDeDatos {
 			System.out.println( sent );
 			ResultSet rs = statement.executeQuery( sent );
 			while( rs.next() ) { // Leer el resultset
-				int cod_partida = rs.getInt(cod_partida);
+				int cod_partida = rs.getInt("cod_partida");
 				String nom_usuario = rs.getString("nom_usuario");
-				int cookie_tot = rs.getInt(cookie_tot);
-				int cookie_ps = rs.getInt(cookie_ps);
-				int edif_tot = rs.getInt(edif_tot);
-				int tiempo_tot = rs.getInt(tiempo_tot);
+				int cookie_tot = rs.getInt("cookie_tot");
+				int cookie_ps = rs.getInt("cookie_ps");
+				int edif_tot = rs.getInt("edif_tot");
+				int tiempo_tot = rs.getInt("tiempo_tot");
 				partidas.add( new Partida ( cod_partida, nom_usuario, cookie_tot, cookie_ps, edif_tot, tiempo_tot ) );
 			}
 			return partidas;
@@ -91,7 +91,7 @@ public class BaseDeDatos {
 		
 		int FilasAfectadas = 0;
 		try {
-			Connection conn = null;
+			Connection conexion = null;
 			String CadenaInsercion = "insert into " + nomTabla + "values ("+"'"+datos[0]+ ";";
 			for (int i=1 ; i<=datos.length;i++) {
 				if (i < datos.length) {
@@ -99,7 +99,7 @@ public class BaseDeDatos {
 				}else
 				CadenaInsercion +=")";
 			}
-			Statement SentenciaInsert = conn.createStatement();
+			Statement SentenciaInsert = conexion.createStatement();
 			FilasAfectadas = SentenciaInsert.executeUpdate (CadenaInsercion);
 			System.out.println("Datos almacenados correctamente en la tabla"+nomTabla);
 			
