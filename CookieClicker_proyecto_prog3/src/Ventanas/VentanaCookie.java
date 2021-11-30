@@ -427,8 +427,8 @@ public void mouseExited(MouseEvent e) {
 				compvent.add(titu);
 				compvent.add(rojo);
 				
-				 comprar=new JRadioButton("Comprar",true);
-				 vender=new JRadioButton("Vender",false);
+				 comprar=new JRadioButton("Comprar",false);
+				 vender=new JRadioButton("Vender",true);
 				
 					//Grupo de radiobuttons
 						ButtonGroup grupo1 = new ButtonGroup();
@@ -523,6 +523,11 @@ public void mouseExited(MouseEvent e) {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
+						
+						
+						
+						//NO FUNCIONA EL RADIOBUTTON VENDER
+						/*
 						clicker.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
@@ -579,45 +584,77 @@ public void mouseExited(MouseEvent e) {
 						factory.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numfac = numfac+1;
+								if(numfac > 0) {
+								numfac = numfac-1;
 								num5.setText(""+numfac);
+								}
+								else {
+								numfac = 0;
+								num5.setText(""+numfac);
+								}
 							}
 						});
 						bank.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numban = numban+1;
+								if(numban > 0) {
+								numban = numban-1;
 								num6.setText(""+numban);
+								}
+								else {
+								numban = 0;
+								num6.setText(""+numban);
+								}
 								
 							}
 						});
 						temple.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numtem = numtem+1;
+								if(numtem > 0) {
+								numtem = numtem-1;
 								num7.setText(""+numtem);
+								}
+								else {
+								numtem = 0;
+								num7.setText(""+numtem);
+								}
 							}
 						});
 						wiz.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numwiz = numwiz+1;
+								if(numwiz > 1) {
+								numwiz = numwiz-1;
 								num8.setText(""+numwiz);
+								}
+								else if(numwiz == 1){
+								numwiz = numwiz-1;
+								num8.setText(""+numwiz);
+								}
+								
 								
 							}
 						});
 						ship.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numship = numship+1;
+								if(numship > 0) {
+								numship = numship-1;
 								num9.setText(""+numship);
+								}
+								else {
+								numship = 0;
+								num9.setText(""+numship);
+								}
 								
 							}
 						});
-						
+						*/
 					}
-				});
 				
+				});
+//_______________________________________________________________________________________________________________________
 				//Panel Edif
 				JPanel paneledif = new JPanel();
 				paneledif.setLayout(new GridLayout(10,2));
