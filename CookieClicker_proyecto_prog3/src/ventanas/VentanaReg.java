@@ -1,4 +1,4 @@
-package Ventanas;
+package ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -24,7 +24,7 @@ import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import Recursividad.PasswordGenerator;
+import recursividad.PasswordGenerator;
 
 public class VentanaReg {
 	PasswordGenerator p = new PasswordGenerator();

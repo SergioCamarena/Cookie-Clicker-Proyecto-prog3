@@ -1,4 +1,4 @@
-package Ventanas;
+package ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -40,7 +40,7 @@ import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import Code.Minijuego;
-import Datos.Usuario;
+import datos.Usuario;
 
 public class VentanaCookie implements MouseListener {
 	

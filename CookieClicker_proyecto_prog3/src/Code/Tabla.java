@@ -1,19 +1,5 @@
-<<<<<<< HEAD
-=======
-<<<<<<<< HEAD:CookieClicker_proyecto_prog3/src/Code/Tabla.java
-package Code;
-========
->>>>>>> a3079ff99f61f587c5897265042563f0de7f291e
-<<<<<<< HEAD:CookieClicker_proyecto_prog3/src/ventanas/Tabla.java
-package Ventanas;
-=======
-package code;
->>>>>>> 5b26c85d292f3b185833add3be80d7ddaffebe23:CookieClicker_proyecto_prog3/src/code/Tabla.java
-<<<<<<< HEAD
-=======
->>>>>>>> a3079ff99f61f587c5897265042563f0de7f291e:CookieClicker_proyecto_prog3/src/code/Tabla.java
->>>>>>> a3079ff99f61f587c5897265042563f0de7f291e
 
+package Code;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
