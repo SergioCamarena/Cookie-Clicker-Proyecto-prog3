@@ -1,4 +1,4 @@
-package Code;
+package code;
 
 public class Cursores extends Compra{
 	private double procentaje;

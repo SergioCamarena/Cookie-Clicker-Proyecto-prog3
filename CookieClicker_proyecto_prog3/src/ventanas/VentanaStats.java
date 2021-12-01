@@ -1,4 +1,4 @@
-package Ventanas;
+package ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -12,8 +12,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Code.Tabla;
-import Datos.Usuario;
+import code.Tabla;
+import datos.Usuario;
 
 public class VentanaStats {
 	Usuario u = new Usuario();

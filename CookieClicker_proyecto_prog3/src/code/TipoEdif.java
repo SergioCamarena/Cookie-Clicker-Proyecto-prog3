@@ -1,4 +1,4 @@
-package Code;
+package code;
 
 public class TipoEdif extends Edificios{
 	private double costeEdif;

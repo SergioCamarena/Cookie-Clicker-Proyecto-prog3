@@ -1,4 +1,4 @@
-package GestionDeDatos;
+package gestion.de.datos;
 
 /**
  * Representa un error en la base de datos
