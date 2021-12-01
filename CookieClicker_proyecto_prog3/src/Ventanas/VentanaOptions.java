@@ -21,9 +21,9 @@ import javax.swing.border.TitledBorder;
 
 public class VentanaOptions {
 	VentanaCookie vc;
-	//this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	
-	public VentanaOptions(){
+	
+	public VentanaOptions(JPanel ventanaCookie){
 		JFrame ventanaO = new JFrame("OPTIONS");
 		ventanaO.setBounds(900, 32, 600, 400);
 		//ventanaO.setBackground(Color.magenta);
@@ -49,8 +49,8 @@ public class VentanaOptions {
 		//Panel Este
 		JPanel east = new JPanel();
 		east.setLayout(new GridLayout(4,1));
-		JButton Cargarpartida = new JButton("ï¿½Tienes ya una cuenta?");
-		Cargarpartida.setBounds(0,0, 50, 50);
+		JButton acced = new JButton("Accede a tu cuenta");
+		acced.setBounds(0,0, 50, 50);
 		
 		JButton guardarpartida = new JButton("Guardar seguimiento ahora");
 		guardarpartida.setBounds(0,0, 50, 50);
@@ -58,18 +58,17 @@ public class VentanaOptions {
 		JLabel espacio = new JLabel("________________________________________");
 		JLabel espacioblanco = new JLabel("");
 		
-		east.add(Cargarpartida);
+		east.add(acced);
 		east.add(espacio);
 		east.add(guardarpartida);
 		east.add(espacioblanco);
 		ventanaO.add(east, BorderLayout.EAST);
 		
-//___________CARGAR DATOS --> ES QUE INTRODUZCA UN USUARIO
-		Cargarpartida.addActionListener(new ActionListener() {
+
+		acced.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				//vc.setVisible(false);
+				vc.dispose();
 				ventanaO.dispose();
 				new VentanaUsuario();
 				
@@ -81,7 +80,7 @@ public class VentanaOptions {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ventanaO.dispose();
-				JOptionPane.showMessageDialog(null, "ï¿½Guardado realizado! \n Puede continuar jugando");
+				JOptionPane.showMessageDialog(null, "¿Guardado realizado! \n Puede continuar jugando");
 	
 			}
 			});
@@ -127,7 +126,7 @@ public class VentanaOptions {
 		ventanaO.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 	public static void main(String[] args) {
-		new VentanaOptions();
+		new VentanaOptions(null);
 	}
 
 }

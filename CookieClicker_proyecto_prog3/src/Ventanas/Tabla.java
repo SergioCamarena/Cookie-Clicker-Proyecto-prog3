@@ -1,4 +1,4 @@
-package Code;
+package Ventanas;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

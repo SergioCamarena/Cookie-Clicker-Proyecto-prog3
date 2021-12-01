@@ -357,14 +357,7 @@ public void mouseEntered(MouseEvent e) {
 	version.setToolTipText("<html><b>VERSION</b><br> Somos <b>Elaia, Sergio e Imanol.</b><br> Y te invitamos a que <b>disfrutes</b> de nustro juego <br></html>");
 	version.getToolTipText();
 	
-	//nickName
-	//nickName.setToolTipText("<html><b>MIS DATOS<br></b></html>");
-	//nickName.getToolTipText();
-	/*
-	 * Para que te salgan todos tus datos o asi.
-	 * El email que has usado y cuando te has registrado
-	*/
-}
+	}
 @Override
 public void mouseExited(MouseEvent e) {
 	// TODO Auto-generated method stub
@@ -372,15 +365,14 @@ public void mouseExited(MouseEvent e) {
 }
 
 	public VentanaCookie(){
-		
-		
+
 		//____________________________________________________________________-
 		//Creacion de ventana
 				JFrame frame = new JFrame();
-				//frame.getContentPane().setLayout(null);
+				
 				JPanel ventanaCookie=new JPanel();
 				ventanaCookie.setLayout(new BorderLayout());
-				//frame.setAlwaysOnTop(true);
+		
 				
 				frame.setBounds(0,0,1700, 850);
 				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -930,7 +922,7 @@ public void mouseExited(MouseEvent e) {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						new VentanaOptions();
+						new VentanaOptions(ventanaCookie);
 						
 					}
 				});
@@ -1046,5 +1038,6 @@ public void mouseExited(MouseEvent e) {
 		new VentanaCookie();
 		
 }
+
 }
 
