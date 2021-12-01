@@ -922,7 +922,7 @@ public void mouseExited(MouseEvent e) {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						new VentanaOptions(ventanaCookie);
+						new VentanaOptions(frame);
 						
 					}
 				});
@@ -1038,6 +1038,11 @@ public void mouseExited(MouseEvent e) {
 		new VentanaCookie();
 		
 }
+
+	public void dispose() {
+		
+		
+	}
 
 }
 

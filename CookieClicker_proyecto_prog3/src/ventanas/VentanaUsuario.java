@@ -1,11 +1,16 @@
 package ventanas;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Component;
 import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -16,11 +21,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import datos.Usuario;
 
 public class VentanaUsuario {
 	Usuario u = new Usuario();
+	
 
 	public VentanaUsuario() {
 		JFrame ventanaU = new JFrame("USUARIO & CONTRASENYA");
@@ -75,7 +82,10 @@ public class VentanaUsuario {
 		//JLabel etiquetaC = new JLabel();
 		//south.add(etiquetaC);
 		south.add(entrar);
-		JLabel etiquetaD = new JLabel();
+		JLabel etiquetaD = new JLabel("Entrar modo Guest");
+		etiquetaD.setOpaque(true);
+		etiquetaD.setBackground(Color.green);
+		etiquetaD.setHorizontalAlignment(SwingConstants.CENTER);
 		south.add(etiquetaD);
 		south.add(regis);
 		
@@ -86,18 +96,58 @@ public class VentanaUsuario {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				//JOptionPane.showMessageDialog(null, "Login correcto.\datosn ï¿½Bienvenido al juego!");
-				//Si usuario y contrasenya no estï¿½n en la base de  preguntar si quiere hacer una nueva partida sino textfielf y passwordfield a null.
 				new VentanaCookie();
 				ventanaU.dispose();
+				
 				
 			}
 
 			
 			
 		});
-		regis.addActionListener(new ActionListener() {
+		//Si pulsas dentro del label y pulsas te lleva modo Guest
+		etiquetaD.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+				int codigo = JOptionPane.showConfirmDialog(null, "<html>Al ser un guest <b>no</b> se guardará tu progreso<br> <b>¿Quieres seguir?</b></html>", "GUEST", JOptionPane.OK_CANCEL_OPTION);
+				if(codigo==JOptionPane.OK_OPTION) {
+					new VentanaCookie();
+					ventanaU.dispose();
+				}
+				else if(codigo==JOptionPane.CANCEL_OPTION){
+					//System.out.println("TO BIEN");
+		        }
+				
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+				
+				etiquetaD.setBackground(Color.green);
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				
+				etiquetaD.setBackground(Color.yellow);
+				
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
+		
+		entrar.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -124,4 +174,5 @@ public class VentanaUsuario {
 	public static void main(String[] args) {
 		new VentanaUsuario();
 	}
+
 }

@@ -20,10 +20,10 @@ import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 public class VentanaOptions {
-	VentanaCookie vc;
+	VentanaCookie frame;
 	
 	
-	public VentanaOptions(JPanel ventanaCookie){
+	public VentanaOptions(JFrame frame2){
 		JFrame ventanaO = new JFrame("OPTIONS");
 		ventanaO.setBounds(900, 32, 600, 400);
 		//ventanaO.setBackground(Color.magenta);
@@ -68,9 +68,10 @@ public class VentanaOptions {
 		acced.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				vc.dispose();
-				ventanaO.dispose();
+				frame2.dispose();
 				new VentanaUsuario();
+				ventanaO.dispose();
+				
 				
 			}
 		});
@@ -79,6 +80,7 @@ public class VentanaOptions {
 		guardarpartida.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				ventanaO.dispose();
 				JOptionPane.showMessageDialog(null, "¿Guardado realizado! \n Puede continuar jugando");
 	
