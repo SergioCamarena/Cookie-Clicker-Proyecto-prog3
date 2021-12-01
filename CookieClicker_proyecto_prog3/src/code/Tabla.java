@@ -1,5 +1,5 @@
 
-package Code;
+package code;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;

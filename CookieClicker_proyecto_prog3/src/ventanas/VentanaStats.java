@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import Code.Tabla;
+import code.Tabla;
 import datos.Usuario;
 
 
