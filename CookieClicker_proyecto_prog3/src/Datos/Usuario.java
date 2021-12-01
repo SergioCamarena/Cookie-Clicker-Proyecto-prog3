@@ -1,4 +1,4 @@
-package datos;
+package Datos;
 
 /**
  * Esta clase representa a un usuario ya existente dentro del juego.

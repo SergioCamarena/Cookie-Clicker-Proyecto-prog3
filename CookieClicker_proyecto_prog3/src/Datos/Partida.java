@@ -1,4 +1,4 @@
-package datos;
+package Datos;
 
 public class Partida {
 	public int cod_partida;

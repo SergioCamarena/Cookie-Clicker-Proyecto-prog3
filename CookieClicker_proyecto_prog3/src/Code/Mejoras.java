@@ -1,4 +1,4 @@
-package code;
+package Code;
 
 public class Mejoras extends Compra{
 	private String tipoMejora;

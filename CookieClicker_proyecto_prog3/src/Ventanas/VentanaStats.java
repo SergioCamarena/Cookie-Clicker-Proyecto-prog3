@@ -1,4 +1,4 @@
-package ventanas;
+package Ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
@@ -12,12 +12,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+<<<<<<< HEAD:CookieClicker_proyecto_prog3/src/ventanas/VentanaStats.java
 <<<<<<< HEAD:CookieClicker_proyecto_prog3/src/Ventanas/VentanaStats.java
 import Datos.Usuario;
 =======
 import code.Tabla;
 import datos.Usuario;
 >>>>>>> 5b26c85d292f3b185833add3be80d7ddaffebe23:CookieClicker_proyecto_prog3/src/ventanas/VentanaStats.java
+=======
+import Code.Tabla;
+import Datos.Usuario;
+>>>>>>> a3079ff99f61f587c5897265042563f0de7f291e:CookieClicker_proyecto_prog3/src/Ventanas/VentanaStats.java
 
 public class VentanaStats {
 	Usuario u = new Usuario();	//Nueva instancia de Usuario

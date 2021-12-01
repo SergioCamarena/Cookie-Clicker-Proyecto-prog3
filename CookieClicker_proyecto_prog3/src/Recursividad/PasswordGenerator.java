@@ -1,4 +1,4 @@
-package recursividad;
+package Recursividad;
 
 import java.util.Arrays;
 import java.util.Collections;

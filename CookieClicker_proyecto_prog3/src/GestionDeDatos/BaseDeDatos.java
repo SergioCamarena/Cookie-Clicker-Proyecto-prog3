@@ -1,4 +1,4 @@
-package gestion.de.datos;
+package GestionDeDatos;
 
 import java.lang.System.Logger.Level;
 import java.sql.Connection;
@@ -10,8 +10,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import datos.Partida;
-import datos.Usuario;
+import Datos.Usuario;
+import Datos.Partida;
 
 /**
  * Esta clase centraliza el acceso a la base de datos
