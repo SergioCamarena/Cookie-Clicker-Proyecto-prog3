@@ -1,4 +1,8 @@
+<<<<<<< HEAD:CookieClicker_proyecto_prog3/src/ventanas/Tabla.java
 package Ventanas;
+=======
+package code;
+>>>>>>> 5b26c85d292f3b185833add3be80d7ddaffebe23:CookieClicker_proyecto_prog3/src/code/Tabla.java
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;

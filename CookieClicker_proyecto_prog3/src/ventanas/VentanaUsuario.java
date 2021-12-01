@@ -1,4 +1,4 @@
-package Ventanas;
+package ventanas;
 
 import java.awt.BorderLayout;
 import java.awt.Component;
@@ -17,7 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
-import Datos.Usuario;
+import datos.Usuario;
 
 public class VentanaUsuario {
 	Usuario u = new Usuario();
