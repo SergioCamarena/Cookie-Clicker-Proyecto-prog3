@@ -21,16 +21,14 @@ public class VentanaInfo {
 	
 	public VentanaInfo() {
 		JFrame ventanaI = new JFrame();
-		JTextArea txArea1 = new JTextArea();
-		JLabel texto = new JLabel();
+		//JTextArea txArea1 = new JTextArea();
+		//JLabel texto = new JLabel();
 		ventanaI.setBounds(0, 0, 600, 400);
 		ventanaI.setLayout(new BorderLayout());
 		
 		
-		//Scroll
-		JScrollPane scrollBar = new JScrollPane(txArea1);
-		scrollBar.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-		texto.add(scrollBar, BorderLayout.SOUTH);
+	
+		
 		
 		//Panel norte
 		JPanel norte =  new JPanel();
@@ -46,12 +44,17 @@ public class VentanaInfo {
 		JPanel centro = new JPanel();
 		JLabel versiones = new JLabel("<html>Hola compañeros</html>");
 		centro.add(versiones);
-//		ventanaI.add(centro, BorderLayout.CENTER);
-		ventanaI.setVisible(true);
+		ventanaI.add(centro, BorderLayout.CENTER);
+		//ventanaI.setVisible(true);
 		ventanaI.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ventanaI.add(new JScrollPane(centro), BorderLayout.CENTER);
 		
-		//Boton para volver a la ventana cookie
+		//Scroll
+		JPanel este = new JPanel(); 
+		este.setLayout(new BorderLayout()); 
+		este.add(new JScrollPane(centro), BorderLayout.CENTER);
+	
+	//Boton para volver a la ventana cookie
 		JPanel panel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
 		JButton cookie =  new JButton("Cookie Clicker");
 		panel.add(cookie);
@@ -66,6 +69,7 @@ public class VentanaInfo {
 //				
 			}
 		});
+		ventanaI.setVisible(true);
 	}
 	public static void main(String[] args) {
 		new VentanaInfo();

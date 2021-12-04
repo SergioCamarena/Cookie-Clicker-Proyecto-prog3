@@ -50,7 +50,7 @@ public class BaseDeDatos {
 	 * Cierra la conexión con la base de datos. La conexión debe estar abierta.
 	 * @throws DBException esta excepción se lanza si se produce algún error durante la construcción del objeto
 	 */
-	public void close() throws DBException {
+	public  void close() throws DBException {
 		try {
 			conexion.close();
 		} catch (SQLException e) {
