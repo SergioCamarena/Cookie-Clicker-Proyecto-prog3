@@ -50,7 +50,7 @@ public class VentanaCookie implements MouseListener {
 	static Thread corre;
 	static boolean seguir = true;
 	static int t = 0;
-	static JLabel num1,num2,num3,num4,num5,num6,num7,num8,num9,version, nickName;
+	static JLabel num1,num2,num3,num4,num5,num6,num7,num8,num9,num10,num11,num12,version, nickName;
 	static int numcl=0,numgr=0,numfrm=0,numine=0,numfac=0,numban=0,numtem=0,numwiz =0,numship = 0;
 	static JRadioButton comprar,vender;
 	Usuario u = new Usuario();
@@ -75,7 +75,7 @@ public class VentanaCookie implements MouseListener {
 				}
 				*/
 			} else if (cont>=1000000 && cont<1000000000){
-				return "                         "+ f.format(cont/1000000) +" million Cookies         ";
+				return "				"+ f.format(cont/1000000) +" million Cookies         ";
 
 			}else {
 				return "         "+ cont +" Cookies         ";
@@ -352,6 +352,12 @@ public void mouseEntered(MouseEvent e) {
 	num8.getToolTipText();
 	num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo nº de shipments.<br> Cookies totales ___ <br></html>");
 	num9.getToolTipText();
+	num10.setToolTipText("<html>ARCHEMY LAB<br> Tenemos ahora mismo nº de shipments.<br> Cookies totales ___ <br></html>");
+	num10.getToolTipText();
+	num11.setToolTipText("<html>PORTAL<br> Tenemos ahora mismo nº de shipments.<br> Cookies totales ___ <br></html>");
+	num11.getToolTipText();
+	num12.setToolTipText("<html>TIME MACHINE<br> Tenemos ahora mismo nº de shipments.<br> Cookies totales ___ <br></html>");
+	num12.getToolTipText();
 	
 	//version
 	version.setToolTipText("<html><b>VERSION</b><br> Somos <b>Elaia, Sergio e Imanol.</b><br> Y te invitamos a que <b>disfrutes</b> de nustro juego <br></html>");
@@ -379,7 +385,7 @@ public void mouseExited(MouseEvent e) {
 				minijuego1.setEnabled(false);	//Ponemos el boton de minijuego false para que no pueda jugar desde el principio
 				
 				
-				JLayeredPane layered = new JLayeredPane();
+				
 				
 				
 				frame.add(ventanaCookie);
@@ -395,6 +401,9 @@ public void mouseExited(MouseEvent e) {
 				JButton temple  = new JButton("TEMPLE");
 				JButton wiz  = new JButton("WIZZARD TOWER");
 				JButton ship  = new JButton("SHIPMENT");
+				JButton arch  = new JButton("ARCHEMY LAB");
+				JButton port  = new JButton("PORTAL");
+				JButton timemach  = new JButton("TIME MACHINE");
 				
 				
 			
@@ -649,8 +658,8 @@ public void mouseExited(MouseEvent e) {
 //_______________________________________________________________________________________________________________________
 				//Panel Edif
 				JPanel paneledif = new JPanel();
-				paneledif.setLayout(new GridLayout(10,2));
-				paneledif.setBounds(0,0,300, 600);
+				paneledif.setLayout(new GridLayout(12,2));
+				paneledif.setBounds(0,0,300, 400);
 				paneledif.setMinimumSize(new Dimension(300,600));
 				paneledif.setMaximumSize(new Dimension(300,600));
 				paneledif.setPreferredSize(new Dimension(300,600));
@@ -738,6 +747,32 @@ public void mouseExited(MouseEvent e) {
 				num9.addMouseListener(this);
 				paneledif.add(num9);
 				
+				paneledif.add(arch);
+				num10 = new JLabel("0");
+				num10.setHorizontalAlignment(SwingConstants.CENTER);
+				num10.setOpaque(true);
+				num10.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				num10.setBackground(Color.cyan);
+				num10.addMouseListener(this);
+				paneledif.add(num10);
+				
+				paneledif.add(port);
+				num11 = new JLabel("0");
+				num11.setHorizontalAlignment(SwingConstants.CENTER);
+				num11.setOpaque(true);
+				num11.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				num11.setBackground(Color.pink);
+				num11.addMouseListener(this);
+				paneledif.add(num11);
+				
+				paneledif.add(timemach);
+				num12 = new JLabel("0");
+				num12.setHorizontalAlignment(SwingConstants.CENTER);
+				num12.setOpaque(true);
+				num12.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				num12.setBackground(Color.green);
+				num12.addMouseListener(this);
+				paneledif.add(num12);
 				//Metemos el paneledif en un JScrollPane y este a ESTE
 				este.add(new JScrollPane(paneledif), BorderLayout.CENTER);
 				
@@ -782,6 +817,7 @@ public void mouseExited(MouseEvent e) {
 				
 				//Panel Oeste que engloba panelgalleta y el nick 
 				JPanel oeste = new JPanel();
+				oeste.setBounds(0, 0, 700, 800);
 				oeste.setLayout(new BorderLayout());
 				oeste.setBorder(new BevelBorder(BevelBorder.LOWERED));
 				
@@ -797,12 +833,12 @@ public void mouseExited(MouseEvent e) {
 				//Panel Cookie (JLabel --> boton CON IMAGEN DE COOKIE)
 				JPanel panelgalleta = new JPanel();
 				panelgalleta.setLayout(new GridLayout(4,1));
-				panelgalleta.setBounds(0, 0, 400, 200);			//Porrque no nos tira esto?
+				//panelgalleta.setBounds(0, 0, 700, 400);			//Porrque no nos tira esto?
 				panelgalleta.setBorder(new BevelBorder(BevelBorder.RAISED));
 				
 				
 				//Contador
-				JLabel contador = new JLabel(met(1900.87264));
+				JLabel contador = new JLabel(met(1.001));
 				contador.setFont(new Font("Arial",Font.PLAIN,20));
 				panelgalleta.add(contador);
 				
@@ -828,7 +864,7 @@ public void mouseExited(MouseEvent e) {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						
-						
+						contador.setText(met(100000.07));
 					}
 
 					@Override
@@ -961,7 +997,7 @@ public void mouseExited(MouseEvent e) {
 				centro.add(vertder, BorderLayout.EAST);
 				
 				JPanel centrocent = new JPanel();
-				centrocent.setLayout(new GridLayout(8,1));
+				centrocent.setLayout(new GridLayout(11,1));
 				centrocent.setBounds(0,0,900, 1000);
 				centrocent.setMinimumSize(new Dimension(900,1000));
 				centrocent.setMaximumSize(new Dimension(900,1000));
@@ -1014,6 +1050,24 @@ public void mouseExited(MouseEvent e) {
 					//ship1.setBorder( new TitledBorder("Shipments"));
 					ship1.setBorder(new LineBorder(Color.BLACK));
 					centrocent.add(ship1);
+					
+					JPanel arch1 = new JPanel();
+					arch1.setBackground(Color.cyan);
+					//ship1.setBorder( new TitledBorder("Shipments"));
+					arch1.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(arch1);
+					
+					JPanel portal1 = new JPanel();
+					portal1.setBackground(Color.pink);
+					//ship1.setBorder( new TitledBorder("Shipments"));
+					portal1.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(portal1);
+					
+					JPanel timemach1 = new JPanel();
+					timemach1.setBackground(Color.green);
+					//ship1.setBorder( new TitledBorder("Shipments"));
+					timemach1.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(timemach1);
 				
 				/*
 				 * NO DEJA HACER NADA DEL FONDO
