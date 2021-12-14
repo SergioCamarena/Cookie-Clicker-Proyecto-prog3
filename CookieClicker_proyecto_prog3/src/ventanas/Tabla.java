@@ -46,7 +46,7 @@ public class Tabla {
 		//private static JComboBox<String>cbUsuarios;
 		//private static JPanel pNorte;
 		
-		public static void main(String[]args) {
+		public Tabla() {
 			ventanaT = new JFrame("Ranking Mundial");
 			ventanaT.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			ventanaT.setSize(800,400);
@@ -85,6 +85,9 @@ public class Tabla {
 			ranking.getTableHeader().setReorderingAllowed(false); //Phohibir que las columnas se muevan	
 			
 			ventanaT.setVisible(true);
+		}
+		public static void main(String[]args) {
+			new Tabla();
 		}
 		
 		
