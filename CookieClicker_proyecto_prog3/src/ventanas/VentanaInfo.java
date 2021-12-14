@@ -5,30 +5,34 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.ScrollPane;
+import java.awt.Scrollbar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Scanner;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 
 public class VentanaInfo {
-	
+	private JScrollPane spTexto;
+	private JTextArea informacion;
+	private static JFrame ventanaI;
+
 	public VentanaInfo() {
-		JFrame ventanaI = new JFrame();
-		//JTextArea txArea1 = new JTextArea();
-		//JLabel texto = new JLabel();
+		ventanaI = new JFrame();
 		ventanaI.setBounds(0, 0, 600, 400);
 		ventanaI.setLayout(new BorderLayout());
-		
-		
-	
-		
 		
 		//Panel norte
 		JPanel norte =  new JPanel();
@@ -42,17 +46,27 @@ public class VentanaInfo {
 		
 		//Panel centro
 		JPanel centro = new JPanel();
-		JLabel versiones = new JLabel("<html>Hola compañeros</html>");
-		centro.add(versiones);
+		informacion = new JTextArea();
+		centro.add(informacion);
+		spTexto = new JScrollPane(informacion);
 		ventanaI.add(centro, BorderLayout.CENTER);
-		//ventanaI.setVisible(true);
 		ventanaI.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		ventanaI.add(new JScrollPane(centro), BorderLayout.CENTER);
 		
-		//Scroll
-		JPanel este = new JPanel(); 
-		este.setLayout(new BorderLayout()); 
-		este.add(new JScrollPane(centro), BorderLayout.CENTER);
+		//DA ERROR EN EL VOID PERO NO ENTIENDO EL PORQUE PERO EL CODIGO DEBE SER ASI
+		
+//		private void cargaInformacion() {
+//			try {
+//				Scanner scanner = new Scanner(VentanaInfo.class.getResourceAsStream("Informacion.txt"), "UTF-8");
+//				while(scanner.hasNextLine()) {
+//					String linea = scanner.nextLine();
+//					informacion.append(linea + "\n");
+//				}
+//				scanner.close();
+//			}catch (Exception e) {
+//				JOptionPane.showInputDialog(this, "No se ha podido cargar el texto");
+//			}
+//		}
+
 	
 	//Boton para volver a la ventana cookie
 		JPanel panel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
@@ -71,9 +85,11 @@ public class VentanaInfo {
 		});
 		ventanaI.setVisible(true);
 	}
+
 	public static void main(String[] args) {
+		//ventanaI.cargaInformacion();
 		new VentanaInfo();
-		
+
 	}
 
 }

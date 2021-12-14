@@ -38,7 +38,7 @@ public class BaseDeDatos {
 	 * Establece una conexión con la base de datos
 	 * @throws DBException esta excepción se lanza si se produce algún error durante la construcción del objeto
 	 */
-	public void open() throws DBException {
+	public static void open() throws DBException {
 		try {
 			conexion = DriverManager.getConnection("jdbc:sqlite:CookieClicker.db");
 		} catch (SQLException e) {
@@ -50,7 +50,7 @@ public class BaseDeDatos {
 	 * Cierra la conexión con la base de datos. La conexión debe estar abierta.
 	 * @throws DBException esta excepción se lanza si se produce algún error durante la construcción del objeto
 	 */
-	public  void close() throws DBException {
+	public static void close() throws DBException {
 		try {
 			conexion.close();
 		} catch (SQLException e) {

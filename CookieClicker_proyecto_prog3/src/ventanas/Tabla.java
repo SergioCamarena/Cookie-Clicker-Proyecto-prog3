@@ -28,6 +28,7 @@ public class Tabla {
 		 *  
 		 * HAY QUE SACAR LOS VALORES DE LA BD E INTRODUCIRLAS AQUÍ
 		 * 
+		 * HASTA QUE NO SE SOLUCIONE LA BASE DE DATOS NO PUEDO CONTINUAR HACIENDO LA TABLA
 		 * */
 //		JFrame ventanaT = new JFrame("RANKING MUNDIAL");
 //		ventanaT.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
