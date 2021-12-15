@@ -84,7 +84,7 @@ public class VentanaStats {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				new Tabla();
+				new Tablas();
 				
 			}
 		});

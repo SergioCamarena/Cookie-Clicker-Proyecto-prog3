@@ -520,10 +520,11 @@ public void mouseExited(MouseEvent e) {
 				});
 //_______________________________________________________________________________________MIRAR DETENIDAMENTE QUE LE PASA			
 				//VENDER
-				vender.addActionListener(new ActionListener() {
+			//	vender.addActionListener(new ActionListener() {
 					
-					@Override
-					public void actionPerformed(ActionEvent e) {
+					//@Override
+					//public void actionPerformed(ActionEvent e) {
+						
 						
 						
 						
@@ -652,9 +653,9 @@ public void mouseExited(MouseEvent e) {
 							}
 						});
 						*/
-					}
+		//			}
 				
-				});
+		//		});
 //_______________________________________________________________________________________________________________________
 				//Panel Edif
 				JPanel paneledif = new JPanel();
