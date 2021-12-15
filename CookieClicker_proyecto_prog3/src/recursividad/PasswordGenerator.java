@@ -9,7 +9,7 @@ public class PasswordGenerator {
 	
 	// usados para la generaci?n aleatoria
 	private final char[] LETTERS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();
-	private final char[] Characters = "0123456789,.:;+*?¿$%&#@!¡<>".toCharArray();
+	private final char[] Characters = "0123456789:+-*/?¿$%&#@!¡<>".toCharArray();
 	private Random r;
 	
 	

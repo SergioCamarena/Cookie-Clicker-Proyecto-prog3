@@ -24,7 +24,7 @@ public class Tablas {
 	public Tablas() {
 		ventanaT = new JFrame("Ranking Mundial");
 		ventanaT.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		ventanaT.setSize(800,400);
+		ventanaT.setBounds(300,120,800,200);
 		//cbUsuarios = new JComboBox<>();
 		//pNorte.add(cbUsuarios);
 		
