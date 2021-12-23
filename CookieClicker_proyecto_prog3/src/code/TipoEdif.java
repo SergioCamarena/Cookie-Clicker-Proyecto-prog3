@@ -3,11 +3,8 @@ package code;
 public class TipoEdif extends Edificios{
 	private double costeEdif;
 	private NombreEdif nombreEdif;
-	
-	public enum NombreEdif {
-		CURSOR, GRANDMA, MINE, FACTORY, BANK;
-
-	}
+	//Time stamp
+	//private 
 
 	
 	//constructor	

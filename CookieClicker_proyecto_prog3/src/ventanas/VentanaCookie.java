@@ -67,13 +67,7 @@ public class VentanaCookie implements MouseListener {
 			//Estos ifs sirven para que ponga la parte del string después del numero
 			if (cont>1000 && cont<1000000) {
 				return "         "+ g.format(cont/1000) +"K Cookies         ";
-				/*
-				 * QUEREMOS QUE EL MINIJUEGO SOLO ESTE ACTIVO CUANDO ESTE ENTRE ALGUNOS VAREMOS
-				if(cont>1000 && cont<3500) {
-					minijuego1.setEnabled(false);
-					
-				}
-				*/
+				
 			} else if (cont>=1000000 && cont<1000000000){
 				return "				"+ f.format(cont/1000000) +" million Cookies         ";
 
@@ -443,16 +437,27 @@ public void mouseExited(MouseEvent e) {
 				
 				//ACTION LISTENERS DE RADIOBUTTONS Y BOTONES
 				
-				comprar.addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
+				
+//Array de contadores que funcionen por indices.!!				
+				
 						clicker.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numcl = numcl+1;
-								num1.setText(""+numcl);
-							}
+								if(comprar.isSelected()) {
+									numcl = numcl+1;
+									num1.setText(""+numcl);
+								}
+								else {
+									if(numcl > 0) {
+										numcl = numcl-1;
+										num1.setText(""+numcl);
+									}
+									numcl = 0;
+									
+								}
+								}
+							
+							
 						});
 						grandma.addActionListener(new ActionListener() {
 							@Override
@@ -516,146 +521,8 @@ public void mouseExited(MouseEvent e) {
 							}
 						});
 						
-					}
-				});
-//_______________________________________________________________________________________MIRAR DETENIDAMENTE QUE LE PASA			
-				//VENDER
-			//	vender.addActionListener(new ActionListener() {
 					
-					//@Override
-					//public void actionPerformed(ActionEvent e) {
-						
-						
-						
-						
-						//NO FUNCIONA EL RADIOBUTTON VENDER
-						/*
-						clicker.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								if(numcl > 0) {
-									numcl = numcl-1;
-									num1.setText(""+numcl);
-								}
-								else {
-									numcl = 0;
-									num1.setText(""+numcl);
-								}
-							}
-						});
-						grandma.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								if(numgr > 0) {
-								numgr = numgr-1;
-								num2.setText(""+numgr);
-								}
-								else {
-								numgr = 0;
-								num2.setText(""+numgr);
-								}
-							}
-						});
-						farm.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								if(numfrm > 0) {
-								numfrm = numfrm-1;
-								num3.setText(""+numfrm);
-								}
-								else {
-								numfrm = 0;
-								num3.setText(""+numfrm);
-								}
-							}
-						});
-						mine.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								if(numine > 0) {
-								numine = numine-1;
-								num4.setText(""+numine);
-								}
-								else {
-								numine = 0;
-								num4.setText(""+numine);
-								}
-								
-							}
-						});
-						factory.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								if(numfac > 0) {
-								numfac = numfac-1;
-								num5.setText(""+numfac);
-								}
-								else {
-								numfac = 0;
-								num5.setText(""+numfac);
-								}
-							}
-						});
-						bank.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								if(numban > 0) {
-								numban = numban-1;
-								num6.setText(""+numban);
-								}
-								else {
-								numban = 0;
-								num6.setText(""+numban);
-								}
-								
-							}
-						});
-						temple.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								if(numtem > 0) {
-								numtem = numtem-1;
-								num7.setText(""+numtem);
-								}
-								else {
-								numtem = 0;
-								num7.setText(""+numtem);
-								}
-							}
-						});
-						wiz.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								if(numwiz > 1) {
-								numwiz = numwiz-1;
-								num8.setText(""+numwiz);
-								}
-								else if(numwiz == 1){
-								numwiz = numwiz-1;
-								num8.setText(""+numwiz);
-								}
-								
-								
-							}
-						});
-						ship.addActionListener(new ActionListener() {
-							@Override
-							public void actionPerformed(ActionEvent e) {
-								if(numship > 0) {
-								numship = numship-1;
-								num9.setText(""+numship);
-								}
-								else {
-								numship = 0;
-								num9.setText(""+numship);
-								}
-								
-							}
-						});
-						*/
-		//			}
-				
-		//		});
+
 //_______________________________________________________________________________________________________________________
 				//Panel Edif
 				JPanel paneledif = new JPanel();
