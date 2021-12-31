@@ -10,6 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import datos.Estadisticas;
 import datos.Partida;
 import datos.Usuario;
 
@@ -58,7 +59,7 @@ public class BaseDeDatos {
 			throw new DBException("No se pudo desconectar correctamente de la base de datos", e);
 		}
 	}
-	/** Lee los usuarios de la conexión de base de datos abierta
+	/** Lee los usuarios de la conexión de base de datos abierta para la tabla de estadísticas
 	 * @return	Lista completa de usuarios, null si hay algún error
 	 */
 	public static ArrayList<Partida> getPartidas() {
@@ -77,6 +78,34 @@ public class BaseDeDatos {
 				partidas.add( new Partida ( cod_partida, nom_usuario, cookie_tot, cookie_ps, edif_tot, tiempo_tot ) );
 			}
 			return partidas;
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	public static ArrayList<Estadisticas> getEstadisticas() {
+		try (Statement statement = conexion.createStatement()) {
+			ArrayList<Estadisticas> estadisticas = new ArrayList<>();
+			String sent = "select cod_partida, nom_usuario, cookie_tot, cookie_ps, edif_tot, tiempo_tot from Partida;";
+			System.out.println( sent );
+			ResultSet rs = statement.executeQuery( sent );
+			while( rs.next() ) { // Leer el resultset
+				int cod_partida = rs.getInt("cod_partida");
+				int grandmas = rs.getInt("grandmas");
+				int farms = rs.getInt("farms");
+				int mine = rs.getInt("mine");
+				int factory = rs.getInt("factory");
+				int bank = rs.getInt("bank");
+				int temple = rs.getInt("temple");
+				int w_tower = rs.getInt("w_tower");
+				int shipment = rs.getInt("shipment");
+				int arch = rs.getInt("arch");
+				int port = rs.getInt("port");
+				int timemach = rs.getInt("timemach");
+				estadisticas.add( new Estadisticas ( cod_partida, grandmas, farms, mine, factory, bank, temple, w_tower, shipment, arch, port, timemach) );
+			}
+			return estadisticas;
 		} catch (Exception e) {
 			e.printStackTrace();
 			return null;
