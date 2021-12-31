@@ -46,17 +46,19 @@ public class VentanaCookie implements MouseListener {
 	
 	public static double cont = 1;	//Valor del contador (inicialización)
 	static JButton minijuego1 = new JButton("MiniJuego");
-	static JLabel news;
-	static Thread corre;
+	static JLabel news, contador;
+	static Thread corre, seg;
 	static boolean seguir = true;
 	static int t = 0;
 	static JLabel num1,num2,num3,num4,num5,num6,num7,num8,num9,num10,num11,num12,version, nickName;
 	static int numcl=0,numgr=0,numfrm=0,numine=0,numfac=0,numban=0,numtem=0,numwiz =0,numship = 0;
 	static JRadioButton comprar,vender;
+	static double valor = 0.15;
 	Usuario u = new Usuario();
 
 	
-	//Método de contador
+	//Metodo de contador
+	/*
 	public static String met(double valor) {
 		
 		if (cont>0) {
@@ -78,8 +80,44 @@ public class VentanaCookie implements MouseListener {
 		} else {
 			return "         0 cookies         ";
 		}
+	}*/
+	//Metodo cookies_por seg.
+	public double  pulsa(double numero) {
+		numero = (double) (numero*valor);
+		
+		return numero;
 	}
-	//Método News
+	//Lo unico que hace esto es pasarlo a string
+	public String pulsa2(double numero) {
+		double value = pulsa(numero);
+		
+		return ""+value;
+	}
+	public String seg() {
+		seg = new Thread(new Runnable() {
+			
+			public void run() {
+				while(seguir) {
+					cont = cont + pulsa(numcl)+pulsa(numgr)+pulsa(numfrm)+pulsa(numine)+pulsa(numfac)+pulsa(numban)+pulsa(numtem)+pulsa(numwiz)+pulsa(numship);
+					contador.setText(""+cont);
+					
+					try {
+						seg.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}	
+		}
+		});
+		seg.start();
+		
+		
+		return "";
+		 
+		
+	}
+	//Metodo News
 	
 public static String Lista() {
 	ArrayList<String> listanews = new ArrayList<String>();
@@ -452,8 +490,9 @@ public void mouseExited(MouseEvent e) {
 										numcl = numcl-1;
 										num1.setText(""+numcl);
 									}
-									numcl = 0;
-									
+									else {
+										numcl = 0;
+										}
 								}
 								}
 							
@@ -462,61 +501,175 @@ public void mouseExited(MouseEvent e) {
 						grandma.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numgr = numgr+1;
-								num2.setText(""+numgr);
+								if(comprar.isSelected()) {
+									numgr = numgr+1;
+									num2.setText(""+numgr);
+								}
+								else {
+									if(numgr > 0) {
+										numgr = numgr-1;
+										num2.setText(""+numgr);
+									}
+									else {
+										numgr = 0;
+										}
+									
+									
+								}
+								
+								
+								
 								
 							}
 						});
 						farm.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numfrm = numfrm+1;
-								num3.setText(""+numfrm);
+								if(comprar.isSelected()) {
+									numfrm = numfrm+1;
+									num3.setText(""+numfrm);
+								}
+								else {
+									if(numgr > 0) {
+										numfrm = numfrm-1;
+										num3.setText(""+numfrm);
+									}
+									else {
+										numfrm = 0;
+										}
+									
+								}
 							}
 						});
 						mine.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numine = numine+1;
-								num4.setText(""+numine);
+								if(comprar.isSelected()) {
+									numine = numine+1;
+									num4.setText(""+numine);
+								}
+								else {
+									if(numgr > 0) {
+										numine = numine-1;
+										num4.setText(""+numine);
+									}
+									else {
+										numine = 0;
+										}
+									
+								}
+								
+								
 								
 							}
 						});
 						factory.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numfac = numfac+1;
-								num5.setText(""+numfac);
+								if(comprar.isSelected()) {
+									numfac = numfac+1;
+									num5.setText(""+numfac);
+								}
+								else {
+									if(numgr > 0) {
+										numfac = numfac-1;
+										num5.setText(""+numfac);
+									}
+									else {
+										numfac = 0;
+										}
+									
+								}
+								
+								
 							}
 						});
 						bank.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numban = numban+1;
-								num6.setText(""+numban);
+								if(comprar.isSelected()) {
+									numban = numban+1;
+									num6.setText(""+numban);
+								}
+								else {
+									if(numgr > 0) {
+										numban = numban-1;
+										num6.setText(""+numban);
+									}
+									else {
+										numban = 0;
+										}
+									
+								}
+								
+								
 								
 							}
 						});
 						temple.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numtem = numtem+1;
-								num7.setText(""+numtem);
+								if(comprar.isSelected()) {
+									numtem = numtem+1;
+									num7.setText(""+numtem);
+								}
+								else {
+									if(numgr > 0) {
+										numtem = numtem-1;
+										num7.setText(""+numtem);
+									}
+									else {
+										numtem = 0;
+										}
+									
+								}
+								
+								
 							}
 						});
 						wiz.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numwiz = numwiz+1;
-								num8.setText(""+numwiz);
+								if(comprar.isSelected()) {
+									numwiz = numwiz+1;
+									num8.setText(""+numwiz);
+								}
+								else {
+									if(numgr > 0) {
+										numwiz = numwiz-1;
+										num8.setText(""+numwiz);
+									}
+									else {
+										numwiz = 0;
+										}
+									
+								}
+								
+								
 								
 							}
 						});
 						ship.addActionListener(new ActionListener() {
+							
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								numship = numship+1;
-								num9.setText(""+numship);
+								if(comprar.isSelected()) {
+									numship = numship+1;
+									num9.setText(""+numship);
+									
+								}
+								else {
+									if(numgr > 0) {
+										numship = numship-1;
+										num9.setText(""+numship);
+										
+									}
+									else {
+										numship = 0;
+										}
+									
+								}
+								
 								
 							}
 						});
@@ -706,9 +859,10 @@ public void mouseExited(MouseEvent e) {
 				
 				
 				//Contador
-				JLabel contador = new JLabel(met(1.001));
+				contador = new JLabel(pulsa2(1.0));
 				contador.setFont(new Font("Arial",Font.PLAIN,20));
 				panelgalleta.add(contador);
+				
 				
 				//Ajustar la imagen para que quede bien y no sea enorme
 				ImageIcon imgIcon = new ImageIcon("src/Code/cookuie.png");
@@ -732,7 +886,7 @@ public void mouseExited(MouseEvent e) {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						
-						contador.setText(met(100000.07));
+						contador.setText(pulsa2(1.00));
 					}
 
 					@Override
@@ -806,6 +960,7 @@ public void mouseExited(MouseEvent e) {
 						// TODO Auto-generated method stub
 						seguir = false;
 						corre.interrupt();
+						//(seg).interrupt();
 					}
 					
 					@Override
