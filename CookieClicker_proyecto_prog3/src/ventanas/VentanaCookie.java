@@ -39,6 +39,7 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
+import code.Metodos;
 import code.Minijuego;
 import datos.Usuario;
 
@@ -947,7 +948,8 @@ public void mouseExited(MouseEvent e) {
 				//JLabel QUE SE USARA PARA QUE SALGAN LAS NEWS DE UN ARRAYLIST<STRING>
 				//Se separa para que asegurar de que se crea y lanzarlo despues.
 				news = new JLabel(""); //Primero se crea
-				Lista();			   //Luego se lanza
+				String noti= Metodos.Lista();			   //Luego se lanza
+				news.setText(noti);
 				news.setHorizontalAlignment(SwingConstants.CENTER);
 				news.setBackground(Color.white);
 				news.setOpaque(true);
@@ -964,7 +966,7 @@ public void mouseExited(MouseEvent e) {
 					}
 					
 					@Override
-					public void windowClosed(WindowEvent e) {
+					public void windowClosed(WindowEvent e) {	
 						
 						
 					}

@@ -25,12 +25,8 @@ public class Metodos {
 			
 			return numero;
 		}
-		//Lo unico que hace esto es pasarlo a string
-		public String pulsa2(double numero) {
-			double value = pulsa(numero);
-			
-			return ""+value;
-		}
+		
+		
 		public String seg() {
 			seg = new Thread(new Runnable() {
 				
