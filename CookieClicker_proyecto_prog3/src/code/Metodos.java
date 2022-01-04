@@ -286,5 +286,9 @@ public class Metodos {
 				 
 				
 			}
+	public  static void terminarhilocorre() {
+		seguir = false;
+		corre.interrupt();
+	}
 
 }
