@@ -1,0 +1,11 @@
+                                                  HOLA COMPAÑEROS:
+
+Información sobre el juego:
+Nota: si encuentra un nuevo error después de una actualización y está utilizando un complemento de 3ª parte, 
+¡asegúrese de que no sea solo su complemento el que lo cause!
+Advertencia: borrar la caché de su navegador o las cookies hará que su guardado sea borrado. ¡Exporte su guardado y haga una copia de seguridad primero!
+
+El objetivo del juego es hornear galletas los más rápido posible.
+Para comenzar el juego, un jugador hornea galletas haciendo clic en una galleta gigante. Se obtiene una cookie cada vez que se hace clic en ella.
+Con suficientes cookies para usarlas como moneda, un jugador puede comprar artículos y actualizaciones que hornearán más cookies.
+El juego termina cuando el jugador consigue la galleta dorada.

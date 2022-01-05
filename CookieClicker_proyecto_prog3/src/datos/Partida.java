@@ -30,6 +30,12 @@ public class Partida {
 	public int getCookie_tot() {
 		return cookie_tot;
 	}
+	public String getNom_usuario() {
+		return nom_usuario;
+	}
+	public void setNom_usuario(String nom_usuario) {
+		this.nom_usuario = nom_usuario;
+	}
 	public void setCookie_tot(int cookie_tot) {
 		this.cookie_tot = cookie_tot;
 	}

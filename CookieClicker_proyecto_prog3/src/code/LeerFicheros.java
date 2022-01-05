@@ -9,8 +9,9 @@ import java.util.ArrayList;
 import datos.Partida;
 
 public class LeerFicheros {
+	//Metodo para que pueda leer el fichero csv
 	public static ArrayList<Partida> cargartxt(){
-		String fichero = "/CookieClicker_proyecto_prog3/src/Ranking.csv";
+		String fichero = "C:\\Users\\Usuario\\Documents\\GitHub\\Cookie-Clicker-Proyecto-prog3\\CookieClicker_proyecto_prog3\\src\\Ranking.csv";
 		ArrayList<Partida>partidas = new ArrayList<Partida>();
 		
 		try {
@@ -48,8 +49,9 @@ public class LeerFicheros {
 		return partidas;
 	}
 	
-	public static void leertxt() throws IOException {
-		String fichero ="/CookieClicker_proyecto_prog3/src/Informacion.txt";
+	public static void main(String[] args) {
+		cargartxt();
 	}
+	
 
 }

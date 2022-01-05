@@ -1,6 +1,7 @@
 package ventanas;
 
 import java.awt.BorderLayout;
+import java.awt.EventQueue;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -25,8 +26,27 @@ public class Tablas {
 	private static ArrayList<Usuario> listUsuario;
 	//private static JComboBox<String>cbUsuarios;
 	//private static JPanel pNorte;
+	
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Tablas window = new Tablas();
+					window.ventanaT.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 
 	public Tablas() {
+		initialize();
+	}
+	
+	//Inicializa los contenidos del frame
+	private void initialize() {
+		
 		ArrayList<Partida>partidas = LeerFicheros.cargartxt();
 
 		ventanaT = new JFrame("Ranking Mundial");
@@ -42,8 +62,7 @@ public class Tablas {
 		Object[][] informacion = new Object[partidas.size()][6];
 		for(int i = 0 ; i < partidas.size(); i++) {
 			informacion[i][0] = partidas.get(i).getCod_partida();
-			//Aqui falta poner lo de usuario pero como esta en otra clase distinta no se como ponerlo.
-			//informacion[i][1] = partidas.get(i).
+			informacion[i][1] = partidas.get(i).getNom_usuario();
 			informacion[i][2] = partidas.get(i).getCookie_tot();
 			informacion[i][3] = partidas.get(i).getCookie_ps();
 			informacion[i][4] = partidas.get(i).getEdif_tot();
@@ -77,11 +96,9 @@ public class Tablas {
 		ranking.getColumnModel().getColumn(5).setMinWidth(40);
 		ranking.getColumnModel().getColumn(5).setMaxWidth(160);
 		
-		ranking.getTableHeader().setReorderingAllowed(false); //Phohibir que las columnas se muevan	
+		ranking.getTableHeader().setReorderingAllowed(false); //Prohibir que las columnas se muevan	
 		
 		ventanaT.setVisible(true);
 	}
-	public static void main(String[]args) {
-		new Tablas();
-	}
+
 }
