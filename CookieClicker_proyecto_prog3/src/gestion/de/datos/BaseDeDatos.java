@@ -137,6 +137,17 @@ public class BaseDeDatos {
 			throw new DBException("No se pudieron insertar los nuevos datos en la tabla", e);
 		}
 	}
+	
+	
+	//Contar el número de datos existentes
+		public static int contarDatos() throws SQLException {
+			Statement statement = conexion.createStatement();
+			String sent = "select count(*) from tabla";
+			ResultSet rs = statement.executeQuery(sent);
+			int resul = rs.getInt(1);
+			rs.close();
+			return resul;
+		}
 }
 
 
