@@ -451,56 +451,97 @@ public void mouseExited(MouseEvent e) {
 					JPanel mine1 = new JPanel();
 					mine1.setBackground(Color.green);
 					mine1.setBorder(new LineBorder(Color.BLACK));
-					
+					for (int i = 0; i < 8; i++) {
+						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						JLabel lbl_imagen3=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
+						lbl_imagen3.setVisible(false);
+						mine1.add(lbl_imagen3);
+					}
+					JLabel lbl_mine=new JLabel("");
+					mine1.add(lbl_mine);
 					centrocent.add(mine1);
 					
 					//Panel del centro factory
 					JPanel factory1 = new JPanel();
 					factory1.setBackground(Color.orange);
 					factory1.setBorder(new LineBorder(Color.BLACK));
+					for (int i = 0; i < 8; i++) {
+						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						JLabel lbl_imagen4=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
+						lbl_imagen4.setVisible(false);
+						factory1.add(lbl_imagen4);
+					}
+					JLabel lbl_fac=new JLabel("");
+					factory1.add(lbl_fac);
 					centrocent.add(factory1);
 					
+					//Panel del centro bank
 					JPanel bank1 = new JPanel();
 					bank1.setBackground(Color.cyan);
 					bank1.setBorder(new LineBorder(Color.BLACK));
-					
-					
+					for (int i = 0; i < 8; i++) {
+						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						JLabel lbl_imagen5=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
+						lbl_imagen5.setVisible(false);
+						bank1.add(lbl_imagen5);
+					}
+					JLabel lbl_ban=new JLabel("");
+					bank1.add(lbl_ban);
 					centrocent.add(bank1);
 					
+					//Panel centro temple
 					JPanel temple1 = new JPanel();
 					temple1.setBackground(Color.pink);
 					temple1.setBorder(new LineBorder(Color.BLACK));
-					
+					for (int i = 0; i < 8; i++) {
+						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						JLabel lbl_imagen6=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
+						lbl_imagen6.setVisible(false);
+						temple1.add(lbl_imagen6);
+					}
+					JLabel lbl_tem=new JLabel("");
+					temple1.add(lbl_tem);
 					centrocent.add(temple1);
 					
+					//Panel del centro wizzard tower
 					JPanel wt1 = new JPanel();
 					wt1.setBackground(Color.green);
 					wt1.setBorder(new LineBorder(Color.BLACK));
-					
+					for (int i = 0; i < 8; i++) {
+						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						JLabel lbl_imagen7=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
+						lbl_imagen7.setVisible(false);
+						wt1.add(lbl_imagen7);
+					}
+					JLabel lbl_wt=new JLabel("");
+					wt1.add(lbl_wt);
 					centrocent.add(wt1);
 					
 					JPanel ship1 = new JPanel();
 					ship1.setBackground(Color.orange);
 					ship1.setBorder(new LineBorder(Color.BLACK));
-					
+					for (int i = 0; i < 8; i++) {
+						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						JLabel lbl_imagen8=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
+						lbl_imagen8.setVisible(false);
+						ship1.add(lbl_imagen8);
+					}
+					JLabel lbl_ship=new JLabel("");
+					ship1.add(lbl_ship);
 					centrocent.add(ship1);
 					
+		//Para la proxima actualización
 					JPanel arch1 = new JPanel();
 					arch1.setBackground(Color.cyan);
 					arch1.setBorder(new LineBorder(Color.BLACK));
-					
 					centrocent.add(arch1);
-					
 					JPanel portal1 = new JPanel();
 					portal1.setBackground(Color.pink);
 					portal1.setBorder(new LineBorder(Color.BLACK));
-					
 					centrocent.add(portal1);
-					
 					JPanel timemach1 = new JPanel();
 					timemach1.setBackground(Color.green);
 					timemach1.setBorder(new LineBorder(Color.BLACK));
-					
 					centrocent.add(timemach1);
 					
 					centrocent.setBackground(Color.black);
@@ -581,7 +622,7 @@ public void mouseExited(MouseEvent e) {
 							@Override
 							public void actionPerformed(ActionEvent e) {
 								//
-								contgr++;
+								contgr++;//contador de gradmas
 								if(contgr<7) {
 									grand1.getComponent(contgr).setVisible(true);
 								}
@@ -603,13 +644,7 @@ public void mouseExited(MouseEvent e) {
 									else {
 										numgr = 0;
 										}
-									
-									
 								}
-								
-								
-								
-								
 							}
 						});
 						farm.addActionListener(new ActionListener() {
@@ -643,6 +678,14 @@ public void mouseExited(MouseEvent e) {
 						mine.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
+								contmine++;//contador de gradmas
+								if(contmine<7) {
+									mine1.getComponent(contmine).setVisible(true);
+								}
+								else {
+									mine1.getComponent(8).setVisible(true);
+									lbl_mine.setText("+"+ (contmine-6));
+								}
 								if(comprar.isSelected()) {
 									numine = numine+1;
 									num4.setText(""+numine);
@@ -655,16 +698,20 @@ public void mouseExited(MouseEvent e) {
 									else {
 										numine = 0;
 										}
-									
 								}
-								
-								
-								
 							}
 						});
 						factory.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
+								contfac++;//contador de gradmas
+								if(contfac<7) {
+									factory1.getComponent(contfac).setVisible(true);
+								}
+								else {
+									factory1.getComponent(8).setVisible(true);
+									lbl_fac.setText("+"+ (contfac-6));
+								}
 								if(comprar.isSelected()) {
 									numfac = numfac+1;
 									num5.setText(""+numfac);
@@ -686,6 +733,14 @@ public void mouseExited(MouseEvent e) {
 						bank.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
+								contban++;//contador de gradmas
+								if(contban<7) {
+									bank1.getComponent(contban).setVisible(true);
+								}
+								else {
+									bank1.getComponent(8).setVisible(true);
+									lbl_ban.setText("+"+ (contban-6));
+								}
 								if(comprar.isSelected()) {
 									numban = numban+1;
 									num6.setText(""+numban);
@@ -698,16 +753,20 @@ public void mouseExited(MouseEvent e) {
 									else {
 										numban = 0;
 										}
-									
 								}
-								
-								
-								
 							}
 						});
 						temple.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
+								conttem++;//contador de gradmas
+								if(conttem<7) {
+									temple1.getComponent(conttem).setVisible(true);
+								}
+								else {
+									temple1.getComponent(8).setVisible(true);
+									lbl_tem.setText("+"+ (conttem-6));
+								}
 								if(comprar.isSelected()) {
 									numtem = numtem+1;
 									num7.setText(""+numtem);
@@ -720,15 +779,20 @@ public void mouseExited(MouseEvent e) {
 									else {
 										numtem = 0;
 										}
-									
 								}
-								
-								
 							}
 						});
 						wiz.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
+								contwiz++;//contador de gradmas
+								if(contwiz<7) {
+									wt1.getComponent(contwiz).setVisible(true);
+								}
+								else {
+									wt1.getComponent(8).setVisible(true);
+									lbl_wt.setText("+"+ (contwiz-6));
+								}
 								if(comprar.isSelected()) {
 									numwiz = numwiz+1;
 									num8.setText(""+numwiz);
@@ -752,6 +816,14 @@ public void mouseExited(MouseEvent e) {
 							
 							@Override
 							public void actionPerformed(ActionEvent e) {
+								contship++;//contador de gradmas
+								if(contship<7) {
+									ship1.getComponent(contship).setVisible(true);
+								}
+								else {
+									ship1.getComponent(8).setVisible(true);
+									lbl_ship.setText("+"+ (contship-6));
+								}
 								if(comprar.isSelected()) {
 									numship = numship+1;
 									num9.setText(""+numship);
