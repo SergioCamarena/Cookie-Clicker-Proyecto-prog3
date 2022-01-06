@@ -39,13 +39,13 @@ import javax.swing.border.BevelBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import code.Metodos;
+
 import code.Minijuego;
 import datos.Usuario;
 
 public class VentanaCookie implements MouseListener {
-	
-	public static double cont = 1;	//Valor del contador (inicializaciÃ³n)
+	//Estos de aqui abajo sirven para llevar la cuenta de cuantas imagenes hay en el panel centro
+	public static int contgr= -1, contfrm= -1,contmine= -1,contfac= -1,contban= -1,conttem= -1,contwiz= -1,contship = -1;	
 	static JButton minijuego1 = new JButton("MiniJuego");
 	static JLabel news, contador;
 	static Thread corre, seg;
@@ -57,50 +57,21 @@ public class VentanaCookie implements MouseListener {
 	static double valor = 0.15;
 	Usuario u = new Usuario();
 
-	
-	//Metodo de contador
-	/*
-	public static String met(double valor) {
-		
-		if (cont>0) {
-			cont = cont+valor;
-			 DecimalFormat f = new DecimalFormat("##.000"); //cuantos decimales despues de la , (3)
-			 DecimalFormat g = new DecimalFormat("##.00"); //cuantos decimales despues de la , (2)
-			 
-			//Estos ifs sirven para que ponga la parte del string despuÃ©s del numero
-			if (cont>1000 && cont<1000000) {
-				return "         "+ g.format(cont/1000) +"K Cookies         ";
-				
-			} else if (cont>=1000000 && cont<1000000000){
-				return "				"+ f.format(cont/1000000) +" million Cookies         ";
-
-			}else {
-				return "         "+ cont +" Cookies         ";
-			}
-			
-		} else {
-			return "         0 cookies         ";
-		}
-	}*/
 	//Metodo cookies_por seg.
+//___________________________________________________________________________________________
 	public double  pulsa(double numero) {
 		numero = (double) (numero*valor);
 		
 		return numero;
 	}
-	//Lo unico que hace esto es pasarlo a string
-	public String pulsa2(double numero) {
-		double value = pulsa(numero);
-		
-		return ""+value;
-	}
+	//Metodo que se recorre todo el rato 
 	public String seg() {
 		seg = new Thread(new Runnable() {
 			
 			public void run() {
 				while(seguir) {
-					cont = cont + pulsa(numcl)+pulsa(numgr)+pulsa(numfrm)+pulsa(numine)+pulsa(numfac)+pulsa(numban)+pulsa(numtem)+pulsa(numwiz)+pulsa(numship);
-					contador.setText(""+cont);
+					//cont = cont + pulsa(numcl)+pulsa(numgr)+pulsa(numfrm)+pulsa(numine)+pulsa(numfac)+pulsa(numban)+pulsa(numtem)+pulsa(numwiz)+pulsa(numship);
+					//contador.setText(""+cont);
 					
 					try {
 						seg.sleep(1000);
@@ -367,29 +338,29 @@ public void mouseReleased(MouseEvent e) {
 }
 @Override
 public void mouseEntered(MouseEvent e) {
-	num1.setToolTipText("<html>CLICKER<br> Tenemos ahora mismo nº de clickers.<br> Cookies totales ___ <br></html>");
+	num1.setToolTipText("<html>CLICKER<br> Tenemos ahora mismo "+ numcl +" de clickers.<br> Cookies totales ___ <br></html>");
 	num1.getToolTipText();
-	num2.setToolTipText("<html>GRANDMAS<br> Tenemos ahora mismo nº de grandmas.<br> Cookies totales ___ <br></html>");
+	num2.setToolTipText("<html>GRANDMAS<br> Tenemos ahora mismo "+ numgr +" de grandmas.<br> Cookies totales ___ <br></html>");
 	num2.getToolTipText();
-	num3.setToolTipText("<html>FARMS<br> Tenemos ahora mismo nº de farms.<br> Cookies totales ___ <br></html>");
+	num3.setToolTipText("<html>FARMS<br> Tenemos ahora mismo "+ numfrm +" de farms.<br> Cookies totales ___ <br></html>");
 	num3.getToolTipText();
-	num4.setToolTipText("<html>MINE<br> Tenemos ahora mismo nº de mines.<br> Cookies totales ___ <br></html>");
+	num4.setToolTipText("<html>MINE<br> Tenemos ahora mismo "+ numine +" de mines.<br> Cookies totales ___ <br></html>");
 	num4.getToolTipText();
-	num5.setToolTipText("<html>FACTORY<br> Tenemos ahora mismo nº de factories.<br> Cookies totales ___ <br></html>");
+	num5.setToolTipText("<html>FACTORY<br> Tenemos ahora mismo "+ numfac +" de factories.<br> Cookies totales ___ <br></html>");
 	num5.getToolTipText();
-	num6.setToolTipText("<html>BANK<br> Tenemos ahora mismo nº de banks.<br> Cookies totales ___ <br></html>");
+	num6.setToolTipText("<html>BANK<br> Tenemos ahora mismo "+ numban +" de banks.<br> Cookies totales ___ <br></html>");
 	num6.getToolTipText();
-	num7.setToolTipText("<html>TEMPLE<br> Tenemos ahora mismo nº de temples.<br> Cookies totales ___ <br></html>");
+	num7.setToolTipText("<html>TEMPLE<br> Tenemos ahora mismo "+ numtem +" de temples.<br> Cookies totales ___ <br></html>");
 	num7.getToolTipText();
-	num8.setToolTipText("<html>WIZZARD TOWER<br> Tenemos ahora mismo nº de wizzard towers.<br> Cookies totales ___ <br></html>");
+	num8.setToolTipText("<html>WIZZARD TOWER<br> Tenemos ahora mismo "+ numwiz +" de wizzard towers.<br> Cookies totales ___ <br></html>");
 	num8.getToolTipText();
-	num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo nº de shipments.<br> Cookies totales ___ <br></html>");
+	num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo "+ numship +" de shipments.<br> Cookies totales ___ <br></html>");
 	num9.getToolTipText();
-	num10.setToolTipText("<html>ARCHEMY LAB<br> Tenemos ahora mismo nº de shipments.<br> Cookies totales ___ <br></html>");
+	num10.setToolTipText("<html>ARCHEMY LAB<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
 	num10.getToolTipText();
-	num11.setToolTipText("<html>PORTAL<br> Tenemos ahora mismo nº de shipments.<br> Cookies totales ___ <br></html>");
+	num11.setToolTipText("<html>PORTAL<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
 	num11.getToolTipText();
-	num12.setToolTipText("<html>TIME MACHINE<br> Tenemos ahora mismo nº de shipments.<br> Cookies totales ___ <br></html>");
+	num12.setToolTipText("<html>TIME MACHINE<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
 	num12.getToolTipText();
 	
 	//version
@@ -416,16 +387,126 @@ public void mouseExited(MouseEvent e) {
 				frame.setBounds(0,0,1700, 850);
 				frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 				minijuego1.setEnabled(false);	//Ponemos el boton de minijuego false para que no pueda jugar desde el principio
-				
-				
-				
-				
-				
 				frame.add(ventanaCookie);
+				//_____________________________
 				
 				
+				
+				
+				//_____________________________
+				
+	//Paneles del CENTRO (Estos tendrán un metodo que hace que cada vez que se pulsa un boton se crea un label de cada)
+				//Panel centro_______________________________________________
+				JPanel centro = new JPanel();
+				centro.setLayout(new BorderLayout());
+				
+				//Paneles para separar la parte de los botones de las ventanas (Las columnas grises)
+				JPanel vertizq = new JPanel();
+				vertizq.setBackground(Color.black);
+				
+				centro.add(vertizq, BorderLayout.WEST);
+				
+				JPanel vertder = new JPanel();
+				vertder.setBackground(Color.black);
+				
+				centro.add(vertder, BorderLayout.EAST);
+				
+				JPanel centrocent = new JPanel();
+				centrocent.setLayout(new GridLayout(11,1));
+				centrocent.setBounds(0,0,900, 1000);
+				centrocent.setMinimumSize(new Dimension(900,1000));
+				centrocent.setMaximumSize(new Dimension(900,1000));
+				centrocent.setPreferredSize(new Dimension(900,1000));
+				
+					JPanel grand1 = new JPanel();
+					grand1.setBackground(Color.cyan);
+					grand1.setBorder(new LineBorder(Color.BLACK));
+					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
+					for (int i = 0; i < 8; i++) {
+						Image imagen=new ImageIcon("src/ventanas/grandma2.png").getImage();
+						JLabel lbl_imagen1=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
+						lbl_imagen1.setVisible(false);
+						grand1.add(lbl_imagen1);
+					}
+					JLabel lbl_grandma=new JLabel("");
+					grand1.add(lbl_grandma);
+					centrocent.add(grand1);
+					
+					//Panel del centro farm
+					JPanel farm1 = new JPanel();
+					farm1.setBackground(Color.pink);
+					farm1.setBorder(new LineBorder(Color.BLACK));
+					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
+					for (int i = 0; i < 8; i++) {
+						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						JLabel lbl_imagen2=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
+						lbl_imagen2.setVisible(false);
+						farm1.add(lbl_imagen2);
+					}
+					JLabel lbl_farm=new JLabel("");
+					farm1.add(lbl_farm);
+					centrocent.add(farm1);
+					
+					//Panel del centro mine
+					JPanel mine1 = new JPanel();
+					mine1.setBackground(Color.green);
+					mine1.setBorder(new LineBorder(Color.BLACK));
+					
+					centrocent.add(mine1);
+					
+					//Panel del centro factory
+					JPanel factory1 = new JPanel();
+					factory1.setBackground(Color.orange);
+					factory1.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(factory1);
+					
+					JPanel bank1 = new JPanel();
+					bank1.setBackground(Color.cyan);
+					bank1.setBorder(new LineBorder(Color.BLACK));
+					
+					
+					centrocent.add(bank1);
+					
+					JPanel temple1 = new JPanel();
+					temple1.setBackground(Color.pink);
+					temple1.setBorder(new LineBorder(Color.BLACK));
+					
+					centrocent.add(temple1);
+					
+					JPanel wt1 = new JPanel();
+					wt1.setBackground(Color.green);
+					wt1.setBorder(new LineBorder(Color.BLACK));
+					
+					centrocent.add(wt1);
+					
+					JPanel ship1 = new JPanel();
+					ship1.setBackground(Color.orange);
+					ship1.setBorder(new LineBorder(Color.BLACK));
+					
+					centrocent.add(ship1);
+					
+					JPanel arch1 = new JPanel();
+					arch1.setBackground(Color.cyan);
+					arch1.setBorder(new LineBorder(Color.BLACK));
+					
+					centrocent.add(arch1);
+					
+					JPanel portal1 = new JPanel();
+					portal1.setBackground(Color.pink);
+					portal1.setBorder(new LineBorder(Color.BLACK));
+					
+					centrocent.add(portal1);
+					
+					JPanel timemach1 = new JPanel();
+					timemach1.setBackground(Color.green);
+					timemach1.setBorder(new LineBorder(Color.BLACK));
+					
+					centrocent.add(timemach1);
+					
+					centrocent.setBackground(Color.black);
+					centro.add(new JScrollPane(centrocent), BorderLayout.CENTER);
 				//_________________________________________EDIFICIOS & CLICKER
-				JButton clicker = new JButton("CLICKER");
+				JButton clicker = new JButton("CLICKER");//Creamos los botones de la derecha
 				JButton grandma = new JButton("GRANDMAS");
 				JButton farm = new JButton("FARMS");
 				JButton mine = new JButton("MINE");
@@ -439,9 +520,6 @@ public void mouseExited(MouseEvent e) {
 				JButton timemach  = new JButton("TIME MACHINE");
 				
 				
-			
-				
-	//}
 
 				//Panel de la derecha (EDIFICIOS)
 				JPanel este = new JPanel();
@@ -502,6 +580,17 @@ public void mouseExited(MouseEvent e) {
 						grandma.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
+								//
+								contgr++;
+								if(contgr<7) {
+									grand1.getComponent(contgr).setVisible(true);
+								}
+								else {
+									grand1.getComponent(8).setVisible(true);
+									lbl_grandma.setText("+"+ (contgr-6));
+									
+								}
+								
 								if(comprar.isSelected()) {
 									numgr = numgr+1;
 									num2.setText(""+numgr);
@@ -526,6 +615,15 @@ public void mouseExited(MouseEvent e) {
 						farm.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
+								contfrm++;
+								if(contfrm<7) {
+									farm1.getComponent(contfrm).setVisible(true);
+								}
+								else {
+									farm1.getComponent(8).setVisible(true);
+									lbl_farm.setText("+"+ (contfrm-6));
+									
+								}
 								if(comprar.isSelected()) {
 									numfrm = numfrm+1;
 									num3.setText(""+numfrm);
@@ -860,9 +958,9 @@ public void mouseExited(MouseEvent e) {
 				
 				
 				//Contador
-				contador = new JLabel(pulsa2(1.0));
-				contador.setFont(new Font("Arial",Font.PLAIN,20));
-				panelgalleta.add(contador);
+				//contador = new JLabel(pulsa2(1.0));
+				//contador.setFont(new Font("Arial",Font.PLAIN,20));
+				//panelgalleta.add(contador);
 				
 				
 				//Ajustar la imagen para que quede bien y no sea enorme
@@ -887,7 +985,7 @@ public void mouseExited(MouseEvent e) {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						
-						contador.setText(pulsa2(1.00));
+						//contador.setText(pulsa2(1.00));
 					}
 
 					@Override
@@ -948,8 +1046,7 @@ public void mouseExited(MouseEvent e) {
 				//JLabel QUE SE USARA PARA QUE SALGAN LAS NEWS DE UN ARRAYLIST<STRING>
 				//Se separa para que asegurar de que se crea y lanzarlo despues.
 				news = new JLabel(""); //Primero se crea
-				String noti= Metodos.Lista();			   //Luego se lanza
-				news.setText(noti);
+				Lista();			   //Luego se lanza
 				news.setHorizontalAlignment(SwingConstants.CENTER);
 				news.setBackground(Color.white);
 				news.setOpaque(true);
@@ -1006,105 +1103,10 @@ public void mouseExited(MouseEvent e) {
 					}
 				});
 				
-				//Panel centro_______________________________________________Falta por terminar!!!
-				JPanel centro = new JPanel();
-				centro.setLayout(new BorderLayout());
 				
-				//Paneles para separar la parte de los botones de las ventanas (Las columnas grises)
-				JPanel vertizq = new JPanel();
-				vertizq.setBackground(Color.black);
 				
-				centro.add(vertizq, BorderLayout.WEST);
+			
 				
-				JPanel vertder = new JPanel();
-				vertder.setBackground(Color.black);
-				
-				centro.add(vertder, BorderLayout.EAST);
-				
-				JPanel centrocent = new JPanel();
-				centrocent.setLayout(new GridLayout(11,1));
-				centrocent.setBounds(0,0,900, 1000);
-				centrocent.setMinimumSize(new Dimension(900,1000));
-				centrocent.setMaximumSize(new Dimension(900,1000));
-				centrocent.setPreferredSize(new Dimension(900,1000));
-				
-					JPanel grand1 = new JPanel();
-					grand1.setBackground(Color.cyan);
-					//grand1.setBorder( new TitledBorder("Grandmas"));
-					grand1.setBorder(new LineBorder(Color.BLACK));
-					centrocent.add(grand1);
-					
-					JPanel farm1 = new JPanel();
-					farm1.setBackground(Color.pink);
-					//farm1.setBorder( new TitledBorder("Farms"));
-					farm1.setBorder(new LineBorder(Color.BLACK));
-					centrocent.add(farm1);
-					
-					JPanel mine1 = new JPanel();
-					mine1.setBackground(Color.green);
-					//mine1.setBorder( new TitledBorder("Mines"));
-					mine1.setBorder(new LineBorder(Color.BLACK));
-					centrocent.add(mine1);
-					
-					JPanel factory1 = new JPanel();
-					factory1.setBackground(Color.orange);
-					//factory1.setBorder( new TitledBorder("Factories"));
-					factory1.setBorder(new LineBorder(Color.BLACK));
-					centrocent.add(factory1);
-					
-					JPanel bank1 = new JPanel();
-					bank1.setBackground(Color.cyan);
-					//bank1.setBorder( new TitledBorder("Banks"));
-					bank1.setBorder(new LineBorder(Color.BLACK));
-					centrocent.add(bank1);
-					
-					JPanel temple1 = new JPanel();
-					temple1.setBackground(Color.pink);
-					//temple1.setBorder( new TitledBorder("Temples"));
-					temple1.setBorder(new LineBorder(Color.BLACK));
-					centrocent.add(temple1);
-					
-					JPanel wt1 = new JPanel();
-					wt1.setBackground(Color.green);
-					//wt1.setBorder( new TitledBorder("Wizzard Towers"));
-					wt1.setBorder(new LineBorder(Color.BLACK));
-					centrocent.add(wt1);
-					
-					JPanel ship1 = new JPanel();
-					ship1.setBackground(Color.orange);
-					//ship1.setBorder( new TitledBorder("Shipments"));
-					ship1.setBorder(new LineBorder(Color.BLACK));
-					centrocent.add(ship1);
-					
-					JPanel arch1 = new JPanel();
-					arch1.setBackground(Color.cyan);
-					//ship1.setBorder( new TitledBorder("Shipments"));
-					arch1.setBorder(new LineBorder(Color.BLACK));
-					centrocent.add(arch1);
-					
-					JPanel portal1 = new JPanel();
-					portal1.setBackground(Color.pink);
-					//ship1.setBorder( new TitledBorder("Shipments"));
-					portal1.setBorder(new LineBorder(Color.BLACK));
-					centrocent.add(portal1);
-					
-					JPanel timemach1 = new JPanel();
-					timemach1.setBackground(Color.green);
-					//ship1.setBorder( new TitledBorder("Shipments"));
-					timemach1.setBorder(new LineBorder(Color.BLACK));
-					centrocent.add(timemach1);
-				
-				/*
-				 * NO DEJA HACER NADA DEL FONDO
-				ImageIcon imgcentr = new ImageIcon("src/Code/fondo.png");
-				Image imhg = imgcentr.getImage();
-				Image imqa = imhg.getScaledInstance(620, 420 ,Image.SCALE_SMOOTH);
-				imgcentr = new ImageIcon(imqa);
-				JLabel fondo = new JLabel(imgcentr);
-				centro.add(fondo);
-				*/
-				centrocent.setBackground(Color.black);
-				centro.add(new JScrollPane(centrocent), BorderLayout.CENTER);
 		//___________________________________________________________________________________________________________________________
 				ventanaCookie.add(centro, BorderLayout.CENTER);
 				ventanaCookie.add(panelNews, BorderLayout.NORTH);
