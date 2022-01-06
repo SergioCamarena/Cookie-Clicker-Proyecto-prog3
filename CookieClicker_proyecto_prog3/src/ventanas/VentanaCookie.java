@@ -257,7 +257,7 @@ public static String Lista() {
 						t = t+1;
 						//System.out.println(t);
 						
-						//Para que el Boton MiniJuego se vaya activando cuando esten entre esos varemos
+						//Para que el Boton MiniJuego se vaya activando cuando esten entre esos baremos
 							if((t>=15) && (t<16)) {
 								minijuego1.setEnabled(true);
 							}else if ((t>=45) && (t<46)) {
@@ -275,7 +275,7 @@ public static String Lista() {
 							}else if ((t>=3524)) {
 								minijuego1.setEnabled(true);
 							}else {
-								minijuego1.setEnabled(false);//Si no es ninguno de esos valores de arriba que esté apagado
+								minijuego1.setEnabled(false);//Si no es ninguno de esos valores de arriba que este apagado
 							}
 						
 						
