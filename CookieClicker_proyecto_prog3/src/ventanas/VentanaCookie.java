@@ -28,6 +28,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
@@ -46,12 +47,13 @@ import datos.Usuario;
 public class VentanaCookie implements MouseListener {
 	//Estos de aqui abajo sirven para llevar la cuenta de cuantas imagenes hay en el panel centro
 	public static int contgr= -1, contfrm= -1,contmine= -1,contfac= -1,contban= -1,conttem= -1,contwiz= -1,contship = -1;	
+	static double cont =0;
 	static JButton minijuego1 = new JButton("MiniJuego");
 	static JLabel news, contador;
 	static Thread corre, seg;
 	static boolean seguir = true;
 	static int t = 0;
-	static JLabel num1,num2,num3,num4,num5,num6,num7,num8,num9,num10,num11,num12,version, nickName;
+	static JLabel lbl_num1,lbl_num2,lbl_num3,lbl_num4,lbl_num5,lbl_num6,lbl_num7,lbl_num8,lbl_num9,lbl_num10,lbl_num11,lbl_num12,version, nickName;
 	static int numcl=0,numgr=0,numfrm=0,numine=0,numfac=0,numban=0,numtem=0,numwiz =0,numship = 0;
 	static JRadioButton comprar,vender;
 	static double valor = 0.15;
@@ -70,8 +72,8 @@ public class VentanaCookie implements MouseListener {
 			
 			public void run() {
 				while(seguir) {
-					//cont = cont + pulsa(numcl)+pulsa(numgr)+pulsa(numfrm)+pulsa(numine)+pulsa(numfac)+pulsa(numban)+pulsa(numtem)+pulsa(numwiz)+pulsa(numship);
-					//contador.setText(""+cont);
+					cont = cont + pulsa(numcl)+pulsa(numgr)+pulsa(numfrm)+pulsa(numine)+pulsa(numfac)+pulsa(numban)+pulsa(numtem)+pulsa(numwiz)+pulsa(numship);
+					contador.setText(""+cont);
 					
 					try {
 						seg.sleep(1000);
@@ -338,30 +340,30 @@ public void mouseReleased(MouseEvent e) {
 }
 @Override
 public void mouseEntered(MouseEvent e) {
-	num1.setToolTipText("<html>CLICKER<br> Tenemos ahora mismo "+ numcl +" de clickers.<br> Cookies totales ___ <br></html>");
-	num1.getToolTipText();
-	num2.setToolTipText("<html>GRANDMAS<br> Tenemos ahora mismo "+ numgr +" de grandmas.<br> Cookies totales ___ <br></html>");
-	num2.getToolTipText();
-	num3.setToolTipText("<html>FARMS<br> Tenemos ahora mismo "+ numfrm +" de farms.<br> Cookies totales ___ <br></html>");
-	num3.getToolTipText();
-	num4.setToolTipText("<html>MINE<br> Tenemos ahora mismo "+ numine +" de mines.<br> Cookies totales ___ <br></html>");
-	num4.getToolTipText();
-	num5.setToolTipText("<html>FACTORY<br> Tenemos ahora mismo "+ numfac +" de factories.<br> Cookies totales ___ <br></html>");
-	num5.getToolTipText();
-	num6.setToolTipText("<html>BANK<br> Tenemos ahora mismo "+ numban +" de banks.<br> Cookies totales ___ <br></html>");
-	num6.getToolTipText();
-	num7.setToolTipText("<html>TEMPLE<br> Tenemos ahora mismo "+ numtem +" de temples.<br> Cookies totales ___ <br></html>");
-	num7.getToolTipText();
-	num8.setToolTipText("<html>WIZZARD TOWER<br> Tenemos ahora mismo "+ numwiz +" de wizzard towers.<br> Cookies totales ___ <br></html>");
-	num8.getToolTipText();
-	num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo "+ numship +" de shipments.<br> Cookies totales ___ <br></html>");
-	num9.getToolTipText();
-	num10.setToolTipText("<html>ARCHEMY LAB<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
-	num10.getToolTipText();
-	num11.setToolTipText("<html>PORTAL<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
-	num11.getToolTipText();
-	num12.setToolTipText("<html>TIME MACHINE<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
-	num12.getToolTipText();
+	lbl_num1.setToolTipText("<html>CLICKER<br> Tenemos ahora mismo "+ numcl +" de clickers.<br> Cookies totales ___ <br></html>");
+	lbl_num1.getToolTipText();
+	lbl_num2.setToolTipText("<html>GRANDMAS<br> Tenemos ahora mismo "+ numgr +" de grandmas.<br> Cookies totales ___ <br></html>");
+	lbl_num2.getToolTipText();
+	lbl_num3.setToolTipText("<html>FARMS<br> Tenemos ahora mismo "+ numfrm +" de farms.<br> Cookies totales ___ <br></html>");
+	lbl_num3.getToolTipText();
+	lbl_num4.setToolTipText("<html>MINE<br> Tenemos ahora mismo "+ numine +" de mines.<br> Cookies totales ___ <br></html>");
+	lbl_num4.getToolTipText();
+	lbl_num5.setToolTipText("<html>FACTORY<br> Tenemos ahora mismo "+ numfac +" de factories.<br> Cookies totales ___ <br></html>");
+	lbl_num5.getToolTipText();
+	lbl_num6.setToolTipText("<html>BANK<br> Tenemos ahora mismo "+ numban +" de banks.<br> Cookies totales ___ <br></html>");
+	lbl_num6.getToolTipText();
+	lbl_num7.setToolTipText("<html>TEMPLE<br> Tenemos ahora mismo "+ numtem +" de temples.<br> Cookies totales ___ <br></html>");
+	lbl_num7.getToolTipText();
+	lbl_num8.setToolTipText("<html>WIZZARD TOWER<br> Tenemos ahora mismo "+ numwiz +" de wizzard towers.<br> Cookies totales ___ <br></html>");
+	lbl_num8.getToolTipText();
+	lbl_num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo "+ numship +" de shipments.<br> Cookies totales ___ <br></html>");
+	lbl_num9.getToolTipText();
+	lbl_num10.setToolTipText("<html>ARCHEMY LAB<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
+	lbl_num10.getToolTipText();
+	lbl_num11.setToolTipText("<html>PORTAL<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
+	lbl_num11.getToolTipText();
+	lbl_num12.setToolTipText("<html>TIME MACHINE<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
+	lbl_num12.getToolTipText();
 	
 	//version
 	version.setToolTipText("<html><b>VERSION</b><br> Somos <b>Elaia, Sergio e Imanol.</b><br> Y te invitamos a que <b>disfrutes</b> de nustro juego <br></html>");
@@ -417,7 +419,8 @@ public void mouseExited(MouseEvent e) {
 				centrocent.setMinimumSize(new Dimension(900,1000));
 				centrocent.setMaximumSize(new Dimension(900,1000));
 				centrocent.setPreferredSize(new Dimension(900,1000));
-				
+					
+					//Panel del centro grandma
 					JPanel grand1 = new JPanel();
 					grand1.setBackground(Color.cyan);
 					grand1.setBorder(new LineBorder(Color.BLACK));
@@ -425,11 +428,11 @@ public void mouseExited(MouseEvent e) {
 					for (int i = 0; i < 8; i++) {
 						Image imagen=new ImageIcon("src/imagenes/grandma.png").getImage();
 						JLabel lbl_imagen1=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
-						lbl_imagen1.setVisible(false);
+						lbl_imagen1.setVisible(false);//Las dejamos a false para que no se vean
 						grand1.add(lbl_imagen1);
 					}
 					JLabel lbl_grandma=new JLabel("");
-					grand1.add(lbl_grandma);
+					grand1.add(lbl_grandma);//AÒadimos el label que ser· el que aparezcan el numero cuando tines mas de 7
 					centrocent.add(grand1);
 					
 					//Panel del centro farm
@@ -440,63 +443,70 @@ public void mouseExited(MouseEvent e) {
 					for (int i = 0; i < 8; i++) {
 						Image imagen=new ImageIcon("src/imagenes/farm.png").getImage();
 						JLabel lbl_imagen2=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
-						lbl_imagen2.setVisible(false);
+						lbl_imagen2.setVisible(false);//Las dejamos a false para que no se vean
 						farm1.add(lbl_imagen2);
 					}
 					JLabel lbl_farm=new JLabel("");
-					farm1.add(lbl_farm);
+					farm1.add(lbl_farm);//AÒadimos el label que ser· el que aparezcan el numero cuando tines mas de 7
 					centrocent.add(farm1);
 					
 					//Panel del centro mine
 					JPanel mine1 = new JPanel();
 					mine1.setBackground(Color.green);
 					mine1.setBorder(new LineBorder(Color.BLACK));
+					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					for (int i = 0; i < 8; i++) {
 						Image imagen=new ImageIcon("src/imagenes/farm.png").getImage();
 						JLabel lbl_imagen3=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
-						lbl_imagen3.setVisible(false);
+						lbl_imagen3.setVisible(false);//Las dejamos a false para que no se vean
 						mine1.add(lbl_imagen3);
 					}
 					JLabel lbl_mine=new JLabel("");
-					mine1.add(lbl_mine);
+					mine1.add(lbl_mine);//AÒadimos el label que ser· el que aparezcan el numero cuando tines mas de 7
 					centrocent.add(mine1);
 					
 					//Panel del centro factory
 					JPanel factory1 = new JPanel();
 					factory1.setBackground(Color.orange);
 					factory1.setBorder(new LineBorder(Color.BLACK));
+					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					for (int i = 0; i < 8; i++) {
 						Image imagen=new ImageIcon("src/imagenes/factory.png").getImage();
+						//Escalamos la imagen a lo que queremos
 						JLabel lbl_imagen4=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
-						lbl_imagen4.setVisible(false);
+						lbl_imagen4.setVisible(false);//Las dejamos a false para que no se vean
 						factory1.add(lbl_imagen4);
 					}
 					JLabel lbl_fac=new JLabel("");
-					factory1.add(lbl_fac);
+					factory1.add(lbl_fac);//AÒadimos el label que ser· el que aparezcan el numero cuando tines mas de 7
 					centrocent.add(factory1);
 					
 					//Panel del centro bank
 					JPanel bank1 = new JPanel();
 					bank1.setBackground(Color.cyan);
 					bank1.setBorder(new LineBorder(Color.BLACK));
+					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					for (int i = 0; i < 8; i++) {
 						Image imagen=new ImageIcon("src/imagenes/bank.png").getImage();
+						//Escalamos la imagen a lo que queremos
 						JLabel lbl_imagen5=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
-						lbl_imagen5.setVisible(false);
+						lbl_imagen5.setVisible(false);//Las dejamos a false para que no se vean
 						bank1.add(lbl_imagen5);
 					}
 					JLabel lbl_ban=new JLabel("");
-					bank1.add(lbl_ban);
+					bank1.add(lbl_ban);//AÒadimos el label que ser· el que aparezcan el numero cuando tines mas de 7
 					centrocent.add(bank1);
 					
 					//Panel centro temple
 					JPanel temple1 = new JPanel();
 					temple1.setBackground(Color.pink);
 					temple1.setBorder(new LineBorder(Color.BLACK));
+					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					for (int i = 0; i < 8; i++) {
 						Image imagen=new ImageIcon("src/imagenes/temple.png").getImage();
+						//Escalamos la imagen a lo que queremos
 						JLabel lbl_imagen6=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
-						lbl_imagen6.setVisible(false);
+						lbl_imagen6.setVisible(false);//Las dejamos a false para que no se vean
 						temple1.add(lbl_imagen6);
 					}
 					JLabel lbl_tem=new JLabel("");
@@ -507,10 +517,11 @@ public void mouseExited(MouseEvent e) {
 					JPanel wt1 = new JPanel();
 					wt1.setBackground(Color.green);
 					wt1.setBorder(new LineBorder(Color.BLACK));
+					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					for (int i = 0; i < 8; i++) {
 						Image imagen=new ImageIcon("src/imagenes/wizard.png").getImage();
 						JLabel lbl_imagen7=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
-						lbl_imagen7.setVisible(false);
+						lbl_imagen7.setVisible(false);//Las dejamos a false para que no se vean
 						wt1.add(lbl_imagen7);
 					}
 					JLabel lbl_wt=new JLabel("");
@@ -521,10 +532,11 @@ public void mouseExited(MouseEvent e) {
 					JPanel ship1 = new JPanel();
 					ship1.setBackground(Color.orange);
 					ship1.setBorder(new LineBorder(Color.BLACK));
+					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					for (int i = 0; i < 8; i++) {
 						Image imagen=new ImageIcon("src/imagenes/shipment.png").getImage();
 						JLabel lbl_imagen8=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
-						lbl_imagen8.setVisible(false);
+						lbl_imagen8.setVisible(false);//Las dejamos a false para que no se vean
 						ship1.add(lbl_imagen8);
 					}
 					JLabel lbl_ship=new JLabel("");
@@ -532,6 +544,8 @@ public void mouseExited(MouseEvent e) {
 					centrocent.add(ship1);
 					
 		//Para la proxima actualizaciÛn
+					
+//_________________________________________________________________________________________________________
 					JPanel arch1 = new JPanel();
 					arch1.setBackground(Color.cyan);
 					arch1.setBorder(new LineBorder(Color.BLACK));
@@ -547,22 +561,22 @@ public void mouseExited(MouseEvent e) {
 					
 					centrocent.setBackground(Color.black);
 					centro.add(new JScrollPane(centrocent), BorderLayout.CENTER);
-				//_________________________________________EDIFICIOS & CLICKER
-				JButton clicker = new JButton("CLICKER");//Creamos los botones de la derecha
-				JButton grandma = new JButton("GRANDMAS");
-				JButton farm = new JButton("FARMS");
-				JButton mine = new JButton("MINE");
-				JButton factory =new JButton("FACTORY");
-				JButton bank  = new JButton("BANK");
-				JButton temple  = new JButton("TEMPLE");
-				JButton wiz  = new JButton("WIZZARD TOWER");
-				JButton ship  = new JButton("SHIPMENT");
-				JButton arch  = new JButton("ARCHEMY LAB");
-				JButton port  = new JButton("PORTAL");
-				JButton timemach  = new JButton("TIME MACHINE");
+//_________________________________________EDIFICIOS & CLICKER______________________________________________
+					
+					
+				JButton btn_clicker = new JButton("CLICKER");//Creamos los botones de la derecha
+				JButton btn_grandma = new JButton("GRANDMAS");
+				JButton btn_farm = new JButton("FARMS");
+				JButton btn_mine = new JButton("MINE");
+				JButton btn_factory =new JButton("FACTORY");
+				JButton btn_bank  = new JButton("BANK");
+				JButton btn_temple  = new JButton("TEMPLE");
+				JButton btn_wiz  = new JButton("WIZZARD TOWER");
+				JButton btn_ship  = new JButton("SHIPMENT");
+				JButton btn_arch  = new JButton("ARCHEMY LAB");
+				JButton btn_portal  = new JButton("PORTAL");
+				JButton btn_timemach  = new JButton("TIME MACHINE");
 				
-				
-
 				//Panel de la derecha (EDIFICIOS)
 				JPanel este = new JPanel();
 				este.setLayout(new BorderLayout());
@@ -599,14 +613,17 @@ public void mouseExited(MouseEvent e) {
 				
 //Array de contadores que funcionen por indices.!!				
 				
-						clicker.addActionListener(new ActionListener() {
+						btn_clicker.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
 								if(comprar.isSelected()) {
 									numcl = numcl+1;
-									num1.setText(""+numcl);
+									lbl_num1.setText(""+numcl);
 								}
 								else {
+									
+									lbl_num1.setText(""+numcl);//NO resta nada de momento
+									/*
 									if(numcl > 0) {
 										numcl = numcl-1;
 										num1.setText(""+numcl);
@@ -614,30 +631,31 @@ public void mouseExited(MouseEvent e) {
 									else {
 										numcl = 0;
 										}
+										*/
 								}
 								}
 							
 							
 						});
-						grandma.addActionListener(new ActionListener() {
+						btn_grandma.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								//
-								contgr++;//contador de gradmas
-								if(contgr<7) {
-									grand1.getComponent(contgr).setVisible(true);
-								}
-								else {
-									grand1.getComponent(8).setVisible(true);
-									lbl_grandma.setText("+"+ (contgr-6));
-									
-								}
-								
 								if(comprar.isSelected()) {
+									contgr++;//contador de gradmas
+									if(contgr<7) {
+										grand1.getComponent(contgr).setVisible(true);
+									}
+									else {
+										grand1.getComponent(8).setVisible(true);
+										lbl_grandma.setText("+"+ (contgr-6));
+										
+									}
 									numgr = numgr+1;
-									num2.setText(""+numgr);
+									lbl_num2.setText(""+numgr);
 								}
 								else {
+									lbl_num2.setText(""+numgr);
+									/*
 									if(numgr > 0) {
 										numgr = numgr-1;
 										num2.setText(""+numgr);
@@ -645,79 +663,97 @@ public void mouseExited(MouseEvent e) {
 									else {
 										numgr = 0;
 										}
+										*/
 								}
 							}
 						});
-						farm.addActionListener(new ActionListener() {
+						btn_farm.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								contfrm++;
-								if(contfrm<7) {
-									farm1.getComponent(contfrm).setVisible(true);
-								}
-								else {
-									farm1.getComponent(8).setVisible(true);
-									lbl_farm.setText("+"+ (contfrm-6));
-									
-								}
+								
 								if(comprar.isSelected()) {
+									contfrm++;
+									if(contfrm<7) {
+										farm1.getComponent(contfrm).setVisible(true);
+									}
+									else {
+										farm1.getComponent(8).setVisible(true);
+										lbl_farm.setText("+"+ (contfrm-6));
+										
+									}
 									numfrm = numfrm+1;
-									num3.setText(""+numfrm);
+									lbl_num3.setText(""+numfrm);
 								}
 								else {
-									if(numgr > 0) {
+									lbl_num3.setText(""+numfrm);//Deja las cosas como estan
+									/*
+									if(numgr >= 0) {
+										
+										
+									}
 										numfrm = numfrm-1;
 										num3.setText(""+numfrm);
 									}
 									else {
 										numfrm = 0;
 										}
-									
+										*/
 								}
 							}
 						});
-						mine.addActionListener(new ActionListener() {
+						btn_mine.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								contmine++;//contador de gradmas
-								if(contmine<7) {
-									mine1.getComponent(contmine).setVisible(true);
-								}
-								else {
-									mine1.getComponent(8).setVisible(true);
-									lbl_mine.setText("+"+ (contmine-6));
-								}
+								
 								if(comprar.isSelected()) {
+									contmine++;//contador de gradmas
+									if(contmine<7) {
+										mine1.getComponent(contmine).setVisible(true);
+									}
+									else {
+										mine1.getComponent(8).setVisible(true);
+										lbl_mine.setText("+"+ (contmine-6));
+									}
 									numine = numine+1;
-									num4.setText(""+numine);
+									lbl_num4.setText(""+numine);
 								}
 								else {
-									if(numgr > 0) {
+									
+									lbl_num4.setText(""+numine);
+									/*
+									if(numgr >= 0) {
+										
+										
+									}
 										numine = numine-1;
 										num4.setText(""+numine);
 									}
 									else {
 										numine = 0;
-										}
+										}*/
 								}
 							}
 						});
-						factory.addActionListener(new ActionListener() {
+						btn_factory.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								contfac++;//contador de gradmas
-								if(contfac<7) {
-									factory1.getComponent(contfac).setVisible(true);
-								}
-								else {
-									factory1.getComponent(8).setVisible(true);
-									lbl_fac.setText("+"+ (contfac-6));
-								}
+								
 								if(comprar.isSelected()) {
+									contfac++;//contador de gradmas
+									if(contfac<7) {
+										factory1.getComponent(contfac).setVisible(true);
+									}
+									else {
+										factory1.getComponent(8).setVisible(true);
+										lbl_fac.setText("+"+ (contfac-6));
+									}
 									numfac = numfac+1;
-									num5.setText(""+numfac);
+									lbl_num5.setText(""+numfac);
 								}
 								else {
+									
+									lbl_num5.setText(""+numfac);
+									/*
 									if(numgr > 0) {
 										numfac = numfac-1;
 										num5.setText(""+numfac);
@@ -725,28 +761,31 @@ public void mouseExited(MouseEvent e) {
 									else {
 										numfac = 0;
 										}
-									
+									*/
 								}
 								
 								
 							}
 						});
-						bank.addActionListener(new ActionListener() {
+						btn_bank.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								contban++;//contador de gradmas
-								if(contban<7) {
-									bank1.getComponent(contban).setVisible(true);
-								}
-								else {
-									bank1.getComponent(8).setVisible(true);
-									lbl_ban.setText("+"+ (contban-6));
-								}
+								
 								if(comprar.isSelected()) {
+									contban++;//contador de gradmas
+									if(contban<7) {
+										bank1.getComponent(contban).setVisible(true);
+									}
+									else {
+										bank1.getComponent(8).setVisible(true);
+										lbl_ban.setText("+"+ (contban-6));
+									}
 									numban = numban+1;
-									num6.setText(""+numban);
+									lbl_num6.setText(""+numban);
 								}
 								else {
+									lbl_num6.setText(""+numban);
+									/*
 									if(numgr > 0) {
 										numban = numban-1;
 										num6.setText(""+numban);
@@ -754,25 +793,29 @@ public void mouseExited(MouseEvent e) {
 									else {
 										numban = 0;
 										}
+										*/
 								}
 							}
 						});
-						temple.addActionListener(new ActionListener() {
+						btn_temple.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								conttem++;//contador de gradmas
-								if(conttem<7) {
-									temple1.getComponent(conttem).setVisible(true);
-								}
-								else {
-									temple1.getComponent(8).setVisible(true);
-									lbl_tem.setText("+"+ (conttem-6));
-								}
+								
 								if(comprar.isSelected()) {
+									conttem++;//contador de gradmas
+									if(conttem<7) {
+										temple1.getComponent(conttem).setVisible(true);
+									}
+									else {
+										temple1.getComponent(8).setVisible(true);
+										lbl_tem.setText("+"+ (conttem-6));
+									}
 									numtem = numtem+1;
-									num7.setText(""+numtem);
+									lbl_num7.setText(""+numtem);
 								}
 								else {
+									lbl_num7.setText(""+numtem);
+									/*
 									if(numgr > 0) {
 										numtem = numtem-1;
 										num7.setText(""+numtem);
@@ -780,32 +823,36 @@ public void mouseExited(MouseEvent e) {
 									else {
 										numtem = 0;
 										}
+										*/
 								}
 							}
 						});
-						wiz.addActionListener(new ActionListener() {
+						btn_wiz.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								contwiz++;//contador de gradmas
-								if(contwiz<7) {
-									wt1.getComponent(contwiz).setVisible(true);
-								}
-								else {
-									wt1.getComponent(8).setVisible(true);
-									lbl_wt.setText("+"+ (contwiz-6));
-								}
+								
 								if(comprar.isSelected()) {
+									contwiz++;//contador de gradmas
+									if(contwiz<7) {
+										wt1.getComponent(contwiz).setVisible(true);
+									}
+									else {
+										wt1.getComponent(8).setVisible(true);
+										lbl_wt.setText("+"+ (contwiz-6));
+									}
 									numwiz = numwiz+1;
-									num8.setText(""+numwiz);
+									lbl_num8.setText(""+numwiz);
 								}
 								else {
+									lbl_num8.setText(""+numwiz);
+									/*
 									if(numgr > 0) {
 										numwiz = numwiz-1;
 										num8.setText(""+numwiz);
 									}
 									else {
 										numwiz = 0;
-										}
+										}*/
 									
 								}
 								
@@ -813,24 +860,27 @@ public void mouseExited(MouseEvent e) {
 								
 							}
 						});
-						ship.addActionListener(new ActionListener() {
+						btn_ship.addActionListener(new ActionListener() {
 							
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								contship++;//contador de gradmas
-								if(contship<7) {
-									ship1.getComponent(contship).setVisible(true);
-								}
-								else {
-									ship1.getComponent(8).setVisible(true);
-									lbl_ship.setText("+"+ (contship-6));
-								}
+								
 								if(comprar.isSelected()) {
+									contship++;//contador de gradmas
+									if(contship<7) {
+										ship1.getComponent(contship).setVisible(true);
+									}
+									else {
+										ship1.getComponent(8).setVisible(true);
+										lbl_ship.setText("+"+ (contship-6));
+									}
 									numship = numship+1;
-									num9.setText(""+numship);
+									lbl_num9.setText(""+numship);
 									
 								}
 								else {
+									lbl_num9.setText(""+numship);
+									/*
 									if(numgr > 0) {
 										numship = numship-1;
 										num9.setText(""+numship);
@@ -839,7 +889,7 @@ public void mouseExited(MouseEvent e) {
 									else {
 										numship = 0;
 										}
-									
+									*/
 								}
 								
 								
@@ -858,124 +908,124 @@ public void mouseExited(MouseEvent e) {
 				paneledif.setPreferredSize(new Dimension(300,600));
 				paneledif.setBorder(new BevelBorder(BevelBorder.RAISED));
 				
+				//AÒadimos primero el btn y luego el label
+				paneledif.add(btn_clicker);
+				lbl_num1 = new JLabel(""+numcl);
+				lbl_num1.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl_num1.setOpaque(true);
+				lbl_num1.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				lbl_num1.setBackground(Color.orange);
+				lbl_num1.addMouseListener(this);
+				paneledif.add(lbl_num1);
 				
-				paneledif.add(clicker);
-				num1 = new JLabel(""+numcl);
-				num1.setHorizontalAlignment(SwingConstants.CENTER);
-				num1.setOpaque(true);
-				num1.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
-				num1.setBackground(Color.orange);
-				num1.addMouseListener(this);
-				paneledif.add(num1);
+				paneledif.add(btn_grandma);
+				lbl_num2 = new JLabel("0");
+				lbl_num2.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl_num2.setOpaque(true);
+				lbl_num2.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				lbl_num2.setBackground(Color.cyan);
+				lbl_num2.addMouseListener(this);
+				paneledif.add(lbl_num2);
 				
-				paneledif.add(grandma);
-				num2 = new JLabel("0");
-				num2.setHorizontalAlignment(SwingConstants.CENTER);
-				num2.setOpaque(true);
-				num2.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
-				num2.setBackground(Color.cyan);
-				num2.addMouseListener(this);
-				paneledif.add(num2);
+				paneledif.add(btn_farm);
+				lbl_num3 = new JLabel("0");
+				lbl_num3.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl_num3.setOpaque(true);
+				lbl_num3.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				lbl_num3.setBackground(Color.pink);
+				lbl_num3.addMouseListener(this);
+				paneledif.add(lbl_num3);
 				
-				paneledif.add(farm);
-				num3 = new JLabel("0");
-				num3.setHorizontalAlignment(SwingConstants.CENTER);
-				num3.setOpaque(true);
-				num3.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
-				num3.setBackground(Color.pink);
-				num3.addMouseListener(this);
-				paneledif.add(num3);
+				paneledif.add(btn_mine);
+				lbl_num4 = new JLabel("0");
+				lbl_num4.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl_num4.setOpaque(true);
+				lbl_num4.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				lbl_num4.setBackground(Color.green);
+				lbl_num4.addMouseListener(this);
+				paneledif.add(lbl_num4);
 				
-				paneledif.add(mine);
-				num4 = new JLabel("0");
-				num4.setHorizontalAlignment(SwingConstants.CENTER);
-				num4.setOpaque(true);
-				num4.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
-				num4.setBackground(Color.green);
-				num4.addMouseListener(this);
-				paneledif.add(num4);
+				paneledif.add(btn_factory);
+				lbl_num5 = new JLabel("0");
+				lbl_num5.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl_num5.setOpaque(true);
+				lbl_num5.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				lbl_num5.setBackground(Color.orange);
+				lbl_num5.addMouseListener(this);
+				paneledif.add(lbl_num5);
 				
-				paneledif.add(factory);
-				num5 = new JLabel("0");
-				num5.setHorizontalAlignment(SwingConstants.CENTER);
-				num5.setOpaque(true);
-				num5.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
-				num5.setBackground(Color.orange);
-				num5.addMouseListener(this);
-				paneledif.add(num5);
+				paneledif.add(btn_bank);
+				lbl_num6 = new JLabel("0");
+				lbl_num6.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl_num6.setOpaque(true);
+				lbl_num6.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				lbl_num6.setBackground(Color.cyan);
+				lbl_num6.addMouseListener(this);
+				paneledif.add(lbl_num6);
 				
-				paneledif.add(bank);
-				num6 = new JLabel("0");
-				num6.setHorizontalAlignment(SwingConstants.CENTER);
-				num6.setOpaque(true);
-				num6.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
-				num6.setBackground(Color.cyan);
-				num6.addMouseListener(this);
-				paneledif.add(num6);
+				paneledif.add(btn_temple);
+				lbl_num7 = new JLabel("0");
+				lbl_num7.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl_num7.setOpaque(true);
+				lbl_num7.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				lbl_num7.setBackground(Color.pink);
+				lbl_num7.addMouseListener(this);
+				paneledif.add(lbl_num7);
 				
-				paneledif.add(temple);
-				num7 = new JLabel("0");
-				num7.setHorizontalAlignment(SwingConstants.CENTER);
-				num7.setOpaque(true);
-				num7.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
-				num7.setBackground(Color.pink);
-				num7.addMouseListener(this);
-				paneledif.add(num7);
+				paneledif.add(btn_wiz);
+				lbl_num8 = new JLabel("0");
+				lbl_num8.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl_num8.setOpaque(true);
+				lbl_num8.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				lbl_num8.setBackground(Color.green);
+				lbl_num8.addMouseListener(this);
+				paneledif.add(lbl_num8);
 				
-				paneledif.add(wiz);
-				num8 = new JLabel("0");
-				num8.setHorizontalAlignment(SwingConstants.CENTER);
-				num8.setOpaque(true);
-				num8.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
-				num8.setBackground(Color.green);
-				num8.addMouseListener(this);
-				paneledif.add(num8);
+				paneledif.add(btn_ship);
+				lbl_num9 = new JLabel("0");
+				lbl_num9.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl_num9.setOpaque(true);
+				lbl_num9.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				lbl_num9.setBackground(Color.orange);
+				lbl_num9.addMouseListener(this);
+				paneledif.add(lbl_num9);
 				
-				paneledif.add(ship);
-				num9 = new JLabel("0");
-				num9.setHorizontalAlignment(SwingConstants.CENTER);
-				num9.setOpaque(true);
-				num9.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
-				num9.setBackground(Color.orange);
-				num9.addMouseListener(this);
-				paneledif.add(num9);
+				paneledif.add(btn_arch);
+				lbl_num10 = new JLabel("0");
+				lbl_num10.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl_num10.setOpaque(true);
+				lbl_num10.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				lbl_num10.setBackground(Color.cyan);
+				lbl_num10.addMouseListener(this);
+				paneledif.add(lbl_num10);
 				
-				paneledif.add(arch);
-				num10 = new JLabel("0");
-				num10.setHorizontalAlignment(SwingConstants.CENTER);
-				num10.setOpaque(true);
-				num10.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
-				num10.setBackground(Color.cyan);
-				num10.addMouseListener(this);
-				paneledif.add(num10);
+				paneledif.add(btn_portal);
+				lbl_num11 = new JLabel("0");
+				lbl_num11.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl_num11.setOpaque(true);
+				lbl_num11.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				lbl_num11.setBackground(Color.pink);
+				lbl_num11.addMouseListener(this);
+				paneledif.add(lbl_num11);
 				
-				paneledif.add(port);
-				num11 = new JLabel("0");
-				num11.setHorizontalAlignment(SwingConstants.CENTER);
-				num11.setOpaque(true);
-				num11.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
-				num11.setBackground(Color.pink);
-				num11.addMouseListener(this);
-				paneledif.add(num11);
-				
-				paneledif.add(timemach);
-				num12 = new JLabel("0");
-				num12.setHorizontalAlignment(SwingConstants.CENTER);
-				num12.setOpaque(true);
-				num12.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
-				num12.setBackground(Color.green);
-				num12.addMouseListener(this);
-				paneledif.add(num12);
+				paneledif.add(btn_timemach);
+				lbl_num12 = new JLabel("0");
+				lbl_num12.setHorizontalAlignment(SwingConstants.CENTER);
+				lbl_num12.setOpaque(true);
+				lbl_num12.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
+				lbl_num12.setBackground(Color.green);
+				lbl_num12.addMouseListener(this);
+				paneledif.add(lbl_num12);
 				//Metemos el paneledif en un JScrollPane y este a ESTE
 				este.add(new JScrollPane(paneledif), BorderLayout.CENTER);
 				
-				//Panel reloj
+//Panel reloj______________________________________________________________________________SIN TERMINAR!!!!
 				JPanel rel = new JPanel();
 				rel.setLayout(new GridLayout(1,6));
 				rel.setBounds(0,0,300, 250);
 				rel.setBorder(new BevelBorder(BevelBorder.LOWERED));
 				
-				
+				//LABELS DE CADA COSA
 				JLabel dias = new JLabel("0");
 				dias.setHorizontalAlignment(SwingConstants.CENTER);// Estos son para que los numeros est√©n centrados en sus labels
 				JLabel horas = new JLabel("");
@@ -985,6 +1035,7 @@ public void mouseExited(MouseEvent e) {
 				JLabel seg = new JLabel("");
 				seg.setHorizontalAlignment(SwingConstants.CENTER);
 				
+				//PONERLOS EN LA VENTANA
 				rel.add(dias);
 				rel.add(new JLabel(","));
 				rel.add(horas);
@@ -996,7 +1047,7 @@ public void mouseExited(MouseEvent e) {
 				este.add(rel,BorderLayout.SOUTH);
 				
 				ventanaCookie.add(este, BorderLayout.EAST);
-			//______VALOR ANYADIDO_______________________________________
+//______VALOR ANYADIDO___________________________________________________________________________
 				//Action listener del boton minijuego
 				minijuego1.addActionListener(new ActionListener() {
 					
@@ -1006,7 +1057,7 @@ public void mouseExited(MouseEvent e) {
 						minijuego1.setEnabled(false);
 					}
 				});
-				
+//_______________________________________________________________________________________________				
 				
 				//Panel Oeste que engloba panelgalleta y el nick 
 				JPanel oeste = new JPanel();
@@ -1031,10 +1082,10 @@ public void mouseExited(MouseEvent e) {
 				
 				
 				//Contador
-				//contador = new JLabel(pulsa2(1.0));
-				//contador.setFont(new Font("Arial",Font.PLAIN,20));
-				//panelgalleta.add(contador);
-				
+				contador = new JLabel();
+				contador.setFont(new Font("Arial",Font.PLAIN,20));
+				panelgalleta.add(contador);
+				seg();
 				
 				//Ajustar la imagen para que quede bien y no sea enorme
 				ImageIcon imgIcon = new ImageIcon("src/Code/cookuie.png");
@@ -1130,9 +1181,10 @@ public void mouseExited(MouseEvent e) {
 					@Override
 					public void windowClosing(WindowEvent e) {
 						// TODO Auto-generated method stub
+						//seg.interrupt();
 						seguir = false;
 						corre.interrupt();
-						//(seg).interrupt();
+						
 					}
 					
 					@Override
