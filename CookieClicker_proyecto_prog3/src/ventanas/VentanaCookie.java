@@ -423,7 +423,7 @@ public void mouseExited(MouseEvent e) {
 					grand1.setBorder(new LineBorder(Color.BLACK));
 					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					for (int i = 0; i < 8; i++) {
-						Image imagen=new ImageIcon("src/ventanas/grandma2.png").getImage();
+						Image imagen=new ImageIcon("src/imagenes/grandma.png").getImage();
 						JLabel lbl_imagen1=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 						lbl_imagen1.setVisible(false);
 						grand1.add(lbl_imagen1);
@@ -438,7 +438,7 @@ public void mouseExited(MouseEvent e) {
 					farm1.setBorder(new LineBorder(Color.BLACK));
 					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					for (int i = 0; i < 8; i++) {
-						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						Image imagen=new ImageIcon("src/imagenes/farm.png").getImage();
 						JLabel lbl_imagen2=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 						lbl_imagen2.setVisible(false);
 						farm1.add(lbl_imagen2);
@@ -452,7 +452,7 @@ public void mouseExited(MouseEvent e) {
 					mine1.setBackground(Color.green);
 					mine1.setBorder(new LineBorder(Color.BLACK));
 					for (int i = 0; i < 8; i++) {
-						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						Image imagen=new ImageIcon("src/imagenes/farm.png").getImage();
 						JLabel lbl_imagen3=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 						lbl_imagen3.setVisible(false);
 						mine1.add(lbl_imagen3);
@@ -466,7 +466,7 @@ public void mouseExited(MouseEvent e) {
 					factory1.setBackground(Color.orange);
 					factory1.setBorder(new LineBorder(Color.BLACK));
 					for (int i = 0; i < 8; i++) {
-						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						Image imagen=new ImageIcon("src/imagenes/factory.png").getImage();
 						JLabel lbl_imagen4=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 						lbl_imagen4.setVisible(false);
 						factory1.add(lbl_imagen4);
@@ -480,7 +480,7 @@ public void mouseExited(MouseEvent e) {
 					bank1.setBackground(Color.cyan);
 					bank1.setBorder(new LineBorder(Color.BLACK));
 					for (int i = 0; i < 8; i++) {
-						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						Image imagen=new ImageIcon("src/imagenes/bank.png").getImage();
 						JLabel lbl_imagen5=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 						lbl_imagen5.setVisible(false);
 						bank1.add(lbl_imagen5);
@@ -494,7 +494,7 @@ public void mouseExited(MouseEvent e) {
 					temple1.setBackground(Color.pink);
 					temple1.setBorder(new LineBorder(Color.BLACK));
 					for (int i = 0; i < 8; i++) {
-						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						Image imagen=new ImageIcon("src/imagenes/temple.png").getImage();
 						JLabel lbl_imagen6=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 						lbl_imagen6.setVisible(false);
 						temple1.add(lbl_imagen6);
@@ -508,7 +508,7 @@ public void mouseExited(MouseEvent e) {
 					wt1.setBackground(Color.green);
 					wt1.setBorder(new LineBorder(Color.BLACK));
 					for (int i = 0; i < 8; i++) {
-						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						Image imagen=new ImageIcon("src/imagenes/wizard.png").getImage();
 						JLabel lbl_imagen7=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 						lbl_imagen7.setVisible(false);
 						wt1.add(lbl_imagen7);
@@ -517,11 +517,12 @@ public void mouseExited(MouseEvent e) {
 					wt1.add(lbl_wt);
 					centrocent.add(wt1);
 					
+					//Panel del centro shipment
 					JPanel ship1 = new JPanel();
 					ship1.setBackground(Color.orange);
 					ship1.setBorder(new LineBorder(Color.BLACK));
 					for (int i = 0; i < 8; i++) {
-						Image imagen=new ImageIcon("src/ventanas/farm.png").getImage();
+						Image imagen=new ImageIcon("src/imagenes/shipment.png").getImage();
 						JLabel lbl_imagen8=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 						lbl_imagen8.setVisible(false);
 						ship1.add(lbl_imagen8);
