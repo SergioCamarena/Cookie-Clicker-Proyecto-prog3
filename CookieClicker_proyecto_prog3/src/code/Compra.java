@@ -1,12 +1,12 @@
 package code;
 
 public class Compra {
-	protected String nombre;
+	protected NombreEdif nombre;
 	protected double valorInicialCookie= 0.0;
 	protected int numeroDeCadaTipo = 0;
 	
 	//constructor
-	public Compra(String nombre, double valorInicialCookie, int numeroDeCadaTipo) {
+	public Compra(NombreEdif nombre, double valorInicialCookie, int numeroDeCadaTipo) {
 		super();
 		this.nombre = nombre;
 		this.valorInicialCookie = valorInicialCookie;
@@ -14,10 +14,10 @@ public class Compra {
 	}
 	//getters y setters
 
-	public String getNombre() {
+	public NombreEdif getNombre() {
 		return nombre;
 	}
-	public void setNombre(String nombre) {
+	public void setNombre(NombreEdif nombre) {
 		this.nombre = nombre;
 	}
 

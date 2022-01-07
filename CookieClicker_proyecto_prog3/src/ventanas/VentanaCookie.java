@@ -45,6 +45,7 @@ import javax.swing.border.TitledBorder;
 
 import code.Edificios;
 import code.Minijuego;
+import code.NombreEdif;
 import code.Reloj;
 import datos.Usuario;
 
@@ -633,6 +634,22 @@ public void calcula() {
 				
 				//Creación de instancias de edificio
 					//sustituir variable numcl y demas por las variables de cada instancia.
+				ArrayList<Edificios> listaEdif = new ArrayList<Edificios>();
+				Edificios cursor = new Edificios(NombreEdif.CURSOR, 10.5, numcl,numcl, 15);
+				Edificios grandma = new Edificios(NombreEdif.GRANDMA, 10.5, numgr,numgr, 32);
+				Edificios farm = new Edificios(NombreEdif.FARM, 10.5, numfrm,numfrm, 45);
+				Edificios mine = new Edificios(NombreEdif.MINE, 10.5, numine,numine, 150);
+				Edificios factory = new Edificios(NombreEdif.FACTORY, 10.5, numfac,numfac, 450);
+				Edificios bank = new Edificios(NombreEdif.BANK, 10.5, numban,numban, 700);
+				
+				//Meter edificios dentro de lista
+				listaEdif.add(cursor);
+				listaEdif.add(grandma);
+				listaEdif.add(farm);
+				listaEdif.add(mine);
+				listaEdif.add(factory);
+				listaEdif.add(bank);
+				
 				
 				//Panel de la derecha (EDIFICIOS)
 				JPanel este = new JPanel();
@@ -1134,6 +1151,7 @@ public void calcula() {
 				
 				//Contador
 				contador = new JLabel();
+				contador.setHorizontalAlignment(SwingConstants.CENTER);
 				contador.setFont(new Font("Arial",Font.PLAIN,20));
 				panelgalleta.add(contador);
 				seg();

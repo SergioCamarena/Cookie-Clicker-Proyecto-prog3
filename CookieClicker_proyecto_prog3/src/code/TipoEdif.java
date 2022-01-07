@@ -1,6 +1,14 @@
 package code;
 
 public class TipoEdif extends Edificios{
+
+	public TipoEdif(NombreEdif nombre, double valorInicialCookie, int numeroDeCadaTipo, int numEdificios,
+			double valorCompra) {
+		super(nombre, valorInicialCookie, numeroDeCadaTipo, numEdificios, valorCompra);
+		// TODO Auto-generated constructor stub
+	}
+	/*
+}
 	private double costeEdif;
 	private NombreEdif nombreEdif;
 	//Time stamp
@@ -37,5 +45,5 @@ public class TipoEdif extends Edificios{
 	public String toString() {
 		return "tipoEdif [nombreEdif=" + nombreEdif + ", costeEdif=" + costeEdif + "]";
 	}
-
+*/
 }

@@ -6,7 +6,16 @@ public class Edificios extends Compra{
 	private double valorCompra;
 	
 	//constructor
-	public Edificios(String nombre, double valorInicialCookie, int numeroDeCadaTipo, int numEdificios,
+//	
+//	public Edificios(String nombre, double valorInicialCookie, int numeroDeCadaTipo, int numEdificios,
+//			double valorCompra) {
+//		super(nombre, valorInicialCookie, numeroDeCadaTipo);
+//		NumEdificios = numEdificios;
+//		this.valorCompra = valorCompra;
+//	}
+
+
+	public Edificios(NombreEdif nombre, double valorInicialCookie, int numeroDeCadaTipo, int numEdificios,
 			double valorCompra) {
 		super(nombre, valorInicialCookie, numeroDeCadaTipo);
 		NumEdificios = numEdificios;
@@ -18,6 +27,8 @@ public class Edificios extends Compra{
 	public int getNumEdificios() {
 		return NumEdificios;
 	}
+
+	
 
 	public void setNumEdificios(int numEdificios) {
 		NumEdificios = numEdificios;
