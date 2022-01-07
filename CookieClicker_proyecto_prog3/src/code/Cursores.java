@@ -4,7 +4,7 @@ public class Cursores extends Compra{
 	private double procentaje;
 	
 	//constructores
-		public Cursores(String nombre, int valorInicialCookie, int numeroDeCadaTipo, double procentaje) {
+		public Cursores(NombreEdif nombre, int valorInicialCookie, int numeroDeCadaTipo, double procentaje) {
 			super(nombre, valorInicialCookie, numeroDeCadaTipo);
 			this.procentaje = procentaje;
 		}
