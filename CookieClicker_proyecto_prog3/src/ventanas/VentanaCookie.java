@@ -19,6 +19,9 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.Iterator;
 
 import javax.swing.ButtonGroup;
@@ -42,6 +45,7 @@ import javax.swing.border.TitledBorder;
 
 
 import code.Minijuego;
+import code.Reloj;
 import datos.Usuario;
 
 public class VentanaCookie implements MouseListener {
@@ -390,6 +394,31 @@ public void mouseExited(MouseEvent e) {
 	// TODO Auto-generated method stub
 	
 }
+
+
+String hora, minutos, segundos, ampm;
+Calendar calendario;
+Thread h1;  //un hilo que nos ayudara a actualizar la hora en tiempo real
+
+//Metodo que realiza los calculos de la hora
+public void calcula() {
+	Calendar calendario = new GregorianCalendar();
+	Date fechaHoraActual = new Date();
+	
+	calendario.setTime(fechaHoraActual);
+	ampm = calendario.get(Calendar.AM_PM) == Calendar.AM?"AM":"PM";  //Para verificar si la hora es AM o PM
+	
+	if(ampm.equals("PM")) {
+		int h = calendario.get(Calendar.HOUR_OF_DAY)-12;
+		hora = h>9?""+h:0+"h";
+	}else {
+		hora = calendario.get(Calendar.HOUR_OF_DAY)>9?""+calendario.get(Calendar.HOUR_OF_DAY):"0"+calendario.get(Calendar.HOUR_OF_DAY);
+		minutos = calendario.get(Calendar.MINUTE)>9?""+calendario.get(Calendar.MINUTE):"0"+calendario.get(Calendar.MINUTE);
+		segundos = calendario.get(Calendar.SECOND)>9?""+calendario.get(Calendar.SECOND):"0"+calendario.get(Calendar.SECOND);
+	}
+}
+
+
 
 	public VentanaCookie(){
 
@@ -1039,26 +1068,20 @@ public void mouseExited(MouseEvent e) {
 				rel.setLayout(new GridLayout(1,6));
 				rel.setBounds(0,0,300, 250);
 				rel.setBorder(new BevelBorder(BevelBorder.LOWERED));
+
+				JLabel lbHora = new JLabel();
+				Thread ct = Thread.currentThread();
+				while(ct == h1) {
+					calcula();
+					lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+					try {
+						Thread.sleep(1000);
+					}catch(InterruptedException e) {
+						
+					}
+				}
 				
-				//LABELS DE CADA COSA
-				JLabel dias = new JLabel("0");
-				dias.setHorizontalAlignment(SwingConstants.CENTER);// Estos son para que los numeros estén centrados en sus labels
-				JLabel horas = new JLabel("");
-				horas.setHorizontalAlignment(SwingConstants.CENTER);
-				JLabel minutos = new JLabel("");
-				minutos.setHorizontalAlignment(SwingConstants.CENTER);
-				JLabel seg = new JLabel("");
-				seg.setHorizontalAlignment(SwingConstants.CENTER);
-				
-				//PONERLOS EN LA VENTANA
-				rel.add(dias);
-				rel.add(new JLabel(","));
-				rel.add(horas);
-				rel.add(new JLabel(":"));
-				rel.add(minutos);
-				rel.add(new JLabel(":"));
-				rel.add(seg);
-				
+				rel.add(lbHora);
 				este.add(rel,BorderLayout.SOUTH);
 				
 				ventanaCookie.add(este, BorderLayout.EAST);
