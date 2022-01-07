@@ -396,9 +396,9 @@ public void mouseExited(MouseEvent e) {
 }
 
 
-String hora, minutos, segundos, ampm;
-Calendar calendario;
-Thread h1;  //un hilo que nos ayudara a actualizar la hora en tiempo real
+ String hora, minutos, segundos, ampm;
+ Calendar calendario;
+ Thread h1;  //un hilo que nos ayudara a actualizar la hora en tiempo real
 
 //Metodo que realiza los calculos de la hora
 public void calcula() {
@@ -1069,7 +1069,7 @@ public void calcula() {
 				rel.setBounds(0,0,300, 250);
 				rel.setBorder(new BevelBorder(BevelBorder.LOWERED));
 
-				JLabel lbHora = new JLabel();
+				JLabel lbHora = new JLabel("");
 				Thread ct = Thread.currentThread();
 				while(ct == h1) {
 					calcula();
