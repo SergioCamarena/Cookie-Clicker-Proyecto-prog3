@@ -47,18 +47,33 @@ import datos.Usuario;
 public class VentanaCookie implements MouseListener {
 	//Estos de aqui abajo sirven para llevar la cuenta de cuantas imagenes hay en el panel centro
 	public static int contgr= -1, contfrm= -1,contmine= -1,contfac= -1,contban= -1,conttem= -1,contwiz= -1,contship = -1;	
+	//El que lleva la cuenta de todos los pulsa()
 	static double cont =0;
+	//El boton de Minijuegos que se pone ON/OFF dependiendo de unos valores
 	static JButton minijuego1 = new JButton("MiniJuego");
+	//El contador es el que hace el display de cont
 	static JLabel news, contador;
 	static Thread corre, seg;
+	//Este boolean es el que se encarga de hacer que los metodos terminen.
 	static boolean seguir = true;
+	//Esta t sirve para llevar la cuenta de cuantos news pasan.
 	static int t = 0;
+	//Solo son labels que hacen display de valores
 	static JLabel lbl_num1,lbl_num2,lbl_num3,lbl_num4,lbl_num5,lbl_num6,lbl_num7,lbl_num8,lbl_num9,lbl_num10,lbl_num11,lbl_num12,version, nickName;
+	//El numero de edificios que tiene cada uno.
 	static int numcl=0,numgr=0,numfrm=0,numine=0,numfac=0,numban=0,numtem=0,numwiz =0,numship = 0;
+	//RadioButton compra/venta
 	static JRadioButton comprar,vender;
+	//Valor por el cual multiplica cada vez que compras mas.
 	static double valor = 0.15;
+	//Instancia de usuario
 	Usuario u = new Usuario();
-
+	
+	//Class Compra...
+	//Solo dos decimales
+	//como lo ve
+	//Resta de cookies
+	//pasar el nick (como parametro?)
 	//Metodo cookies_por seg.
 //___________________________________________________________________________________________
 	public double  pulsa(double numero) {
