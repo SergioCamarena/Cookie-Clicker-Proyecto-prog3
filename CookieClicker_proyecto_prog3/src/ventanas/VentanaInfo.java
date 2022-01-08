@@ -63,7 +63,6 @@ public class VentanaInfo extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				//new VentanaCookie(); //Esto no hay que hacer porque se crea otra nueva entonces vuelve todo a empezar otra vez
 				dispose();
-				//ventanaI.dispose();
 			
 
 			}
