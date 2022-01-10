@@ -46,7 +46,6 @@ import javax.swing.border.TitledBorder;
 import code.Edificios;
 import code.Minijuego;
 import code.NombreEdif;
-import code.Reloj;
 import datos.Usuario;
 
 public class VentanaCookie implements MouseListener {
