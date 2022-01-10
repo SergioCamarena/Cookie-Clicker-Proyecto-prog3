@@ -1,6 +1,5 @@
 package gestion.de.datos;
 
-import java.lang.System.Logger.Level;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,6 +8,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import datos.Estadisticas;
 import datos.Partida;
@@ -19,44 +21,69 @@ import datos.Usuario;
  *
  */
 public class BaseDeDatos {
+	private static Connection conexion;
+	private static Logger logger = Logger.getLogger( "BaseDatos" );
 	
-	private static Connection conexion; // conexión con la base de datos
-	
-	/**
-	 * Construye un objeto para gestionar la base de datos
-	 * @throws DBException esta excepción se lanza si se produce algún error durante la construcción del objeto
+	/** Abre conexión con la base de datos
+	 * @param nombreBD	Nombre del fichero de base de datos
+	 * @param reiniciaBD	true si se quiere reiniciar la base de datos (se borran sus contenidos si los tuviera y se crean datos por defecto)
+	 * @return	true si la conexión ha sido correcta, false en caso contrario
 	 */
-	public BaseDeDatos() throws DBException {
+	public static boolean abrirConexion( String nombreBD, boolean reiniciaBD ) {
 		try {
-			Class.forName("org.sqlite.JDBC");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			throw new DBException("No se pudo cargar el driver de la base de datos", e);
+			logger.log( Level.INFO, "Carga de librería org.sqlite.JDBC" );
+			Class.forName("org.sqlite.JDBC");  // Carga la clase de BD para sqlite
+			logger.log( Level.INFO, "Abriendo conexión con " + nombreBD );
+			conexion = DriverManager.getConnection("jdbc:sqlite:" + nombreBD );
+			if (reiniciaBD) {
+				Statement statement = conexion.createStatement();
+				String sent = "DROP TABLE IF EXISTS partida";
+				logger.log( Level.INFO, "Statement: " + sent );
+				statement.executeUpdate( sent );
+				sent = "CREATE TABLE producto (cod_partida INTEGER PRIMARY KEY AUTOINCREMENT, nom_usuario VARCHAR(30) NOT NULL, cookie_tot INT(10), cookie_ps INT(10), edif_tot INT(10), tiempo_tot INT(10), foreign key  (nom_usuario) references usuario(nom_usuario) on delete cascade);";
+				logger.log( Level.INFO, "Statement: " + sent );
+				statement.executeUpdate( sent );
+				sent = "DROP TABLE IF EXISTS usuario";
+				logger.log( Level.INFO, "Statement: " + sent );
+				statement.executeUpdate( sent );
+				sent = "CREATE TABLE compra (nom_usuario VARCHAR PRIMARY KEY, contrasenya);";
+				logger.log( Level.INFO, "Statement: " + sent );
+				statement.executeUpdate( sent );
+				sent = "DROP TABLE IF EXISTS estadisticas";
+				logger.log( Level.INFO, "Statement: " + sent );
+				statement.executeUpdate( sent);
+				sent = "CREATE TABLE producto (cod_partida INT(10), grandmas INT(10), farms INT(10), mine INT(10), factory INT(10), bank INT(10), temple INT(10), w_tower INT(10), shipment INT(10), arch INT(10), port INT(10), timemach\" INT(10), primary key(cod_partida, grandmas), foreign key (cod_partida) references Partida(cod_partida) on delete cascade));";
+				logger.log( Level.INFO, "Statement: " + sent );
+				statement.executeUpdate( sent );
+				try {
+					Scanner scanner = new Scanner( BaseDeDatos.class.getResourceAsStream("Ranking.csv") );
+					while (scanner.hasNextLine()) {
+						String linea = scanner.nextLine();
+						String[] datos = linea.split( "\t" );
+						sent = "insert into partida (cod_partida, nom_usuario, cookie_ps, edif_tot, tiempo_tot) values (" + datos[0] + ",'" + datos[1] + "'," + datos[2] + "'" + datos[3] + "'," + datos[4] + ")";
+						logger.log( Level.INFO, "Statement: " + sent );
+						statement.executeUpdate( sent );
+					}
+					scanner.close();
+				} catch(Exception e) {
+					logger.log( Level.SEVERE, "Excepción", e );
+				}
+			}
+			return true;
+		} catch(Exception e) {
+			logger.log( Level.SEVERE, "Excepción", e );
+			return false;
 		}
-	}
+	}	
 	
-	/**
-	 * Establece una conexión con la base de datos
-	 * @throws DBException esta excepción se lanza si se produce algún error durante la construcción del objeto
+	/** Cierra la conexión abierta de base de datos ({@link #abrirConexion(String)})
 	 */
-	public static void open() throws DBException {
+	public static void cerrarConexion() {
 		try {
-			conexion = DriverManager.getConnection("jdbc:sqlite:CookieClicker.db");
-		} catch (SQLException e) {
-			throw new DBException("No se pudo conectar de la base de datos cookies", e);
-		}
-	}
-	
-	/**
-	 * Cierra la conexión con la base de datos. La conexión debe estar abierta.
-	 * @throws DBException esta excepción se lanza si se produce algún error durante la construcción del objeto
-	 */
-	public static void close() throws DBException {
-		try {
+			logger.log( Level.INFO, "Cerrando conexión" );
 			conexion.close();
 		} catch (SQLException e) {
-			e.printStackTrace();
-			throw new DBException("No se pudo desconectar correctamente de la base de datos", e);
+			logger.log( Level.SEVERE, "Excepción", e );
 		}
 	}
 	/** Lee los usuarios de la conexión de base de datos abierta para la tabla de estadísticas
