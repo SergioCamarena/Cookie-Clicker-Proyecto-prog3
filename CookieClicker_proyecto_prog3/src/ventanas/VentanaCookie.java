@@ -1312,7 +1312,8 @@ public void calcula() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						new VentanaInfo();
+						VentanaInfo v=new VentanaInfo();
+						v.setVisible(true);
 						minijuego1.setEnabled(true);//Esto es un modo prueba, cuando hagamos en contador podemos hacer que cuando llegue a X cookies
 						// se ponga true y que luego se ponga false
 						

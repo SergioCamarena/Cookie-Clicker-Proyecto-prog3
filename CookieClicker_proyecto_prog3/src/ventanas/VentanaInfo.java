@@ -68,6 +68,7 @@ public class VentanaInfo extends JFrame{
 
 			}
 		});
+		cargaInformacion();
 	}
 	
 	//Metodo para cargar la informacion desde un fichero de texto
