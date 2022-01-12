@@ -18,12 +18,13 @@ public class Testeo {
 	@Test
 	public void insertarDatoTest() throws DBException {
 		try {
-			BaseDeDatos.open();
+			BaseDeDatos.abrirConexion(null, false);// Si alguien necesita poner aqui lo parametros q los pongaa
+			
 			int contAntesDeInsertar = BaseDeDatos.contarDatos();
 			BaseDeDatos.contarDatos();
 			int contDespuesDeInsertar = BaseDeDatos.contarDatos();
 			assertTrue(contAntesDeInsertar == contDespuesDeInsertar - 1);
-			BaseDeDatos.close();
+			BaseDeDatos.cerrarConexion();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

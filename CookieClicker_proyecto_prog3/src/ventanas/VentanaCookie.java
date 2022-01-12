@@ -52,7 +52,7 @@ public class VentanaCookie implements MouseListener {
 	//Estos de aqui abajo sirven para llevar la cuenta de cuantas imagenes hay en el panel centro
 	public static int contgr= -1, contfrm= -1,contmine= -1,contfac= -1,contban= -1,conttem= -1,contwiz= -1,contship = -1;	
 	//El que lleva la cuenta de todos los pulsa()
-	static double cont =0;
+	static double cont =0, var = 0;
 	//El boton de Minijuegos que se pone ON/OFF dependiendo de unos valores
 	static JButton minijuego1 = new JButton("MiniJuego");
 	//El contador es el que hace el display de cont
@@ -93,7 +93,7 @@ public class VentanaCookie implements MouseListener {
 			public void run() {
 				while(seguir) {
 					cont = cont + pulsa(numcl)+pulsa(numgr)+pulsa(numfrm)+pulsa(numine)+pulsa(numfac)+pulsa(numban)+pulsa(numtem)+pulsa(numwiz)+pulsa(numship);
-					contador.setText(String.format("%1$.2f", cont));
+					contador.setText(String.format("%1$.2f", cont+var));
 					
 					try {
 						seg.sleep(1000);
@@ -464,16 +464,19 @@ public void calcula() {
 				centrocent.setMinimumSize(new Dimension(900,1000));
 				centrocent.setMaximumSize(new Dimension(900,1000));
 				centrocent.setPreferredSize(new Dimension(900,1000));
+					
+					//Para saber lo que tarda en ejecutarse el programa 
 					System.out.println("a");
+			
+					//____________
 					//Panel del centro grandma
 					JPanel grand1 = new JPanel();
 					grand1.setBackground(Color.cyan);
 					grand1.setBorder(new LineBorder(Color.BLACK));
 					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					Image imagen=new ImageIcon("src/imagenes/grandma.png").getImage();
+					JLabel lbl_imagen1=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 					for (int i = 0; i < 8; i++) {
-						
-						JLabel lbl_imagen1=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 						lbl_imagen1.setVisible(false);//Las dejamos a false para que no se vean
 						grand1.add(lbl_imagen1);
 					}
@@ -481,15 +484,15 @@ public void calcula() {
 					grand1.add(lbl_grandma);//Añadimos el label que será el que aparezcan el numero cuando tines mas de 7
 					centrocent.add(grand1);
 					
+					//____________
 					//Panel del centro farm
 					JPanel farm1 = new JPanel();
 					farm1.setBackground(Color.pink);
 					farm1.setBorder(new LineBorder(Color.BLACK));
 					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					 imagen=new ImageIcon("src/imagenes/farm.png").getImage();
+					 JLabel lbl_imagen2=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 					for (int i = 0; i < 8; i++) {
-						
-						JLabel lbl_imagen2=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 						lbl_imagen2.setVisible(false);//Las dejamos a false para que no se vean
 						farm1.add(lbl_imagen2);
 					}
@@ -497,15 +500,15 @@ public void calcula() {
 					farm1.add(lbl_farm);//Añadimos el label que será el que aparezcan el numero cuando tines mas de 7
 					centrocent.add(farm1);
 					
+					//___________
 					//Panel del centro mine
 					JPanel mine1 = new JPanel();
 					mine1.setBackground(Color.green);
 					mine1.setBorder(new LineBorder(Color.BLACK));
 					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					 imagen=new ImageIcon("src/imagenes/farm.png").getImage();
+					 JLabel lbl_imagen3=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 					for (int i = 0; i < 8; i++) {
-						
-						JLabel lbl_imagen3=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 						lbl_imagen3.setVisible(false);//Las dejamos a false para que no se vean
 						mine1.add(lbl_imagen3);
 					}
@@ -513,16 +516,16 @@ public void calcula() {
 					mine1.add(lbl_mine);//Añadimos el label que será el que aparezcan el numero cuando tines mas de 7
 					centrocent.add(mine1);
 					
+					//_____________
 					//Panel del centro factory
 					JPanel factory1 = new JPanel();
 					factory1.setBackground(Color.orange);
 					factory1.setBorder(new LineBorder(Color.BLACK));
 					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					 imagen=new ImageIcon("src/imagenes/factory.png").getImage();
-					for (int i = 0; i < 8; i++) {
-						
-						//Escalamos la imagen a lo que queremos
+					//Escalamos la imagen a lo que queremos
 						JLabel lbl_imagen4=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
+					for (int i = 0; i < 8; i++) {
 						lbl_imagen4.setVisible(false);//Las dejamos a false para que no se vean
 						factory1.add(lbl_imagen4);
 					}
@@ -530,16 +533,16 @@ public void calcula() {
 					factory1.add(lbl_fac);//Añadimos el label que será el que aparezcan el numero cuando tines mas de 7
 					centrocent.add(factory1);
 					
+					//_____________
 					//Panel del centro bank
 					JPanel bank1 = new JPanel();
 					bank1.setBackground(Color.cyan);
 					bank1.setBorder(new LineBorder(Color.BLACK));
 					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					 imagen=new ImageIcon("src/imagenes/bank.png").getImage();
-					for (int i = 0; i < 8; i++) {
-						
-						//Escalamos la imagen a lo que queremos
+					//Escalamos la imagen a lo que queremos
 						JLabel lbl_imagen5=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
+					for (int i = 0; i < 8; i++) {
 						lbl_imagen5.setVisible(false);//Las dejamos a false para que no se vean
 						bank1.add(lbl_imagen5);
 					}
@@ -547,16 +550,17 @@ public void calcula() {
 					bank1.add(lbl_ban);//Añadimos el label que será el que aparezcan el numero cuando tines mas de 7
 					centrocent.add(bank1);
 					System.out.println("c");
+					
+					//__________
 					//Panel centro temple
 					JPanel temple1 = new JPanel();
 					temple1.setBackground(Color.pink);
 					temple1.setBorder(new LineBorder(Color.BLACK));
 					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					 imagen=new ImageIcon("src/imagenes/temple.png").getImage();
-					for (int i = 0; i < 8; i++) {
-						
-						//Escalamos la imagen a lo que queremos
-						JLabel lbl_imagen6=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
+					//Escalamos la imagen a lo que queremos
+					 JLabel lbl_imagen6=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
+					 for (int i = 0; i < 8; i++) {
 						lbl_imagen6.setVisible(false);//Las dejamos a false para que no se vean
 						temple1.add(lbl_imagen6);
 					}
@@ -570,9 +574,8 @@ public void calcula() {
 					wt1.setBorder(new LineBorder(Color.BLACK));
 					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
 					 imagen=new ImageIcon("src/imagenes/wizard.png").getImage();
+					 JLabel lbl_imagen7=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 					for (int i = 0; i < 8; i++) {
-						
-						JLabel lbl_imagen7=new JLabel(new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH)));
 						lbl_imagen7.setVisible(false);//Las dejamos a false para que no se vean
 						wt1.add(lbl_imagen7);
 					}
@@ -1176,9 +1179,16 @@ public void calcula() {
 					
 					@Override
 					public void mouseClicked(MouseEvent e) {
+						if (numcl < 25) {
+							var = var + pulsa(1);
+							contador.setText(String.format("%1$.2f", var+cont));
+						}
+						else {
+							contador.setText(String.format("%1$.2f", cont+pulsa(numcl)));
+						}
 						
-						//contador.setText(pulsa2(1.00));
 					}
+					
 
 					@Override
 					public void mousePressed(MouseEvent e) {
