@@ -30,7 +30,7 @@ public class Partida {
 	public void setCod_partida(int cod_partida) {
 		this.cod_partida = cod_partida;
 	}
-	public int getCookie_tot() {
+	public static int getCookie_tot() {
 		return cookie_tot;
 	}
 	public String getNom_usuario() {

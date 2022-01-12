@@ -47,6 +47,8 @@ import code.Edificios;
 import code.Minijuego;
 import code.NombreEdif;
 import datos.Usuario;
+import datos.Partida;
+import datos.Estadisticas;
 
 public class VentanaCookie implements MouseListener {
 	//Estos de aqui abajo sirven para llevar la cuenta de cuantas imagenes hay en el panel centro
@@ -418,6 +420,13 @@ public void calcula() {
 		segundos = calendario.get(Calendar.SECOND)>9?""+calendario.get(Calendar.SECOND):"0"+calendario.get(Calendar.SECOND);
 	}
 }
+
+//Metodos de los diferentes logros (prueba) -> Despues hay que meter en un hilo que compruebe cada poco tiempo si se han cumplido o no
+//public boolean c_1000() {
+//	if (Partida.getCookie_tot() > 1000){
+//		return true;	}
+//	else {
+//		return false;	}}
 
 
 
