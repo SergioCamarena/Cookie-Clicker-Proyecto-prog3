@@ -1290,6 +1290,7 @@ public void calcula() {
 				panelNews.add(minijuego1);
 				panelNews.add(news);
 				
+				//Llamamos a la ventana Info
 				JButton info = new JButton("Info");
 				info.setBounds(0, 0, 20, 20);
 				panelNews.add(info);

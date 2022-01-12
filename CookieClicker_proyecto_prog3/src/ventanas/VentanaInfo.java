@@ -46,7 +46,9 @@ public class VentanaInfo extends JFrame{
 		
 		
 		informacion = new JTextArea();
+		informacion.setEditable(false); //para que nose edite el texto
 		spTexto = new JScrollPane(informacion);
+		//add(spTexto,BorderLayout.SOUTH);
 		add(informacion, BorderLayout.CENTER);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	
@@ -54,7 +56,6 @@ public class VentanaInfo extends JFrame{
 		JPanel panel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
 		JButton cookie =  new JButton("Cookie Clicker");
 		panel.add(cookie);
-		//ventanaI.getContentPane().add(panel,BorderLayout.EAST);
 		getContentPane().add(panel, BorderLayout.EAST);
 		//Se llama a la ventana de cookie
 		cookie.addActionListener(new ActionListener() {

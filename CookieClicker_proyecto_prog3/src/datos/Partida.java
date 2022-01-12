@@ -1,5 +1,7 @@
 package datos;
 
+import java.util.ArrayList;
+
 public class Partida {
 	public int cod_partida;
 	public String nom_usuario;
@@ -56,5 +58,19 @@ public class Partida {
 	}
 	public void setTiempo_tot(int tiempo_tot) {
 		this.tiempo_tot = tiempo_tot;
+	}
+	
+	
+	
+	//Metodo para ver el jugador con mas edificios
+	public int maxEdif(ArrayList<Partida>partida){
+		ArrayList<Partida>partidas = new ArrayList<Partida>();
+		int max = 0;
+		for (int i = 0; i < partidas.size(); i++) {
+//			if(partidas.getEdif_tot(i) > max) {
+//				max = partidas.getEdif_tot(i);
+//			}
+		}
+		return max;
 	}
 }
