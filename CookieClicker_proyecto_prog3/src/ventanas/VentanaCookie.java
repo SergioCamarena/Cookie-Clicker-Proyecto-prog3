@@ -630,30 +630,19 @@ public void calcula() {
 					centrocent.setBackground(Color.black);
 					centro.add(new JScrollPane(centrocent), BorderLayout.CENTER);
 //_________________________________________EDIFICIOS & CLICKER______________________________________________
-					
-					
-				JButton btn_clicker = new JButton("CLICKER");//Creamos los botones de la derecha
-				JButton btn_grandma = new JButton("GRANDMAS");
-				JButton btn_farm = new JButton("FARMS");
-				JButton btn_mine = new JButton("MINE");
-				JButton btn_factory =new JButton("FACTORY");
-				JButton btn_bank  = new JButton("BANK");
-				JButton btn_temple  = new JButton("TEMPLE");
-				JButton btn_wiz  = new JButton("WIZZARD TOWER");
-				JButton btn_ship  = new JButton("SHIPMENT");
-				JButton btn_arch  = new JButton("ARCHEMY LAB");
-				JButton btn_portal  = new JButton("PORTAL");
-				JButton btn_timemach  = new JButton("TIME MACHINE");
-				
 				//Creación de instancias de edificio
-					//sustituir variable numcl y demas por las variables de cada instancia.
+				//sustituir variable numcl y demas por las variables de cada instancia.
+					
 				ArrayList<Edificios> listaEdif = new ArrayList<Edificios>();
-				Edificios cursor = new Edificios(NombreEdif.CURSOR, 10.5, numcl,numcl, 15);
-				Edificios grandma = new Edificios(NombreEdif.GRANDMA, 10.5, numgr,numgr, 32);
-				Edificios farm = new Edificios(NombreEdif.FARM, 10.5, numfrm,numfrm, 45);
-				Edificios mine = new Edificios(NombreEdif.MINE, 10.5, numine,numine, 150);
-				Edificios factory = new Edificios(NombreEdif.FACTORY, 10.5, numfac,numfac, 450);
-				Edificios bank = new Edificios(NombreEdif.BANK, 10.5, numban,numban, 700);
+				Edificios cursor = new Edificios(NombreEdif.CURSOR, 10.5, numcl, 5);
+				Edificios grandma = new Edificios(NombreEdif.GRANDMA, 10.5, numgr, 25);
+				Edificios farm = new Edificios(NombreEdif.FARM, 10.5, numfrm, 60);
+				Edificios mine = new Edificios(NombreEdif.MINE, 10.5, numine, 1000);
+				Edificios factory = new Edificios(NombreEdif.FACTORY, 10.5, numfac, 2800);
+				Edificios bank = new Edificios(NombreEdif.BANK, 10.5, numban, 4500);
+				Edificios temple = new Edificios(NombreEdif.TEMPLE, 10.5, numtem, 7100);
+				Edificios wiz = new Edificios(NombreEdif.WIZZARD_TOWER, 10.5, numwiz, 9222);
+				Edificios ship = new Edificios(NombreEdif.SHIPMENT, 10.5, numship, 17000);
 				
 				//Meter edificios dentro de lista
 				listaEdif.add(cursor);
@@ -662,6 +651,19 @@ public void calcula() {
 				listaEdif.add(mine);
 				listaEdif.add(factory);
 				listaEdif.add(bank);
+					
+				JButton btn_clicker = new JButton(""+cursor.getNombre()+"");//Creamos los botones de la derecha
+				JButton btn_grandma = new JButton(""+grandma.getNombre()+"");
+				JButton btn_farm = new JButton(""+farm.getNombre()+"");
+				JButton btn_mine = new JButton(""+mine.getNombre()+"");
+				JButton btn_factory =new JButton(""+factory.getNombre()+"");
+				JButton btn_bank  = new JButton(""+bank.getNombre()+"");
+				JButton btn_temple  = new JButton(""+temple.getNombre()+"");
+				JButton btn_wiz  = new JButton(""+wiz.getNombre()+"");
+				JButton btn_ship  = new JButton(""+ship.getNombre()+"");
+				JButton btn_arch  = new JButton("ARCHEMY LAB");
+				JButton btn_portal  = new JButton("PORTAL");
+				JButton btn_timemach  = new JButton("TIME MACHINE");
 				
 				
 				//Panel de la derecha (EDIFICIOS)
@@ -697,19 +699,23 @@ public void calcula() {
 				
 				//ACTION LISTENERS DE RADIOBUTTONS Y BOTONES
 				
-				
 //Array de contadores que funcionen por indices.!!				
 				
 						btn_clicker.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								if(comprar.isSelected()) {
-									numcl = numcl+1;
-									lbl_num1.setText(""+numcl);
+								if(((cont)-cursor.getValorCompra())>0 || (((var)- cursor.getValorCompra())>0)) {
+									cont = cont-cursor.getValorCompra();
+									cursor.setValorCompra(cursor.getValorCompra()*2); 
+									if(comprar.isSelected()) {
+										numcl = numcl+1;
+										lbl_num1.setText(""+numcl);
+									}
+									else {
+										
+										lbl_num1.setText(""+numcl);//NO resta nada de momento
 								}
-								else {
-									
-									lbl_num1.setText(""+numcl);//NO resta nada de momento
+								
 									/*
 									if(numcl > 0) {
 										numcl = numcl-1;
@@ -727,6 +733,9 @@ public void calcula() {
 						btn_grandma.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
+								if(((cont)-grandma.getValorCompra())>0 || (((var)- grandma.getValorCompra())>0)) {
+									cont = cont-grandma.getValorCompra();
+									grandma.setValorCompra(grandma.getValorCompra()*2); 
 								if(comprar.isSelected()) {
 									contgr++;//contador de gradmas
 									if(contgr<7) {
@@ -752,6 +761,7 @@ public void calcula() {
 										}
 										*/
 								}
+							}
 							}
 						});
 						btn_farm.addActionListener(new ActionListener() {
