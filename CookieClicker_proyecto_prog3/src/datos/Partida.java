@@ -1,6 +1,7 @@
 package datos;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Partida {
 	public int cod_partida;
@@ -63,14 +64,16 @@ public class Partida {
 	
 	
 	//Metodo para ver el jugador con mas edificios
-	public int maxEdif(ArrayList<Partida>partida){
-		ArrayList<Partida>partidas = new ArrayList<Partida>();
-		int max = 0;
-		for (int i = 0; i < partidas.size(); i++) {
-//			if(partidas.getEdif_tot(i) > max) {
-//				max = partidas.getEdif_tot(i);
-//			}
-		}
-		return max;
-	}
+//	public int maxEdif(ArrayList<Partida>partida){
+//		ArrayList<Partida>partidas = new ArrayList<Partida>();
+//		//int max = 0;
+////		for (int i = 0; i < partidas.size(); i++) {
+//////			if(partidas.get(getEdif_tot(i)) > max) {
+//////				max = partidas.getEdif_tot(i);
+//////			}
+////		}
+//		//return Collections.max(partidas.get(getEdif_tot()));
+//		//return max;
+//		return partidas;
+//	}
 }
