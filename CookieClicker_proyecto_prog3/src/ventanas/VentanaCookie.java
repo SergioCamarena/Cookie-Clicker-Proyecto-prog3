@@ -1186,11 +1186,9 @@ public void calcula() {
 						else {
 							contador.setText(String.format("%1$.2f", cont+pulsa(numcl)));
 						}
-						
-<<<<<<< Updated upstream
-=======
+
 						//contador.setText(""+pulsa(numcl));
->>>>>>> Stashed changes
+
 					}
 					
 
