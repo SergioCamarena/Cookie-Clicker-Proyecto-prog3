@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagLayout;
@@ -54,7 +55,7 @@ public class VentanaCookie implements MouseListener {
 	//Estos de aqui abajo sirven para llevar la cuenta de cuantas imagenes hay en el panel centro
 	public static int contgr= -1, contfrm= -1,contmine= -1,contfac= -1,contban= -1,conttem= -1,contwiz= -1,contship = -1;	
 	//El que lleva la cuenta de todos los pulsa()
-	static double cont =0, var = 0;
+	static double cont =1000000;
 	//El boton de Minijuegos que se pone ON/OFF dependiendo de unos valores
 	static JButton minijuego1 = new JButton("MiniJuego");
 	//El contador es el que hace el display de cont
@@ -75,6 +76,7 @@ public class VentanaCookie implements MouseListener {
 	//Instancia de usuario
 	Usuario u = new Usuario();
 	ArrayList<Edificios> listaedificios =new  ArrayList<Edificios>();
+	Edificios cursor,grandma,farm,mine,factory,bank,temple,wiz,ship;
 	
 	//Class Compra...
 	//Solo dos decimales
@@ -94,8 +96,8 @@ public class VentanaCookie implements MouseListener {
 			
 			public void run() {
 				while(seguir) {
-					cont = cont + pulsa(numcl)+pulsa(numgr)*2.5+pulsa(numfrm)*2.75+pulsa(numine)*3+pulsa(numfac)*3.5+pulsa(numban)*7+pulsa(numtem)*12+pulsa(numwiz)*18+pulsa(numship)*25;
-					contador.setText(String.format("%1$.2f", cont+var));
+					cont = cont + pulsa(numcl)+pulsa(numgr)*8.5+pulsa(numfrm)*12.75+pulsa(numine)*15+pulsa(numfac)*20.5+pulsa(numban)*25.2+pulsa(numtem)*30.5+pulsa(numwiz)*40.8+pulsa(numship)*100.8;
+					contador.setText(String.format("%1$.2f", cont));
 					
 					try {
 						seg.sleep(1000);
@@ -345,58 +347,53 @@ public static String Lista() {
 			
 		}
 //_________________________Para que salgan los TollTip	
-@Override
-public void mouseClicked(MouseEvent e) {
-	// TODO Auto-generated method stub
-	
-}
-@Override
-public void mousePressed(MouseEvent e) {
-	// TODO Auto-generated method stub
-	
-}
-@Override
-public void mouseReleased(MouseEvent e) {
-	// TODO Auto-generated method stub
-	
-}
-@Override
-public void mouseEntered(MouseEvent e) {
-	lbl_num1.setToolTipText("<html>CLICKER<br> Tenemos ahora mismo "+ numcl +" de clickers.<br> Cookies totales ___ <br></html>");
-	lbl_num1.getToolTipText();
-	lbl_num2.setToolTipText("<html>GRANDMAS<br> Tenemos ahora mismo "+ numgr +" de grandmas.<br> Cookies totales ___ <br></html>");
-	lbl_num2.getToolTipText();
-	lbl_num3.setToolTipText("<html>FARMS<br> Tenemos ahora mismo "+ numfrm +" de farms.<br> Cookies totales ___ <br></html>");
-	lbl_num3.getToolTipText();
-	lbl_num4.setToolTipText("<html>MINE<br> Tenemos ahora mismo "+ numine +" de mines.<br> Cookies totales ___ <br></html>");
-	lbl_num4.getToolTipText();
-	lbl_num5.setToolTipText("<html>FACTORY<br> Tenemos ahora mismo "+ numfac +" de factories.<br> Cookies totales ___ <br></html>");
-	lbl_num5.getToolTipText();
-	lbl_num6.setToolTipText("<html>BANK<br> Tenemos ahora mismo "+ numban +" de banks.<br> Cookies totales ___ <br></html>");
-	lbl_num6.getToolTipText();
-	lbl_num7.setToolTipText("<html>TEMPLE<br> Tenemos ahora mismo "+ numtem +" de temples.<br> Cookies totales ___ <br></html>");
-	lbl_num7.getToolTipText();
-	lbl_num8.setToolTipText("<html>WIZZARD TOWER<br> Tenemos ahora mismo "+ numwiz +" de wizzard towers.<br> Cookies totales ___ <br></html>");
-	lbl_num8.getToolTipText();
-	lbl_num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo "+ numship +" de shipments.<br> Cookies totales ___ <br></html>");
-	lbl_num9.getToolTipText();
-	lbl_num10.setToolTipText("<html>ARCHEMY LAB<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
-	lbl_num10.getToolTipText();
-	lbl_num11.setToolTipText("<html>PORTAL<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
-	lbl_num11.getToolTipText();
-	lbl_num12.setToolTipText("<html>TIME MACHINE<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
-	lbl_num12.getToolTipText();
-	
-	//version
-	version.setToolTipText("<html><b>VERSION</b><br> Somos <b>Elaia, Sergio e Imanol.</b><br> Y te invitamos a que <b>disfrutes</b> de nustro juego <br></html>");
-	version.getToolTipText();
-	
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
-@Override
-public void mouseExited(MouseEvent e) {
-	// TODO Auto-generated method stub
-	
-}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseReleased(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+		lbl_num1.setToolTipText("<html>CLICKER<br> Tenemos ahora mismo "+ numcl +" de clickers.<br> Los cursores cuestan "+cursor.getValorCompra()+" <br></html>");
+		lbl_num1.getToolTipText();
+		lbl_num2.setToolTipText("<html>GRANDMAS<br> Tenemos ahora mismo "+ numgr +" de grandmas.<br> Las gradmas cuestan "+ grandma.getValorCompra()+" <br></html>");
+		lbl_num2.getToolTipText();
+		lbl_num3.setToolTipText("<html>FARMS<br> Tenemos ahora mismo "+ numfrm +" de farms.<br> Los farms cuestan "+ farm.getValorCompra()+" <br></html>");
+		lbl_num3.getToolTipText();
+		lbl_num4.setToolTipText("<html>MINE<br> Tenemos ahora mismo "+ numine +" de mines.<br> Los mines cuestan "+mine.getValorCompra()+" <br></html>");
+		lbl_num4.getToolTipText();
+		lbl_num5.setToolTipText("<html>FACTORY<br> Tenemos ahora mismo "+ numfac +" de factories.<br> Los factories cuestan "+factory.getValorCompra()+" <br></html>");
+		lbl_num5.getToolTipText();
+		lbl_num6.setToolTipText("<html>BANK<br> Tenemos ahora mismo "+ numban +" de banks.<br> Los bancos cuestan "+bank.getValorCompra()+" <br></html>");
+		lbl_num6.getToolTipText();
+		lbl_num7.setToolTipText("<html>TEMPLE<br> Tenemos ahora mismo "+ numtem +" de temples.<br> Los temples cuestan "+temple.getValorCompra()+" <br></html>");
+		lbl_num7.getToolTipText();
+		lbl_num8.setToolTipText("<html>WIZZARD TOWER<br> Tenemos ahora mismo "+ numwiz +" de wizzard towers.<br> Los wizzard towers cuestan "+wiz.getValorCompra()+" <br></html>");
+		lbl_num8.getToolTipText();
+		lbl_num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo "+ numship +" de shipments.<br> Los Shipment cuestan "+ship.getValorCompra()+" <br></html>");
+		lbl_num9.getToolTipText();
+		lbl_num10.setToolTipText("<html>ARCHEMY LAB<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
+		lbl_num10.getToolTipText();
+		lbl_num11.setToolTipText("<html>PORTAL<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
+		lbl_num11.getToolTipText();
+		lbl_num12.setToolTipText("<html>TIME MACHINE<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
+		lbl_num12.getToolTipText();
+		
+		//version
+		version.setToolTipText("<html><b>VERSION</b><br> Somos <b>Elaia, Sergio e Imanol.</b><br> Y te invitamos a que <b>disfrutes</b> de nustro juego <br></html>");
+		version.getToolTipText();
+		
+		}
 
 
  String hora, minutos, segundos, ampm;
@@ -643,15 +640,15 @@ public void calcula() {
 				//sustituir variable numcl y demas por las variables de cada instancia.
 					
 				ArrayList<Edificios> listaEdif = new ArrayList<Edificios>();
-				Edificios cursor = new Edificios(NombreEdif.CURSOR, 10.5, numcl, 5);
-				Edificios grandma = new Edificios(NombreEdif.GRANDMA, 10.5, numgr, 25);
-				Edificios farm = new Edificios(NombreEdif.FARM, 10.5, numfrm, 60);
-				Edificios mine = new Edificios(NombreEdif.MINE, 10.5, numine, 1000);
-				Edificios factory = new Edificios(NombreEdif.FACTORY, 10.5, numfac, 2800);
-				Edificios bank = new Edificios(NombreEdif.BANK, 10.5, numban, 4500);
-				Edificios temple = new Edificios(NombreEdif.TEMPLE, 10.5, numtem, 7100);
-				Edificios wiz = new Edificios(NombreEdif.WIZZARD_TOWER, 10.5, numwiz, 9222);
-				Edificios ship = new Edificios(NombreEdif.SHIPMENT, 10.5, numship, 17000);
+				 cursor = new Edificios(NombreEdif.CURSOR, 10.5, numcl, 5);
+				 grandma = new Edificios(NombreEdif.GRANDMA, 10.5, numgr, 25);
+				 farm = new Edificios(NombreEdif.FARM, 10.5, numfrm, 60);
+				 mine = new Edificios(NombreEdif.MINE, 10.5, numine, 1000);
+				 factory = new Edificios(NombreEdif.FACTORY, 10.5, numfac, 2800);
+				 bank = new Edificios(NombreEdif.BANK, 10.5, numban, 4500);
+				 temple = new Edificios(NombreEdif.TEMPLE, 10.5, numtem, 7100);
+				 wiz = new Edificios(NombreEdif.WIZZARD_TOWER, 10.5, numwiz, 9222);
+				 ship = new Edificios(NombreEdif.SHIPMENT, 10.5, numship, 17000);
 				
 				//Meter edificios dentro de lista
 				listaEdif.add(cursor);
@@ -713,7 +710,7 @@ public void calcula() {
 						btn_clicker.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								if(((cont)-cursor.getValorCompra())>0 || (((var)- cursor.getValorCompra())>0)) {
+								if(((cont)-cursor.getValorCompra())>0) {
 									cont = cont-cursor.getValorCompra();
 									cursor.setValorCompra(cursor.getValorCompra()*2); 
 									if(comprar.isSelected()) {
@@ -742,7 +739,7 @@ public void calcula() {
 						btn_grandma.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								if(((cont)-grandma.getValorCompra())>0 || (((var)- grandma.getValorCompra())>0)) {
+								if(((cont)-grandma.getValorCompra())>0) {
 									cont = cont-grandma.getValorCompra();
 									grandma.setValorCompra(grandma.getValorCompra()*2); 
 								if(comprar.isSelected()) {
@@ -776,7 +773,9 @@ public void calcula() {
 						btn_farm.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								
+								if(((cont)-farm.getValorCompra())>0) {
+									cont = cont-farm.getValorCompra();
+									farm.setValorCompra(farm.getValorCompra()+farm.getValorCompra()*(valor*2));
 								if(comprar.isSelected()) {
 									contfrm++;
 									if(contfrm<7) {
@@ -806,11 +805,14 @@ public void calcula() {
 										*/
 								}
 							}
+							}
 						});
 						btn_mine.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								
+								if(((cont)-mine.getValorCompra())>0) {
+									cont = cont-mine.getValorCompra();
+									mine.setValorCompra(mine.getValorCompra()+mine.getValorCompra()*(valor*2));
 								if(comprar.isSelected()) {
 									contmine++;//contador de gradmas
 									if(contmine<7) {
@@ -839,11 +841,14 @@ public void calcula() {
 										}*/
 								}
 							}
+							}
 						});
 						btn_factory.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								
+								if(((cont)-factory.getValorCompra())>0) {
+									cont = cont-factory.getValorCompra();
+									factory.setValorCompra(factory.getValorCompra()+factory.getValorCompra()*(valor*2));
 								if(comprar.isSelected()) {
 									contfac++;//contador de gradmas
 									if(contfac<7) {
@@ -870,13 +875,15 @@ public void calcula() {
 									*/
 								}
 								
-								
+								}
 							}
 						});
 						btn_bank.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								
+								if(((cont)-bank.getValorCompra())>0) {
+									cont = cont-bank.getValorCompra();
+									bank.setValorCompra(bank.getValorCompra()+bank.getValorCompra()*(valor*2));
 								if(comprar.isSelected()) {
 									contban++;//contador de gradmas
 									if(contban<7) {
@@ -902,11 +909,14 @@ public void calcula() {
 										*/
 								}
 							}
+							}
 						});
 						btn_temple.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								
+								if(((cont)-temple.getValorCompra())>0) {
+									cont = cont-temple.getValorCompra();
+									temple.setValorCompra(temple.getValorCompra()+temple.getValorCompra()*(valor*2));
 								if(comprar.isSelected()) {
 									conttem++;//contador de gradmas
 									if(conttem<7) {
@@ -932,11 +942,14 @@ public void calcula() {
 										*/
 								}
 							}
+							}
 						});
 						btn_wiz.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								
+								if(((cont)-wiz.getValorCompra())>0) {
+									cont = cont-wiz.getValorCompra();
+									wiz.setValorCompra(wiz.getValorCompra()+wiz.getValorCompra()*(valor*2));
 								if(comprar.isSelected()) {
 									contwiz++;//contador de gradmas
 									if(contwiz<7) {
@@ -961,16 +974,16 @@ public void calcula() {
 										}*/
 									
 								}
-								
-								
-								
+								}
 							}
 						});
 						btn_ship.addActionListener(new ActionListener() {
 							
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								
+								if(((cont)-ship.getValorCompra())>0) {
+									cont = cont-ship.getValorCompra();
+									ship.setValorCompra(ship.getValorCompra()+ship.getValorCompra()*(valor*2));
 								if(comprar.isSelected()) {
 									contship++;//contador de gradmas
 									if(contship<7) {
@@ -998,7 +1011,7 @@ public void calcula() {
 									*/
 								}
 								
-								
+								}
 							}
 						});
 						
@@ -1210,8 +1223,8 @@ public void calcula() {
 					@Override
 					public void mouseClicked(MouseEvent e) {
 						if (numcl < 25) {
-							var = var + pulsa(1);
-							contador.setText(String.format("%1$.2f", var+cont));
+							cont = cont + pulsa(1);
+							contador.setText(String.format("%1$.2f", cont));
 						}
 						else {
 							contador.setText(String.format("%1$.2f", cont+pulsa(numcl)));
@@ -1349,6 +1362,12 @@ public void calcula() {
 				
 				//frame.setResizable(false);//Esto se hace para que no pueda cambiar el bounds de la ventana
 				frame.setVisible(true);
+	}
+	
+	@Override
+	public void mouseExited(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	public static void main(String[] args) {
