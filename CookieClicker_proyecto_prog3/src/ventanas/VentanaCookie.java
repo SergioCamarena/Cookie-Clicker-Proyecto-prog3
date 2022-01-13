@@ -418,6 +418,21 @@ public void calcula() {
 	}
 }
 
+JLabel lbHora = new JLabel();
+//Hilo del reloj
+public void run() {
+	Thread ct = Thread.currentThread();
+	while(ct == h1) {
+		calcula();
+		lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+		try {
+			Thread.sleep(1000);
+		}catch(InterruptedException e) {
+			
+		}
+	}
+}
+
 //Metodos de los diferentes logros (prueba) -> Despues hay que meter en un hilo que compruebe cada poco tiempo si se han cumplido o no
 //public boolean c_1000() {
 //	if (Partida.getCookie_tot() > 1000){
@@ -1144,18 +1159,18 @@ public void calcula() {
 				rel.setBounds(0,0,300, 250);
 				rel.setBorder(new BevelBorder(BevelBorder.LOWERED));
 
-				JLabel lbHora = new JLabel("");
-				Thread ct = Thread.currentThread();
-				while(ct == h1) {
-					calcula();
-					lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
-					try {
-						Thread.sleep(1000);
-					}catch(InterruptedException e) {
-						
-					}
-				}
-				
+//				JLabel lbHora = new JLabel("");
+//				Thread ct = Thread.currentThread();
+//				while(ct == h1) {
+//					calcula();
+//					lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+//					try {
+//						Thread.sleep(1000);
+//					}catch(InterruptedException e) {
+//						
+//					}
+//				}
+				run();
 				rel.add(lbHora);
 				este.add(rel,BorderLayout.SOUTH);
 				

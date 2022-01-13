@@ -6,7 +6,7 @@ import java.util.Collections;
 public class Partida {
 	public int cod_partida;
 	public String nom_usuario;
-	public int cookie_tot;
+	public static int cookie_tot;
 	public int cookie_ps;
 	public int edif_tot;
 	public int tiempo_tot;
