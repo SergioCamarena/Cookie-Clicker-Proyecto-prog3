@@ -55,7 +55,7 @@ public class VentanaCookie implements MouseListener {
 	//Estos de aqui abajo sirven para llevar la cuenta de cuantas imagenes hay en el panel centro
 	public static int contgr= -1, contfrm= -1,contmine= -1,contfac= -1,contban= -1,conttem= -1,contwiz= -1,contship = -1;	
 	//El que lleva la cuenta de todos los pulsa()
-	static double cont =1000000;
+	static double cont =0;
 	//El boton de Minijuegos que se pone ON/OFF dependiendo de unos valores
 	static JButton minijuego1 = new JButton("MiniJuego");
 	//El contador es el que hace el display de cont
@@ -73,6 +73,8 @@ public class VentanaCookie implements MouseListener {
 	static JRadioButton comprar,vender;
 	//Valor por el cual multiplica cada vez que compras mas.
 	static double valor = 0.15;
+	//Botones de la derecha
+	JButton btn_clicker,btn_grandma,btn_farm,btn_mine,btn_factory,btn_bank,btn_temple,btn_wiz,btn_ship;
 	//Instancia de usuario
 	Usuario u = new Usuario();
 	ArrayList<Edificios> listaedificios =new  ArrayList<Edificios>();
@@ -96,9 +98,9 @@ public class VentanaCookie implements MouseListener {
 			
 			public void run() {
 				while(seguir) {
-					cont = cont + pulsa(numcl)+pulsa(numgr)*8.5+pulsa(numfrm)*12.75+pulsa(numine)*15+pulsa(numfac)*20.5+pulsa(numban)*25.2+pulsa(numtem)*30.5+pulsa(numwiz)*40.8+pulsa(numship)*100.8;
+					cont = cont + pulsa(numcl)+pulsa(numgr)*80.5+pulsa(numfrm)*304.75+pulsa(numine)*950+pulsa(numfac)*2200.5+pulsa(numban)*10000.2+pulsa(numtem)*20800.5+pulsa(numwiz)*60000.8+pulsa(numship)*100000.8;
 					contador.setText(String.format("%1$.2f", cont));
-					
+					ponerOnOFf();
 					try {
 						seg.sleep(1000);
 					} catch (InterruptedException e) {
@@ -115,6 +117,20 @@ public class VentanaCookie implements MouseListener {
 		 
 		
 	}
+
+	
+public  void ponerOnOFf() {
+	if(cont-cursor.getValorCompra()>0) {
+		btn_clicker.setEnabled(true);
+	}else if(cont-grandma.getValorCompra()>0) {
+		btn_grandma.setEnabled(true);
+	}
+	else {
+		btn_clicker.setEnabled(false);
+		btn_grandma.setEnabled(false);
+	}
+	
+}
 	//Metodo News
 	
 public static String Lista() {
@@ -656,14 +672,14 @@ public void run() {
 					
 				ArrayList<Edificios> listaEdif = new ArrayList<Edificios>();
 				 cursor = new Edificios(NombreEdif.CURSOR, 10.5, numcl, 5);
-				 grandma = new Edificios(NombreEdif.GRANDMA, 10.5, numgr, 25);
-				 farm = new Edificios(NombreEdif.FARM, 10.5, numfrm, 60);
-				 mine = new Edificios(NombreEdif.MINE, 10.5, numine, 1000);
-				 factory = new Edificios(NombreEdif.FACTORY, 10.5, numfac, 2800);
-				 bank = new Edificios(NombreEdif.BANK, 10.5, numban, 4500);
-				 temple = new Edificios(NombreEdif.TEMPLE, 10.5, numtem, 7100);
-				 wiz = new Edificios(NombreEdif.WIZZARD_TOWER, 10.5, numwiz, 9222);
-				 ship = new Edificios(NombreEdif.SHIPMENT, 10.5, numship, 17000);
+				 grandma = new Edificios(NombreEdif.GRANDMA, 10.5, numgr, 250);
+				 farm = new Edificios(NombreEdif.FARM, 10.5, numfrm, 1600);
+				 mine = new Edificios(NombreEdif.MINE, 10.5, numine, 50000);
+				 factory = new Edificios(NombreEdif.FACTORY, 10.5, numfac, 80800);
+				 bank = new Edificios(NombreEdif.BANK, 10.5, numban, 120500);
+				 temple = new Edificios(NombreEdif.TEMPLE, 10.5, numtem, 200100);
+				 wiz = new Edificios(NombreEdif.WIZZARD_TOWER, 10.5, numwiz, 90000222);
+				 ship = new Edificios(NombreEdif.SHIPMENT, 10.5, numship, 170000000);
 				
 				//Meter edificios dentro de lista
 				listaEdif.add(cursor);
@@ -673,15 +689,15 @@ public void run() {
 				listaEdif.add(factory);
 				listaEdif.add(bank);
 					
-				JButton btn_clicker = new JButton(""+cursor.getNombre()+"");//Creamos los botones de la derecha
-				JButton btn_grandma = new JButton(""+grandma.getNombre()+"");
-				JButton btn_farm = new JButton(""+farm.getNombre()+"");
-				JButton btn_mine = new JButton(""+mine.getNombre()+"");
-				JButton btn_factory =new JButton(""+factory.getNombre()+"");
-				JButton btn_bank  = new JButton(""+bank.getNombre()+"");
-				JButton btn_temple  = new JButton(""+temple.getNombre()+"");
-				JButton btn_wiz  = new JButton(""+wiz.getNombre()+"");
-				JButton btn_ship  = new JButton(""+ship.getNombre()+"");
+				btn_clicker = new JButton(""+cursor.getNombre()+"");//Creamos los botones de la derecha
+				btn_grandma = new JButton(""+grandma.getNombre()+"");
+				btn_farm = new JButton(""+farm.getNombre()+"");
+				btn_mine = new JButton(""+mine.getNombre()+"");
+				btn_factory =new JButton(""+factory.getNombre()+"");
+				btn_bank  = new JButton(""+bank.getNombre()+"");
+				btn_temple  = new JButton(""+temple.getNombre()+"");
+				btn_wiz  = new JButton(""+wiz.getNombre()+"");
+				btn_ship  = new JButton(""+ship.getNombre()+"");
 				JButton btn_arch  = new JButton("ARCHEMY LAB");
 				JButton btn_portal  = new JButton("PORTAL");
 				JButton btn_timemach  = new JButton("TIME MACHINE");

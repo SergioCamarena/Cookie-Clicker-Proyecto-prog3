@@ -147,7 +147,7 @@ public class VentanaUsuario {
 			}
 		});
 		
-		entrar.addActionListener(new ActionListener() {
+		regis.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
