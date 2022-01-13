@@ -72,7 +72,7 @@ public class VentanaCookie implements MouseListener {
 	//RadioButton compra/venta
 	static JRadioButton comprar,vender;
 	//Valor por el cual multiplica cada vez que compras mas.
-	static double valor = 0.15;
+	static double valor = 2.15;
 	//Botones de la derecha
 	JButton btn_clicker,btn_grandma,btn_farm,btn_mine,btn_factory,btn_bank,btn_temple,btn_wiz,btn_ship;
 	//Instancia de usuario
@@ -98,7 +98,7 @@ public class VentanaCookie implements MouseListener {
 			
 			public void run() {
 				while(seguir) {
-					cont = cont + pulsa(numcl)+pulsa(numgr)*80.5+pulsa(numfrm)*304.75+pulsa(numine)*950+pulsa(numfac)*2200.5+pulsa(numban)*10000.2+pulsa(numtem)*20800.5+pulsa(numwiz)*60000.8+pulsa(numship)*100000.8;
+					cont = cont + pulsa(numcl)+pulsa(numgr)*10.5+pulsa(numfrm)*57.75+pulsa(numine)*150+pulsa(numfac)*1200.5+pulsa(numban)*10000.2+pulsa(numtem)*20800.5+pulsa(numwiz)*60000.8+pulsa(numship)*100000.8;
 					contador.setText(String.format("%1$.2f", cont));
 					ponerOnOFf();
 					try {
@@ -122,13 +122,42 @@ public class VentanaCookie implements MouseListener {
 public  void ponerOnOFf() {
 	if(cont-cursor.getValorCompra()>0) {
 		btn_clicker.setEnabled(true);
-	}else if(cont-grandma.getValorCompra()>0) {
+	}
+	if(cont-grandma.getValorCompra()>0) {
 		btn_grandma.setEnabled(true);
 	}
-	else {
+	if(cont-farm.getValorCompra()>0) {
+		btn_farm.setEnabled(true);
+	}
+	if(cont-mine.getValorCompra()>0) {
+		btn_mine.setEnabled(true);
+	}
+	if(cont-factory.getValorCompra()>0) {
+		btn_factory.setEnabled(true);
+	}
+	if(cont-bank.getValorCompra()>0) {
+		btn_bank.setEnabled(true);
+	}
+	if(cont-temple.getValorCompra()>0) {
+		btn_temple.setEnabled(true);
+	}
+	if(cont-wiz.getValorCompra()>0) {
+		btn_wiz.setEnabled(true);
+	}
+	if(cont-ship.getValorCompra()>0) {
+		btn_ship.setEnabled(true);
+	}
+	/*else {
 		btn_clicker.setEnabled(false);
 		btn_grandma.setEnabled(false);
-	}
+		btn_farm.setEnabled(false);
+		btn_mine.setEnabled(false);
+		btn_factory.setEnabled(false);
+		btn_bank.setEnabled(false);
+		btn_temple.setEnabled(false);
+		btn_wiz.setEnabled(false);
+		btn_ship.setEnabled(false);
+	}*/
 	
 }
 	//Metodo News
@@ -753,9 +782,11 @@ public boolean grma10() {
 										if(((cont)-cursor.getValorCompra())>0) {
 											cont = cont-cursor.getValorCompra();
 											cursor.setValorCompra(cursor.getValorCompra()*2);
+											
+											numcl = numcl+1;
+											lbl_num1.setText(""+numcl);
 										}
-										numcl = numcl+1;
-										lbl_num1.setText(""+numcl);
+										
 									}
 									else {
 										
@@ -776,10 +807,13 @@ public boolean grma10() {
 						btn_grandma.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								if(((cont)-grandma.getValorCompra())>0) {
-									cont = cont-grandma.getValorCompra();
-									grandma.setValorCompra(grandma.getValorCompra()*2); 
+								
 								if(comprar.isSelected()) {
+									if(((cont)-grandma.getValorCompra())>0) {
+										cont = cont-grandma.getValorCompra();
+										grandma.setValorCompra(grandma.getValorCompra()*2);
+										numgr = numgr+1;
+										lbl_num2.setText(""+numgr);
 									contgr++;//contador de gradmas
 									if(contgr<7) {
 										grand1.getComponent(contgr).setVisible(true);
@@ -789,8 +823,7 @@ public boolean grma10() {
 										lbl_grandma.setText("+"+ (contgr-6));
 										
 									}
-									numgr = numgr+1;
-									lbl_num2.setText(""+numgr);
+									
 								}
 								else {
 									lbl_num2.setText(""+numgr);
@@ -810,10 +843,13 @@ public boolean grma10() {
 						btn_farm.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								if(((cont)-farm.getValorCompra())>0) {
-									cont = cont-farm.getValorCompra();
-									farm.setValorCompra(farm.getValorCompra()+farm.getValorCompra()*(valor*2));
+								
 								if(comprar.isSelected()) {
+									if(((cont)-farm.getValorCompra())>0) {
+										cont = cont-farm.getValorCompra();
+										farm.setValorCompra(farm.getValorCompra()+farm.getValorCompra()*(valor*2));
+										numfrm = numfrm+1;
+										lbl_num3.setText(""+numfrm);
 									contfrm++;
 									if(contfrm<7) {
 										farm1.getComponent(contfrm).setVisible(true);
@@ -823,8 +859,7 @@ public boolean grma10() {
 										lbl_farm.setText("+"+ (contfrm-6));
 										
 									}
-									numfrm = numfrm+1;
-									lbl_num3.setText(""+numfrm);
+									
 								}
 								else {
 									lbl_num3.setText(""+numfrm);//Deja las cosas como estan
@@ -847,10 +882,12 @@ public boolean grma10() {
 						btn_mine.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								if(((cont)-mine.getValorCompra())>0) {
-									cont = cont-mine.getValorCompra();
-									mine.setValorCompra(mine.getValorCompra()+mine.getValorCompra()*(valor*2));
-								if(comprar.isSelected()) {
+									if(comprar.isSelected()) {
+										if(((cont)-mine.getValorCompra())>0) {
+											cont = cont-mine.getValorCompra();
+											mine.setValorCompra(mine.getValorCompra()+mine.getValorCompra()*(valor*2));
+											numine = numine+1;
+											lbl_num4.setText(""+numine);
 									contmine++;//contador de gradmas
 									if(contmine<7) {
 										mine1.getComponent(contmine).setVisible(true);
@@ -859,8 +896,7 @@ public boolean grma10() {
 										mine1.getComponent(8).setVisible(true);
 										lbl_mine.setText("+"+ (contmine-6));
 									}
-									numine = numine+1;
-									lbl_num4.setText(""+numine);
+									
 								}
 								else {
 									
@@ -883,10 +919,13 @@ public boolean grma10() {
 						btn_factory.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								if(((cont)-factory.getValorCompra())>0) {
-									cont = cont-factory.getValorCompra();
-									factory.setValorCompra(factory.getValorCompra()+factory.getValorCompra()*(valor*2));
+								
 								if(comprar.isSelected()) {
+									if(((cont)-factory.getValorCompra())>0) {
+										cont = cont-factory.getValorCompra();
+										factory.setValorCompra(factory.getValorCompra()+factory.getValorCompra()*(valor*2));
+										numfac = numfac+1;
+										lbl_num5.setText(""+numfac);
 									contfac++;//contador de gradmas
 									if(contfac<7) {
 										factory1.getComponent(contfac).setVisible(true);
@@ -895,8 +934,7 @@ public boolean grma10() {
 										factory1.getComponent(8).setVisible(true);
 										lbl_fac.setText("+"+ (contfac-6));
 									}
-									numfac = numfac+1;
-									lbl_num5.setText(""+numfac);
+									
 								}
 								else {
 									
@@ -918,10 +956,13 @@ public boolean grma10() {
 						btn_bank.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								if(((cont)-bank.getValorCompra())>0) {
-									cont = cont-bank.getValorCompra();
-									bank.setValorCompra(bank.getValorCompra()+bank.getValorCompra()*(valor*2));
+								
 								if(comprar.isSelected()) {
+									if(((cont)-bank.getValorCompra())>0) {
+										cont = cont-bank.getValorCompra();
+										bank.setValorCompra(bank.getValorCompra()+bank.getValorCompra()*(valor*2));
+										numban = numban+1;
+										lbl_num6.setText(""+numban);
 									contban++;//contador de gradmas
 									if(contban<7) {
 										bank1.getComponent(contban).setVisible(true);
@@ -930,8 +971,7 @@ public boolean grma10() {
 										bank1.getComponent(8).setVisible(true);
 										lbl_ban.setText("+"+ (contban-6));
 									}
-									numban = numban+1;
-									lbl_num6.setText(""+numban);
+									
 								}
 								else {
 									lbl_num6.setText(""+numban);
@@ -951,10 +991,13 @@ public boolean grma10() {
 						btn_temple.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								if(((cont)-temple.getValorCompra())>0) {
-									cont = cont-temple.getValorCompra();
-									temple.setValorCompra(temple.getValorCompra()+temple.getValorCompra()*(valor*2));
+								
 								if(comprar.isSelected()) {
+									if(((cont)-temple.getValorCompra())>0) {
+										cont = cont-temple.getValorCompra();
+										temple.setValorCompra(temple.getValorCompra()+temple.getValorCompra()*(valor*2));
+										numtem = numtem+1;
+										lbl_num7.setText(""+numtem);
 									conttem++;//contador de gradmas
 									if(conttem<7) {
 										temple1.getComponent(conttem).setVisible(true);
@@ -963,8 +1006,7 @@ public boolean grma10() {
 										temple1.getComponent(8).setVisible(true);
 										lbl_tem.setText("+"+ (conttem-6));
 									}
-									numtem = numtem+1;
-									lbl_num7.setText(""+numtem);
+									
 								}
 								else {
 									lbl_num7.setText(""+numtem);
@@ -984,10 +1026,13 @@ public boolean grma10() {
 						btn_wiz.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								if(((cont)-wiz.getValorCompra())>0) {
-									cont = cont-wiz.getValorCompra();
-									wiz.setValorCompra(wiz.getValorCompra()+wiz.getValorCompra()*(valor*2));
+								
 								if(comprar.isSelected()) {
+									if(((cont)-wiz.getValorCompra())>0) {
+										cont = cont-wiz.getValorCompra();
+										wiz.setValorCompra(wiz.getValorCompra()+wiz.getValorCompra()*(valor*2));
+										numwiz = numwiz+1;
+										lbl_num8.setText(""+numwiz);
 									contwiz++;//contador de gradmas
 									if(contwiz<7) {
 										wt1.getComponent(contwiz).setVisible(true);
@@ -996,8 +1041,7 @@ public boolean grma10() {
 										wt1.getComponent(8).setVisible(true);
 										lbl_wt.setText("+"+ (contwiz-6));
 									}
-									numwiz = numwiz+1;
-									lbl_num8.setText(""+numwiz);
+									
 								}
 								else {
 									lbl_num8.setText(""+numwiz);
@@ -1018,10 +1062,13 @@ public boolean grma10() {
 							
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								if(((cont)-ship.getValorCompra())>0) {
-									cont = cont-ship.getValorCompra();
-									ship.setValorCompra(ship.getValorCompra()+ship.getValorCompra()*(valor*2));
+								
 								if(comprar.isSelected()) {
+									if(((cont)-ship.getValorCompra())>0) {
+										cont = cont-ship.getValorCompra();
+										ship.setValorCompra(ship.getValorCompra()+ship.getValorCompra()*(valor*2));
+										numship = numship+1;
+										lbl_num9.setText(""+numship);
 									contship++;//contador de gradmas
 									if(contship<7) {
 										ship1.getComponent(contship).setVisible(true);
@@ -1030,8 +1077,7 @@ public boolean grma10() {
 										ship1.getComponent(8).setVisible(true);
 										lbl_ship.setText("+"+ (contship-6));
 									}
-									numship = numship+1;
-									lbl_num9.setText(""+numship);
+									
 									
 								}
 								else {
