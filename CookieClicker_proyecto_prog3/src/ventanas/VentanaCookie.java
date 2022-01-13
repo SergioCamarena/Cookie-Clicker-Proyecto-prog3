@@ -455,7 +455,14 @@ public void run() {
 //		return true;	}
 //	else {
 //		return false;	}}
-
+public boolean grma10() {
+	if (cursor.getNumeroDeCadaTipo() >= 10) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
 
 
 	public VentanaCookie(){
