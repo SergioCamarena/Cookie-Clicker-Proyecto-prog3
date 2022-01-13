@@ -671,15 +671,15 @@ public void run() {
 				//sustituir variable numcl y demas por las variables de cada instancia.
 					
 				ArrayList<Edificios> listaEdif = new ArrayList<Edificios>();
-				 cursor = new Edificios(NombreEdif.CURSOR, 10.5, numcl, 5);
-				 grandma = new Edificios(NombreEdif.GRANDMA, 10.5, numgr, 250);
-				 farm = new Edificios(NombreEdif.FARM, 10.5, numfrm, 1600);
-				 mine = new Edificios(NombreEdif.MINE, 10.5, numine, 50000);
-				 factory = new Edificios(NombreEdif.FACTORY, 10.5, numfac, 80800);
-				 bank = new Edificios(NombreEdif.BANK, 10.5, numban, 120500);
-				 temple = new Edificios(NombreEdif.TEMPLE, 10.5, numtem, 200100);
-				 wiz = new Edificios(NombreEdif.WIZZARD_TOWER, 10.5, numwiz, 90000222);
-				 ship = new Edificios(NombreEdif.SHIPMENT, 10.5, numship, 170000000);
+				 cursor = new Edificios(NombreEdif.CURSOR, numcl, 5);
+				 grandma = new Edificios(NombreEdif.GRANDMA, numgr, 250);
+				 farm = new Edificios(NombreEdif.FARM, numfrm, 1600);
+				 mine = new Edificios(NombreEdif.MINE, numine, 50000);
+				 factory = new Edificios(NombreEdif.FACTORY, numfac, 80800);
+				 bank = new Edificios(NombreEdif.BANK, numban, 120500);
+				 temple = new Edificios(NombreEdif.TEMPLE, numtem, 200100);
+				 wiz = new Edificios(NombreEdif.WIZZARD_TOWER, numwiz, 90000222);
+				 ship = new Edificios(NombreEdif.SHIPMENT, numship, 170000000);
 				
 				//Meter edificios dentro de lista
 				listaEdif.add(cursor);
@@ -741,10 +741,12 @@ public void run() {
 						btn_clicker.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								if(((cont)-cursor.getValorCompra())>0) {
-									cont = cont-cursor.getValorCompra();
-									cursor.setValorCompra(cursor.getValorCompra()*2); 
+								
 									if(comprar.isSelected()) {
+										if(((cont)-cursor.getValorCompra())>0) {
+											cont = cont-cursor.getValorCompra();
+											cursor.setValorCompra(cursor.getValorCompra()*2);
+										}
 										numcl = numcl+1;
 										lbl_num1.setText(""+numcl);
 									}
@@ -763,10 +765,7 @@ public void run() {
 										}
 										*/
 								}
-								}
-							
-							
-						});
+								});
 						btn_grandma.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {

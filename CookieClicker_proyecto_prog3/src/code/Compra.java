@@ -2,14 +2,12 @@ package code;
 
 public class Compra {
 	protected NombreEdif nombre;
-	protected double valorInicialCookie= 0.0;
 	protected int numEdif = 0;
 	
 	//constructor
-	public Compra(NombreEdif nombre, double valorInicialCookie, int numeroDeCadaTipo) {
+	public Compra(NombreEdif nombre, int numeroDeCadaTipo) {
 		super();
 		this.nombre = nombre;
-		this.valorInicialCookie = valorInicialCookie;
 		this.numEdif = numEdif;
 	}
 	//getters y setters
@@ -19,13 +17,6 @@ public class Compra {
 	}
 	public void setNombre(NombreEdif nombre) {
 		this.nombre = nombre;
-	}
-
-	public double getValorInicialCookie() {
-		return valorInicialCookie;
-	}
-	public void setValorInicialCookie(double valorInicialCookie) {
-		this.valorInicialCookie = valorInicialCookie;
 	}
 
 	public int getNumeroDeCadaTipo() {
@@ -39,7 +30,6 @@ public class Compra {
 	
 	@Override
 	public String toString() {
-		return "Compra [nombre=" + nombre + ", valorInicialCookie=" + valorInicialCookie + ", numero de edificios="
-			+ numEdif + "]";
+		return "Compra [nombre=" + nombre +  ", numero de edificios="+ numEdif + "]";
 }
 }

@@ -4,8 +4,8 @@ public class Edificios extends Compra{
 	
 	private double valorCompra;
 
-	public Edificios(NombreEdif nombre, double valorInicialCookie, int numeroDeCadaTipo, double valorCompra) {
-		super(nombre, valorInicialCookie, numeroDeCadaTipo);
+	public Edificios(NombreEdif nombre, int numeroDeCadaTipo, double valorCompra) {
+		super(nombre, numeroDeCadaTipo);
 		this.valorCompra = valorCompra;
 	}
 
