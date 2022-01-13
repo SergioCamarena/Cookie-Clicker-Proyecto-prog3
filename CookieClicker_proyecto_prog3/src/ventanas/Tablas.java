@@ -79,9 +79,23 @@ public class Tablas {
 		}
 		
 		
-		ranking = new JTable() ;
-		//EJEMPLO
-		//modelo.addRow(new Object[] {01, "Sergio", 100 , 20 , 300 , 220 , 8});
+		ranking = new JTable() {
+			public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+	    	    Component returnComp = super.prepareRenderer(renderer, row, column);
+	    	    if (!returnComp.getBackground().equals(getSelectionBackground())){
+	    	    	
+		    	    if(getValueAt(row, 1).toString().equals("Sergio")) {
+		    	    	returnComp.setBackground(Color.green);
+		    	    }else {
+		    	    	returnComp.setBackground(null);
+		    	    }
+	    	    }
+	    	   
+	    	    
+	    	    return returnComp;
+	    	  }
+		};
+		
 		
 		ranking.setModel(modelo);
 		

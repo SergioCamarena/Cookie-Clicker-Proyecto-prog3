@@ -5,9 +5,9 @@ public class Mejoras extends Compra{
 	private double sumaPorcentaje;
 	
 	//constructor
-	public Mejoras(NombreEdif nombre, int valorInicialCookie, int numeroDeCadaTipo, String tipoMejora,
+	public Mejoras(NombreEdif nombre, int numeroDeCadaTipo, String tipoMejora,
 			double sumaPorcentaje) {
-		super(nombre, valorInicialCookie, numeroDeCadaTipo);
+		super(nombre, numeroDeCadaTipo);
 		this.tipoMejora = tipoMejora;
 		this.sumaPorcentaje = sumaPorcentaje;
 	}
