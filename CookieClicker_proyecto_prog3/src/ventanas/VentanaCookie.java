@@ -685,10 +685,12 @@ public boolean grma10() {
 					//Para saber lo que tarda en ejecutarse el programa 
 					System.out.println("b");
 					
-					//Panel del centro shipment
+					//Panel del centro de los logros
 					JPanel logros = new JPanel();
 					logros.setBackground(Color.black);
 					logros.setBorder(new LineBorder(Color.BLACK));
+					JLabel lbl_lorgos=new JLabel("");
+					logros.add(lbl_lorgos);
 					centrocent.add(logros);
 					
 		//Para la proxima actualización			
