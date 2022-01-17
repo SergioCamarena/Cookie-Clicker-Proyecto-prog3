@@ -22,7 +22,7 @@ import datos.Usuario;
  */
 public class BaseDeDatos {
 	private static Connection conexion;
-	private static Logger logger = Logger.getLogger( "BaseDatos" );
+	private static Logger logger = Logger.getLogger( "BaseDeDatos" );
 	
 	/** Abre conexión con la base de datos
 	 * @param nombreBD	Nombre del fichero de base de datos
