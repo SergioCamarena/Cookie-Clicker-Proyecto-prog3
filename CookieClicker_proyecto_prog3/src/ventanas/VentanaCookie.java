@@ -685,6 +685,12 @@ public boolean grma10() {
 					//Para saber lo que tarda en ejecutarse el programa 
 					System.out.println("b");
 					
+					//Panel del centro shipment
+					JPanel logros = new JPanel();
+					logros.setBackground(Color.black);
+					logros.setBorder(new LineBorder(Color.BLACK));
+					centrocent.add(logros);
+					
 		//Para la proxima actualización			
 //_________________________________________________________________________________________________________
 					JPanel arch1 = new JPanel();
