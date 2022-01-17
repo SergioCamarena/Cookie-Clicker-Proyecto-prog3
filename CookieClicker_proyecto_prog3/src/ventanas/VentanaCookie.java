@@ -532,7 +532,7 @@ public boolean grma10() {
 				centro.add(vertder, BorderLayout.EAST);
 				
 				JPanel centrocent = new JPanel();
-				centrocent.setLayout(new GridLayout(11,1));
+				centrocent.setLayout(new GridLayout(12,1));
 				centrocent.setBounds(0,0,900, 1000);
 				centrocent.setMinimumSize(new Dimension(900,1000));
 				centrocent.setMaximumSize(new Dimension(900,1000));
@@ -685,13 +685,6 @@ public boolean grma10() {
 					//Para saber lo que tarda en ejecutarse el programa 
 					System.out.println("b");
 					
-					//Panel del centro de los logros
-					JPanel logros = new JPanel();
-					logros.setBackground(Color.black);
-					logros.setBorder(new LineBorder(Color.BLACK));
-					JLabel lbl_lorgos=new JLabel("");
-					logros.add(lbl_lorgos);
-					centrocent.add(logros);
 					
 		//Para la proxima actualización			
 //_________________________________________________________________________________________________________
@@ -707,6 +700,16 @@ public boolean grma10() {
 					timemach1.setBackground(Color.green);
 					timemach1.setBorder(new LineBorder(Color.BLACK));
 					centrocent.add(timemach1);
+					
+//_________________________________________________________________________________________________________	
+					
+					//Panel del centro de los logros
+					JPanel logros = new JPanel();
+					logros.setBackground(Color.black);
+					logros.setBorder(new LineBorder(Color.BLACK));
+					JLabel lbl_lorgos=new JLabel("");
+					logros.add(lbl_lorgos);
+					centrocent.add(logros);
 					
 					centrocent.setBackground(Color.black);
 					centro.add(new JScrollPane(centrocent), BorderLayout.CENTER);
