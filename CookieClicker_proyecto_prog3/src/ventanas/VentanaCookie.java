@@ -452,26 +452,7 @@ public static String Lista() {
  Thread h1;  //un hilo que nos ayudara a actualizar la hora en tiempo real
 
 //Metodo que realiza los calculos de la hora
-//public void calcula() {
 	DateTimeFormatter formateador = DateTimeFormatter.ofPattern("HH:mm:ss"); // El formato es HH:mm:ss
-	//String horaActual = formateador.format(LocalDateTime.now());
-	//Calendar calendario = new GregorianCalendar();
-	//Date fechaHoraActual = new Date();
-	
-	//calendario.setTime(fechaHoraActual);
-	//ampm = calendario.get(Calendar.AM_PM) == Calendar.AM?"AM":"PM";  //Para verificar si la hora es AM o PM
-	
-	//if(ampm.equals("PM")) {
-		//int h = calendario.get(Calendar.HOUR_OF_DAY);
-		//hora = h>9?""+h:0+"h";
-	//}else {
-		//hora = calendario.get(Calendar.HOUR_OF_DAY)>9?""+calendario.get(Calendar.HOUR_OF_DAY):"0"+calendario.get(Calendar.HOUR_OF_DAY);
-		//minutos = calendario.get(Calendar.MINUTE)>9?""+calendario.get(Calendar.MINUTE):"0"+calendario.get(Calendar.MINUTE);
-		//minutos = "" + calendario.get(Calendar.MINUTE);
-		//segundos = calendario.get(Calendar.SECOND)>9?""+calendario.get(Calendar.SECOND):"0"+calendario.get(Calendar.SECOND);
-	//}
-//}
-
 JLabel lbHora = new JLabel();
 
 public void hilo() {
@@ -481,9 +462,7 @@ public void hilo() {
 		public void run() {
 			// TODO Auto-generated method stub
 			while(seguir) {
-				//calcula();
-				//lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
-				//lbHora.setText(horaActual);
+				
 				try {
 					Thread.sleep(500);
 					lbHora.setText(formateador.format(LocalDateTime.now()));
