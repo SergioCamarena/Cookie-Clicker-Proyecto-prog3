@@ -749,9 +749,7 @@ public boolean grma10() {
 				
 				 
 				//SOLO PARA PROBAR
-//				 cursor.setNumeroDeCadaTipo(3000);
-//				 grandma.setNumeroDeCadaTipo(1200);
-				 
+				 //cursor.setNumeroDeCadaTipo(33000);
 				 
 				//Meter edificios dentro de lista
 				listaEdif.add(cursor);

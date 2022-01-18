@@ -169,8 +169,7 @@ public class VentanaReg {
 				+ "_____________- Al menos una lonitud de 6. <br>"
 				+ "3)<b> Email --> </b> Introduce tu dirección de email. No se enviará propaganda.<br> "
 				+ "4)<b> El usuario es autogenerado, pero no importa, solo es útil para los administradores</b>.<br>"
-				+ "5)<b> NO INTENTES HACER SQL INYECTION</b>, no va a funcionar.<br>"
-				+ "6)<b>Apunta bien </b> la contraseña porque sino tendrás que <b>volver a empezar</b> el juego.  </html>");
+				+ "5)<b>Apunta bien </b> la contraseña porque sino tendrás que <b>volver a empezar</b> el juego.  </html>");
 		consid.setFont(new Font("Serief",Font.ITALIC,12));
 		consid.setBorder(new TitledBorder("Cosas a tener en cuenta:"));
 		consid.setBackground(Color.LIGHT_GRAY);
@@ -203,7 +202,7 @@ public class VentanaReg {
 					textemail =  JTextField();
 					*/
 					//
-					new VentanaCookie();
+					new VentanaCookie(textusuario.getText());
 					ventanaR.dispose();
 				}
 			}
