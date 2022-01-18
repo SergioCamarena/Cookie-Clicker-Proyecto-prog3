@@ -23,9 +23,11 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
+import code.Edificios;
 import code.LeerFicheros;
 import datos.Partida;
 import datos.Usuario;
+import gestion.de.datos.BaseDeDatos;
 
 public class Tablas {
 
@@ -47,6 +49,7 @@ public class Tablas {
 				}
 			}
 		});
+		
 	}
 
 	public Tablas() {
@@ -72,28 +75,30 @@ public class Tablas {
 		for(int i = 0 ; i < partidas.size(); i++) {
 			informacion[i][0] = partidas.get(i).getCod_partida();
 			informacion[i][1] = partidas.get(i).getNom_usuario();
-			informacion[i][2] = partidas.get(i).getCookie_tot();
-			informacion[i][3] = partidas.get(i).getCookie_ps();
+			informacion[i][2] = partidas.get(i).getCookie_ps();
+			informacion[i][3] = partidas.get(i).getCookie_tot();
 			informacion[i][4] = partidas.get(i).getEdif_tot();
 			informacion[i][5] = partidas.get(i).getTiempo_tot();
 		}
 		
-		ranking = new JTable() {
+		ranking = new JTable();
 			
-			public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
-	    	    Component returnComp = super.prepareRenderer(renderer, row, column);
-	    	    if (!returnComp.getBackground().equals(getSelectionBackground())){
-	    	    	
-		    	    if((getValueAt(row, 4).toString()).equals(maxEdif(partidas))) {
-		    	    	returnComp.setBackground(Color.green);
-		    	    }else {
-		    	    	returnComp.setBackground(null);
-		    	    }
-	    	    }
-	    	   
-	    	    return returnComp;
-	    	  }
-		};
+//			public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
+//	    	    Component returnComp = super.prepareRenderer(renderer, row, column);
+//	    	    if (!returnComp.getBackground().equals(getSelectionBackground())){
+//	    	    	
+//		    	    if((getValueAt(row, 4).toString()).equals(maxEdif(partidas))) {
+//		    	    	returnComp.setBackground(Color.green);
+//		    	    }else {
+//		    	    	returnComp.setBackground(null);
+//		    	    }
+//	    	    }
+//	    	   
+//	    	    return returnComp;
+//	    	  }
+			
+			
+		//};
 		
 		
 		ranking.setModel(modelo);
@@ -121,21 +126,65 @@ public class Tablas {
 		
 		
 		ranking.getTableHeader().setReorderingAllowed(false); //Prohibir que las columnas se muevan
+		
+		//Pintar la tabla
+		ranking.setDefaultRenderer(Object.class, new DefaultTableCellRenderer() {
+			@Override
+			public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected,
+					boolean hasFocus, int row, int column) {
+				// TODO Auto-generated method stub
+				Component comp = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+				String valor = String.valueOf(maxEdif(partidas));
+				if(value == valor) {
+					comp.setBackground(Color.green);
+				}else {
+					comp.setBackground(Color.white);
+				}
+				
+				return comp;
+			}
+		});
+		
+		
+		//refrescarTabla();
 
 		ventanaT.setVisible(true);
 	}
 	
 	//Buscar el usuario que tenga el maximo de edificios
-	public int maxEdif(ArrayList<Partida>partidas) {
-		int max = 0; 
-		Partida elegida = partidas.get(0);
-		for(Partida i : partidas) {
-			if(elegida.getEdif_tot() > i.getEdif_tot()) {
-				max = elegida.getEdif_tot();
+	public static Partida maxEdif(ArrayList<Partida>partidas) {
+		Partida partida = null;
+		for(Partida p : partidas) {
+			if(partida==null) {
+				partida=p;
+			}else {
+				if(partida.getEdif_tot() > p.getEdif_tot()) {
+					partida = p;
+				}
 			}
 		}
-		return max;
+		return partida;
 	}
+//	public static Edificios maxEdif(ArrayList<Partida>partidas) {
+//		int max = 0; 
+//		Partida elegida = partidas.get(0);
+//		for(Partida i : partidas) {
+//			if(elegida.getEdif_tot() > i.getEdif_tot()) {
+//				max = elegida.getEdif_tot();
+//			}
+//		}
+//		return max;
+//	}
+	
+	
+	//Para refrescar la tabla por si ha habido un cambio
+//	public void refrescarTabla() {
+//		ArrayList<Partida> partidas= null;
+//		for (Partida partida : partidas) {
+//			modelo.addRow(new Object[] { partida.getCod_partida(), partida.getNom_usuario(),partida.getCookie_ps(), partida.getEdif_tot(), partida.getTiempo_tot() });
+//		}
+//		ranking.setModel(modelo);
+//	}
 }
 
 

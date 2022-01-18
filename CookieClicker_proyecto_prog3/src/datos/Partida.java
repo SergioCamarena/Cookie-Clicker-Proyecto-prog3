@@ -6,7 +6,7 @@ import java.util.Collections;
 public class Partida {
 	public int cod_partida;
 	public String nom_usuario;
-	public static int cookie_tot;
+	public  int cookie_tot;
 	public int cookie_ps;
 	public int edif_tot;
 	public int tiempo_tot;
@@ -30,7 +30,7 @@ public class Partida {
 	public void setCod_partida(int cod_partida) {
 		this.cod_partida = cod_partida;
 	}
-	public static int getCookie_tot() {
+	public  int getCookie_tot() {
 		return cookie_tot;
 	}
 	public String getNom_usuario() {
@@ -61,19 +61,4 @@ public class Partida {
 		this.tiempo_tot = tiempo_tot;
 	}
 	
-	
-	
-	//Metodo para ver el jugador con mas edificios
-//	public int maxEdif(ArrayList<Partida>partida){
-//		ArrayList<Partida>partidas = new ArrayList<Partida>();
-//		//int max = 0;
-////		for (int i = 0; i < partidas.size(); i++) {
-//////			if(partidas.get(getEdif_tot(i)) > max) {
-//////				max = partidas.getEdif_tot(i);
-//////			}
-////		}
-//		//return Collections.max(partidas.get(getEdif_tot()));
-//		//return max;
-//		return partidas;
-//	}
 }
