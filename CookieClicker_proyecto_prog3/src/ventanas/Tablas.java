@@ -135,12 +135,16 @@ public class Tablas {
 				// TODO Auto-generated method stub
 				Component comp = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 				String valor = String.valueOf(maxEdif(partidas).getEdif_tot());
+				String minValor = String.valueOf(minEdif(partidas).getEdif_tot());
 				if(table.getValueAt(row, 4).toString().equals(valor)) {
 					comp.setBackground(Color.green);
+				}else if(table.getValueAt(row, 4).toString().equals(minValor)){
+					comp.setBackground(Color.cyan);
+				}else if(table.getValueAt(row, 1).toString().equals("Andoni")){
+					comp.setBackground(Color.orange);
 				}else {
 					comp.setBackground(Color.white);
 				}
-				
 				return comp;
 			}
 		});
@@ -159,6 +163,21 @@ public class Tablas {
 				partida=p;
 			}else {
 				if(partida.getEdif_tot() < p.getEdif_tot()) {
+					partida = p;
+				}
+			}
+		}
+		return partida;
+	}
+	
+	//Buscar el usuario que tenga menos edificios
+	public static Partida minEdif(ArrayList<Partida>partidas) {
+		Partida partida = null;
+		for(Partida p : partidas) {
+			if(partida==null) {
+				partida=p;
+			}else {
+				if(partida.getEdif_tot() > p.getEdif_tot()) {
 					partida = p;
 				}
 			}
