@@ -98,8 +98,8 @@ public class BaseDeDatos {
 			while( rs.next() ) { // Leer el resultset
 				int cod_partida = rs.getInt("cod_partida");
 				String nom_usuario = rs.getString("nom_usuario");
-				int cookie_tot = rs.getInt("cookie_tot");
-				int cookie_ps = rs.getInt("cookie_ps");
+				int cookie_tot = rs.getInt("cookie_tot");//Contador de cookies
+				int cookie_ps = rs.getInt("cookie_ps");//cont
 				int edif_tot = rs.getInt("edif_tot");
 				int tiempo_tot = rs.getInt("tiempo_tot");
 				partidas.add( new Partida ( cod_partida, nom_usuario, cookie_tot, cookie_ps, edif_tot, tiempo_tot ) );

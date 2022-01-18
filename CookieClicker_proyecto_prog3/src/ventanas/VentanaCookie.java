@@ -1388,6 +1388,7 @@ public boolean grma10() {
 				//Se separa para que asegurar de que se crea y lanzarlo despues.
 				news = new JLabel(""); //Primero se crea
 				Lista();			   //Luego se lanza
+			
 				news.setHorizontalAlignment(SwingConstants.CENTER);
 				news.setBackground(Color.white);
 				news.setOpaque(true);
