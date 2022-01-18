@@ -473,14 +473,11 @@ public void hilo() {
 //		return true;	}
 //	else {
 //		return false;	}}
-public boolean grma10() {
-	if (cursor.getNumeroDeCadaTipo() >= 10) {
-		return true;
-	}
-	else {
-		return false;
-	}
-}
+//public boolean grma10() {
+//	if (cursor.getNumeroDeCadaTipo() >= 10) {
+//	return true;	}
+//	else {
+//	return false;}}
 
 
 	public VentanaCookie(String nick){
@@ -528,7 +525,7 @@ public boolean grma10() {
 				centrocent.setPreferredSize(new Dimension(900,1000));
 					
 					//Para saber lo que tarda en ejecutarse el programa 
-					System.out.println("a");
+					//System.out.println("a");
 			
 					//____________
 					//Panel del centro grandma
@@ -696,6 +693,7 @@ public boolean grma10() {
 					JPanel logros = new JPanel();
 					logros.setBackground(Color.black);
 					logros.setBorder(new LineBorder(Color.BLACK));
+					logros.setLayout(new GridLayout(2,4));
 					JLabel lbl_lorgos=new JLabel("");
 					logros.add(lbl_lorgos);
 					centrocent.add(logros);
