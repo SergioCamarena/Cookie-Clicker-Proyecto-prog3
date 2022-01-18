@@ -24,8 +24,8 @@ public class Minijuego extends JFrame{
 	boolean empezar = true;
 	
 	public Minijuego() {
-		int x = (int) (Math.random()*1000);
-		int y = (int) (Math.random()*1000);
+		int x = (int) (Math.random()*100);
+		int y = (int) (Math.random()*100);
 		Point centro = new Point(x, y);
 		Diana diana = new Diana(centro);
 		JPanel panelTarget = new JPanel();

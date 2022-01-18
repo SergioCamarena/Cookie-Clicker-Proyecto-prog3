@@ -11,6 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.SwingConstants;
 
 import datos.Usuario;
 
@@ -38,6 +39,7 @@ public class VentanaStats {
 		JLabel cookies_ps = new JLabel("Cookies per second:  ");
 		JLabel psvariable = new JLabel();
 		psvariable.setText(String.format("%1$.2f", cont));
+		psvariable.setHorizontalAlignment(SwingConstants.CENTER);
 		oeste.add(cookies_ps);
 		oeste.add(psvariable);
 		
@@ -45,6 +47,7 @@ public class VentanaStats {
 		JLabel totalBuildings = new JLabel("Numero total de edificios adquiridos: ");
 		JLabel buildingsVar = new JLabel();
 		buildingsVar.setText(""+edif);
+		buildingsVar.setHorizontalAlignment(SwingConstants.CENTER);
 		oeste.add(totalBuildings);
 		oeste.add(buildingsVar);
 		

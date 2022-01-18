@@ -58,7 +58,7 @@ public class VentanaCookie implements MouseListener {
 	//Estos de aqui abajo sirven para llevar la cuenta de cuantas imagenes hay en el panel centro
 	public static int contgr= -1, contfrm= -1,contmine= -1,contfac= -1,contban= -1,conttem= -1,contwiz= -1,contship = -1;	
 	//El que lleva la cuenta de todos los pulsa()
-	static double cont =0;
+	static double cont =1000000000;
 	//El boton de Minijuegos que se pone ON/OFF dependiendo de unos valores
 	static JButton minijuego1 = new JButton("MiniJuego");
 	//El contador es el que hace el display de cont
@@ -80,20 +80,12 @@ public class VentanaCookie implements MouseListener {
 	Usuario u = new Usuario();
 	ArrayList<Edificios> listaedificios =new  ArrayList<Edificios>();
 	Edificios cursor,grandma,farm,mine,factory,bank,temple,wiz,ship;
-	BaseDeDatos bd;
-	
-	//Class Compra...
-	//Solo dos decimales
-	//como lo ve
-	//Resta de cookies
-	//pasar el nick (como parametro?) //parametro a la ventana
-	//Metodo cookies_por seg.
+
 //___________________________________________________________________________________________
 	
 	
 	public void cargarDatos() {
-		//numcl = bd.getEstadisticas().get(1);
-		//cursor.setNumeroDeCadaTipo(numcl);
+		//cursor.setNumeroDeCadaTipo();
 	}
 	public double  pulsa(double numero) {
 		numero = (double) (numero*valor);
@@ -333,7 +325,7 @@ public static String Lista() {
 						//System.out.println(t);
 						
 						//Para que el Boton MiniJuego se vaya activando cuando esten entre esos baremos
-							if((t>=15) && (t<16)) {
+							if((t>2) && (t<16)) {
 								minijuego1.setEnabled(true);
 							}else if ((t>=45) && (t<46)) {
 								minijuego1.setEnabled(true);
@@ -446,8 +438,6 @@ public static String Lista() {
 		
 		}
 
-
- String hora, minutos, segundos, ampm;
  Calendar calendario;
  Thread h1;  //un hilo que nos ayudara a actualizar la hora en tiempo real
 
@@ -1370,9 +1360,17 @@ public boolean grma10() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
+						//Esto sirve para saber cuantas cookies haces por segundo
+						double cookiesps = pulsa(cursor.getNumeroDeCadaTipo())+pulsa(grandma.getNumeroDeCadaTipo())*10.5+pulsa(farm.getNumeroDeCadaTipo())*57.75+
+								pulsa(mine.getNumeroDeCadaTipo())*150+pulsa(factory.getNumeroDeCadaTipo())*1200.5+pulsa(bank.getNumeroDeCadaTipo())*10000.2+
+								pulsa(temple.getNumeroDeCadaTipo())*20800.5+pulsa(wiz.getNumeroDeCadaTipo())*60000.8+pulsa(ship.getNumeroDeCadaTipo())*100000.8;
+						
+						//Te suma todos los edificios (un mero tramite)
 						int edif = cursor.getNumeroDeCadaTipo()+grandma.getNumeroDeCadaTipo()+farm.getNumeroDeCadaTipo()+mine.getNumeroDeCadaTipo()
 						+factory.getNumeroDeCadaTipo()+bank.getNumeroDeCadaTipo()+temple.getNumeroDeCadaTipo()+wiz.getNumeroDeCadaTipo()+ship.getNumeroDeCadaTipo();
-						new VentanaStats(nick,cont,edif);
+						
+						//Se lleva a la ventana los datos optenidos arriba
+						new VentanaStats(nick,cookiesps,edif);
 						
 					}
 				});
