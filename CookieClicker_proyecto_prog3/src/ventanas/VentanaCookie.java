@@ -468,19 +468,28 @@ public void calcula() {
 }
 
 JLabel lbHora = new JLabel();
-//Hilo del reloj
-public void run() {
-	Thread ct = Thread.currentThread();
-	while(ct == h1) {
-		calcula();
-		lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
-		try {
-			Thread.sleep(1000);
-		}catch(InterruptedException e) {
-			
+
+public void hilo() {
+	h1 = new Thread(new Runnable() {
+
+		@Override
+		public void run() {
+			// TODO Auto-generated method stub
+			while(seguir) {
+				calcula();
+				lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
+				try {
+					Thread.sleep(1000);
+				}catch(InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
 		}
-	}
+		
+	});
+	h1.start();
 }
+
 
 //Metodos de los diferentes logros (prueba) -> Despues hay que meter en un hilo que compruebe cada poco tiempo si se han cumplido o no
 //public boolean c_1000() {
@@ -1242,18 +1251,7 @@ public boolean grma10() {
 				rel.setBounds(0,0,300, 250);
 				rel.setBorder(new BevelBorder(BevelBorder.LOWERED));
 
-//				JLabel lbHora = new JLabel("");
-//				Thread ct = Thread.currentThread();
-//				while(ct == h1) {
-//					calcula();
-//					lbHora.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
-//					try {
-//						Thread.sleep(1000);
-//					}catch(InterruptedException e) {
-//						
-//					}
-//				}
-				run();
+				lbHora.setHorizontalAlignment(SwingConstants.CENTER); //para centrar el reloj
 				rel.add(lbHora);
 				este.add(rel,BorderLayout.SOUTH);
 				
@@ -1391,7 +1389,8 @@ public boolean grma10() {
 				//JLabel QUE SE USARA PARA QUE SALGAN LAS NEWS DE UN ARRAYLIST<STRING>
 				//Se separa para que asegurar de que se crea y lanzarlo despues.
 				news = new JLabel(""); //Primero se crea
-				Lista();			   //Luego se lanza
+				Lista(); //Luego se lanza
+				hilo(); //se lanza el hilo del reloj
 			
 				news.setHorizontalAlignment(SwingConstants.CENTER);
 				news.setBackground(Color.white);

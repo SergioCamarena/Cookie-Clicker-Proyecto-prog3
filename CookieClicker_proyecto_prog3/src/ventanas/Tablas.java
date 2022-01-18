@@ -165,18 +165,7 @@ public class Tablas {
 		}
 		return partida;
 	}
-//	public static Edificios maxEdif(ArrayList<Partida>partidas) {
-//		int max = 0; 
-//		Partida elegida = partidas.get(0);
-//		for(Partida i : partidas) {
-//			if(elegida.getEdif_tot() > i.getEdif_tot()) {
-//				max = elegida.getEdif_tot();
-//			}
-//		}
-//		return max;
-//	}
-	
-	
+
 	//Para refrescar la tabla por si ha habido un cambio
 //	public void refrescarTabla() {
 //		ArrayList<Partida> partidas= null;
