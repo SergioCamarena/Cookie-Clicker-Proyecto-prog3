@@ -1229,7 +1229,7 @@ public boolean grma10() {
 				//Metemos el paneledif en un JScrollPane y este a ESTE
 				este.add(new JScrollPane(paneledif), BorderLayout.CENTER);
 				
-//Panel reloj______________________________________________________________________________SIN TERMINAR!!!!
+//Panel reloj______________________________________________________________________________
 				JPanel rel = new JPanel();
 				rel.setLayout(new GridLayout(1,6));
 				rel.setBounds(0,0,300, 250);

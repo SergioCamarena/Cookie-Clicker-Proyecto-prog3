@@ -134,8 +134,8 @@ public class Tablas {
 					boolean hasFocus, int row, int column) {
 				// TODO Auto-generated method stub
 				Component comp = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
-				String valor = String.valueOf(maxEdif(partidas));
-				if(value == valor) {
+				String valor = String.valueOf(maxEdif(partidas).getEdif_tot());
+				if(table.getValueAt(row, 4).toString().equals(valor)) {
 					comp.setBackground(Color.green);
 				}else {
 					comp.setBackground(Color.white);
@@ -158,7 +158,7 @@ public class Tablas {
 			if(partida==null) {
 				partida=p;
 			}else {
-				if(partida.getEdif_tot() > p.getEdif_tot()) {
+				if(partida.getEdif_tot() < p.getEdif_tot()) {
 					partida = p;
 				}
 			}
