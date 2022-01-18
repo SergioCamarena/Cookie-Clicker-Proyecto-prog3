@@ -48,6 +48,7 @@ import code.Edificios;
 import code.Minijuego;
 import code.NombreEdif;
 import datos.Usuario;
+import gestion.de.datos.BaseDeDatos;
 import datos.Partida;
 import datos.Estadisticas;
 
@@ -67,8 +68,6 @@ public class VentanaCookie implements MouseListener {
 	static int t = 0;
 	//Solo son labels que hacen display de valores
 	static JLabel lbl_num1,lbl_num2,lbl_num3,lbl_num4,lbl_num5,lbl_num6,lbl_num7,lbl_num8,lbl_num9,lbl_num10,lbl_num11,lbl_num12,version, nickName;
-	//El numero de edificios que tiene cada uno.
-	static int numcl=0,numgr=0,numfrm=0,numine=0,numfac=0,numban=0,numtem=0,numwiz =0,numship = 0;
 	//RadioButton compra/venta
 	static JRadioButton comprar,vender;
 	//Valor por el cual multiplica cada vez que compras mas.
@@ -79,6 +78,7 @@ public class VentanaCookie implements MouseListener {
 	Usuario u = new Usuario();
 	ArrayList<Edificios> listaedificios =new  ArrayList<Edificios>();
 	Edificios cursor,grandma,farm,mine,factory,bank,temple,wiz,ship;
+	BaseDeDatos bd;
 	
 	//Class Compra...
 	//Solo dos decimales
@@ -87,6 +87,12 @@ public class VentanaCookie implements MouseListener {
 	//pasar el nick (como parametro?) //parametro a la ventana
 	//Metodo cookies_por seg.
 //___________________________________________________________________________________________
+	
+	
+	public void cargarDatos() {
+		//numcl = bd.getEstadisticas().get(1);
+		//cursor.setNumeroDeCadaTipo(numcl);
+	}
 	public double  pulsa(double numero) {
 		numero = (double) (numero*valor);
 		
@@ -98,7 +104,9 @@ public class VentanaCookie implements MouseListener {
 			
 			public void run() {
 				while(seguir) {
-					cont = cont + pulsa(numcl)+pulsa(numgr)*10.5+pulsa(numfrm)*57.75+pulsa(numine)*150+pulsa(numfac)*1200.5+pulsa(numban)*10000.2+pulsa(numtem)*20800.5+pulsa(numwiz)*60000.8+pulsa(numship)*100000.8;
+					cont = cont + pulsa(cursor.getNumeroDeCadaTipo())+pulsa(grandma.getNumeroDeCadaTipo())*10.5+pulsa(farm.getNumeroDeCadaTipo())*57.75+
+							pulsa(mine.getNumeroDeCadaTipo())*150+pulsa(factory.getNumeroDeCadaTipo())*1200.5+pulsa(bank.getNumeroDeCadaTipo())*10000.2+
+							pulsa(temple.getNumeroDeCadaTipo())*20800.5+pulsa(wiz.getNumeroDeCadaTipo())*60000.8+pulsa(ship.getNumeroDeCadaTipo())*100000.8;
 					contador.setText(String.format("%1$.2f", cont));
 					ponerOnOFf();
 					try {
@@ -114,11 +122,7 @@ public class VentanaCookie implements MouseListener {
 		
 		
 		return "";
-		 
-		
 	}
-
-	
 public  void ponerOnOFf() {
 	if(cont-cursor.getValorCompra()>0) {
 		btn_clicker.setEnabled(true);
@@ -409,23 +413,23 @@ public static String Lista() {
 	}
 	@Override
 	public void mouseEntered(MouseEvent e) {
-		lbl_num1.setToolTipText("<html>CLICKER<br> Tenemos ahora mismo "+ numcl +" de clickers.<br> Los cursores cuestan "+cursor.getValorCompra()+" <br></html>");
+		lbl_num1.setToolTipText("<html>CLICKER<br> Tenemos ahora mismo "+ cursor.getNumeroDeCadaTipo() +" de clickers.<br> Los cursores cuestan "+cursor.getValorCompra()+" <br></html>");
 		lbl_num1.getToolTipText();
-		lbl_num2.setToolTipText("<html>GRANDMAS<br> Tenemos ahora mismo "+ numgr +" de grandmas.<br> Las gradmas cuestan "+ grandma.getValorCompra()+" <br></html>");
+		lbl_num2.setToolTipText("<html>GRANDMAS<br> Tenemos ahora mismo "+ grandma.getNumeroDeCadaTipo() +" de grandmas.<br> Las gradmas cuestan "+ grandma.getValorCompra()+" <br></html>");
 		lbl_num2.getToolTipText();
-		lbl_num3.setToolTipText("<html>FARMS<br> Tenemos ahora mismo "+ numfrm +" de farms.<br> Los farms cuestan "+ farm.getValorCompra()+" <br></html>");
+		lbl_num3.setToolTipText("<html>FARMS<br> Tenemos ahora mismo "+ farm.getNumeroDeCadaTipo() +" de farms.<br> Los farms cuestan "+ farm.getValorCompra()+" <br></html>");
 		lbl_num3.getToolTipText();
-		lbl_num4.setToolTipText("<html>MINE<br> Tenemos ahora mismo "+ numine +" de mines.<br> Los mines cuestan "+mine.getValorCompra()+" <br></html>");
+		lbl_num4.setToolTipText("<html>MINE<br> Tenemos ahora mismo "+ mine.getNumeroDeCadaTipo() +" de mines.<br> Los mines cuestan "+mine.getValorCompra()+" <br></html>");
 		lbl_num4.getToolTipText();
-		lbl_num5.setToolTipText("<html>FACTORY<br> Tenemos ahora mismo "+ numfac +" de factories.<br> Los factories cuestan "+factory.getValorCompra()+" <br></html>");
+		lbl_num5.setToolTipText("<html>FACTORY<br> Tenemos ahora mismo "+ factory.getNumeroDeCadaTipo() +" de factories.<br> Los factories cuestan "+factory.getValorCompra()+" <br></html>");
 		lbl_num5.getToolTipText();
-		lbl_num6.setToolTipText("<html>BANK<br> Tenemos ahora mismo "+ numban +" de banks.<br> Los bancos cuestan "+bank.getValorCompra()+" <br></html>");
+		lbl_num6.setToolTipText("<html>BANK<br> Tenemos ahora mismo "+ bank.getNumeroDeCadaTipo() +" de banks.<br> Los bancos cuestan "+bank.getValorCompra()+" <br></html>");
 		lbl_num6.getToolTipText();
-		lbl_num7.setToolTipText("<html>TEMPLE<br> Tenemos ahora mismo "+ numtem +" de temples.<br> Los temples cuestan "+temple.getValorCompra()+" <br></html>");
+		lbl_num7.setToolTipText("<html>TEMPLE<br> Tenemos ahora mismo "+ temple.getNumeroDeCadaTipo() +" de temples.<br> Los temples cuestan "+temple.getValorCompra()+" <br></html>");
 		lbl_num7.getToolTipText();
-		lbl_num8.setToolTipText("<html>WIZZARD TOWER<br> Tenemos ahora mismo "+ numwiz +" de wizzard towers.<br> Los wizzard towers cuestan "+wiz.getValorCompra()+" <br></html>");
+		lbl_num8.setToolTipText("<html>WIZZARD TOWER<br> Tenemos ahora mismo "+ wiz.getNumeroDeCadaTipo() +" de wizzard towers.<br> Los wizzard towers cuestan "+wiz.getValorCompra()+" <br></html>");
 		lbl_num8.getToolTipText();
-		lbl_num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo "+ numship +" de shipments.<br> Los Shipment cuestan "+ship.getValorCompra()+" <br></html>");
+		lbl_num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo "+ ship.getNumeroDeCadaTipo() +" de shipments.<br> Los Shipment cuestan "+ship.getValorCompra()+" <br></html>");
 		lbl_num9.getToolTipText();
 		lbl_num10.setToolTipText("<html>ARCHEMY LAB<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
 		lbl_num10.getToolTipText();
@@ -718,15 +722,15 @@ public boolean grma10() {
 				//sustituir variable numcl y demas por las variables de cada instancia.
 					
 				ArrayList<Edificios> listaEdif = new ArrayList<Edificios>();
-				 cursor = new Edificios(NombreEdif.CURSOR, numcl, 5);
-				 grandma = new Edificios(NombreEdif.GRANDMA, numgr, 250);
-				 farm = new Edificios(NombreEdif.FARM, numfrm, 1600);
-				 mine = new Edificios(NombreEdif.MINE, numine, 50000);
-				 factory = new Edificios(NombreEdif.FACTORY, numfac, 80800);
-				 bank = new Edificios(NombreEdif.BANK, numban, 120500);
-				 temple = new Edificios(NombreEdif.TEMPLE, numtem, 200100);
-				 wiz = new Edificios(NombreEdif.WIZZARD_TOWER, numwiz, 90000222);
-				 ship = new Edificios(NombreEdif.SHIPMENT, numship, 170000000);
+				 cursor = new Edificios(NombreEdif.CURSOR, 0, 5);
+				 grandma = new Edificios(NombreEdif.GRANDMA, 0, 250);
+				 farm = new Edificios(NombreEdif.FARM, 0, 1600);
+				 mine = new Edificios(NombreEdif.MINE, 0, 50000);
+				 factory = new Edificios(NombreEdif.FACTORY, 0, 80800);
+				 bank = new Edificios(NombreEdif.BANK, 0, 120500);
+				 temple = new Edificios(NombreEdif.TEMPLE, 0, 200100);
+				 wiz = new Edificios(NombreEdif.WIZZARD_TOWER, 0, 90000222);
+				 ship = new Edificios(NombreEdif.SHIPMENT, 0, 170000000);
 				
 				//Meter edificios dentro de lista
 				listaEdif.add(cursor);
@@ -794,14 +798,14 @@ public boolean grma10() {
 											cont = cont-cursor.getValorCompra();
 											cursor.setValorCompra(cursor.getValorCompra()*2);
 											
-											numcl = numcl+1;
-											lbl_num1.setText(""+numcl);
+											cursor.setNumeroDeCadaTipo(cursor.getNumeroDeCadaTipo()+1); 
+											lbl_num1.setText(""+cursor.getNumeroDeCadaTipo());
 										}
 										
 									}
 									else {
 										
-										lbl_num1.setText(""+numcl);//NO resta nada de momento
+										lbl_num1.setText(""+cursor.getNumeroDeCadaTipo());//NO resta nada de momento
 								}
 								
 									/*
@@ -823,8 +827,8 @@ public boolean grma10() {
 									if(((cont)-grandma.getValorCompra())>0) {
 										cont = cont-grandma.getValorCompra();
 										grandma.setValorCompra(grandma.getValorCompra()*2);
-										numgr = numgr+1;
-										lbl_num2.setText(""+numgr);
+										grandma.setNumeroDeCadaTipo(grandma.getNumeroDeCadaTipo()+1);
+										lbl_num2.setText(""+grandma.getNumeroDeCadaTipo());
 									contgr++;//contador de gradmas
 									if(contgr<7) {
 										grand1.getComponent(contgr).setVisible(true);
@@ -837,7 +841,7 @@ public boolean grma10() {
 									
 								}
 								else {
-									lbl_num2.setText(""+numgr);
+									lbl_num2.setText(""+grandma.getNumeroDeCadaTipo());
 									/*
 									if(numgr > 0) {
 										numgr = numgr-1;
@@ -859,8 +863,8 @@ public boolean grma10() {
 									if(((cont)-farm.getValorCompra())>0) {
 										cont = cont-farm.getValorCompra();
 										farm.setValorCompra(farm.getValorCompra()+farm.getValorCompra()*(valor*2));
-										numfrm = numfrm+1;
-										lbl_num3.setText(""+numfrm);
+										farm.setNumeroDeCadaTipo(farm.getNumeroDeCadaTipo()+1); 
+										lbl_num3.setText(""+farm.getNumeroDeCadaTipo());
 									contfrm++;
 									if(contfrm<7) {
 										farm1.getComponent(contfrm).setVisible(true);
@@ -873,7 +877,7 @@ public boolean grma10() {
 									
 								}
 								else {
-									lbl_num3.setText(""+numfrm);//Deja las cosas como estan
+									lbl_num3.setText(""+farm.getNumeroDeCadaTipo());//Deja las cosas como estan
 									/*
 									if(numgr >= 0) {
 										
@@ -897,8 +901,8 @@ public boolean grma10() {
 										if(((cont)-mine.getValorCompra())>0) {
 											cont = cont-mine.getValorCompra();
 											mine.setValorCompra(mine.getValorCompra()+mine.getValorCompra()*(valor*2));
-											numine = numine+1;
-											lbl_num4.setText(""+numine);
+											mine.setNumeroDeCadaTipo(mine.getNumeroDeCadaTipo()+1); 
+											lbl_num4.setText(""+mine.getNumeroDeCadaTipo());
 									contmine++;//contador de gradmas
 									if(contmine<7) {
 										mine1.getComponent(contmine).setVisible(true);
@@ -911,7 +915,7 @@ public boolean grma10() {
 								}
 								else {
 									
-									lbl_num4.setText(""+numine);
+									lbl_num4.setText(""+mine.getNumeroDeCadaTipo());
 									/*
 									if(numgr >= 0) {
 										
@@ -935,8 +939,8 @@ public boolean grma10() {
 									if(((cont)-factory.getValorCompra())>0) {
 										cont = cont-factory.getValorCompra();
 										factory.setValorCompra(factory.getValorCompra()+factory.getValorCompra()*(valor*2));
-										numfac = numfac+1;
-										lbl_num5.setText(""+numfac);
+										factory.setNumeroDeCadaTipo(factory.getNumeroDeCadaTipo()+1); 
+										lbl_num5.setText(""+factory.getNumeroDeCadaTipo());
 									contfac++;//contador de gradmas
 									if(contfac<7) {
 										factory1.getComponent(contfac).setVisible(true);
@@ -949,7 +953,7 @@ public boolean grma10() {
 								}
 								else {
 									
-									lbl_num5.setText(""+numfac);
+									lbl_num5.setText(""+factory.getNumeroDeCadaTipo());
 									/*
 									if(numgr > 0) {
 										numfac = numfac-1;
@@ -972,8 +976,8 @@ public boolean grma10() {
 									if(((cont)-bank.getValorCompra())>0) {
 										cont = cont-bank.getValorCompra();
 										bank.setValorCompra(bank.getValorCompra()+bank.getValorCompra()*(valor*2));
-										numban = numban+1;
-										lbl_num6.setText(""+numban);
+										bank.setNumeroDeCadaTipo(bank.getNumeroDeCadaTipo()+1);
+										lbl_num6.setText(""+bank.getNumeroDeCadaTipo());
 									contban++;//contador de gradmas
 									if(contban<7) {
 										bank1.getComponent(contban).setVisible(true);
@@ -985,7 +989,7 @@ public boolean grma10() {
 									
 								}
 								else {
-									lbl_num6.setText(""+numban);
+									lbl_num6.setText(""+bank.getNumeroDeCadaTipo());
 									/*
 									if(numgr > 0) {
 										numban = numban-1;
@@ -1007,8 +1011,8 @@ public boolean grma10() {
 									if(((cont)-temple.getValorCompra())>0) {
 										cont = cont-temple.getValorCompra();
 										temple.setValorCompra(temple.getValorCompra()+temple.getValorCompra()*(valor*2));
-										numtem = numtem+1;
-										lbl_num7.setText(""+numtem);
+										temple.setNumeroDeCadaTipo(temple.getNumeroDeCadaTipo()+1);
+										lbl_num7.setText(""+temple.getNumeroDeCadaTipo());
 									conttem++;//contador de gradmas
 									if(conttem<7) {
 										temple1.getComponent(conttem).setVisible(true);
@@ -1020,7 +1024,7 @@ public boolean grma10() {
 									
 								}
 								else {
-									lbl_num7.setText(""+numtem);
+									lbl_num7.setText(""+temple.getNumeroDeCadaTipo());
 									/*
 									if(numgr > 0) {
 										numtem = numtem-1;
@@ -1042,8 +1046,8 @@ public boolean grma10() {
 									if(((cont)-wiz.getValorCompra())>0) {
 										cont = cont-wiz.getValorCompra();
 										wiz.setValorCompra(wiz.getValorCompra()+wiz.getValorCompra()*(valor*2));
-										numwiz = numwiz+1;
-										lbl_num8.setText(""+numwiz);
+										wiz.setNumeroDeCadaTipo(wiz.getNumeroDeCadaTipo()+1);
+										lbl_num8.setText(""+wiz.getNumeroDeCadaTipo());
 									contwiz++;//contador de gradmas
 									if(contwiz<7) {
 										wt1.getComponent(contwiz).setVisible(true);
@@ -1055,7 +1059,7 @@ public boolean grma10() {
 									
 								}
 								else {
-									lbl_num8.setText(""+numwiz);
+									lbl_num8.setText(""+wiz.getNumeroDeCadaTipo());
 									/*
 									if(numgr > 0) {
 										numwiz = numwiz-1;
@@ -1078,8 +1082,8 @@ public boolean grma10() {
 									if(((cont)-ship.getValorCompra())>0) {
 										cont = cont-ship.getValorCompra();
 										ship.setValorCompra(ship.getValorCompra()+ship.getValorCompra()*(valor*2));
-										numship = numship+1;
-										lbl_num9.setText(""+numship);
+										ship.setNumeroDeCadaTipo(ship.getNumeroDeCadaTipo()+1);
+										lbl_num9.setText(""+ship.getNumeroDeCadaTipo());
 									contship++;//contador de gradmas
 									if(contship<7) {
 										ship1.getComponent(contship).setVisible(true);
@@ -1092,7 +1096,7 @@ public boolean grma10() {
 									
 								}
 								else {
-									lbl_num9.setText(""+numship);
+									lbl_num9.setText(""+ship.getNumeroDeCadaTipo());
 									/*
 									if(numgr > 0) {
 										numship = numship-1;
@@ -1123,7 +1127,7 @@ public boolean grma10() {
 				
 				//Añadimos primero el btn y luego el label
 				paneledif.add(btn_clicker);
-				lbl_num1 = new JLabel(""+numcl);
+				lbl_num1 = new JLabel(""+cursor.getNumeroDeCadaTipo());
 				lbl_num1.setHorizontalAlignment(SwingConstants.CENTER);
 				lbl_num1.setOpaque(true);
 				lbl_num1.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
@@ -1316,12 +1320,12 @@ public boolean grma10() {
 					
 					@Override
 					public void mouseClicked(MouseEvent e) {
-						if (numcl < 25) {
+						if (cursor.getNumeroDeCadaTipo() < 25) {
 							cont = cont + pulsa(1);
 							contador.setText(String.format("%1$.2f", cont));
 						}
 						else {
-							contador.setText(String.format("%1$.2f", cont+pulsa(numcl)));
+							contador.setText(String.format("%1$.2f", cont+pulsa(cursor.getNumeroDeCadaTipo())));
 						}
 
 						//contador.setText(""+pulsa(numcl));

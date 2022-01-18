@@ -5,7 +5,7 @@ package datos;
  *
  */
 public class Usuario {
-	public String nom_usuario = "Sergi";
+	public String nom_usuario = "";
 	protected String contrasenya; 
 	
 	public String getNom_usuario() {

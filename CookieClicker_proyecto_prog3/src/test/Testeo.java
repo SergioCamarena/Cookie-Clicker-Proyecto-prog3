@@ -13,7 +13,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import code.Cookie;
+
 import code.Edificios;
 import code.NombreEdif;
 import datos.Partida;
@@ -69,12 +69,12 @@ public class Testeo {
 	
 	//Test para comprobar que los getters funcionan bien
 	@Test
-	public void testCookie() {
-		Cookie c1 = new Cookie(100, 300);
-		Cookie c2 = null;
-		assertTrue(c1.getClickCookie() == (100));
-		assertFalse(c2 == c1);
-	}
+//	public void testCookie() {
+//		Cookie c1 = new Cookie(100, 300);
+//		Cookie c2 = null;
+//		assertTrue(c1.getClickCookie() == (100));
+//		assertFalse(c2 == c1);
+//	}
 	
 	
 	//Para finalizar el test y ver si se cierra correctamenta la conexion de la base de datos
