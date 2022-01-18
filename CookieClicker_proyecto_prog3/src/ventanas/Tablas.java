@@ -167,13 +167,13 @@ public class Tablas {
 	}
 
 	//Para refrescar la tabla por si ha habido un cambio
-//	public void refrescarTabla() {
-//		ArrayList<Partida> partidas= null;
-//		for (Partida partida : partidas) {
-//			modelo.addRow(new Object[] { partida.getCod_partida(), partida.getNom_usuario(),partida.getCookie_ps(), partida.getEdif_tot(), partida.getTiempo_tot() });
-//		}
-//		ranking.setModel(modelo);
-//	}
+	public void refrescarTabla() {
+		ArrayList<Partida> partidas= null;
+		for (Partida partida : partidas) {
+			modelo.addRow(new Object[] { partida.getCod_partida(), partida.getNom_usuario(),partida.getCookie_ps(), partida.getEdif_tot(), partida.getTiempo_tot() });
+		}
+		ranking.setModel(modelo);
+	}
 }
 
 
