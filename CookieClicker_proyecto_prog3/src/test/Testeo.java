@@ -48,33 +48,35 @@ public class Testeo {
 	@Test
 	public void testEdificios() throws DBException {
 		
-		//Tienes que coger la lista de edificios recorrerla y verificar que hay 9 edificios, 
-		//que todos sus valores de compra son distintos y que no hay ninguno que tiene el mismo nombre.
+		//Tienes que coger la lista de edificios recorrerla y verificar que hay 6 edificios, 
 		ArrayList<Edificios> listaEdif = new ArrayList<Edificios>();
-//		Edificios cursor = new Edificios(NombreEdif.CURSOR, 10.5, numcl,numcl, 15);
-//		Edificios grandma = new Edificios(NombreEdif.GRANDMA, 10.5, numgr,numgr, 32);
-//		Edificios farm = new Edificios(NombreEdif.FARM, 10.5, numfrm,numfrm, 45);
-//		Edificios mine = new Edificios(NombreEdif.MINE, 10.5, numine,numine, 150);
-//		Edificios factory = new Edificios(NombreEdif.FACTORY, 10.5, numfac,numfac, 450);
-//		Edificios bank = new Edificios(NombreEdif.BANK, 10.5, numban,numban, 700);
+		Edificios cursor = new Edificios(NombreEdif.CURSOR, 100, 15);
+		Edificios grandma = new Edificios(NombreEdif.GRANDMA, 80, 32);
+		Edificios farm = new Edificios(NombreEdif.FARM, 30, 45);
+		Edificios mine = new Edificios(NombreEdif.MINE, 15, 150);
+		Edificios factory = new Edificios(NombreEdif.FACTORY, 10, 450);
+		Edificios bank = new Edificios(NombreEdif.BANK, 5, 700);
 		
 		//Meter edificios dentro de lista
-//		listaEdif.add(cursor);
-//		listaEdif.add(grandma);
-//		listaEdif.add(farm);
-//		listaEdif.add(mine);
-//		listaEdif.add(factory);
-//		listaEdif.add(bank);
+		listaEdif.add(cursor);
+		listaEdif.add(grandma);
+		listaEdif.add(farm);
+		listaEdif.add(mine);
+		listaEdif.add(factory);
+		listaEdif.add(bank);
+		
+		assertEquals(6, listaEdif.size()); //verifica que hay 6 edificios metidos en la lista
+		
 	}
 	
 	//Test para comprobar que los getters funcionan bien
 	@Test
-//	public void testCookie() {
-//		Cookie c1 = new Cookie(100, 300);
-//		Cookie c2 = null;
-//		assertTrue(c1.getClickCookie() == (100));
-//		assertFalse(c2 == c1);
-//	}
+	public void testClassEdificios() {
+		Edificios e1 = new Edificios(NombreEdif.FARM, 80, 10.2);
+		Edificios e2 = null;
+		assertTrue(e1.getValorCompra() == (10.2));
+		assertFalse(e2 == e1);
+	}
 	
 	
 	//Para finalizar el test y ver si se cierra correctamenta la conexion de la base de datos
