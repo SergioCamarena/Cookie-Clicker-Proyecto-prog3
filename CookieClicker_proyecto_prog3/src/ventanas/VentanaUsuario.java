@@ -96,7 +96,7 @@ public class VentanaUsuario {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCookie();
+				new VentanaCookie(anyadusuario.getText());
 				ventanaU.dispose();
 				
 				
@@ -118,7 +118,7 @@ public class VentanaUsuario {
 			public void mousePressed(MouseEvent e) {
 				int codigo = JOptionPane.showConfirmDialog(null, "<html>Al ser un guest <b>no</b> se guardará tu progreso<br> <b>¿Quieres seguir?</b></html>", "GUEST", JOptionPane.OK_CANCEL_OPTION);
 				if(codigo==JOptionPane.OK_OPTION) {
-					new VentanaCookie();
+					new VentanaCookie("GUEST");
 					ventanaU.dispose();
 				}
 				else if(codigo==JOptionPane.CANCEL_OPTION){

@@ -507,9 +507,9 @@ public boolean grma10() {
 }
 
 
-	public VentanaCookie(){
+	public VentanaCookie(String nick){
 
-		//____________________________________________________________________-
+		//____________________________________________________________________
 		//Creacion de ventana
 				JFrame frame = new JFrame();
 				
@@ -728,7 +728,6 @@ public boolean grma10() {
 					centro.add(new JScrollPane(centrocent), BorderLayout.CENTER);
 //_________________________________________EDIFICIOS & CLICKER______________________________________________
 				//Creación de instancias de edificio
-				//sustituir variable numcl y demas por las variables de cada instancia.
 					
 				ArrayList<Edificios> listaEdif = new ArrayList<Edificios>();
 				 cursor = new Edificios(NombreEdif.CURSOR, 0, 5);
@@ -741,6 +740,12 @@ public boolean grma10() {
 				 wiz = new Edificios(NombreEdif.WIZZARD_TOWER, 0, 90000222);
 				 ship = new Edificios(NombreEdif.SHIPMENT, 0, 170000000);
 				
+				 
+				//SOLO PARA PROBAR
+//				 cursor.setNumeroDeCadaTipo(3000);
+//				 grandma.setNumeroDeCadaTipo(1200);
+				 
+				 
 				//Meter edificios dentro de lista
 				listaEdif.add(cursor);
 				listaEdif.add(grandma);
@@ -761,6 +766,8 @@ public boolean grma10() {
 				JButton btn_arch  = new JButton("ARCHEMY LAB");
 				JButton btn_portal  = new JButton("PORTAL");
 				JButton btn_timemach  = new JButton("TIME MACHINE");
+				
+				
 				
 				
 				//Panel de la derecha (EDIFICIOS)
@@ -1136,7 +1143,9 @@ public boolean grma10() {
 				
 				//Añadimos primero el btn y luego el label
 				paneledif.add(btn_clicker);
-				lbl_num1 = new JLabel(""+cursor.getNumeroDeCadaTipo());
+				lbl_num1 = new JLabel();
+				System.out.println(cursor.getNumeroDeCadaTipo());
+				lbl_num1.setText(""+cursor.getNumeroDeCadaTipo());
 				lbl_num1.setHorizontalAlignment(SwingConstants.CENTER);
 				lbl_num1.setOpaque(true);
 				lbl_num1.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
@@ -1145,7 +1154,8 @@ public boolean grma10() {
 				paneledif.add(lbl_num1);
 				
 				paneledif.add(btn_grandma);
-				lbl_num2 = new JLabel("0");
+				lbl_num2 = new JLabel();
+				lbl_num2.setText(""+grandma.getNumeroDeCadaTipo());
 				lbl_num2.setHorizontalAlignment(SwingConstants.CENTER);
 				lbl_num2.setOpaque(true);
 				lbl_num2.setFont(new Font("Arial", Font.ROMAN_BASELINE, 18));
@@ -1275,7 +1285,7 @@ public boolean grma10() {
 				oeste.setBorder(new BevelBorder(BevelBorder.LOWERED));
 				
 				//Nick
-				nickName = new JLabel("Nick Name: " + u.getNom_usuario());
+				nickName = new JLabel("Nick Name: " + nick);
 				nickName.setFont(new Font("Agency FB",Font.PLAIN,17));
 				nickName.setBackground(Color.orange);
 				nickName.setOpaque(true);
@@ -1376,7 +1386,9 @@ public boolean grma10() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						new VentanaStats();
+						int edif = cursor.getNumeroDeCadaTipo()+grandma.getNumeroDeCadaTipo()+farm.getNumeroDeCadaTipo()+mine.getNumeroDeCadaTipo()
+						+factory.getNumeroDeCadaTipo()+bank.getNumeroDeCadaTipo()+temple.getNumeroDeCadaTipo()+wiz.getNumeroDeCadaTipo()+ship.getNumeroDeCadaTipo();
+						new VentanaStats(nick,cont,edif);
 						
 					}
 				});
@@ -1469,7 +1481,7 @@ public boolean grma10() {
 	}
 	
 	public static void main(String[] args) {
-		new VentanaCookie();
+		new VentanaCookie("GUEST");
 		
 }
 

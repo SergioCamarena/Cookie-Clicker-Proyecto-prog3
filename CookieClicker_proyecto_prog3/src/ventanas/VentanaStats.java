@@ -18,10 +18,10 @@ import datos.Usuario;
 public class VentanaStats {
 	Usuario u = new Usuario();	//Nueva instancia de Usuario
 	
-	public VentanaStats() {
+	public VentanaStats(String nick,double cont, int edif) {
 		JFrame ventanaS = new JFrame(); 
 		JPanel norte = new JPanel();
-		JLabel titulo = new JLabel("ESTADISTICAS DE " + u.getNom_usuario()); //Anyadir el nombre del usuario en específico que esté consultando las estadísticas  
+		JLabel titulo = new JLabel("ESTADISTICAS DE " + nick); //Anyadir el nombre del usuario en específico que esté consultando las estadísticas  
 		titulo.setFont(new Font("Serif", Font.PLAIN,40 ));
 		norte.add(titulo);
 		ventanaS.add(norte, BorderLayout.NORTH );
@@ -37,32 +37,34 @@ public class VentanaStats {
 		//cps
 		JLabel cookies_ps = new JLabel("Cookies per second:  ");
 		JLabel psvariable = new JLabel();
+		psvariable.setText(String.format("%1$.2f", cont));
 		oeste.add(cookies_ps);
 		oeste.add(psvariable);
 		
 		//totalbuild
 		JLabel totalBuildings = new JLabel("Numero total de edificios adquiridos: ");
 		JLabel buildingsVar = new JLabel();
+		buildingsVar.setText(""+edif);
 		oeste.add(totalBuildings);
 		oeste.add(buildingsVar);
 		
-		//bakedcookies
-		JLabel totalcookies = new JLabel("Cookies totales cocinadas: ");
-		JLabel totalCookieVar = new JLabel();
-		oeste.add(totalcookies);
-		oeste.add(totalCookieVar);
-		
-		//Cuando creaste cuenta
-		JLabel tTotalJuego = new JLabel("Tu legado empezo hace: ");
-		JLabel tTotalJuegoVar = new JLabel();
-		oeste.add(tTotalJuego);
-		oeste.add(tTotalJuegoVar);
-		
-		//Cuanto has estado jugando sin cerrar la pantalla
-		JLabel tPartida = new JLabel("LLevas cocinando cookies sin parar: ");
-		JLabel tPartidaVar = new JLabel();
-		oeste.add(tPartida);
-		oeste.add(tPartidaVar);
+//		//bakedcookies
+//		JLabel totalcookies = new JLabel("Cookies totales cocinadas: ");
+//		JLabel totalCookieVar = new JLabel();
+//		oeste.add(totalcookies);
+//		oeste.add(totalCookieVar);
+//		
+//		//Cuando creaste cuenta
+//		JLabel tTotalJuego = new JLabel("Tu legado empezo hace: ");
+//		JLabel tTotalJuegoVar = new JLabel();
+//		oeste.add(tTotalJuego);
+//		oeste.add(tTotalJuegoVar);
+//		
+//		//Cuanto has estado jugando sin cerrar la pantalla
+//		JLabel tPartida = new JLabel("LLevas cocinando cookies sin parar: ");
+//		JLabel tPartidaVar = new JLabel();
+//		oeste.add(tPartida);
+//		oeste.add(tPartidaVar);
 		
 		ventanaS.add(oeste, BorderLayout.WEST );
 		
@@ -74,7 +76,7 @@ public class VentanaStats {
 		sur.add(rankings);
 		sur.add(new JLabel());
 		
-		JButton volver = new JButton(u.getNom_usuario()+" vuelve al Juego");
+		JButton volver = new JButton(nick+" vuelve al Juego");
 		sur.add(volver);
 		ventanaS.add(sur, BorderLayout.SOUTH);
 		//Creamos nueva tabla
@@ -103,6 +105,6 @@ public class VentanaStats {
 		ventanaS.setVisible(true);
 	}
 	public static void main (String[]args) {
-		new VentanaStats();
+		new VentanaStats("GUEST",0,0);
 	}
 }
