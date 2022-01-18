@@ -136,12 +136,17 @@ public class Tablas {
 				Component comp = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 				String valor = String.valueOf(maxEdif(partidas).getEdif_tot());
 				String minValor = String.valueOf(minEdif(partidas).getEdif_tot());
+				String tiempo = String.valueOf(masTiempo(partidas).getTiempo_tot());
 				if(table.getValueAt(row, 4).toString().equals(valor)) {
 					comp.setBackground(Color.green);
 				}else if(table.getValueAt(row, 4).toString().equals(minValor)){
 					comp.setBackground(Color.cyan);
 				}else if(table.getValueAt(row, 1).toString().equals("Andoni")){
 					comp.setBackground(Color.orange);
+				}else if(table.getValueAt(row, 5).toString().equals(tiempo)){
+					comp.setBackground(Color.red);
+				}else if(table.getValueAt(row, 1).toString().equals("Imanol")){
+					comp.setBackground(Color.yellow);
 				}else {
 					comp.setBackground(Color.white);
 				}
@@ -184,6 +189,22 @@ public class Tablas {
 		}
 		return partida;
 	}
+	
+	//Busca el usuario que mas tiempo haya jugado
+	public static Partida masTiempo(ArrayList<Partida>partidas) {
+		Partida partida = null;
+		for(Partida p : partidas) {
+			if(partida==null) {
+				partida=p;
+			}else {
+				if(partida.getTiempo_tot() < p.getTiempo_tot()) {
+					partida = p;
+				}
+			}
+		}
+		return partida;
+	}
+	
 
 	//Para refrescar la tabla por si ha habido un cambio
 	public void refrescarTabla() {
