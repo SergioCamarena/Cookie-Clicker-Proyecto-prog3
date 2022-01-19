@@ -34,8 +34,6 @@ public class Tablas {
 	private static JFrame ventanaT;
 	private static JTable ranking;
 	private static DefaultTableModel modelo;
-	private static ArrayList<Partida> listPartida;
-	private static ArrayList<Usuario> listUsuario;
 
 
 	public static void main(String[] args) {

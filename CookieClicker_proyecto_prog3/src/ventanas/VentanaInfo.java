@@ -72,7 +72,7 @@ public class VentanaInfo extends JFrame{
 	}
 	
 	//Metodo para cargar la informacion desde un fichero de texto
-	protected void cargaInformacion() {
+	public void cargaInformacion() {
 		try {
 			Scanner scanner = new Scanner(new File("src/Informacion.txt"));
 			while(scanner.hasNextLine()) {

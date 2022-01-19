@@ -19,6 +19,7 @@ import code.NombreEdif;
 import datos.Partida;
 import gestion.de.datos.BaseDeDatos;
 import gestion.de.datos.DBException;
+import ventanas.Tablas;
 
 public class Testeo {
 	
@@ -78,6 +79,61 @@ public class Testeo {
 		assertFalse(e2 == e1);
 	}
 	
+	//Test para comprobar quien tiene mas edificios
+	@Test
+	public void masEdifTest() {
+		ArrayList<Partida>listaPartida = new ArrayList<Partida>();
+		
+		Partida a = new Partida(01,"Sergio",100,200000,300,220);
+		Partida b = new Partida(02,"Imanol",60,4000000,250,190);
+		Partida c = new Partida(16,"Manuel",2833,3893,81734,2834);
+		Partida d = new Partida(23,"Marcela",845,384,3485,2834);
+		
+		listaPartida.add(d);
+		listaPartida.add(c);
+		listaPartida.add(b);
+		listaPartida.add(a);
+		
+		assertEquals(Tablas.maxEdif(listaPartida), c);
+		
+	}
+	
+	//Test para comprobar quien tiene menos edificios
+	@Test
+	public void minEdifTest() {
+		ArrayList<Partida>listaPartida = new ArrayList<Partida>();
+		
+		Partida a = new Partida(01,"Sergio",100,200000,300,220);
+		Partida b = new Partida(02,"Imanol",60,4000000,250,190);
+		Partida c = new Partida(16,"Manuel",2833,3893,81734,2834);
+		Partida d = new Partida(23,"Marcela",845,384,3485,2834);
+		
+		listaPartida.add(d);
+		listaPartida.add(c);
+		listaPartida.add(b);
+		listaPartida.add(a);
+		
+		Partida menos = Tablas.minEdif(listaPartida);
+		assertTrue(menos.getEdif_tot() == b.getEdif_tot());
+	}
+	
+	
+	@Test
+	public void masTiempoTest() {
+ArrayList<Partida>listaPartida = new ArrayList<Partida>();
+		
+		Partida a = new Partida(01,"Sergio",100,200000,300,220);
+		Partida b = new Partida(02,"Imanol",60,4000000,250,190);
+		Partida c = new Partida(16,"Manuel",2833,3893,81734,2834);
+		Partida d = new Partida(23,"Marcela",845,384,3485,2835);
+		
+		listaPartida.add(d);
+		listaPartida.add(c);
+		listaPartida.add(b);
+		listaPartida.add(a);
+		
+		assertEquals(Tablas.masTiempo(listaPartida), d);
+	}
 	
 	//Para finalizar el test y ver si se cierra correctamenta la conexion de la base de datos
 	@After
