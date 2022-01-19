@@ -64,7 +64,7 @@ public class VentanaOptions {
 		east.add(espacioblanco);
 		ventanaO.add(east, BorderLayout.EAST);
 		
-
+		//boton para acceder a la cuenta
 		acced.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

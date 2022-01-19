@@ -790,7 +790,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 					portal1.setBorder(new LineBorder(Color.BLACK));
 					centrocent.add(portal1);
 					
-//LOgro supremo
+//Logro supremo
 					
 					logrosupremo = new JPanel();
 					logrosupremo.setBackground(Color.green);
@@ -878,9 +878,6 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 				 wiz = new Edificios(NombreEdif.WIZZARD_TOWER, 0, 90000222);
 				 ship = new Edificios(NombreEdif.SHIPMENT, 0, 170000000);
 				
-				 
-				//SOLO PARA PROBAR
-				 //cursor.setNumeroDeCadaTipo(33000);
 				 
 				//Meter edificios dentro de lista
 				listaEdif.add(cursor);
@@ -1432,7 +1429,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 				//Panel Cookie (JLabel --> boton CON IMAGEN DE COOKIE)
 				JPanel panelgalleta = new JPanel();
 				panelgalleta.setLayout(new GridLayout(4,1));
-				//panelgalleta.setBounds(0, 0, 700, 400);			//Porrque no nos tira esto?
+				//panelgalleta.setBounds(0, 0, 700, 400);			
 				panelgalleta.setBorder(new BevelBorder(BevelBorder.RAISED));
 				
 				
@@ -1443,7 +1440,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 				panelgalleta.add(contador);
 				seg(nick);
 				
-				//Ajustar la imagen para que quede bien y no sea enorme
+				//Ajustar la imagen 
 				ImageIcon imgIcon = new ImageIcon("src/Code/cookuie.png");
 				Image imgCookie = imgIcon.getImage();
 				Image imq = imgCookie.getScaledInstance(120, 120 ,Image.SCALE_SMOOTH);
@@ -1459,7 +1456,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 				version.addMouseListener(this);
 				panelgalleta.add(version);
 				
-				//El JLabel de cookie hay que convertirlo en botón______________________________FALTA POR HACER
+				//El JLabel de cookie hay que convertirlo en botón______________________________
 				cookie.addMouseListener(new MouseListener() {
 					
 					@Override

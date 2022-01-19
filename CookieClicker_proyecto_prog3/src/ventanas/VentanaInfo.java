@@ -29,7 +29,6 @@ import javax.swing.ScrollPaneConstants;
 
 public class VentanaInfo extends JFrame{
 	private JTextArea informacion;
-	//JScrollPane spTexto; 
 	
 	public VentanaInfo() {
 		setBounds(0,0,600,400);
@@ -38,7 +37,7 @@ public class VentanaInfo extends JFrame{
 		//Panel norte
 		JPanel norte =  new JPanel();
 		JLabel titulo = new JLabel("INFORMACION");
-		titulo.setFont(new Font("Serif", Font.PLAIN,40 ));
+		titulo.setFont(new Font("Serif", Font.PLAIN,40 )); //el tipo de letra deseada
 		norte.add(titulo);
 		
 		getContentPane().add(norte, BorderLayout.NORTH);
@@ -55,7 +54,7 @@ public class VentanaInfo extends JFrame{
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	
 	//Boton para volver a la ventana cookie
-		JPanel panel = new JPanel(new FlowLayout(FlowLayout.TRAILING));
+		JPanel panel = new JPanel(new FlowLayout(FlowLayout.TRAILING)); // panel donde se pone el boton cookie
 		JButton cookie =  new JButton("Cookie Clicker");
 		panel.add(cookie);
 		getContentPane().add(panel, BorderLayout.EAST);
@@ -64,7 +63,6 @@ public class VentanaInfo extends JFrame{
 		
 		@Override
 			public void actionPerformed(ActionEvent e) {
-				//new VentanaCookie(); //Esto no hay que hacer porque se crea otra nueva entonces vuelve todo a empezar otra vez
 				dispose();
 			
 

@@ -104,17 +104,12 @@ public class VentanaReg {
 		paneloeste.add(show);
 		
 		
-		
+		//boton para combrobar si la contrasela es correcta o no
 		comprov.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				//System.out.println(textcontrasena.getPassword());
-				//System.out.println(textcontra.getPassword());
-				//textcontrasena.setEchoChar((char) 0);
-				//textcontra.setEchoChar((char) 0);
-				
+		
 				if(Arrays.equals(textcontrasena.getPassword(), textcontra.getPassword())) {
 					coluor.setBackground(Color.green);
 					
@@ -138,11 +133,7 @@ public class VentanaReg {
 				show.setText(p.generate(10, 4, 4)); //Aqui llamamos a PassGenerator
 				textcontrasena.setText(show.getText());
 				textcontra.setText(show.getText());
-			}
-			/*else if(textcontrasena.getText().equals(textcontra.getText())) {
-				System.out.println("NULL");
-			}*/
-			else {
+			}else {
 				show.setText(p.generate(10, 4, 4)); //Aqui llamamos a PassGenerator
 				System.out.println("NO se va a cambiar la contra");
 				show.setBackground(Color.magenta);
@@ -224,7 +215,7 @@ public class VentanaReg {
 		ventanaR.setResizable(false);
 		ventanaR.setVisible(true);
 	//________________________________________________________________________________________________________________________________________
-	//Mirar si las contraseñas son iguales, y cambiar el label depende de eso.			¡¡MIRAR PORQUE NO CHUTA!!
+	//Mirar si las contraseñas son iguales, y cambiar el label depende de eso.			
 	
 	
 	}

@@ -38,7 +38,7 @@ public class VentanaUsuario {
 		JLabel contrasenya = new JLabel("Introduce contrasena: ");
 		JPasswordField anyadcontra = new JPasswordField();
 		JCheckBox mostrar = new JCheckBox("Mostrar");
-		anyadcontra.setEchoChar('*');
+		anyadcontra.setEchoChar('*'); //sirve para que se ponga un caracter en la constraseña en vez de los reales
 		mostrar.addActionListener(new ActionListener() {
 			
 			//Cuando pulses Mostrat te enseña la contraseña para que la puedas ver.
@@ -79,8 +79,6 @@ public class VentanaUsuario {
 		south.add(contrasenya);
 		south.add(anyadcontra);
 		south.add(mostrar);
-		//JLabel etiquetaC = new JLabel();
-		//south.add(etiquetaC);
 		south.add(entrar);
 		JLabel etiquetaD = new JLabel("Entrar modo Guest");
 		etiquetaD.setOpaque(true);
@@ -91,7 +89,7 @@ public class VentanaUsuario {
 		
 		
 		
-		
+		//boton para entrar en el juego cuando ya eres un usuario
 		entrar.addActionListener(new ActionListener() {
 
 			@Override
@@ -147,6 +145,7 @@ public class VentanaUsuario {
 			}
 		});
 		
+		//boton pare registrarse en el juego
 		regis.addActionListener(new ActionListener() {
 
 			@Override
