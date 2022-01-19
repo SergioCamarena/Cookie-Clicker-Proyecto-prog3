@@ -72,9 +72,9 @@ public class VentanaCookie implements MouseListener {
 	//Solo son labels que hacen display de valores
 	static JLabel lbl_num1,lbl_num2,lbl_num3,lbl_num4,lbl_num5,lbl_num6,lbl_num7,lbl_num8,lbl_num9,lbl_num10,lbl_num11,lbl_num12,version, nickName;
 	//Para los logros JLabel
-	static JLabel lbl_imagen1cookie, lbl_imagen1000cookie, lbl_imagen120farms;
+	static JLabel lbl_imagen1cookie, lbl_imagen1000cookie, lbl_imagen120farms, lbl_imagen1ship;
 	//Para logros JPanel
-	static JPanel logros1cookie, logros1000cookie, logro120farms;
+	static JPanel logros1cookie, logros1000cookie, logro120farms, logro1ship;
 	//RadioButton compra/venta
 	static JRadioButton comprar,vender;
 	//Valor por el cual multiplica cada vez que compras mas.
@@ -119,7 +119,10 @@ public class VentanaCookie implements MouseListener {
 					if(farm.getNumeroDeCadaTipo()> 1) {
 						lbl_imagen120farms.setVisible(true);
 					}
-					
+					if(ship.getNumeroDeCadaTipo()> 1) {
+						lbl_imagen1ship.setVisible(true);
+					}
+					System.out.println(farm.getNumeroDeCadaTipo());
 					try {
 						seg.sleep(1000);
 					} catch (InterruptedException e) {
@@ -742,16 +745,27 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 					lbl_imagen1000cookie=new JLabel(imagen1000cookie);
 					lbl_imagen1000cookie.setVisible(false);//Las dejamos a false para que no se vean
 					logros1000cookie.add(lbl_imagen1000cookie);
-	//LOGRO DE TRES FARMS				
+	//LOGRO DE 120 FARMS				
 					logro120farms = new JPanel();
 					logro120farms.setBackground(Color.CYAN);
-					imagen=new ImageIcon("src/imagenes/farm.jpg").getImage();
+					imagen=new ImageIcon("src/imagenes/farm.png").getImage();
 					//escalamos la imagen para q entre bien
 					ImageIcon imagen120farms =new ImageIcon(imagen.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
 					//Introducimos en un JLabel
 					lbl_imagen120farms=new JLabel(imagen120farms);
 					lbl_imagen120farms.setVisible(false);//Las dejamos a false para que no se vean
 					logro120farms.add(lbl_imagen120farms);
+					
+	//LOGRO DE 1 SHIPMENT
+					logro1ship = new JPanel();
+					logro1ship.setBackground(Color.CYAN);
+					imagen=new ImageIcon("src/imagenes/shipment.png").getImage();
+					//escalamos la imagen para q entre bien
+					ImageIcon imagen1ship =new ImageIcon(imagen.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+					//Introducimos en un JLabel
+					lbl_imagen1ship=new JLabel(imagen1ship);
+					lbl_imagen1ship.setVisible(false);//Las dejamos a false para que no se vean
+					logro1ship.add(lbl_imagen1ship);
 					
 					//Introducimos paneles en panel logros
 					logros.add(logros1cookie);
