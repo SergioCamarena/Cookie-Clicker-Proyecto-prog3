@@ -59,7 +59,7 @@ public class VentanaCookie implements MouseListener {
 	//Estos de aqui abajo sirven para llevar la cuenta de cuantas imagenes hay en el panel centro
 	public static int contgr= -1, contfrm= -1,contmine= -1,contfac= -1,contban= -1,conttem= -1,contwiz= -1,contship = -1;	
 	//El que lleva la cuenta de todos los pulsa()
-	static double cont =1000000000;
+	static double cont =99998;
 	//El boton de Minijuegos que se pone ON/OFF dependiendo de unos valores
 	static JButton minijuego1 = new JButton("MiniJuego");
 	//El contador es el que hace el display de cont
@@ -68,7 +68,7 @@ public class VentanaCookie implements MouseListener {
 	//Este boolean es el que se encarga de hacer que los metodos terminen.
 	static boolean seguir = true;
 	//Esta t sirve para llevar la cuenta de cuantos news pasan.
-	static int t = 0;
+	static int t = 0, primeraVez = 0,primeraVez2 = 0,primeraVez3 = 0,primeraVez4 = 0,primeraVez5 = 0;
 	//Solo son labels que hacen display de valores
 	static JLabel lbl_num1,lbl_num2,lbl_num3,lbl_num4,lbl_num5,lbl_num6,lbl_num7,lbl_num8,lbl_num9,lbl_num10,lbl_num11,lbl_num12,version, nickName;
 	//Para los logros JLabel
@@ -110,20 +110,59 @@ public class VentanaCookie implements MouseListener {
 					ponerOnOFf();
 					
 					//Logros
-					if(cont>= 1) {
-						lbl_imagen1cookie.setVisible(true);
+					if(cont>= 10) {
+						//Esto sirve para que enseñe un mensaje de que has conseguido un logro
+						if(primeraVez == 0) {
+							JOptionPane.showMessageDialog(null,"LOGRO CONSEGUIDO");
+							lbl_imagen1cookie.setVisible(true);
+							primeraVez++;
+						}
+						else {
+							lbl_imagen1cookie.setVisible(true);
+						}
+						
 					}
-					if(cont>= 1000) {
-						lbl_imagen1000cookie.setVisible(true);
+					if(cont>= 100000) {
+						//Esto sirve para que enseñe un mensaje de que has conseguido un logro
+						if(primeraVez2==0) {
+							JOptionPane.showMessageDialog(null,"LOGRO CONSEGUIDO (2)");
+							lbl_imagen1000cookie.setVisible(true);
+							primeraVez2++;
+						}else {
+							lbl_imagen1000cookie.setVisible(true);
+						}
+						
 					}
-					if(farm.getNumeroDeCadaTipo()>= 120) {
-						lbl_imagen120farms.setVisible(true);
+					if(farm.getNumeroDeCadaTipo()>= 80) {
+						//Esto sirve para que enseñe un mensaje de que has conseguido un logro
+						if(primeraVez3==0) {
+							JOptionPane.showMessageDialog(null,"LOGRO CONSEGUIDO (3)");
+							lbl_imagen120farms.setVisible(true);
+							primeraVez3++;
+						}else {
+							lbl_imagen120farms.setVisible(true);
+						}
+						
 					}
 					if(ship.getNumeroDeCadaTipo()>= 1) {
-						lbl_imagen1ship.setVisible(true);
+						//Esto sirve para que enseñe un mensaje de que has conseguido un logro
+						if(primeraVez4==0) {
+							JOptionPane.showMessageDialog(null,"LOGRO CONSEGUIDO (4)");
+							lbl_imagen1ship.setVisible(true);
+							primeraVez4++;
+						}
+						
 					}
 					if(nick == "Andoni") {
-						lbl_imagenlogro.setVisible(true);
+						//Esto sirve para que enseñe un mensaje de que has conseguido un logro
+						if(primeraVez5==0) {
+							JOptionPane.showMessageDialog(null,"LOGRO CONSEGUIDO (5)");
+							lbl_imagenlogro.setVisible(true);
+							primeraVez5++;
+						}else {
+							lbl_imagenlogro.setVisible(true);
+						}
+						
 					}
 					//System.out.println(farm.getNumeroDeCadaTipo());
 					try {
@@ -497,15 +536,15 @@ public static String Lista() {
 		
 		lbl_imagen1cookie.setToolTipText("<html>¡¡¡HAS CONSEGUIDO EL LOGRO MÁS FACIL FELICIDADES!!!<br></html>");
 		lbl_imagen1cookie.getToolTipText();
-		logros1cookie.setToolTipText("Cocina tu primera cookie para desbloquear este logro");
+		logros1cookie.setToolTipText("Cocina tus primeras 10 cookies para desbloquear este logro");
 		logros1cookie.getToolTipText();
 		lbl_imagen1000cookie.setToolTipText("<html>¡¡¡HAS CONSEGUIDO EL SEGUNDO LOGRO MÁS FACIL FELICIDADES!!!<br></html>");
 		lbl_imagen1000cookie.getToolTipText();
-		logros1000cookie.setToolTipText("Cocina 1000 cookies para desbloquear este logro");
+		logros1000cookie.setToolTipText("Cocina 100000 cookies para desbloquear este logro");
 		logros1000cookie.getToolTipText();
 		lbl_imagen120farms.setToolTipText("<html>¡¡¡ERES TODO UN GRANJERO FELICIDADES!!!<br></html>");
 		lbl_imagen120farms.getToolTipText();
-		logro120farms.setToolTipText("Compra 120 granjas para desbloquear este logro");
+		logro120farms.setToolTipText("Compra 80 granjas para desbloquear este logro");
 		logro120farms.getToolTipText();
 		lbl_imagenlogro.setToolTipText("<html>¡¡¡HAS CONSEGUIDO EL LOGRO MÁS DIFICIL Y EXCLUSIVO DE COOKIE CLICKER FELICIDADES!!!<br>TE PRESENTAMO A ANDONI</html>");
 		lbl_imagenlogro.getToolTipText();
@@ -592,7 +631,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 				centrocent.setPreferredSize(new Dimension(900,1000));
 					
 					//Para saber lo que tarda en ejecutarse el programa 
-					//System.out.println("a");
+					System.out.println("a");
 			
 					//____________
 					//Panel del centro grandma
@@ -975,7 +1014,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 								if(comprar.isSelected()) {
 									if(((cont)-farm.getValorCompra())>0) {
 										cont = cont-farm.getValorCompra();
-										farm.setValorCompra(farm.getValorCompra()+farm.getValorCompra()*(valor*2));
+										farm.setValorCompra(farm.getValorCompra()+farm.getValorCompra()*2);
 										farm.setNumeroDeCadaTipo(farm.getNumeroDeCadaTipo()+1); 
 										lbl_num3.setText(""+farm.getNumeroDeCadaTipo());
 									contfrm++;
@@ -1013,7 +1052,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 									if(comprar.isSelected()) {
 										if(((cont)-mine.getValorCompra())>0) {
 											cont = cont-mine.getValorCompra();
-											mine.setValorCompra(mine.getValorCompra()+mine.getValorCompra()*(valor*2));
+											mine.setValorCompra(mine.getValorCompra()+mine.getValorCompra()*2);
 											mine.setNumeroDeCadaTipo(mine.getNumeroDeCadaTipo()+1); 
 											lbl_num4.setText(""+mine.getNumeroDeCadaTipo());
 									contmine++;//contador de gradmas
@@ -1051,7 +1090,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 								if(comprar.isSelected()) {
 									if(((cont)-factory.getValorCompra())>0) {
 										cont = cont-factory.getValorCompra();
-										factory.setValorCompra(factory.getValorCompra()+factory.getValorCompra()*(valor*2));
+										factory.setValorCompra(factory.getValorCompra()+factory.getValorCompra()*2);
 										factory.setNumeroDeCadaTipo(factory.getNumeroDeCadaTipo()+1); 
 										lbl_num5.setText(""+factory.getNumeroDeCadaTipo());
 									contfac++;//contador de gradmas
@@ -1088,7 +1127,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 								if(comprar.isSelected()) {
 									if(((cont)-bank.getValorCompra())>0) {
 										cont = cont-bank.getValorCompra();
-										bank.setValorCompra(bank.getValorCompra()+bank.getValorCompra()*(valor*2));
+										bank.setValorCompra(bank.getValorCompra()+bank.getValorCompra()*2);
 										bank.setNumeroDeCadaTipo(bank.getNumeroDeCadaTipo()+1);
 										lbl_num6.setText(""+bank.getNumeroDeCadaTipo());
 									contban++;//contador de gradmas
@@ -1123,7 +1162,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 								if(comprar.isSelected()) {
 									if(((cont)-temple.getValorCompra())>0) {
 										cont = cont-temple.getValorCompra();
-										temple.setValorCompra(temple.getValorCompra()+temple.getValorCompra()*(valor*2));
+										temple.setValorCompra(temple.getValorCompra()+temple.getValorCompra()*2);
 										temple.setNumeroDeCadaTipo(temple.getNumeroDeCadaTipo()+1);
 										lbl_num7.setText(""+temple.getNumeroDeCadaTipo());
 									conttem++;//contador de gradmas
