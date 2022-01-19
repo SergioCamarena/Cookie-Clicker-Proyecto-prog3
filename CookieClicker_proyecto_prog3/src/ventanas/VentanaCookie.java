@@ -466,6 +466,10 @@ public void hilo() {
 	h1.start();
 }
 
+private static  String inicio;
+private  static String fin;
+private static  int tiempoResta;
+DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 
 //Metodos de los diferentes logros (prueba) -> Despues hay que meter en un hilo que compruebe cada poco tiempo si se han cumplido o no
 //public boolean c_1000() {
@@ -1391,11 +1395,20 @@ public void hilo() {
 				//Esto lo hacemos para que cuando se habra el juego empiece lo de las news, habra que hacer tmb algo con la BD
 				frame.addWindowListener(new WindowAdapter() {
 					
+					
+					public void windowOpening(WindowEvent e) {
+						inicio = formato.format(LocalDateTime.now());
+						System.out.println(inicio);
+					}
 					@Override
 					public void windowClosing(WindowEvent e) {
 						// TODO Auto-generated method stub
 						//seg.interrupt();
 						seguir = false;
+						fin = formato.format(LocalDateTime.now());
+						
+//					    tiempoResta = (Integer.parseInt(fin) - Integer.parseInt(inicio));
+						
 						
 					}
 					
@@ -1462,6 +1475,9 @@ public void hilo() {
 	
 	public static void main(String[] args) {
 		new VentanaCookie("GUEST");
+		//System.out.println(tiempoResta);
+		//System.out.println(inicio);
+		//System.out.println(fin);
 		
 }
 

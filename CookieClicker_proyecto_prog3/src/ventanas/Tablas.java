@@ -81,24 +81,6 @@ public class Tablas {
 		
 		ranking = new JTable();
 			
-//			public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
-//	    	    Component returnComp = super.prepareRenderer(renderer, row, column);
-//	    	    if (!returnComp.getBackground().equals(getSelectionBackground())){
-//	    	    	
-//		    	    if((getValueAt(row, 4).toString()).equals(maxEdif(partidas))) {
-//		    	    	returnComp.setBackground(Color.green);
-//		    	    }else {
-//		    	    	returnComp.setBackground(null);
-//		    	    }
-//	    	    }
-//	    	   
-//	    	    return returnComp;
-//	    	  }
-			
-			
-		//};
-		
-		
 		ranking.setModel(modelo);
 		
 		for(Object[] o : informacion) {
