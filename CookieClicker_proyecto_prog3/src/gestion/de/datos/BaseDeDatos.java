@@ -40,19 +40,19 @@ public class BaseDeDatos {
 				String sent = "DROP TABLE IF EXISTS partida";
 				logger.log( Level.INFO, "Statement: " + sent );
 				statement.executeUpdate( sent );
-				sent = "CREATE TABLE producto (cod_partida INTEGER PRIMARY KEY AUTOINCREMENT, nom_usuario VARCHAR(30) NOT NULL, cookie_tot INT(10), cookie_ps INT(10), edif_tot INT(10), tiempo_tot INT(10), foreign key  (nom_usuario) references usuario(nom_usuario) on delete cascade);";
+				sent = "CREATE TABLE partida (cod_partida INTEGER PRIMARY KEY AUTOINCREMENT, nom_usuario VARCHAR(30) NOT NULL, cookie_tot INT(10), cookie_ps INT(10), edif_tot INT(10), tiempo_tot INT(10), foreign key  (nom_usuario) references usuario(nom_usuario) on delete cascade);";
 				logger.log( Level.INFO, "Statement: " + sent );
 				statement.executeUpdate( sent );
 				sent = "DROP TABLE IF EXISTS usuario";
 				logger.log( Level.INFO, "Statement: " + sent );
 				statement.executeUpdate( sent );
-				sent = "CREATE TABLE compra (nom_usuario VARCHAR PRIMARY KEY, contrasenya);";
+				sent = "CREATE TABLE usuario (nom_usuario VARCHAR PRIMARY KEY, contrasenya);";
 				logger.log( Level.INFO, "Statement: " + sent );
 				statement.executeUpdate( sent );
 				sent = "DROP TABLE IF EXISTS estadisticas";
 				logger.log( Level.INFO, "Statement: " + sent );
 				statement.executeUpdate( sent);
-				sent = "CREATE TABLE producto (cod_partida INT(10), grandmas INT(10), farms INT(10), mine INT(10), factory INT(10), bank INT(10), temple INT(10), w_tower INT(10), shipment INT(10), arch INT(10), port INT(10), timemach\" INT(10), primary key(cod_partida, grandmas), foreign key (cod_partida) references Partida(cod_partida) on delete cascade));";
+				sent = "CREATE TABLE estadisticas (cod_partida INT(10), grandmas INT(10), farms INT(10), mine INT(10), factory INT(10), bank INT(10), temple INT(10), w_tower INT(10), shipment INT(10), arch INT(10), port INT(10), timemach\" INT(10), primary key(cod_partida, grandmas), foreign key (cod_partida) references Partida(cod_partida) on delete cascade));";
 				logger.log( Level.INFO, "Statement: " + sent );
 				statement.executeUpdate( sent );
 				try {
@@ -76,8 +76,7 @@ public class BaseDeDatos {
 		}
 	}	
 	
-	/** Cierra la conexión abierta de base de datos ({@link #abrirConexion(String)})
-	 */
+	//Cierra la conexion abierta de la base de datos
 	public static void cerrarConexion() {
 		try {
 			logger.log( Level.INFO, "Cerrando conexión" );
@@ -86,9 +85,8 @@ public class BaseDeDatos {
 			logger.log( Level.SEVERE, "Excepción", e );
 		}
 	}
-	/** Lee los usuarios de la conexión de base de datos abierta para la tabla de estadísticas
-	 * @return	Lista completa de usuarios, null si hay algún error
-	 */
+
+	//Metodo para conseguir las partidas de la base de datos 
 	public static ArrayList<Partida> getPartidas() {
 		try (Statement statement = conexion.createStatement()) {
 			ArrayList<Partida> partidas = new ArrayList<>();
@@ -99,7 +97,7 @@ public class BaseDeDatos {
 				int cod_partida = rs.getInt("cod_partida");
 				String nom_usuario = rs.getString("nom_usuario");
 				int cookie_tot = rs.getInt("cookie_tot");//Contador de cookies
-				int cookie_ps = rs.getInt("cookie_ps");//cont
+				int cookie_ps = rs.getInt("cookie_ps");
 				int edif_tot = rs.getInt("edif_tot");
 				int tiempo_tot = rs.getInt("tiempo_tot");
 				partidas.add( new Partida ( cod_partida, nom_usuario, cookie_tot, cookie_ps, edif_tot, tiempo_tot ) );
@@ -111,6 +109,7 @@ public class BaseDeDatos {
 		}
 	}
 	
+	//Metodo para conseguir las estadisticas del juego
 	public static ArrayList<Estadisticas> getEstadisticas() {
 		try (Statement statement = conexion.createStatement()) {
 			ArrayList<Estadisticas> estadisticas = new ArrayList<>();
@@ -166,7 +165,7 @@ public class BaseDeDatos {
 	}
 	
 	
-	//Contar el nÃºmero de datos existentes
+	//Contar el nÃºmero de datos existentes 
 		public static int contarDatos() throws SQLException {
 			Statement statement = conexion.createStatement();
 			String sent = "select count(*) from tabla";
