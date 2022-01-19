@@ -24,11 +24,10 @@ public class BaseDeDatos {
 	private static Connection conexion;
 	private static Logger logger = Logger.getLogger( "BaseDeDatos" );
 	
-	/** Abre conexión con la base de datos
-	 * @param nombreBD	Nombre del fichero de base de datos
-	 * @param reiniciaBD	true si se quiere reiniciar la base de datos (se borran sus contenidos si los tuviera y se crean datos por defecto)
-	 * @return	true si la conexión ha sido correcta, false en caso contrario
-	 */
+	//Abre la conexion con la bese de datos
+	//nombreBD es el nombre del fichero de base de datos
+	//reiniciarBD si es tru se quiere reiniciar la base de datos
+	//	es true si la conexión ha sido correcta, false es caso contrario
 	public static boolean abrirConexion( String nombreBD, boolean reiniciaBD ) {
 		try {
 			logger.log( Level.INFO, "Carga de librería org.sqlite.JDBC" );

@@ -11,6 +11,7 @@ public class Partida {
 	public int edif_tot;
 	public int tiempo_tot;
 	
+	//Constructor
 	public Partida(int cod_partida, String nom_usuario, int cookie_tot, int cookie_ps, int edif_tot, int tiempo_tot) {
 		super();
 		if(nom_usuario == null){

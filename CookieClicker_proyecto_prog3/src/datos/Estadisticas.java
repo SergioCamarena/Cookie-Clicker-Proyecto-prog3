@@ -14,7 +14,7 @@ public class Estadisticas {
 	public int port;
 	public int timemach;
 	
-	
+	//Constructor
 	public Estadisticas(int cod_partida, int grandmas, int farms, int mine, int factory, int bank, int temple,
 			int w_tower, int shipment, int arch, int port, int timemach) {
 		super();

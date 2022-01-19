@@ -60,7 +60,7 @@ public class Minijuego extends JFrame{
 		
 	
 		
-		//Imagen en el panel Target				¡¡¡¡¡MIRAR EL FONDO!!!!!
+		//Imagen en el panel Target				
 		panelTarget.setOpaque(false);
 		ImageIcon imgIcon = new ImageIcon("src/Code/cookuie.png");
 		ImageIcon imgIcon2 = new ImageIcon("src/Code/cookuie.png");
