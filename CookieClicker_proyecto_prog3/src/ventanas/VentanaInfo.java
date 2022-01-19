@@ -29,11 +29,11 @@ import javax.swing.ScrollPaneConstants;
 
 public class VentanaInfo extends JFrame{
 	private JTextArea informacion;
-	JScrollPane spTexto; 
+	//JScrollPane spTexto; 
 	
 	public VentanaInfo() {
 		setBounds(0,0,600,400);
-		setLayout(new BorderLayout());
+		getContentPane().setLayout(new BorderLayout());
 		
 		//Panel norte
 		JPanel norte =  new JPanel();
@@ -41,14 +41,16 @@ public class VentanaInfo extends JFrame{
 		titulo.setFont(new Font("Serif", Font.PLAIN,40 ));
 		norte.add(titulo);
 		
-		add(norte, BorderLayout.NORTH);
+		getContentPane().add(norte, BorderLayout.NORTH);
 
 		
 		
 		informacion = new JTextArea();
 		informacion.setEditable(false); //para que nose edite el texto
-		spTexto = new JScrollPane(informacion);
-		//add(spTexto,BorderLayout.SOUTH);
+		JScrollPane spTexto = new JScrollPane( informacion );
+		add( spTexto, BorderLayout.CENTER );
+		
+		
 		add(informacion, BorderLayout.CENTER);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	
