@@ -72,9 +72,9 @@ public class VentanaCookie implements MouseListener {
 	//Solo son labels que hacen display de valores
 	static JLabel lbl_num1,lbl_num2,lbl_num3,lbl_num4,lbl_num5,lbl_num6,lbl_num7,lbl_num8,lbl_num9,lbl_num10,lbl_num11,lbl_num12,version, nickName;
 	//Para los logros JLabel
-	static JLabel lbl_imagen1cookie, lbl_imagen1000cookie, lbl_imagen120farms, lbl_imagen1ship;
+	static JLabel lbl_imagen1cookie, lbl_imagen1000cookie, lbl_imagen120farms, lbl_imagen1ship,lbl_imagenlogro;
 	//Para logros JPanel
-	static JPanel logros1cookie, logros1000cookie, logro120farms, logro1ship;
+	static JPanel logros1cookie, logros1000cookie, logro120farms, logro1ship, logrosupremo;
 	//RadioButton compra/venta
 	static JRadioButton comprar,vender;
 	//Valor por el cual multiplica cada vez que compras mas.
@@ -98,7 +98,7 @@ public class VentanaCookie implements MouseListener {
 		return numero;
 	}
 	//Metodo que se recorre todo el rato 
-	public String seg() {
+	public String seg(String nick) {
 		seg = new Thread(new Runnable() {
 			
 			public void run() {
@@ -110,19 +110,22 @@ public class VentanaCookie implements MouseListener {
 					ponerOnOFf();
 					
 					//Logros
-					if(cont> 1) {
+					if(cont>= 1) {
 						lbl_imagen1cookie.setVisible(true);
 					}
-					if(cont> 1000) {
+					if(cont>= 1000) {
 						lbl_imagen1000cookie.setVisible(true);
 					}
-					if(farm.getNumeroDeCadaTipo()> 1) {
+					if(farm.getNumeroDeCadaTipo()>= 120) {
 						lbl_imagen120farms.setVisible(true);
 					}
-					if(ship.getNumeroDeCadaTipo()> 1) {
+					if(ship.getNumeroDeCadaTipo()>= 1) {
 						lbl_imagen1ship.setVisible(true);
 					}
-					System.out.println(farm.getNumeroDeCadaTipo());
+					if(nick == "Andoni") {
+						lbl_imagenlogro.setVisible(true);
+					}
+					//System.out.println(farm.getNumeroDeCadaTipo());
 					try {
 						seg.sleep(1000);
 					} catch (InterruptedException e) {
@@ -137,45 +140,79 @@ public class VentanaCookie implements MouseListener {
 		
 		return "";
 	}
+//Este metodo lo que hace es que si no se puede comprar que se ponga en off el boton y en cambio si se puede comprar que te habilite
 public  void ponerOnOFf() {
 	if(cont-cursor.getValorCompra()>0) {
+		btn_clicker.setBackground(Color.green);
 		btn_clicker.setEnabled(true);
-	}
-	if(cont-grandma.getValorCompra()>0) {
-		btn_grandma.setEnabled(true);
-	}
-	if(cont-farm.getValorCompra()>0) {
-		btn_farm.setEnabled(true);
-	}
-	if(cont-mine.getValorCompra()>0) {
-		btn_mine.setEnabled(true);
-	}
-	if(cont-factory.getValorCompra()>0) {
-		btn_factory.setEnabled(true);
-	}
-	if(cont-bank.getValorCompra()>0) {
-		btn_bank.setEnabled(true);
-	}
-	if(cont-temple.getValorCompra()>0) {
-		btn_temple.setEnabled(true);
-	}
-	if(cont-wiz.getValorCompra()>0) {
-		btn_wiz.setEnabled(true);
-	}
-	if(cont-ship.getValorCompra()>0) {
-		btn_ship.setEnabled(true);
-	}
-	/*else {
+	}else {
+		btn_clicker.setBackground(Color.red);
 		btn_clicker.setEnabled(false);
+	}
+	//Grandma
+	if(cont-grandma.getValorCompra()>0) {
+		btn_grandma.setBackground(Color.green);
+		btn_grandma.setEnabled(true);
+	}else {
+		btn_grandma.setBackground(Color.red);
 		btn_grandma.setEnabled(false);
+	}
+	//Farm
+	if(cont-farm.getValorCompra()>0) {
+		btn_farm.setBackground(Color.green);
+		btn_farm.setEnabled(true);
+	}else {
+		btn_farm.setBackground(Color.red);
 		btn_farm.setEnabled(false);
+	}
+	//Mine
+	if(cont-mine.getValorCompra()>0) {
+		btn_mine.setBackground(Color.green);
+		btn_mine.setEnabled(true);
+	}else {
+		btn_mine.setBackground(Color.red);
 		btn_mine.setEnabled(false);
+	}
+	//Factory
+	if(cont-factory.getValorCompra()>0) {
+		btn_factory.setBackground(Color.green);
+		btn_factory.setEnabled(true);
+	}else {
+		btn_factory.setBackground(Color.red);
 		btn_factory.setEnabled(false);
+	}
+	//Bank
+	if(cont-bank.getValorCompra()>0) {
+		btn_bank.setBackground(Color.green);
+		btn_bank.setEnabled(true);
+	}else {
+		btn_bank.setBackground(Color.red);
 		btn_bank.setEnabled(false);
+	}
+	//Temple
+	if(cont-temple.getValorCompra()>0) {
+		btn_temple.setBackground(Color.green);
+		btn_temple.setEnabled(true);
+	}else {
+		btn_temple.setBackground(Color.red);
 		btn_temple.setEnabled(false);
+	}
+	//WizzarTower
+	if(cont-wiz.getValorCompra()>0) {
+		btn_wiz.setBackground(Color.green);
+		btn_wiz.setEnabled(true);
+	}else {
+		btn_wiz.setBackground(Color.red);
 		btn_wiz.setEnabled(false);
+	}
+	//Ship
+	if(cont-ship.getValorCompra()>0) {
+		btn_ship.setBackground(Color.green);
+		btn_ship.setEnabled(true);
+	}else {
+		btn_ship.setBackground(Color.red);
 		btn_ship.setEnabled(false);
-	}*/
+	}
 	
 }
 	//Metodo News
@@ -345,7 +382,7 @@ public static String Lista() {
 						//System.out.println(t);
 						
 						//Para que el Boton MiniJuego se vaya activando cuando esten entre esos baremos
-							if((t>2) && (t<16)) {
+							if((t>14) && (t<16)) {
 								minijuego1.setEnabled(true);
 							}else if ((t>=45) && (t<46)) {
 								minijuego1.setEnabled(true);
@@ -445,8 +482,8 @@ public static String Lista() {
 		lbl_num8.getToolTipText();
 		lbl_num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo "+ ship.getNumeroDeCadaTipo() +" de shipments.<br> Los Shipment cuestan "+ship.getValorCompra()+" <br></html>");
 		lbl_num9.getToolTipText();
-		//lbl_num10.setToolTipText("<html>ARCHEMY LAB<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
-		//lbl_num10.getToolTipText();
+//		lbl_num10.setToolTipText("<html>ARCHEMY LAB<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
+//		lbl_num10.getToolTipText();
 //		lbl_num11.setToolTipText("<html>PORTAL<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
 //		lbl_num11.getToolTipText();
 //		lbl_num12.setToolTipText("<html>TIME MACHINE<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
@@ -470,10 +507,10 @@ public static String Lista() {
 		lbl_imagen120farms.getToolTipText();
 		logro120farms.setToolTipText("Compra 120 granjas para desbloquear este logro");
 		logro120farms.getToolTipText();
-//		lbl_imagenlogro.setToolTipText("<html>¡¡¡HAS CONSEGUIDO EL LOGRO MÁS DIFICIL Y EXCLUSIVO DE COOKIE CLICKER FELICIDADES!!!<br></html>");
-//		lbl_imagenlogro.getToolTipText();
-//		logro.setToolTipText("Si este logro deseas conseguir el nombre más sabio deberás vestir.");
-//		logro.getToolTipText();
+		lbl_imagenlogro.setToolTipText("<html>¡¡¡HAS CONSEGUIDO EL LOGRO MÁS DIFICIL Y EXCLUSIVO DE COOKIE CLICKER FELICIDADES!!!<br>TE PRESENTAMO A ANDONI</html>");
+		lbl_imagenlogro.getToolTipText();
+		logrosupremo.setToolTipText("Si este logro deseas conseguir el nombre más sabio deberás vestir.");
+		logrosupremo.getToolTipText();
 		}
 
  Calendar calendario;
@@ -713,10 +750,20 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 					portal1.setBackground(Color.pink);
 					portal1.setBorder(new LineBorder(Color.BLACK));
 					centrocent.add(portal1);
-					JPanel timemach1 = new JPanel();
-					timemach1.setBackground(Color.green);
-					timemach1.setBorder(new LineBorder(Color.BLACK));
-					centrocent.add(timemach1);
+					
+//LOgro supremo
+					
+					logrosupremo = new JPanel();
+					logrosupremo.setBackground(Color.green);
+					logrosupremo.setBorder(new LineBorder(Color.BLACK));
+					imagen=new ImageIcon("src/imagenes/f1.png").getImage();
+					//escalamos la imagen para q entre bien
+					ImageIcon imagenand =new ImageIcon(imagen.getScaledInstance(80, 80, Image.SCALE_SMOOTH));
+					//Introducimos en un JLabel
+					lbl_imagenlogro=new JLabel(imagenand);
+					lbl_imagenlogro.setVisible(false);//Las dejamos a false para que no se vean
+					logrosupremo.add(lbl_imagenlogro);
+					centrocent.add(logrosupremo);
 					
 //_________________________________________________________________________________________________________	
 					
@@ -758,7 +805,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 					
 	//LOGRO DE 1 SHIPMENT
 					logro1ship = new JPanel();
-					logro1ship.setBackground(Color.CYAN);
+					logro1ship.setBackground(Color.black);
 					imagen=new ImageIcon("src/imagenes/shipment.png").getImage();
 					//escalamos la imagen para q entre bien
 					ImageIcon imagen1ship =new ImageIcon(imagen.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
@@ -771,26 +818,11 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 					logros.add(logros1cookie);
 					logros.add(logros1000cookie);
 					logros.add(logro120farms);
+					logros.add(logro1ship);
 					centrocent.add(logros);
 					
 	//LOGRO ULTRAMEGASUPER EXCLUSIVO				
-//					JPanel logros35 = new JPanel();
-//					logros35.setBackground(Color.MAGENTA);
-//					logros35.setBorder(new LineBorder(Color.BLACK));
-//					logros35.setLayout(new FlowLayout());
-//					
-//					logro = new JPanel();
-//					logro.setBackground(Color.black);
-//					imagen=new ImageIcon("src/code/f1.png").getImage();
-//					//escalamos la imagen para q entre bien
-//					ImageIcon imagenlogro =new ImageIcon(imagen.getScaledInstance(50, 80, Image.SCALE_SMOOTH));
-//					//Introducimos en un JLabel
-//					lbl_imagenlogro=new JLabel(imagenlogro);
-//					lbl_imagenlogro.setVisible(false);//Las dejamos a false para que no se vean
-//					logro.add(lbl_imagenlogro);
-//					
-//					logros35.add(logro);
-//					centrocent.add(logros35);
+
 					centrocent.setBackground(Color.black);
 					centro.add(new JScrollPane(centrocent), BorderLayout.CENTER);
 //_________________________________________EDIFICIOS & CLICKER______________________________________________
@@ -1370,7 +1402,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 				contador.setHorizontalAlignment(SwingConstants.CENTER);
 				contador.setFont(new Font("Arial",Font.PLAIN,20));
 				panelgalleta.add(contador);
-				seg();
+				seg(nick);
 				
 				//Ajustar la imagen para que quede bien y no sea enorme
 				ImageIcon imgIcon = new ImageIcon("src/Code/cookuie.png");
@@ -1563,7 +1595,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 	}
 	
 	public static void main(String[] args) {
-		new VentanaCookie("GUEST");
+		new VentanaCookie("Andoni");
 		//System.out.println(tiempoResta);
 		//System.out.println(inicio);
 		//System.out.println(fin);
