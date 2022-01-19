@@ -6,6 +6,7 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Cursor;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -71,9 +72,9 @@ public class VentanaCookie implements MouseListener {
 	//Solo son labels que hacen display de valores
 	static JLabel lbl_num1,lbl_num2,lbl_num3,lbl_num4,lbl_num5,lbl_num6,lbl_num7,lbl_num8,lbl_num9,lbl_num10,lbl_num11,lbl_num12,version, nickName;
 	//Para los logros JLabel
-	static JLabel lbl_imagen1cookie;
+	static JLabel lbl_imagen1cookie, lbl_imagen1000cookie, lbl_imagenlogro;
 	//Para logros JPanel
-	static JPanel logros1cookie;
+	static JPanel logros1cookie, logros1000cookie, logro;
 	//RadioButton compra/venta
 	static JRadioButton comprar,vender;
 	//Valor por el cual multiplica cada vez que compras mas.
@@ -111,6 +112,12 @@ public class VentanaCookie implements MouseListener {
 					//Logros
 					if(cont>1) {
 						lbl_imagen1cookie.setVisible(true);
+					}
+					if(cont>1000) {
+						lbl_imagen1000cookie.setVisible(true);
+					}
+					if(cont>0) {
+						lbl_imagenlogro.setVisible(true);
 					}
 					try {
 						seg.sleep(1000);
@@ -434,12 +441,12 @@ public static String Lista() {
 		lbl_num8.getToolTipText();
 		lbl_num9.setToolTipText("<html>SHIPMENT<br> Tenemos ahora mismo "+ ship.getNumeroDeCadaTipo() +" de shipments.<br> Los Shipment cuestan "+ship.getValorCompra()+" <br></html>");
 		lbl_num9.getToolTipText();
-		lbl_num10.setToolTipText("<html>ARCHEMY LAB<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
-		lbl_num10.getToolTipText();
-		lbl_num11.setToolTipText("<html>PORTAL<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
-		lbl_num11.getToolTipText();
-		lbl_num12.setToolTipText("<html>TIME MACHINE<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
-		lbl_num12.getToolTipText();
+		//lbl_num10.setToolTipText("<html>ARCHEMY LAB<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
+		//lbl_num10.getToolTipText();
+//		lbl_num11.setToolTipText("<html>PORTAL<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
+//		lbl_num11.getToolTipText();
+//		lbl_num12.setToolTipText("<html>TIME MACHINE<br> Tenemos ahora mismo "+ 0 +" de shipments.<br> Cookies totales ___ <br></html>");
+//		lbl_num12.getToolTipText();
 		
 		//version
 		version.setToolTipText("<html><b>VERSION</b><br> Somos <b>Elaia, Sergio e Imanol.</b><br> Y te invitamos a que <b>disfrutes</b> de nustro juego <br></html>");
@@ -448,7 +455,17 @@ public static String Lista() {
 		//Logros
 		
 		lbl_imagen1cookie.setToolTipText("<html>¡¡¡HAS CONSEGUIDO EL LOGRO MÁS FACIL FELICIDADES!!!<br></html>");
-		logros1cookie.setToolTipText("HOla wacho");
+		lbl_imagen1cookie.getToolTipText();
+		logros1cookie.setToolTipText("HOla wachIN");
+		logros1cookie.getToolTipText();
+		lbl_imagen1000cookie.setToolTipText("<html>¡¡¡HAS CONSEGUIDO EL SEGUNDO LOGRO MÁS FACIL FELICIDADES!!!<br></html>");
+		lbl_imagen1000cookie.getToolTipText();
+		logros1000cookie.setToolTipText("HOla wachIN");
+		logros1000cookie.getToolTipText();
+		lbl_imagenlogro.setToolTipText("<html>¡¡¡HAS CONSEGUIDO EL LOGRO MÁS DIFICIL Y EXCLUSIVO DE COOKIE CLICKER FELICIDADES!!!<br></html>");
+		lbl_imagenlogro.getToolTipText();
+		logro.setToolTipText("Si este logro deseas conseguir el nombre más sabio deberás vestir.");
+		logro.getToolTipText();
 		}
 
  Calendar calendario;
@@ -483,18 +500,6 @@ private static  String inicio;
 private  static String fin;
 private static  int tiempoResta;
 DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
-
-//Metodos de los diferentes logros (prueba) -> Despues hay que meter en un hilo que compruebe cada poco tiempo si se han cumplido o no
-//public boolean c_1000() {
-//	if (Partida.getCookie_tot() > 1000){
-//		return true;	}
-//	else {
-//		return false;	}}
-//public boolean grma10() {
-//	if (cursor.getNumeroDeCadaTipo() >= 10) {
-//	return true;	}
-//	else {
-//	return false;}}
 
 
 	public VentanaCookie(String nick){
@@ -535,7 +540,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 				centro.add(vertder, BorderLayout.EAST);
 				
 				JPanel centrocent = new JPanel();
-				centrocent.setLayout(new GridLayout(12,1));
+				centrocent.setLayout(new GridLayout(13,1));
 				centrocent.setBounds(0,0,900, 1000);
 				centrocent.setMinimumSize(new Dimension(900,1000));
 				centrocent.setMaximumSize(new Dimension(900,1000));
@@ -584,7 +589,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 					mine1.setBackground(Color.green);
 					mine1.setBorder(new LineBorder(Color.BLACK));
 					//Se crean 7 imagenes y se ponen visible false para que no salgan y cuando pulsemos true
-					 imagen=new ImageIcon("src/imagenes/farm.png").getImage();
+					 imagen=new ImageIcon("src/imagenes/mine.png").getImage();
 					 ImageIcon imagen3 = new ImageIcon(imagen.getScaledInstance(100, 90, Image.SCALE_SMOOTH));
 					for (int i = 0; i < 8; i++) {
 						JLabel lbl_imagen3=new JLabel(imagen3);
@@ -695,7 +700,6 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 					arch1.setBackground(Color.cyan);
 					arch1.setBorder(new LineBorder(Color.BLACK));
 					centrocent.add(arch1);
-					
 //----------------
 					JPanel portal1 = new JPanel();
 					portal1.setBackground(Color.pink);
@@ -724,15 +728,42 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 					lbl_imagen1cookie.setVisible(false);//Las dejamos a false para que no se vean
 					logros1cookie.add(lbl_imagen1cookie);
 	//LOGRO DE 1000 COOKIES
-					JPanel logro1000cookie = new JPanel();
+					logros1000cookie = new JPanel();
+					logros1000cookie.setBackground(Color.ORANGE);
+					imagen=new ImageIcon("src/imagenes/cookies.jpg").getImage();
+					//escalamos la imagen para q entre bien
+					ImageIcon imagen1000cookie =new ImageIcon(imagen.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+					//Introducimos en un JLabel
+					lbl_imagen1000cookie=new JLabel(imagen1000cookie);
+					lbl_imagen1000cookie.setVisible(false);//Las dejamos a false para que no se vean
+					logros1000cookie.add(lbl_imagen1000cookie);
 	//LOGRO DE TRES FARMS				
 					JPanel logro3farms = new JPanel();
 					
 					//Introducimos paneles en panel logros
 					logros.add(logros1cookie);
-					logros.add(logro1000cookie);
+					logros.add(logros1000cookie);
 					logros.add(logro3farms);
 					centrocent.add(logros);
+					
+	//LOGRO ULTRAMEGASUPER EXCLUSIVO				
+					JPanel logros35 = new JPanel();
+					logros35.setBackground(Color.MAGENTA);
+					logros35.setBorder(new LineBorder(Color.BLACK));
+					logros35.setLayout(new FlowLayout());
+					
+					logro = new JPanel();
+					logro.setBackground(Color.black);
+					imagen=new ImageIcon("src/code/f1.png").getImage();
+					//escalamos la imagen para q entre bien
+					ImageIcon imagenlogro =new ImageIcon(imagen.getScaledInstance(50, 80, Image.SCALE_SMOOTH));
+					//Introducimos en un JLabel
+					lbl_imagenlogro=new JLabel(imagenlogro);
+					lbl_imagenlogro.setVisible(false);//Las dejamos a false para que no se vean
+					logro.add(lbl_imagenlogro);
+					
+					logros35.add(logro);
+					centrocent.add(logros35);
 					
 					centrocent.setBackground(Color.black);
 					centro.add(new JScrollPane(centrocent), BorderLayout.CENTER);
