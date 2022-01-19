@@ -70,6 +70,10 @@ public class VentanaCookie implements MouseListener {
 	static int t = 0;
 	//Solo son labels que hacen display de valores
 	static JLabel lbl_num1,lbl_num2,lbl_num3,lbl_num4,lbl_num5,lbl_num6,lbl_num7,lbl_num8,lbl_num9,lbl_num10,lbl_num11,lbl_num12,version, nickName;
+	//Para los logros JLabel
+	static JLabel lbl_imagen1cookie;
+	//Para logros JPanel
+	static JPanel logros1cookie;
 	//RadioButton compra/venta
 	static JRadioButton comprar,vender;
 	//Valor por el cual multiplica cada vez que compras mas.
@@ -103,6 +107,11 @@ public class VentanaCookie implements MouseListener {
 							pulsa(temple.getNumeroDeCadaTipo())*20800.5+pulsa(wiz.getNumeroDeCadaTipo())*60000.8+pulsa(ship.getNumeroDeCadaTipo())*100000.8;
 					contador.setText(String.format("%1$.2f", cont));
 					ponerOnOFf();
+					
+					//Logros
+					if(cont>1) {
+						lbl_imagen1cookie.setVisible(true);
+					}
 					try {
 						seg.sleep(1000);
 					} catch (InterruptedException e) {
@@ -436,6 +445,10 @@ public static String Lista() {
 		version.setToolTipText("<html><b>VERSION</b><br> Somos <b>Elaia, Sergio e Imanol.</b><br> Y te invitamos a que <b>disfrutes</b> de nustro juego <br></html>");
 		version.getToolTipText();
 		
+		//Logros
+		
+		lbl_imagen1cookie.setToolTipText("<html>¡¡¡HAS CONSEGUIDO EL LOGRO MÁS FACIL FELICIDADES!!!<br></html>");
+		logros1cookie.setToolTipText("HOla wacho");
 		}
 
  Calendar calendario;
@@ -682,6 +695,8 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 					arch1.setBackground(Color.cyan);
 					arch1.setBorder(new LineBorder(Color.BLACK));
 					centrocent.add(arch1);
+					
+//----------------
 					JPanel portal1 = new JPanel();
 					portal1.setBackground(Color.pink);
 					portal1.setBorder(new LineBorder(Color.BLACK));
@@ -697,9 +712,26 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 					JPanel logros = new JPanel();
 					logros.setBackground(Color.black);
 					logros.setBorder(new LineBorder(Color.BLACK));
-					logros.setLayout(new GridLayout(2,4));
-					JLabel lbl_lorgos=new JLabel("");
-					logros.add(lbl_lorgos);
+					logros.setLayout(new GridLayout(2,2));
+	//LOGRO DE UNA COOKIE
+					logros1cookie = new JPanel();
+					logros1cookie.setBackground(Color.black);
+					imagen=new ImageIcon("src/code/cookuie.png").getImage();
+					//escalamos la imagen para q entre bien
+					ImageIcon imagen1cookie =new ImageIcon(imagen.getScaledInstance(40, 40, Image.SCALE_SMOOTH));
+					//Introducimos en un JLabel
+					lbl_imagen1cookie=new JLabel(imagen1cookie);
+					lbl_imagen1cookie.setVisible(false);//Las dejamos a false para que no se vean
+					logros1cookie.add(lbl_imagen1cookie);
+	//LOGRO DE 1000 COOKIES
+					JPanel logro1000cookie = new JPanel();
+	//LOGRO DE TRES FARMS				
+					JPanel logro3farms = new JPanel();
+					
+					//Introducimos paneles en panel logros
+					logros.add(logros1cookie);
+					logros.add(logro1000cookie);
+					logros.add(logro3farms);
 					centrocent.add(logros);
 					
 					centrocent.setBackground(Color.black);
