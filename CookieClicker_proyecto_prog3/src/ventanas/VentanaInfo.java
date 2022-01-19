@@ -62,6 +62,7 @@ public class VentanaInfo extends JFrame{
 		
 		@Override
 			public void actionPerformed(ActionEvent e) {
+				//new VentanaCookie(); //Esto no hay que hacer porque se crea otra nueva entonces vuelve todo a empezar otra vez
 				dispose();
 			
 
@@ -72,14 +73,14 @@ public class VentanaInfo extends JFrame{
 	
 	//Metodo para cargar la informacion desde un fichero de texto
 	public void cargaInformacion() {
+		
 		try {
-			Scanner scanner = new Scanner(new File("src/Informacion.txt"));
-			while(scanner.hasNextLine()) {
-				String linea = scanner.nextLine();
+			Scanner sc = new Scanner(new File("src/Informacion.txt"));
+			while(sc.hasNextLine()) {
+				String linea = sc.nextLine();
 				informacion.append(linea + "\n");
 			}
-			scanner.close();
-		}catch (Exception e) {
+		}catch(Exception e) {
 			JOptionPane.showInputDialog(this, "No se ha podido cargar el texto");
 		}
 
@@ -88,7 +89,6 @@ public class VentanaInfo extends JFrame{
 	public static void main(String[] args){
 		VentanaInfo ventanaI = new VentanaInfo();
 		ventanaI.setVisible(true);
-		ventanaI.cargaInformacion();
 
 
 	}
