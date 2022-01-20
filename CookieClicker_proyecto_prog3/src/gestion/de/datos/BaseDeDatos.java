@@ -53,7 +53,7 @@ public class BaseDeDatos {
 				statement.executeUpdate( sent);
 				sent = "CREATE TABLE estadisticas (cod_partida INT(10), grandmas INT(10), farms INT(10), mine INT(10), factory INT(10), bank INT(10), temple INT(10), w_tower INT(10), shipment INT(10), arch INT(10), port INT(10), timemach\" INT(10), primary key(cod_partida, grandmas), foreign key (cod_partida) references Partida(cod_partida) on delete cascade));";
 				logger.log( Level.INFO, "Statement: " + sent );
-				statement.executeUpdate( sent );
+				//statement.executeUpdate( sent );
 				try {
 					Scanner scanner = new Scanner( BaseDeDatos.class.getResourceAsStream("Ranking.csv") );
 					while (scanner.hasNextLine()) {

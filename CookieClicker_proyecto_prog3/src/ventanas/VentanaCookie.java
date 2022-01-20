@@ -55,11 +55,13 @@ import gestion.de.datos.BaseDeDatos;
 import datos.Partida;
 import datos.Estadisticas;
 
+import java.applet.AudioClip;
+
 public class VentanaCookie implements MouseListener {
 	//Estos de aqui abajo sirven para llevar la cuenta de cuantas imagenes hay en el panel centro
 	public static int contgr= -1, contfrm= -1,contmine= -1,contfac= -1,contban= -1,conttem= -1,contwiz= -1,contship = -1;	
 	//El que lleva la cuenta de todos los pulsa()
-	static double cont =99998;
+	static double cont =0;
 	//El boton de Minijuegos que se pone ON/OFF dependiendo de unos valores
 	static JButton minijuego1 = new JButton("MiniJuego");
 	//El contador es el que hace el display de cont
@@ -85,6 +87,8 @@ public class VentanaCookie implements MouseListener {
 	Usuario u = new Usuario();
 	ArrayList<Edificios> listaedificios =new  ArrayList<Edificios>();
 	Edificios cursor,grandma,farm,mine,factory,bank,temple,wiz,ship;
+	
+	static AudioClip Sound;
 
 //___________________________________________________________________________________________
 	
@@ -156,7 +160,7 @@ public class VentanaCookie implements MouseListener {
 					if(nick == "Andoni") {
 						//Esto sirve para que enseñe un mensaje de que has conseguido un logro
 						if(primeraVez5==0) {
-							JOptionPane.showMessageDialog(null,"LOGRO CONSEGUIDO (5)");
+							//JOptionPane.showMessageDialog(null,"LOGRO CONSEGUIDO (5)");
 							lbl_imagenlogro.setVisible(true);
 							primeraVez5++;
 						}else {
@@ -579,12 +583,18 @@ public void hilo() {
 	});
 	h1.start();
 }
+//Es un metodo que hará que suene una cancion mientras estes jugando.
+public void musica() {
+	Sound = java.applet.Applet.newAudioClip(getClass().getResource("src/ventanas/Cancionjuego.mp3"));
+	Sound.play();
+}
 
 private static  String inicio;
 private  static String fin;
 private static  int tiempoResta;
 DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 
+//Musica del juego
 
 	public VentanaCookie(String nick){
 
@@ -601,7 +611,6 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 				minijuego1.setEnabled(false);	//Ponemos el boton de minijuego false para que no pueda jugar desde el principio
 				frame.add(ventanaCookie);
 				//_____________________________
-				
 				
 				
 				
@@ -1277,7 +1286,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 				//Añadimos primero el btn y luego el label
 				paneledif.add(btn_clicker);
 				lbl_num1 = new JLabel();
-				System.out.println(cursor.getNumeroDeCadaTipo());
+				//System.out.println(cursor.getNumeroDeCadaTipo());
 				lbl_num1.setText(""+cursor.getNumeroDeCadaTipo());
 				lbl_num1.setHorizontalAlignment(SwingConstants.CENTER);
 				lbl_num1.setOpaque(true);
@@ -1544,6 +1553,7 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 				news = new JLabel(""); //Primero se crea
 				Lista(); //Luego se lanza
 				hilo(); //se lanza el hilo del reloj
+//				musica(); No se porque no funciona
 			
 				news.setHorizontalAlignment(SwingConstants.CENTER);
 				news.setBackground(Color.white);
@@ -1554,14 +1564,15 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 					
 					
 					public void windowOpening(WindowEvent e) {
+					
 						inicio = formato.format(LocalDateTime.now());
 						System.out.println(inicio);
 					}
 					@Override
 					public void windowClosing(WindowEvent e) {
 						// TODO Auto-generated method stub
-						//seg.interrupt();
 						seguir = false;
+						
 						fin = formato.format(LocalDateTime.now());
 						
 //					    tiempoResta = (Integer.parseInt(fin) - Integer.parseInt(inicio));
@@ -1637,11 +1648,6 @@ DateTimeFormatter formato = DateTimeFormatter.ofPattern("HH:mm:ss");
 		//System.out.println(fin);
 		
 }
-
-	public void dispose() {
-		
-		
-	}
 
 }
 
