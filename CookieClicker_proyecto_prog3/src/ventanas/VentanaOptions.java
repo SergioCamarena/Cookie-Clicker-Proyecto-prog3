@@ -6,6 +6,8 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
@@ -16,12 +18,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
+import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.border.TitledBorder;
 
 public class VentanaOptions {
 	VentanaCookie frame;
-	
+	private JTable ranking;
 	
 	public VentanaOptions(JFrame frame2){
 		JFrame ventanaO = new JFrame("OPTIONS");
@@ -75,7 +78,7 @@ public class VentanaOptions {
 				
 			}
 		});
-//___________GUARDAR DATOS --> GUARDADO INSTANTANEO							FALTAN LOS FICHEROS
+//___________GUARDAR DATOS --> GUARDADO INSTANTANEO							
 		
 		guardarpartida.addActionListener(new ActionListener() {
 			@Override
@@ -100,8 +103,37 @@ public class VentanaOptions {
 				
 				centro.add(rbtn1);
 				centro.add(rbtn2);
-				
+		
+		//radioButton para guardar la partida que se ha llevado acabo
+		rbtn1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				PrintWriter pw = null;
+				try {
+					pw = new PrintWriter("src/Partidas.txt");
+					Tablas ta = (Tablas) ranking.getModel(); 
+					for(int i=0;i<ta.getRowCount();i++) {
+						int c = (int) ta.getValueAt(i, 0);
+						String n = (String) ta.getValueAt(i, 1);
+						int ps = (int) ta.getValueAt(i, 2);
+						int ed = (int) ta.getValueAt(i, 3);
+						int tie = (int) ta.getValueAt(i, 4);
+						pw.println(c + "#"+n+"#"+ps+"#"+ed+"#"+tie);
+					}
+				} catch (FileNotFoundException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} finally {
+					if(pw!=null) {
+						pw.flush();
+						pw.close();
+					}
+				}
+			}
 			
+		});	
 				
 		ventanaO.add(centro, BorderLayout.CENTER);
 		

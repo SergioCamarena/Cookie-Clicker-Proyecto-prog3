@@ -34,6 +34,7 @@ public class Tablas {
 	private static JFrame ventanaT;
 	private static JTable ranking;
 	private static DefaultTableModel modelo;
+	private ArrayList<Partida>partidas;
 
 
 	public static void main(String[] args) {
@@ -57,7 +58,8 @@ public class Tablas {
 	//Inicializa los contenidos del frame
 	private void initialize() {
 		
-		ArrayList<Partida>partidas = LeerFicheros.cargartxt();
+		//ArrayList<Partida>partidas = LeerFicheros.cargartxt();
+		partidas = LeerFicheros.cargartxt();
 
 		ventanaT = new JFrame("Ranking Mundial");
 		ventanaT.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -194,6 +196,29 @@ public class Tablas {
 		}
 		ranking.setModel(modelo);
 	}
+	
+	//observa cuantas filas tiene la tabla partidas
+	public int getRowCount() {
+		// TODO Auto-generated method stub
+		return partidas.size();
+	}
+	
+	//consigue los valores de cada una de las columnas y de las filas de la tabla
+	public Object getValueAt(int rowIndex, int columnIndex) {
+		// TODO Auto-generated method stub
+		Partida partida = partidas.get(rowIndex);
+		switch (columnIndex) {
+			case 0: return Integer.valueOf(partida.getCod_partida());
+			case 1: return partida.getNom_usuario();
+			case 2: return Integer.valueOf(partida.getCookie_ps());
+			case 3: return Integer.valueOf(partida.getEdif_tot());
+			case 4: return Integer.valueOf(partida.getTiempo_tot());
+			default: return null;
+		}
+		
+	}
+	
+	
 }
 
 
