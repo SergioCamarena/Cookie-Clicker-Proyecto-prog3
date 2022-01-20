@@ -81,7 +81,8 @@ public class BaseDeDatos {
 			logger.log( Level.INFO, "Cerrando conexión" );
 			conexion.close();
 		} catch (SQLException e) {
-			logger.log( Level.SEVERE, "Excepción", e );
+			logger.log( Level.SEVERE, "Excepción",e );
+			
 		}
 	}
 
