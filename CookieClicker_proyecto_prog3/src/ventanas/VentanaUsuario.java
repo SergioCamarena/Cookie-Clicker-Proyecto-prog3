@@ -94,8 +94,16 @@ public class VentanaUsuario {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				new VentanaCookie(anyadusuario.getText());
-				ventanaU.dispose();
+				//Si estan vacios no puede entrar
+				String usu = anyadusuario.getText();
+				String cont = anyadcontra.getText();
+				if(usu.equals("") && cont.equals("")) {
+					JOptionPane.showMessageDialog(null,"Están en blanco");
+				}else {
+					new VentanaCookie(anyadusuario.getText());
+					ventanaU.dispose();
+				}
+				
 				
 				
 			}

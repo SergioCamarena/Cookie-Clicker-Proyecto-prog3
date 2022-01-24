@@ -180,22 +180,24 @@ public class VentanaReg {
 		registro.addActionListener(new ActionListener() {
 			
 			public  void actionPerformed(ActionEvent e) {
-				int mensaje =JOptionPane.showConfirmDialog(null,"Desea hacer algún cambio más","¡ADELANTE!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
-				if(mensaje == JOptionPane.YES_OPTION) {
-					//Que siga cambiando cosas no nos interesa hacer nada aquí.
-				}else if(mensaje == JOptionPane.NO_OPTION) {
-					//Borrar todo lo que haya en las textfields
-					//Antes de borrar nada hay que meterlo en la base de datos!!!!
-				/*	
-					textusuario =  JTextField();
-					textcontrasena = JPasswordField("");
-					textcontra = JPasswordField("");
-					textemail =  JTextField();
-					*/
-					//
-					new VentanaCookie(textusuario.getText());
-					ventanaR.dispose();
+				
+				//Si estan vacios no puede entrar
+				String usu = textusuario.getText();
+				String cont = textcontra.getText();
+				String mail = textemail.getText();
+				if(usu.equals("") && cont.equals("") && mail.equals("")) {
+					JOptionPane.showMessageDialog(null,"Están en blanco");
+				}else {
+					int mensaje =JOptionPane.showConfirmDialog(null,"Desea hacer algún cambio más","¡ADELANTE!",JOptionPane.YES_NO_OPTION,JOptionPane.QUESTION_MESSAGE);
+					if(mensaje == JOptionPane.YES_OPTION) {
+						//Que siga cambiando cosas no nos interesa hacer nada aquí.
+					}else if(mensaje == JOptionPane.NO_OPTION) {
+						ventanaR.dispose();
+						new VentanaCookie(textusuario.getText());
+						
+					}
 				}
+				
 			}
 		});
 		

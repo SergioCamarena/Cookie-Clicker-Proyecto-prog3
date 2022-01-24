@@ -157,7 +157,8 @@ public class VentanaCookie implements MouseListener {
 						}
 						
 					}
-					if(nick == "Andoni") {
+					//Comparar strings con == no..
+					if(nick.equals("Andoni")) {
 						//Esto sirve para que enseñe un mensaje de que has conseguido un logro
 						if(primeraVez5==0) {
 							//JOptionPane.showMessageDialog(null,"LOGRO CONSEGUIDO (5)");
@@ -587,6 +588,7 @@ public void hilo() {
 public void musica() {
 	Sound = java.applet.Applet.newAudioClip(getClass().getResource("src/ventanas/Cancionjuego.mp3"));
 	Sound.play();
+	//Si consigues que funcione porfavor haznos saber como lo has hecho porfavor.
 }
 
 private static  String inicio;
